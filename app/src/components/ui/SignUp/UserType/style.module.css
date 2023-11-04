@@ -1,0 +1,59 @@
+.userTypeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.userTypeContainer > h2 {
+  color: var(--primary);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 46px;
+  margin: 0;
+}
+.authContainerBtn {
+  border-radius: 10px;
+  background: #39374d;
+  padding: 18px 24px;
+  border: none;
+  outline: none;
+  color: var(--gray-white);
+  font-size: 18px;
+}
+.userType {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--gray-100);
+  background: var(--gray-white);
+  padding: 24px 0px 32px 0px;
+  position: relative;
+}
+.selected {
+  border: 1px solid var(--secondary);
+  width: 100%;
+}
+.selected > div:last-child {
+  bottom: -6%;
+  left: 45%;
+  position: absolute;
+  z-index: 9999;
+  height: 38px;
+  width: 38px;
+}
+
+.userType > span {
+  color: var(--gray-800);
+  font-size: 18px;
+}
+.userTypeBtns {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.userType > h3 {
+  border-radius: 100px;
+  background: var(--gray-100);
+  padding: 8px 12px;
+}

@@ -1,0 +1,46 @@
+.authContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  padding: 36px;
+  max-width: 620px;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: var(--gray-white);
+}
+.authContainerBackLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.authContainerBackLink > span {
+  color: var(--gray-500);
+  font-size: 18px;
+}
+
+.stepHeader {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+.stepHeader > h3 {
+  color: var(--primery);
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+.stepHeader > h2 {
+  color: var(--gray-500);
+  font-size: 18px;
+  font-weight: 400;
+}
+.star {
+  max-width: 41px;
+  padding-top: 40px;
+}

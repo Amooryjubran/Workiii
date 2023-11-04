@@ -1,0 +1,66 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 36px 12px 36px;
+}
+.navbar > div {
+  display: flex;
+  align-items: center;
+}
+.navbarNavigations {
+  gap: 60px;
+}
+.logoLink {
+  border: none;
+}
+.logoLinkImg {
+  max-height: 30px;
+}
+.navbarBtns {
+  gap: 16px;
+}
+.navbarBtns > div {
+  position: relative;
+  padding: 12px 5px;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+}
+.navbarBtns > div > button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+.navbarBtns > div > button > div > img {
+  height: 18px;
+  width: 18px;
+}
+.navbarBtns > a {
+  padding: 12px 24px;
+  border-radius: 10px;
+  color: var(--primery, #39374d);
+  border: 1px solid var(--primery, #39374d);
+}
+.navbarLinksLogin {
+  background: var(--primery, #39374d) !important;
+  color: var(--gray-white, #fff) !important;
+}
+.langModal {
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  width: -webkit-fill-available;
+  left: 0;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.langModal > li {
+  list-style: none;
+  text-align: center;
+  font-size: 11px;
+  cursor: pointer;
+}

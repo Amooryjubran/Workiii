@@ -1,0 +1,45 @@
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+}
+.authForm > h2::first-letter {
+  text-transform: capitalize;
+}
+.authForm > h2 {
+  color: var(--primary);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 46px;
+  margin: 0;
+}
+.signUpForm {
+  background: var(--primary);
+}
+.card {
+  width: 620px;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+.mainWrapper {
+  flex-flow: column-reverse;
+}
+.footer {
+  display: none;
+}
+.formName {
+  display: flex;
+  flex-direction: column;
+}
+.otpCodeFieldInputs {
+  width: 100%;
+  justify-content: space-between;
+}
+.otpCodeFieldInputs > input {
+  border-radius: 10px;
+  border: 1px solid var(--gray-300);
+  max-width: 70px;
+  min-height: 50px;
+}

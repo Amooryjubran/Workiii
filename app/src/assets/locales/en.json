@@ -1,0 +1,24 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "reviews": "Reviews",
+    "about": "About Us",
+    "login": "Login",
+    "signUp": "Sign Up"
+  },
+  "home": {
+    "homeMessage": "Welcome to our home page!"
+  },
+  "signup": {
+    "backToHome": "Back To Home",
+    "step": "Step",
+    "of": "of",
+    "hey": "Hey 👋🏻",
+    "welcomeToWorkiii": "Welcome to Workiii",
+    "findingRightJob": "Finding the right job or the perfect laborer has never been easier. Let's get started and bridge the gap between hard work and great opportunities.",
+    "agreeTo": "I agree to the",
+    "privacyPolicy": "Privacy Policy",
+    "next": "Let's Start"
+  }
+}

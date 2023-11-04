@@ -1,0 +1,24 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "services": "Services",
+    "reviews": "Avis",
+    "about": "À propos de nous",
+    "login": "Connexion",
+    "signUp": "S'inscrire"
+  },
+  "home": {
+    "homeMessage": "Bienvenue sur notre page d'accueil!"
+  },
+  "signup": {
+    "backToHome": "Retour à l'accueil",
+    "step": "Étape",
+    "of": "de",
+    "hey": "Salut 👋🏻",
+    "welcomeToWorkiii": "Bienvenue à Workiii",
+    "findingRightJob": "Trouver le bon travail ou le parfait ouvrier n'a jamais été aussi simple. Commençons et faisons le lien entre le travail acharné et les grandes opportunités.",
+    "agreeTo": "Je suis d'accord avec",
+    "privacyPolicy": "Politique de Confidentialité",
+    "next": "Commençons"
+  }
+}

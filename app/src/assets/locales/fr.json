@@ -20,5 +20,17 @@
     "agreeTo": "Je suis d'accord avec",
     "privacyPolicy": "Politique de Confidentialité",
     "next": "Commençons"
+  },
+  "userTypeSelector": {
+    "prompt": "Salut 👋🏻 De quoi as-tu besoin?",
+    "offerService": "Je souhaite proposer un service",
+    "needService": "Je cherche un service",
+    "provider": "Fournisseur",
+    "client": "Client",
+    "selectUserType": "Veuillez sélectionner un type d'utilisateur avant de continuer."
+  },
+  "signUpForm": {
+    "signUpTitle": "Inscription en tant que {{userType}}",
+    "fillFields": "Remplissez les champs pour vous inscrire"
   }
 }

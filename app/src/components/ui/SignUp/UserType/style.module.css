@@ -19,6 +19,10 @@
   color: var(--gray-white);
   font-size: 18px;
 }
+.authContainerBtn:disabled {
+  background-color: var(--disabled-btn);
+  color: var(--disabled-text);
+}
 .userType {
   display: flex;
   align-items: center;

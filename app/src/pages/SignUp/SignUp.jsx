@@ -1,14 +1,13 @@
-import React from "react";
 import styles from "./style.module.css";
 import Back from "@/assets/images/Signup/back.svg";
 import Star from "@/assets/images/Signup/star.svg";
 import { Link } from "react-router-dom";
 import useSignUpStore from "@/store/useSignUpStore";
-import Welcome from "@/components/ui/SignUp/Welcome";
-import UserType from "@/components/ui/SignUp/UserType";
+import Welcome from "@/components/ui/SignUp/Welcome/Welcome";
+import UserType from "@/components/ui/SignUp/UserType/UserType";
 import SignUpForm from "@/components/ui/SignUp/SignUpForm";
 import OTP from "@/components/ui/SignUp/OTP";
-import Success from "@/components/ui/SignUp/Success";
+import Success from "@/components/ui/SignUp/Success/Success";
 import Image from "@/components/Image";
 import { useTranslation } from "react-i18next";
 export default function SignUp() {

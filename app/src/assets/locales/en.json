@@ -20,5 +20,17 @@
     "agreeTo": "I agree to the",
     "privacyPolicy": "Privacy Policy",
     "next": "Let's Start"
+  },
+  "userTypeSelector": {
+    "prompt": "Hey 👋🏻 What do you need?",
+    "offerService": "I want to offer a service",
+    "needService": "I want a service",
+    "provider": "Provider",
+    "client": "User",
+    "selectUserType": "Please select a user type before proceeding."
+  },
+  "signUpForm": {
+    "signUpTitle": "{{userType}} Sign up",
+    "fillFields": "Fill the fields to sign up"
   }
 }

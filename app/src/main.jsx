@@ -7,14 +7,6 @@ import { getLanguageFromURL } from "@/config/i18n";
 import { BrowserRouter } from "react-router-dom";
 import "@/assets/styles/Global.css";
 import "@/assets/styles/variables.css";
-import { ClerkProvider } from "@clerk/clerk-react";
-
-console.log(import.meta.env.VITE_CLERK_PUBLISHABLE_KEY);
-if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
-  throw "Missing Publishable Key";
-}
-
-const publishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 function Main() {
   const { selectedLanguage, setLanguage } = useLanguageSelector();
@@ -23,8 +15,6 @@ function Main() {
     const detectedLang = getLanguageFromURL() || "en";
     setLanguage(detectedLang);
   }, [setLanguage]);
-
-  console.log(selectedLanguage);
 
   let localization;
   switch (selectedLanguage) {
@@ -42,14 +32,9 @@ function Main() {
 
   return (
     <React.StrictMode>
-      <ClerkProvider
-        publishableKey={publishableKey}
-        localization={localization}
-      >
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ClerkProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </React.StrictMode>
   );
 }

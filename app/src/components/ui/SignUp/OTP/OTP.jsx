@@ -1,6 +1,6 @@
 import useSignUpStore from "@/store/useSignUpStore";
 
-export default function index() {
+export default function OTP() {
   const { otp, setOTP, goToNextStep, errors, setErrors } = useSignUpStore();
 
   const handleChange = (e) => {

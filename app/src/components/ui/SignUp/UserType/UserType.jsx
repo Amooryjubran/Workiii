@@ -32,9 +32,8 @@ export default function UserTypeSelector() {
 
   return (
     <div className={styles.userTypeContainer}>
-      <h2>
-        Hey 👋🏻 <br /> What Do you need ?
-      </h2>
+      <h2>{t("userTypeSelector.prompt")}</h2>
+
       <div className={styles.userTypeBtns}>
         <Button
           className={`${styles.userType} ${
@@ -42,9 +41,9 @@ export default function UserTypeSelector() {
           }`}
           onClick={() => handleUserTypeSelection("provider")}
         >
-          <span>I want to offer a service</span>
+          <span>{t("userTypeSelector.offerService")}</span>
           <Image src={Provider} alt="Provider" />
-          <h3>Provider</h3>
+          <h3>{t("userTypeSelector.provider")}</h3>
           {selectedType === "provider" && (
             <Image
               className={styles.checkedImg}
@@ -59,9 +58,9 @@ export default function UserTypeSelector() {
           }`}
           onClick={() => handleUserTypeSelection("client")}
         >
-          <span>I want a service</span>
+          <span>{t("userTypeSelector.needService")}</span>
           <Image src={Client} alt="Client" />
-          <h3>User</h3>
+          <h3>{t("userTypeSelector.client")}</h3>
           {selectedType === "client" && (
             <Image
               className={styles.checkedImg}
@@ -73,7 +72,7 @@ export default function UserTypeSelector() {
       </div>
 
       {errors && errors.userType && (
-        <p style={{ color: "red" }}>{errors.userType}</p>
+        <p style={{ color: "red" }}>{t("userTypeSelector.selectUserType")}</p>
       )}
       <Button
         onClick={handleNextStep}

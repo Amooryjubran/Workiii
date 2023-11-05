@@ -10,6 +10,7 @@ const Image = ({
   width,
   height,
   className,
+  classNameWrapper,
   ...props
 }) => {
   const [imageStatus, setImageStatus] = useState("loading");
@@ -23,7 +24,10 @@ const Image = ({
   };
 
   return (
-    <div className={styles.imageWrapper} style={{ width, height }}>
+    <div
+      className={`${styles.imageWrapper} ${classNameWrapper}`}
+      style={{ width, height }}
+    >
       {imageStatus === "loading" && (
         <div data-testid="skeleton" className={styles.skeleton}></div>
       )}
@@ -48,6 +52,7 @@ Image.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string,
+  classNameWrapper: PropTypes.string,
 };
 
 Image.defaultProps = {

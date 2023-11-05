@@ -1,7 +1,7 @@
-const test = require("./controllers/Test/index");
-const updateUserType = require("./controllers/Auth/updateUserType");
+const createUser = require("./controllers/Auth/createUser");
+const verifyUser = require("./controllers/Auth/verifyUser");
 
 module.exports = {
-  test,
-  updateUserType,
+  createUser,
+  verifyUser,
 };

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <!-- All paths now have no fill, only stroke for border -->
+  <path d="M14 8C14 9.10457 13.1046 10 12 10C10.8954 10 10 9.10457 10 8C10 6.89543 10.8954 6 12 6C13.1046 6 14 6.89543 14 8Z" fill="none" stroke="#939EAC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.33333 17C8.59695 17 8 16.403 8 15.6667V15.6667C8 14.1939 9.19391 13 10.6667 13H13.3333C14.8061 13 16 14.1939 16 15.6667V15.6667C16 16.403 15.403 17 14.6667 17H9.33333ZM14 8C14 9.10457 13.1046 10 12 10C10.8954 10 10 9.10457 10 8C10 6.89543 10.8954 6 12 6C13.1046 6 14 6.89543 14 8Z" fill="none" stroke="#939EAC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#939EAC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

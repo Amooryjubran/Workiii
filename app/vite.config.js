@@ -7,7 +7,13 @@ export default defineConfig({
   plugins: [react()],
   base: "/",
   resolve: {
-    alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "src") },
+      {
+        find: "images",
+        replacement: path.resolve(__dirname, "src/assets/images"),
+      },
+    ],
   },
   server: {
     port: 8000,

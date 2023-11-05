@@ -33,10 +33,8 @@ app.use(
 app.use(morgan("dev"));
 app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true, limit: "5mb" }));
-const { test, updateUserType } = require("./handler");
-const {
-  receiveClerkWebhook,
-} = require("./controllers/Auth/receiveClerkWebhook");
+const { createUser, verifyUser } = require("./handler");
+
 // controllers
 app.get("/", (req, res) => {
   res.send("Hello, World!");
@@ -47,9 +45,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/api/test", test);
-app.patch("/api/:id/type", updateUserType);
-app.post("/webhook/clerk", receiveClerkWebhook);
+app.post("/api/createUser", createUser);
+app.post("/api/verifyUser", verifyUser);
 
 // Start the server with server.listen, not app.listen
 server.listen(PORT, () => {

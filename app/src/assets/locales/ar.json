@@ -31,6 +31,13 @@
   },
   "signUpForm": {
     "signUpTitle": "التسجيل ك{{userType}}",
-    "fillFields": "املأ الحقول للتسجيل"
+    "fillFields": "املأ الحقول للتسجيل",
+    "login": "تسجيل الدخول",
+    "orLogin": "أو تسجيل الدخو"
+  },
+  "signUpSuccess": {
+    "success": "لقد تم تسجيلك بنجاح",
+    "profileSetUp": "اضبط ملفي الشخصي الآن",
+    "profileSetUpLater": "ضبط ملفي الشخصي لاحقًا"
   }
 }

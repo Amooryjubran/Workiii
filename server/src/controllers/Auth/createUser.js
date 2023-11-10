@@ -16,7 +16,7 @@ const createUser = async (req, res) => {
     const db = client.db(process.env.DB_NAME);
     const existingUser = await db.collection("users").findOne({ email: email });
 
-    // Check if the user exists and isn't verified
+    // Check if the user exists
     if (existingUser) {
       if (!existingUser.isVerified) {
         // Generate a new verification code for the unverified user
@@ -37,13 +37,11 @@ const createUser = async (req, res) => {
           message: "New verification code sent to unverified user",
         });
       } else {
-        // User exists and is verified
-        return res
-          .status(409)
-          .json({
-            status: "error",
-            message: "User already exists and is verified",
-          });
+        // User exists and is verified, provide a friendly message
+        return res.status(200).json({
+          status: "info",
+          message: "You already have an account. Please login instead.",
+        });
       }
     }
 

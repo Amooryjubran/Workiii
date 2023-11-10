@@ -1,0 +1,37 @@
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 588px;
+}
+.successContainer > h1 {
+  font-size: 34px;
+  color: var(--primary);
+}
+.nav > a {
+  padding: 18px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 32px;
+}
+.now {
+  background-color: var(--primary);
+}
+.later {
+  background-color: var(--secondary);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

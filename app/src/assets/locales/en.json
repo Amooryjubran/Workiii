@@ -31,6 +31,13 @@
   },
   "signUpForm": {
     "signUpTitle": "{{userType}} Sign up",
-    "fillFields": "Fill the fields to sign up"
+    "fillFields": "Fill the fields to sign up",
+    "login": "Login",
+    "orLogin": "Or Login"
+  },
+  "signUpSuccess": {
+    "success": "You have registered successfully",
+    "profileSetUp": "Set up my profile now",
+    "profileSetUpLater": "Set up my profile Later"
   }
 }

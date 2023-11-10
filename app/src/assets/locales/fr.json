@@ -31,6 +31,13 @@
   },
   "signUpForm": {
     "signUpTitle": "Inscription en tant que {{userType}}",
-    "fillFields": "Remplissez les champs pour vous inscrire"
+    "fillFields": "Remplissez les champs pour vous inscrire",
+    "login": "Connexion",
+    "orLogin": "Ou Connexion"
+  },
+  "signUpSuccess": {
+    "success": "Vous vous êtes inscrit avec succès",
+    "profileSetUp": "Configurer mon profil maintenant",
+    "profileSetUpLater": "Configurer mon profil plus tard"
   }
 }

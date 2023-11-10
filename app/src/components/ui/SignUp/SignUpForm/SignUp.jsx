@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./style.module.css";
 import useSignUpStore from "@/store/useSignUpStore";
 import Button from "@/components/Button";
 import Image from "@/components/Image";
 import Input from "@/components/Input";
+import LinkButton from "@/components/Link";
 import EmailImg from "images/Signup/email.svg";
 import ContactImg from "images/Signup/contact.svg";
 import PasswordImg from "images/Signup/password.svg";
@@ -14,6 +16,8 @@ import { createUser } from "@/api/userAuth";
 export default function SignUpForm() {
   const { t } = useTranslation();
   const { userType, goToNextStep, formData, setFormData } = useSignUpStore();
+  const [userMessage, setUserMessage] = useState("");
+  const [isError, setIsError] = useState(false);
 
   const userTypeCapitalized =
     userType.charAt(0).toUpperCase() + userType.slice(1);
@@ -28,7 +32,8 @@ export default function SignUpForm() {
   };
   const handleSignUp = async (event) => {
     event.preventDefault();
-
+    setUserMessage(""); // Clear any previous messages
+    setIsError(false); // Reset the error state
     try {
       // POST request to your API endpoint
       const response = await createUser({
@@ -39,18 +44,23 @@ export default function SignUpForm() {
         userType: userType,
       });
       // Handle the response accordingly
-      if (
-        response.status === 201 ||
-        (response.status === 200 &&
-          response.data.message.includes("New verification code sent"))
-      ) {
-        // The user was created or is already created but not verified
+      if (response.status === 201 && response.data.status === "success") {
+        // The user was created successfully
         goToNextStep();
+      } else if (response.status === 200 && response.data.status === "info") {
+        // User already exists, set a user-friendly message
+        setUserMessage(response.data.message);
+        setIsError(true);
       } else {
-        console.error("Unexpected response:", response);
+        // Handle other statuses
+        setUserMessage("Unexpected response status: " + response.status);
+        setIsError(true);
       }
     } catch (error) {
-      console.error("Error during sign up:", error.response || error.message);
+      setUserMessage(
+        error.response?.data?.message || "An error occurred during sign up."
+      );
+      setIsError(true);
     }
   };
 
@@ -132,6 +142,9 @@ export default function SignUpForm() {
               className={styles.input}
             />
           </div>
+          {isError && (
+            <span className={styles.errorMessage}>{userMessage}</span>
+          )}
         </div>
         <Button
           onClick={handleSignUp}
@@ -141,6 +154,10 @@ export default function SignUpForm() {
           {t("signup.next")}
         </Button>
       </form>
+      <div className={styles.loginText}>{t("signUpForm.orLogin")}</div>
+      <LinkButton to="login" className={styles.login}>
+        {t("signUpForm.login")}
+      </LinkButton>
     </div>
   );
 }

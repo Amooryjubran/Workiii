@@ -1,3 +1,4 @@
+import { loginUser } from "@/api/userAuth";
 import { create } from "zustand";
 
 const useUserStore = create((set) => ({
@@ -9,10 +10,25 @@ const useUserStore = create((set) => ({
     localStorage.setItem("user", JSON.stringify(user));
   },
 
-  login: async (user) => {
-    // be be continued
+  login: async (email, password) => {
     set({ isLoading: true });
-    localStorage.setItem("user", JSON.stringify(user));
+    try {
+      const response = await loginUser(email, password);
+      if (response.data.status === 200) {
+        const { user, token } = response.data;
+        set({ user, isLoading: false });
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("token", `"${token}"`);
+      } else {
+        // Handle login failure
+        set({ isLoading: false });
+        throw new Error(response.data.message || "Login failed.");
+      }
+    } catch (error) {
+      // Handle errors, for example, network issues
+      set({ isLoading: false });
+      throw error; // Re-throw the error to be caught in the component
+    }
   },
   logout: () => {
     localStorage.removeItem("user");

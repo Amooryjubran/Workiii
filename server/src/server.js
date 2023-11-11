@@ -33,7 +33,7 @@ app.use(
 app.use(morgan("dev"));
 app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true, limit: "5mb" }));
-const { createUser, verifyUser } = require("./handler");
+const { createUser, verifyUser, signIn } = require("./handler");
 
 // controllers
 app.get("/", (req, res) => {
@@ -47,6 +47,7 @@ app.use((req, res, next) => {
 
 app.post("/api/createUser", createUser);
 app.post("/api/verifyUser", verifyUser);
+app.post("/api/signIn", signIn);
 
 // Start the server with server.listen, not app.listen
 server.listen(PORT, () => {

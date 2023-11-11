@@ -39,5 +39,11 @@
     "success": "Vous vous êtes inscrit avec succès",
     "profileSetUp": "Configurer mon profil maintenant",
     "profileSetUpLater": "Configurer mon profil plus tard"
+  },
+  "login": {
+    "prompt": "Bon retour👋🏻",
+    "welcome": "C'est génial de vous revoir. Veuillez vous connecter pour continuer.",
+    "forgotPassword": "Mot de passe oublié",
+    "login": "Se connecter"
   }
 }

@@ -12,3 +12,10 @@ export const verifyUser = async (email, otp) => {
     code: otp,
   });
 };
+
+export const loginUser = async (email, password) => {
+  return axios.post(`${API_BASE_URL}/api/signIn`, {
+    email,
+    password,
+  });
+};

@@ -5,6 +5,7 @@ import Home from "@/pages/Home/Home";
 import Services from "@/pages/Services";
 import SignUp from "@/pages/SignUp";
 import useLanguageSelector from "@/store/useLanguageSelector";
+import Login from "@/pages/Login";
 
 const SubRoutes = () => {
   const { lang } = useParams();
@@ -19,6 +20,7 @@ const SubRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="services" element={<Services />} />
       <Route path="sign-up" element={<SignUp />} />
+      <Route path="login" element={<Login />} />
       {/* ... other sub-routes */}
     </Routes>
   );

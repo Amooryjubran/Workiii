@@ -39,5 +39,11 @@
     "success": "You have registered successfully",
     "profileSetUp": "Set up my profile now",
     "profileSetUpLater": "Set up my profile Later"
+  },
+  "login": {
+    "prompt": "Welcome Back👋🏻",
+    "welcome": "It's great to see you again. Please log in to continue.",
+    "forgotPassword": "Forgot Password",
+    "login": "Log in"
   }
 }

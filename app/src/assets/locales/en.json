@@ -54,6 +54,18 @@
     "wantService": "I want a service",
     "offerService": "I want to offer a service",
     "Plumber": "Plumber",
-    "Electrician": "Electrician"
+    "Electrician": "Electrician",
+    "services": "Services",
+    "whatDoYouNeed": "What do you need to find?",
+    "cleaning": "Cleaning",
+    "cleaningServices": "Cleaning Services",
+    "cleaningDescription": "Professional home and office cleaning for a spotless space.",
+    "electrician": "Electrician",
+    "electricalServices": "Electrical Services",
+    "electricalDescription": "Safe and efficient electrical repairs and installations.",
+    "painting": "Painting",
+    "paintingServices": "Painting Services",
+    "paintingDescription": "Quality painting services to transform and refresh your space.",
+    "seeMore": "See More"
   }
 }

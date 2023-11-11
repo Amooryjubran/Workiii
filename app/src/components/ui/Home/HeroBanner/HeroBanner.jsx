@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import LinkButton from "@/components/Link";
 import styles from "./style.module.css";
 import Plumber from "images/Home/Plumber.svg";
-import Electrician from "images/Home/Electrician.jpeg";
+import Electrician from "images/Home/Electrician.png";
 import Image from "@/components/Image";
 
 export default function HeroBanner() {
@@ -28,7 +28,7 @@ export default function HeroBanner() {
         setImageSrc(professions[currentProfession].image);
         setAnimate(false); // Reset for entry animation
       }, 500); // Halfway through the interval
-    }, 2000); // Interval includes time for exit and entry animation
+    }, 3000); // Interval includes time for exit and entry animation
 
     return () => clearInterval(interval);
   }, []);
@@ -61,8 +61,10 @@ export default function HeroBanner() {
           </LinkButton>
         </div>
       </div>
-      <div className={animate ? styles.slideOut : styles.slideIn}>
-        <Image src={imageSrc} className={styles.img} />
+      <div className={styles.backgroundContainer}>
+        <div className={` ${animate ? styles.slideOut : styles.slideIn}`}>
+          <Image src={imageSrc} className={styles.img} alt={professionKey} />
+        </div>
       </div>
     </div>
   );

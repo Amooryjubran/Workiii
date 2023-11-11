@@ -12,6 +12,14 @@
   flex-direction: column;
   gap: 32px;
 }
+.backgroundContainer {
+  background: url("images/Home/backgroundContainer.svg");
+  position: relative;
+}
+.img {
+  max-height: 852px;
+  max-width: 750px;
+}
 .heroBannerTitle {
   display: flex;
   align-items: center;
@@ -70,4 +78,22 @@
   opacity: 0;
   transform: translateY(-20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+}
+@media (max-width: 1028px) {
+  .heroBanner {
+    padding: 20px 0;
+    gap: 30px;
+    flex-direction: column-reverse;
+  }
+  .heroBannerTitle {
+    display: none;
+  }
+
+  .heroBannerNavigations {
+    flex-direction: column;
+  }
+  .heroBannerNavigations > a {
+    width: 100%;
+    text-align: center;
+  }
 }

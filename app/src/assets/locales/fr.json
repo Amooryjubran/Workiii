@@ -54,6 +54,18 @@
     "wantService": "Je veux un service",
     "offerService": "Je veux offrir un service",
     "Plumber": "Plombier",
-    "Electrician": "Électricien"
+    "Electrician": "Électricien",
+    "services": "Services",
+    "whatDoYouNeed": "Que cherchez-vous à trouver?",
+    "cleaning": "Nettoyage",
+    "cleaningServices": "Services de nettoyage",
+    "cleaningDescription": "Nettoyage professionnel de maisons et de bureaux pour un espace impeccable.",
+    "electrician": "Électricien",
+    "electricalServices": "Services Électriques",
+    "electricalDescription": "Réparations et installations électriques sûres et efficaces.",
+    "painting": "Peinture",
+    "paintingServices": "Services de peinture",
+    "paintingDescription": "Services de peinture de qualité pour transformer et rafraîchir votre espace.",
+    "seeMore": "Voir plus"
   }
 }

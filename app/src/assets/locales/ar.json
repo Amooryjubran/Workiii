@@ -54,6 +54,18 @@
     "wantService": "أريد خدمة",
     "offerService": "أريد تقديم خدمة",
     "Plumber": "سباك",
-    "Electrician": "كهربائي"
+    "Electrician": "كهربائي",
+    "services": "الخدمات",
+    "whatDoYouNeed": "ما الذي تحتاج إلى العثور عليه؟",
+    "cleaning": "التنظيف",
+    "cleaningServices": "خدمات التنظيف",
+    "cleaningDescription": "خدمات تنظيف المنازل والمكاتب المهنية لمكان نظيف.",
+    "electrician": "كهربائي",
+    "electricalServices": "خدمات كهربائية",
+    "electricalDescription": "إصلاحات وتركيبات كهربائية آمنة وفعالة.",
+    "painting": "الدهان",
+    "paintingServices": "خدمات الدهان",
+    "paintingDescription": "خدمات الدهان عالية الجودة لتحويل وتجديد مساحتك.",
+    "seeMore": "اعرف المزيد"
   }
 }

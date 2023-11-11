@@ -4,3 +4,8 @@
   gap: 40px;
   padding: 24px 36px 12px 36px;
 }
+@media (max-width: 1028px) {
+  .wrapper {
+    padding: 60px 20px;
+  }
+}

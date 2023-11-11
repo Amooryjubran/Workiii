@@ -10,6 +10,8 @@ import Button from "@/components/Button";
 import Logo from "@/assets/logo.svg";
 import Search from "@/assets/images/search.svg";
 import useLanguageSelector from "@/store/useLanguageSelector";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+import MobileNav from "./MobileNav";
 
 export default function Navbar() {
   const [langModal, setLangModal] = useState(false);
@@ -17,6 +19,7 @@ export default function Navbar() {
   const { setLanguage } = useLanguageSelector();
   const currentLanguage = i18n.language;
   const navigate = useNavigate();
+  const windowWidth = useWindowWidth();
 
   const languageOptions = [
     { code: "en", label: "English" },
@@ -34,7 +37,9 @@ export default function Navbar() {
     );
     navigate(newPathname);
   };
-
+  if (windowWidth <= 1024) {
+    return <MobileNav />;
+  }
   return (
     <div className={styles.navbar}>
       <div>

@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 
 const useLanguageSelector = create((set) => ({
   selectedLanguage: "en",

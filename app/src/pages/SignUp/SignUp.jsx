@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import styles from "./style.module.css";
 import Back from "@/assets/images/Signup/back.svg";
 import Star from "@/assets/images/Signup/star.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useSignUpStore from "@/store/useSignUpStore";
 import Welcome from "@/components/ui/SignUp/Welcome/Welcome";
 import UserType from "@/components/ui/SignUp/UserType/UserType";
@@ -10,11 +11,22 @@ import OTP from "@/components/ui/SignUp/OTP";
 import Success from "@/components/ui/SignUp/Success/Success";
 import Image from "@/components/Image";
 import { useTranslation } from "react-i18next";
+import useUserStore from "@/store/useUserStore";
 export default function SignUp() {
   const { t } = useTranslation();
   const { step, reset } = useSignUpStore();
+  const { user } = useUserStore();
   const stepsComponents = [Welcome, UserType, SignUpForm, OTP, Success];
   const CurrentComponent = stepsComponents[step - 1];
+  const navigate = useNavigate();
+
+  // Check if the user is already logged in and redirect if necessary
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
   return (
     <div className={styles.authContainer}>
       <Link to="/" onClick={reset} className={styles.authContainerBackLink}>

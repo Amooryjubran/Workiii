@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 
 const useSignUpStore = create((set) => ({
   // State variables

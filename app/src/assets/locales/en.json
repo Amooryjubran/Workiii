@@ -45,5 +45,15 @@
     "welcome": "It's great to see you again. Please log in to continue.",
     "forgotPassword": "Forgot Password",
     "login": "Log in"
+  },
+  "landingPage": {
+    "welcome": "Welcome to Workiii",
+    "webPlatform": "Web Platform for Connecting Laborers with Users",
+    "allLaborers": "All Laborers In The Same Place",
+    "allLaborersDescreption": "Find expert laborers for any task at Workiii. Our platform effortlessly connects you with seasoned professionals in plumbing, electrical, landscaping, and more, ensuring a seamless and reliable service for your projects.",
+    "wantService": "I want a service",
+    "offerService": "I want to offer a service",
+    "Plumber": "Plumber",
+    "Electrician": "Electrician"
   }
 }

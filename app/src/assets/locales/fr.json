@@ -45,5 +45,15 @@
     "welcome": "C'est génial de vous revoir. Veuillez vous connecter pour continuer.",
     "forgotPassword": "Mot de passe oublié",
     "login": "Se connecter"
+  },
+  "landingPage": {
+    "welcome": "Bienvenue à Workiii",
+    "webPlatform": "Plateforme Web pour Connecter les Travailleurs et les Utilisateurs",
+    "allLaborers": "Tous les Travailleurs au Même Endroit",
+    "allLaborersDescreption": "Trouvez des travailleurs experts pour toute tâche chez Workiii. Notre plateforme vous connecte sans effort avec des professionnels expérimentés en plomberie, électricité, aménagement paysager, et plus encore, assurant un service fiable et sans faille pour vos projets.",
+    "wantService": "Je veux un service",
+    "offerService": "Je veux offrir un service",
+    "Plumber": "Plombier",
+    "Electrician": "Électricien"
   }
 }

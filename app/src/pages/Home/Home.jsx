@@ -1,5 +1,9 @@
-import { useTranslation } from "react-i18next";
+import styles from "./style.module.css";
+import HeroBanner from "@/components/ui/Home/HeroBanner";
 export default function Home() {
-  const { t } = useTranslation();
-  return <div>{t("home.homeMessage")}</div>;
+  return (
+    <div className={styles.wrapper}>
+      <HeroBanner />
+    </div>
+  );
 }

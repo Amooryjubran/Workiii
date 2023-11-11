@@ -1,0 +1,73 @@
+.heroBanner {
+  display: flex;
+  gap: 64px;
+  padding: 50px 90px;
+}
+.heroBanner > div {
+  max-width: 839px;
+  width: 100%;
+}
+.heroBannerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.heroBannerTitle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.heroBannerTitle > span {
+  border-radius: 100px;
+  background: var(--primary);
+  white-space: pre;
+  color: #fff;
+  padding: 3px 12px;
+  font-size: 14px;
+}
+.heroBannerDescreption > p,
+.heroBannerTitle > p {
+  font-size: 14px;
+  color: var(--primary);
+  line-height: 1.4;
+}
+.heroBannerHeaderTitle > h1 {
+  color: #000;
+  font-size: 38px;
+  margin: 0;
+}
+.heroBannerHeaderTitle > h1 > strong {
+  color: var(--secondary);
+}
+.heroBannerNavigations {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.heroBannerNavigations > a {
+  padding: 18px 24px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.heroBannerServicesLink {
+  background: var(--primary);
+  color: #fff;
+  border: 1px solid transparent;
+}
+.heroBannerSignUpLink {
+  padding: 18px 20px;
+  color: var(--primary);
+  border: 1px solid var(--primary, #39374d);
+}
+.slideIn {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slideOut {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}

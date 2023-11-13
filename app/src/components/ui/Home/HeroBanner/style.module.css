@@ -35,13 +35,13 @@
 }
 .heroBannerDescreption > p,
 .heroBannerTitle > p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--primary);
   line-height: 1.4;
 }
 .heroBannerHeaderTitle > h1 {
   color: #000;
-  font-size: 38px;
+  font-size: 64px;
   margin: 0;
 }
 .heroBannerHeaderTitle > h1 > strong {
@@ -89,6 +89,9 @@
     display: none;
   }
 
+  .heroBannerHeaderTitle > h1 {
+    font-size: 32px;
+  }
   .heroBannerNavigations {
     flex-direction: column;
   }

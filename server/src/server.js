@@ -33,7 +33,7 @@ app.use(
 app.use(morgan("dev"));
 app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true, limit: "5mb" }));
-const { createUser, verifyUser, signIn } = require("./handler");
+const { createUser, verifyUser, signIn, topServices } = require("./handler");
 
 // controllers
 app.get("/", (req, res) => {
@@ -45,6 +45,10 @@ app.use((req, res, next) => {
   next();
 });
 
+// GET
+app.get("/api/topServices", topServices);
+
+// POST
 app.post("/api/createUser", createUser);
 app.post("/api/verifyUser", verifyUser);
 app.post("/api/signIn", signIn);

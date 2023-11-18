@@ -35,6 +35,14 @@ const useUserStore = create((set) => ({
     set({ user: null, isLoading: false });
   },
   finishLoading: () => set({ isLoading: false }),
-}));
 
+  loadUser: () => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      set({ user: JSON.parse(storedUser) });
+    }
+  },
+}));
+// Initialize the user state from localStorage
+useUserStore.getState().loadUser();
 export default useUserStore;

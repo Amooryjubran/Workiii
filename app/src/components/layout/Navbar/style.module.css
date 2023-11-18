@@ -89,3 +89,44 @@
   background-color: transparent;
   outline: none;
 }
+
+/* --- Profile Header --- */
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: none !important;
+  background-color: transparent;
+  cursor: pointer;
+}
+.profileInitial {
+  height: 36px;
+  width: 36px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-white);
+  font-size: 12px;
+}
+.profileHeaderWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 5px;
+}
+.profileHeaderWrapper > p {
+  margin: 0;
+  color: #7f7f7f;
+  font-size: 14px;
+}
+.profileHeaderWrapper > p::first-letter {
+  text-transform: capitalize;
+}
+.profileHeaderWrapper > span {
+  font-size: 14px;
+}
+.arrow {
+  transform: rotate(90deg);
+}

@@ -12,8 +12,11 @@ import Search from "@/assets/images/search.svg";
 import useLanguageSelector from "@/store/useLanguageSelector";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import MobileNav from "./MobileNav";
+import ProfileHeader from "./ProfileHeader";
+import useUserStore from "@/store/useUserStore";
 
 export default function Navbar() {
+  const { user } = useUserStore();
   const [langModal, setLangModal] = useState(false);
   const { t } = useTranslation();
   const { setLanguage } = useLanguageSelector();
@@ -85,12 +88,18 @@ export default function Navbar() {
             </ul>
           )}
         </div>
-        <LinkButton to="login" className={styles.navbarLinksLogin}>
-          {t("navbar.login")}
-        </LinkButton>
-        <LinkButton to="sign-up" className={styles.navbarLinks}>
-          {t("navbar.signUp")}
-        </LinkButton>
+        {user ? (
+          <ProfileHeader user={user} />
+        ) : (
+          <>
+            <LinkButton to="login" className={styles.navbarLinksLogin}>
+              {t("navbar.login")}
+            </LinkButton>
+            <LinkButton to="sign-up" className={styles.navbarLinks}>
+              {t("navbar.signUp")}
+            </LinkButton>
+          </>
+        )}
       </div>
     </div>
   );

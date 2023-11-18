@@ -1,0 +1,72 @@
+.serviceContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  padding: 36px;
+  max-width: 1420px;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: var(--gray-white);
+}
+.serviceContainerBackLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.serviceContainerBackLink > span {
+  color: var(--gray-500);
+  font-size: 18px;
+}
+
+/* --- Tabs --- */
+.navTabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+}
+.navTabs > button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22.5px 18px;
+  border-radius: 10px;
+  background: var(--neutral-50);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.navTabHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 5px;
+  text-align: left;
+}
+.navTabHeader > span {
+  color: var(--neutral-800);
+  font-size: 18px;
+  font-weight: 700;
+}
+.navTabHeader > p {
+  margin: 0;
+  color: var(--neutral-600);
+  font-size: 14px;
+}
+
+.navTab {
+  display: flex;
+}
+
+.activeTab .navImg {
+  display: flex;
+  filter: invert(69%) sepia(52%) saturate(673%) hue-rotate(337deg)
+    brightness(106%) contrast(101%);
+}

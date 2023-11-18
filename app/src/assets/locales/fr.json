@@ -71,5 +71,17 @@
     "topProviders": "Meilleurs fournisseurs que nous avons",
     "hr": "hr",
     "details": "Détails"
+  },
+  "listAService": {
+    "backToHome": "Retour à l'accueil",
+    "ServiceInformation": "Informations sur le service",
+    "Booking": "Réservation",
+    "Location": "Localisation",
+    "Images": "Images",
+    "Next": "Suivant",
+    "ServiceInformationService": "Qu'offrez-vous ?",
+    "BookingService": "Définissez vos disponibilités",
+    "LocationService": "Où les clients peuvent-ils vous trouver ?",
+    "ImagesService": "Mettez en avant votre meilleur travail"
   }
 }

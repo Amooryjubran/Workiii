@@ -71,5 +71,17 @@
     "topProviders": "أفضل مقدمي الخدمات لدينا",
     "hr": "س",
     "details": "تفاصيل"
+  },
+  "listAService": {
+    "backToHome": "العودة إلى الرئيسية",
+    "ServiceInformation": "معلومات الخدمة",
+    "Booking": "الحجز",
+    "Location": "الموقع",
+    "Images": "الصور",
+    "Next": "التالي",
+    "ServiceInformationService": "ما الخدمات التي تقدمها؟",
+    "BookingService": "حدد توفرك",
+    "LocationService": "أين يمكن للعملاء العثور عليك؟",
+    "ImagesService": "أبرز أفضل أعمالك"
   }
 }

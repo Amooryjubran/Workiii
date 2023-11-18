@@ -71,5 +71,17 @@
     "topProviders": "Top Providers We Have",
     "hr": "hr",
     "details": "Details"
+  },
+  "listAService": {
+    "backToHome": "Back To Home",
+    "ServiceInformation": "Service Information",
+    "Booking": "Booking",
+    "Location": "Location",
+    "Images": "Images",
+    "Next": "Next",
+    "ServiceInformationService": "What Are You Offering?",
+    "BookingService": "Set your availability",
+    "LocationService": "Where Can Clients Find You?",
+    "ImagesService": "Highlight Your Best Work"
   }
 }

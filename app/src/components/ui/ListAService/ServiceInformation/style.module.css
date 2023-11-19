@@ -16,8 +16,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 7.5px;
 }
-.serviceCertificate,
 .caregoriesBtn {
   display: flex;
   align-items: baseline;
@@ -27,8 +27,27 @@
   padding: 11.5px 20px;
   cursor: pointer;
 }
+.serviceCertificate {
+  display: flex;
+  align-items: baseline;
+  border-radius: 10px;
+  border: 1px solid var(--neutral-500, #a0a3bd);
+  background: var(--neutral-white, #fff);
+  padding: 9px 20px;
+  cursor: pointer;
+}
 .serviceCertificate > div {
   margin: 0 0 0 auto;
+}
+.serviceCertificate > div > button {
+  padding: 10px 20px;
+  border-radius: 0px 10px 10px 0px;
+  background: var(--neutral-100);
+  color: var(--neutral-800);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
 }
 .input {
   border-radius: 10px;
@@ -36,6 +55,22 @@
   background: var(--neutral-white, #fff);
   padding: 10px 20px;
   max-height: 64px;
+  outline: none;
+}
+
+.input:focus {
+  border: 1px solid var(--primary);
+}
+/* Chrome, Safari, Edge, Opera */
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.input[type="number"] {
+  -moz-appearance: textfield;
 }
 .serviceCertificate > span,
 label {
@@ -71,8 +106,35 @@ label {
 .serviceCategoryContainer {
   display: flex;
   flex-direction: column;
+  gap: 7.5px;
 }
 .serviceCategoryContainer > button {
   display: flex;
   margin: 0 0 0 auto;
+}
+.serviceCategoryPricing {
+  width: 100%;
+  position: relative;
+}
+.serviceCategoryPricing > input {
+  width: 100%;
+}
+.serviceCategoryPricing > span,
+.imgWrapper {
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  color: var(--secondary);
+}
+@media (max-width: 1028px) {
+  .serviceInformationContainer > div {
+    flex-direction: column;
+  }
+  .serviceInformationContainer,
+  .serviceInformationWrapper {
+    gap: 10px;
+  }
+  .serviceModal {
+    width: 100%;
+  }
 }

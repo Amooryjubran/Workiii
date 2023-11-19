@@ -6,7 +6,8 @@ import Input from "@/components/Input";
 import FileUpload from "@/components/FileUpload";
 import useListAServiceStore from "@/store/useListAServiceStore";
 import ServicesModal from "./ServicesModal";
-
+import PriceImg from "images/ListAService/$.svg";
+import Image from "@/components/Image";
 export default function ServiceInformation() {
   const { t } = useTranslation();
 
@@ -86,25 +87,35 @@ export default function ServiceInformation() {
       <div className={styles.serviceInformationWrapper}>
         <div>
           <label>{t("listAServiceServicesTab.ServicePrice")}</label>
-          <Input
-            type="number"
-            name="servicePrice"
-            value={serviceInfo.servicePrice}
-            onChange={handleInputChange}
-            placeholder={t("listAServiceServicesTab.EnterPrice")}
-            className={styles.input}
-          />
+          <div className={styles.serviceCategoryPricing}>
+            <Input
+              type="number"
+              name="servicePrice"
+              value={serviceInfo.servicePrice}
+              onChange={handleInputChange}
+              placeholder={t("listAServiceServicesTab.EnterPrice")}
+              className={styles.input}
+            />
+            <Image
+              src={PriceImg}
+              alt="$"
+              classNameWrapper={styles.imgWrapper}
+            />
+          </div>
         </div>
         <div>
           <label>{t("listAServiceServicesTab.ServiceDuration")}</label>
-          <Input
-            type="number"
-            name="serviceDuration"
-            value={serviceInfo.serviceDuration}
-            onChange={handleInputChange}
-            placeholder={t("listAServiceServicesTab.EnterDuration")}
-            className={styles.input}
-          />
+          <div className={styles.serviceCategoryPricing}>
+            <Input
+              type="number"
+              name="serviceDuration"
+              value={serviceInfo.serviceDuration}
+              onChange={handleInputChange}
+              placeholder={t("listAServiceServicesTab.EnterDuration")}
+              className={styles.input}
+            />
+            <span>{t("listAServiceServicesTab.Mins")}</span>
+          </div>
         </div>
       </div>
     </div>

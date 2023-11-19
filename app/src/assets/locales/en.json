@@ -95,6 +95,7 @@
     "SelectCategory": "Select Category",
     "DescribeYourService": "Describe your service",
     "EnterPrice": "Enter Price",
-    "EnterDuration": "Enter Duration (in minutes)"
+    "EnterDuration": "Enter Duration (in minutes)",
+    "Mins": "Min"
   }
 }

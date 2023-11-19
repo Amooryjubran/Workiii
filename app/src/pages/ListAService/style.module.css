@@ -70,3 +70,15 @@
   filter: invert(69%) sepia(52%) saturate(673%) hue-rotate(337deg)
     brightness(106%) contrast(101%);
 }
+
+@media (max-width: 1028px) {
+  .serviceContainer {
+    padding: 90px 20px;
+  }
+  .navTabs > button {
+    display: none;
+  }
+  .navTab.activeTab {
+    display: flex;
+  }
+}

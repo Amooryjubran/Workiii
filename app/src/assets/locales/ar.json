@@ -95,6 +95,7 @@
     "SelectCategory": "اختر الفئة",
     "DescribeYourService": "صف خدمتك",
     "EnterPrice": "أدخل السعر",
-    "EnterDuration": "أدخل المدة (بالدقائق)"
+    "EnterDuration": "أدخل المدة (بالدقائق)",
+    "Mins": "دقيقة"
   }
 }

@@ -1,0 +1,78 @@
+.serviceInformationContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 45px;
+}
+.serviceInformationContainer > div {
+  width: 100%;
+}
+.serviceInformationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+.serviceInformationWrapper > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.serviceCertificate,
+.caregoriesBtn {
+  display: flex;
+  align-items: baseline;
+  border-radius: 10px;
+  border: 1px solid var(--neutral-500, #a0a3bd);
+  background: var(--neutral-white, #fff);
+  padding: 11.5px 20px;
+  cursor: pointer;
+}
+.serviceCertificate > div {
+  margin: 0 0 0 auto;
+}
+.input {
+  border-radius: 10px;
+  border: 1px solid var(--neutral-500, #a0a3bd);
+  background: var(--neutral-white, #fff);
+  padding: 10px 20px;
+  max-height: 64px;
+}
+.serviceCertificate > span,
+label {
+  color: var(--neutral-600);
+  font-size: 16px;
+}
+.serviceCategoryWrapper {
+  position: relative;
+}
+.serviceModal {
+  position: absolute;
+  left: 0;
+  top: 110%;
+  background-color: #fff;
+  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.22);
+  padding: 10px;
+  z-index: 99;
+  border-radius: 8px;
+}
+.serviceModal > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7.5px;
+  height: 100%;
+}
+.serviceModal > ul > li {
+  cursor: pointer;
+  font-size: 12px;
+}
+.serviceCategoryContainer {
+  display: flex;
+  flex-direction: column;
+}
+.serviceCategoryContainer > button {
+  display: flex;
+  margin: 0 0 0 auto;
+}

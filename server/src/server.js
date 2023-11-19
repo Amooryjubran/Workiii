@@ -35,10 +35,11 @@ app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true, limit: "5mb" }));
 const {
   getServicesFromWishlist,
+  servicesCategories,
+  topServices,
   createUser,
   verifyUser,
   signIn,
-  topServices,
   addToWishList,
   removeFromWishList,
 } = require("./handler");
@@ -56,6 +57,7 @@ app.use((req, res, next) => {
 // GET
 app.get("/api/topServices", topServices);
 app.get("/api/user/:userId/wishlist", getServicesFromWishlist);
+app.get("/api/servicesCategories", servicesCategories);
 
 // POST
 app.post("/api/createUser", createUser);

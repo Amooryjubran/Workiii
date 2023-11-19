@@ -4,9 +4,12 @@ const useListAServiceStore = create((set) => ({
   // State variables
   step: 1,
   serviceInfo: {
-    serviceName: "",
+    serviceTitle: "",
     serviceDescription: "",
-    // Add other service information fields as needed
+    serviceCategory: "",
+    serviceCertificate: null,
+    servicePrice: "",
+    serviceDuration: "",
   },
   booking: [],
   location: [],
@@ -25,7 +28,6 @@ const useListAServiceStore = create((set) => ({
 
   // Function to set service information and validate
   setServiceInfo: (info) => {
-    // Add validation if necessary
     set((state) => ({
       serviceInfo: { ...state.serviceInfo, ...info },
       errors: { ...state.errors, serviceInfo: {} }, // Update errors as needed
@@ -71,8 +73,12 @@ const useListAServiceStore = create((set) => ({
     set({
       step: 1,
       serviceInfo: {
-        serviceName: "",
+        serviceTitle: "",
         serviceDescription: "",
+        serviceCategory: "",
+        serviceCertificate: null,
+        servicePrice: "",
+        serviceDuration: "",
         // Reset other service information fields
       },
       booking: [],

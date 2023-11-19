@@ -10,11 +10,13 @@ const removeFromWishList = require("./controllers/Services/wishList/removeFromWi
 
 // Services
 const topServices = require("./controllers/Services/TopServices");
+const servicesCategories = require("./controllers/Services/servicesCategories");
 
 module.exports = {
   // GET
   topServices,
   getServicesFromWishlist,
+  servicesCategories,
 
   // POST
   createUser,

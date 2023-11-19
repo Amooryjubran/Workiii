@@ -83,5 +83,18 @@
     "BookingService": "حدد توفرك",
     "LocationService": "أين يمكن للعملاء العثور عليك؟",
     "ImagesService": "أبرز أفضل أعمالك"
+  },
+  "listAServiceServicesTab": {
+    "ServiceTitle": "عنوان الخدمة",
+    "ServiceCategory": "فئة الخدمة",
+    "ServiceDescription": "وصف الخدمة",
+    "ServiceCertificate": "شهادة الخدمة",
+    "UploadCertificate": "تحميل الشهادة",
+    "ServicePrice": "سعر الخدمة",
+    "ServiceDuration": "مدة الخدمة",
+    "SelectCategory": "اختر الفئة",
+    "DescribeYourService": "صف خدمتك",
+    "EnterPrice": "أدخل السعر",
+    "EnterDuration": "أدخل المدة (بالدقائق)"
   }
 }

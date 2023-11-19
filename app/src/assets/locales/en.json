@@ -83,5 +83,18 @@
     "BookingService": "Set your availability",
     "LocationService": "Where Can Clients Find You?",
     "ImagesService": "Highlight Your Best Work"
+  },
+  "listAServiceServicesTab": {
+    "ServiceTitle": "Service Title",
+    "ServiceCategory": "Service Category",
+    "ServiceDescription": "Service Description",
+    "ServiceCertificate": "Service Certificate",
+    "UploadCertificate": "Upload Certificate",
+    "ServicePrice": "Service Price",
+    "ServiceDuration": "Service Duration",
+    "SelectCategory": "Select Category",
+    "DescribeYourService": "Describe your service",
+    "EnterPrice": "Enter Price",
+    "EnterDuration": "Enter Duration (in minutes)"
   }
 }

@@ -96,6 +96,16 @@
     "DescribeYourService": "صف خدمتك",
     "EnterPrice": "أدخل السعر",
     "EnterDuration": "أدخل المدة (بالدقائق)",
-    "Mins": "دقيقة"
+    "Mins": "دقيقة",
+    "allDays": "كل الأيام",
+    "sunday": "الأحد",
+    "monday": "الاثنين",
+    "tuesday": "الثلاثاء",
+    "wednesday": "الأربعاء",
+    "thursday": "الخميس",
+    "friday": "الجمعة",
+    "saturday": "السبت",
+    "remove": "مسح",
+    "addHours": "أضف ساعات"
   }
 }

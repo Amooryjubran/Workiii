@@ -96,6 +96,16 @@
     "DescribeYourService": "Describe your service",
     "EnterPrice": "Enter Price",
     "EnterDuration": "Enter Duration (in minutes)",
-    "Mins": "Min"
+    "Mins": "Min",
+    "allDays": "All Days",
+    "sunday": "Sunday",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "remove": "remove",
+    "addHours": "Add Hours"
   }
 }

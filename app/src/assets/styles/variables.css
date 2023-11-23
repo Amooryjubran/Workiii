@@ -1,6 +1,7 @@
 :root {
   --primary: #39374d;
   --secondary: #ffb142;
+  --warning-100: #fefbee;
   --error-600: #d92c20;
   --gray-100: #edeff1;
   --gray-300: #b7bec8;
@@ -13,6 +14,7 @@
   --primary-700: #5125a5;
   --neutral-50: #f8fafc;
   --neutral-100: #edeff1;
+  --neutral-500: #a0a3bd;
   --neutral-600: #6f6c90;
   --neutral-800: #170f49;
 }

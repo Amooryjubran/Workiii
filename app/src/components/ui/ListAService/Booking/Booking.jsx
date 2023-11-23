@@ -46,7 +46,6 @@ export default function Booking() {
     newBooking[selectedDay][index][field] = value;
     setBooking(newBooking);
   };
-  console.log(booking);
   return (
     <div className={styles.bookingContainer}>
       <DayTabs

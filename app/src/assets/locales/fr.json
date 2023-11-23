@@ -106,6 +106,8 @@
     "friday": "Vendredi",
     "saturday": "Samedi",
     "remove": "retirer",
-    "addHours": "Ajouter des heures"
+    "addHours": "Ajouter des heures",
+    "to": "à",
+    "from": "depuis"
   }
 }

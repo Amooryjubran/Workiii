@@ -110,4 +110,21 @@
     text-align: center;
     font-size: 16px;
   }
+  .serivesCard > h1 {
+    line-height: normal;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 28px;
+  }
+  .serivesCard > p {
+    padding: 0;
+    margin: 0;
+  }
+  .serivesCard:nth-child(2),
+  .serivesCard {
+    max-height: none;
+    padding: 32px 24px;
+    gap: 24px;
+  }
 }

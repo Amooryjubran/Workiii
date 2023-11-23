@@ -106,6 +106,8 @@
     "friday": "Friday",
     "saturday": "Saturday",
     "remove": "remove",
-    "addHours": "Add Hours"
+    "addHours": "Add Hours",
+    "to": "to",
+    "from": "from"
   }
 }

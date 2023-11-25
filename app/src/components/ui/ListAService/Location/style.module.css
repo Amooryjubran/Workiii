@@ -1,0 +1,82 @@
+.mapContainer {
+  height: 300px;
+  width: 100%;
+}
+.mapWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+.placesAutoComplete > input,
+.placesAutoComplete {
+  width: 100%;
+}
+.marker {
+  height: 10px;
+  width: 10px;
+  background-color: orange;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.suggestionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.268);
+  padding: 5px;
+  border-radius: 10px;
+}
+.suggestionWrapperEmpty {
+  display: none;
+}
+.suggestionActive {
+  background-color: #a8dadc;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.suggestion {
+  background-color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+}
+.locationInformation {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 45px;
+}
+.locationInput {
+  outline: none;
+}
+.locationInput,
+.locationInformation > div > p {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 8px 0;
+  transition: border-color 0.3s ease;
+  min-height: 40px;
+  color: var(--neutral-500, #a0a3bd);
+  font-family: Lama Sans;
+  display: flex;
+  align-items: center;
+}
+.locationInformation > div:last-child {
+  grid-column: 1 / -1;
+}
+.locationInformation > div > span {
+  color: var(--neutral-500, #a0a3bd);
+  font-size: 16px;
+}
+@media (max-width: 1028px) {
+  .mapWrapper {
+    gap: 15px;
+  }
+  .locationInformation {
+    gap: 15px;
+    grid-template-columns: auto;
+  }
+}

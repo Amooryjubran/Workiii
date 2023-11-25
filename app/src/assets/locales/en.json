@@ -111,6 +111,12 @@
     "from": "from",
     "drag": "Drag & drop images or",
     "browse": "browse",
-    "chooseCover": "Choose the cover Image"
+    "chooseCover": "Choose the cover Image",
+    "street": "Street",
+    "city": "City",
+    "state": "State",
+    "country": "Country",
+    "postal": "Postal Code",
+    "typeAdress": "Type Address"
   }
 }

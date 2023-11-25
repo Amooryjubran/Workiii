@@ -47,8 +47,8 @@ const useListAServiceStore = create((set) => ({
   setLocation: (locationData) => {
     // Add validation if necessary
     set((state) => ({
-      location: { ...state.location, ...locationData },
-      errors: { ...state.errors, location: {} }, // Update errors as needed
+      location: locationData,
+      errors: { ...state.errors, location: {} },
     }));
   },
 

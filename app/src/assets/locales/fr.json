@@ -111,6 +111,12 @@
     "from": "depuis",
     "drag": "Glissez et déposez des images ou",
     "browse": "parcourir",
-    "chooseCover": "Choisissez l'image de couverture"
+    "chooseCover": "Choisissez l'image de couverture",
+    "street": "Rue",
+    "city": "Ville",
+    "state": "État",
+    "country": "Pays",
+    "postal": "Code Postal",
+    "typeAdress": "Tapez l'Adresse"
   }
 }

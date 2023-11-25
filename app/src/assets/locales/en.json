@@ -108,6 +108,9 @@
     "remove": "remove",
     "addHours": "Add Hours",
     "to": "to",
-    "from": "from"
+    "from": "from",
+    "drag": "Drag & drop images or",
+    "browse": "browse",
+    "chooseCover": "Choose the cover Image"
   }
 }

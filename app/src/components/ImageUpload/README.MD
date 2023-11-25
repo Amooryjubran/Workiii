@@ -1,12 +1,15 @@
+Example on how to use the Images Upload Slider
+
+```jsx
 import { useState } from "react";
-import styles from "./style.module.css";
 import ImageUpload from "@/components/ImageUpload";
 
-export default function Images() {
+const ExampleComponent = () => {
   const [images, setImages] = useState([]);
   return (
-    <div className={styles.imageContainer}>
+    <div>
       <ImageUpload images={images} setImages={setImages} />
     </div>
   );
-}
+};
+```

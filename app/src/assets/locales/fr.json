@@ -108,6 +108,9 @@
     "remove": "retirer",
     "addHours": "Ajouter des heures",
     "to": "à",
-    "from": "depuis"
+    "from": "depuis",
+    "drag": "Glissez et déposez des images ou",
+    "browse": "parcourir",
+    "chooseCover": "Choisissez l'image de couverture"
   }
 }

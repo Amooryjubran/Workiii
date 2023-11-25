@@ -1,0 +1,50 @@
+.slick-slide {
+  margin: 0 15px;
+}
+
+.slick-list {
+  margin: 0 -15px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 200px;
+  min-height: 120px;
+}
+
+.slick-track {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.slick-prev:before,
+.slick-next:before,
+.slick-prev,
+.slick-next {
+  display: none;
+  box-shadow: 0 2px 20px -2px #00000014;
+  width: 25px !important;
+  height: 25px !important;
+  border-radius: 100%;
+}
+.slick-next {
+  top: 36%;
+}
+.slick-prev {
+  top: 40%;
+}
+@media (max-width: 1028px) {
+  .slick-slide {
+    margin: 0 10px;
+  }
+
+  .slick-list {
+    margin: 0 -10px;
+  }
+  .slick-prev,
+  .slick-next {
+    right: -20px;
+  }
+}

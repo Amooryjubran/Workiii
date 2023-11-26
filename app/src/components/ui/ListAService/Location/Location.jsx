@@ -67,7 +67,7 @@ export default function Location() {
                   : styles.suggestionWrapperEmpty
               }
             >
-              {loading && <div>Loading...</div>}
+              {loading && <div>...</div>}
 
               {suggestions.map((suggestion, index) => {
                 return (

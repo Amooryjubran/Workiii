@@ -65,28 +65,24 @@ export default function ImageUpload({ images, setImages }) {
       src: URL.createObjectURL(file),
       isDefault: false,
     }));
-    setImages((prevImages) => [...prevImages, ...newImages]);
+    setImages([...images, ...newImages]);
   };
 
   const handleSetDefault = (index) => {
-    setImages((prevImages) => {
-      const newImages = [...prevImages];
-      newImages.forEach((img) => (img.isDefault = false));
-      newImages[index].isDefault = true;
-      return [
-        newImages[index],
-        ...newImages.slice(0, index),
-        ...newImages.slice(index + 1),
-      ];
-    });
+    const newImages = images.map((img, idx) => ({
+      ...img,
+      isDefault: idx === index,
+    }));
+    // Move the default image to the start of the array
+    const defaultImage = newImages.splice(index, 1)[0];
+    newImages.unshift(defaultImage);
+    setImages(newImages);
   };
 
   const handleRemoveImage = (index) => {
-    setImages((prevImages) => {
-      const newImages = [...prevImages];
-      newImages.splice(index, 1);
-      return newImages;
-    });
+    const newImages = [...images];
+    newImages.splice(index, 1);
+    setImages(newImages);
   };
 
   const sliderSettings = {

@@ -37,6 +37,7 @@ const {
   getServicesFromWishlist,
   servicesCategories,
   topServices,
+  listAService,
   createUser,
   verifyUser,
   signIn,
@@ -63,6 +64,7 @@ app.get("/api/servicesCategories", servicesCategories);
 app.post("/api/createUser", createUser);
 app.post("/api/verifyUser", verifyUser);
 app.post("/api/signIn", signIn);
+app.post("/api/listAService", listAService);
 
 // PATCH
 app.patch("/api/addToWishList", addToWishList);

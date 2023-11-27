@@ -11,6 +11,7 @@ const removeFromWishList = require("./controllers/Services/wishList/removeFromWi
 // Services
 const topServices = require("./controllers/Services/TopServices");
 const servicesCategories = require("./controllers/Services/servicesCategories");
+const listAService = require("./controllers/Services/listAService");
 
 module.exports = {
   // GET
@@ -22,6 +23,7 @@ module.exports = {
   createUser,
   verifyUser,
   signIn,
+  listAService,
 
   // PATCH
   addToWishList,

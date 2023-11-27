@@ -59,12 +59,27 @@ export default function ImageUpload({ images, setImages }) {
   const inputRef = useRef();
   const windowWidth = useWindowWidth();
 
-  const handleImageChange = (event) => {
+  const handleImageChange = async (event) => {
     const fileList = Array.from(event.target.files);
-    const newImages = fileList.map((file) => ({
-      src: URL.createObjectURL(file),
+
+    const uploadPromises = fileList.map((file) => {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", import.meta.env.VITE_IMG_NAME);
+
+      return fetch(import.meta.env.VITE_IMG_CODE, {
+        method: "POST",
+        body: formData,
+      }).then((response) => response.json());
+    });
+
+    const uploadedImages = await Promise.all(uploadPromises);
+
+    const newImages = uploadedImages.map((img) => ({
+      src: img.secure_url,
       isDefault: false,
     }));
+
     setImages([...images, ...newImages]);
   };
 
@@ -73,7 +88,6 @@ export default function ImageUpload({ images, setImages }) {
       ...img,
       isDefault: idx === index,
     }));
-    // Move the default image to the start of the array
     const defaultImage = newImages.splice(index, 1)[0];
     newImages.unshift(defaultImage);
     setImages(newImages);

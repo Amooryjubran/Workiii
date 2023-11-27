@@ -1,5 +1,6 @@
 import useListAServiceStore from "@/store/useListAServiceStore";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
 import Back from "images/Signup/back.svg";
 import ServiceInformationImg from "images/ListAService/service.svg";
@@ -12,10 +13,14 @@ import Images from "@/components/ui/ListAService/Images";
 import Booking from "@/components/ui/ListAService/Booking";
 import Location from "@/components/ui/ListAService/Location";
 import ServiceInformation from "@/components/ui/ListAService/ServiceInformation";
+import useUserStore from "@/store/useUserStore";
 
 export default function ListAService() {
   const { t } = useTranslation();
-  const { step, goToNextStep, setStep, reset } = useListAServiceStore();
+  const { user } = useUserStore();
+  const navigate = useNavigate();
+  const { step, goToNextStep, setStep, reset, submitService } =
+    useListAServiceStore();
 
   // Mapping object for tab images
   const tabImages = {
@@ -31,7 +36,13 @@ export default function ListAService() {
   const CurrentStepComponent = stepComponents[step - 1];
 
   const handleTabClick = (newStep) => {
-    setStep(newStep); // Function to directly set the step
+    setStep(newStep);
+  };
+  const handleSubmission = async () => {
+    const response = await submitService(user._id);
+    if (response.status === 200) {
+      navigate("/dashboard");
+    }
   };
 
   return (
@@ -76,9 +87,13 @@ export default function ListAService() {
         {CurrentStepComponent && <CurrentStepComponent />}
       </div>
 
-      {step < 4 && (
+      {step < 4 ? (
         <button className={styles.nextButton} onClick={goToNextStep}>
           {t("listAService.Next")}
+        </button>
+      ) : (
+        <button className={styles.submitButton} onClick={handleSubmission}>
+          {t("listAService.Submit")}
         </button>
       )}
     </div>

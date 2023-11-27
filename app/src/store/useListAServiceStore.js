@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import axios from "axios";
 
 const useListAServiceStore = create((set) => ({
   // State variables
@@ -66,6 +67,41 @@ const useListAServiceStore = create((set) => ({
     set((state) => ({
       errors: { ...state.errors, ...errorData },
     }));
+  },
+
+  // Function to submit service data using Axios
+  submitService: async (userId) => {
+    const state = useListAServiceStore.getState();
+    const apiEndpoint = `${import.meta.env.VITE_API}/api/listAService`;
+    try {
+      const response = await axios.post(apiEndpoint, {
+        serviceData: {
+          serviceInfo: state.serviceInfo,
+          booking: state.booking,
+          location: state.location,
+          images: state.images,
+        },
+        userId: userId,
+      });
+
+      if (response.status === 200) {
+        // Reset state on success
+        set({
+          step: 1,
+          serviceInfo: {},
+          booking: [],
+          location: [],
+          images: [],
+        });
+      } else {
+        console.log(response);
+      }
+
+      return response.data; // Return the response data
+    } catch (error) {
+      console.error("Error submitting service:", error);
+      // Handle the error (e.g., show an error message)
+    }
   },
 
   // Reset function to reset all states and start over

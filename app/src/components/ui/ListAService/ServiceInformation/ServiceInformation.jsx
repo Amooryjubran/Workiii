@@ -26,8 +26,27 @@ export default function ServiceInformation() {
   };
   const handleFileSelect = (file) => {
     if (file) {
-      // Update Zustand store with the file
-      setServiceInfo({ serviceCertificate: file });
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", import.meta.env.VITE_IMG_NAME);
+
+      // Upload file to Cloudinary
+      fetch(import.meta.env.VITE_IMG_CODE, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.secure_url) {
+            // Update Zustand store with the URL of the uploaded file
+            setServiceInfo({ serviceCertificate: data.secure_url });
+          } else {
+            console.error("Cloudinary upload error:", data.error);
+          }
+        })
+        .catch((error) => {
+          console.error("Cloudinary upload failed:", error);
+        });
     }
   };
   let categories = data?.data[0]?.categories;

@@ -118,5 +118,9 @@
     "country": "بلد",
     "postal": "الرمز البريدي",
     "typeAdress": "اكتب العنوان"
+  },
+  "dashboard": {
+    "Services": "الخدمات",
+    "Users": "المستخدمين"
   }
 }

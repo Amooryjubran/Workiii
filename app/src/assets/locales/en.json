@@ -118,5 +118,9 @@
     "country": "Country",
     "postal": "Postal Code",
     "typeAdress": "Type Address"
+  },
+  "dashboard": {
+    "Services": "Services",
+    "Users": "Users"
   }
 }

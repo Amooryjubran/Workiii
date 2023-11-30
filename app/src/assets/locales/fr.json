@@ -118,5 +118,9 @@
     "country": "Pays",
     "postal": "Code Postal",
     "typeAdress": "Tapez l'Adresse"
+  },
+  "dashboard": {
+    "Services": "Services",
+    "Users": "Utilisatrices"
   }
 }

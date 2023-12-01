@@ -130,3 +130,9 @@
 .arrow {
   transform: rotate(90deg);
 }
+@media (max-width: 1028px) {
+  .logoLinkImg {
+    max-height: none;
+    max-width: 100px;
+  }
+}

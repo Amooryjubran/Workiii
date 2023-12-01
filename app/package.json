@@ -18,6 +18,7 @@
     "history": "^5.3.0",
     "i18next": "^23.6.0",
     "intl": "^1.2.5",
+    "path-to-regexp": "^6.2.1",
     "react": "^18.2.0",
     "react-awesome-stars-rating": "^0.15.0",
     "react-carousel": "^4.3.0",

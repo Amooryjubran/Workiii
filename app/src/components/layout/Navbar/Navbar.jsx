@@ -14,6 +14,7 @@ import { useWindowWidth } from "@/hooks/useWindowWidth";
 import MobileNav from "./MobileNav";
 import ProfileHeader from "./ProfileHeader";
 import useUserStore from "@/store/useUserStore";
+import { isPathExcluded } from "@/helpers/pathHelper";
 
 export default function Navbar() {
   const { user } = useUserStore();
@@ -40,6 +41,13 @@ export default function Navbar() {
     );
     navigate(newPathname);
   };
+
+  const pathsToExclude = [
+    "/en/dashboard", // Dashboard Page,
+  ];
+
+  if (isPathExcluded(location.pathname, pathsToExclude)) return null;
+
   if (windowWidth <= 1024) {
     return <MobileNav />;
   }

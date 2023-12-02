@@ -121,6 +121,7 @@
   },
   "dashboard": {
     "Services": "الخدمات",
-    "Users": "المستخدمين"
+    "Users": "المستخدمين",
+    "Categories": "الفئات"
   }
 }

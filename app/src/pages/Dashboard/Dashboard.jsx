@@ -1,7 +1,7 @@
 import useUserStore from "@/store/useUserStore";
 import { useNavigate } from "react-router-dom";
 import { useDashboardTabs } from "./dashboardTabs";
-import DynamicTabs from "@/components/DynamicTabs";
+import DynamicTabs from "@/components/ui/Dashboard/DynamicTabs";
 import styles from "./style.module.css";
 
 export default function Dashboard() {

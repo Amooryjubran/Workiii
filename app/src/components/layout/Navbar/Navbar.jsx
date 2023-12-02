@@ -43,7 +43,7 @@ export default function Navbar() {
   };
 
   const pathsToExclude = [
-    "/en/dashboard", // Dashboard Page,
+    `/${currentLanguage}/dashboard`, // Dashboard Page,
   ];
 
   if (isPathExcluded(location.pathname, pathsToExclude)) return null;

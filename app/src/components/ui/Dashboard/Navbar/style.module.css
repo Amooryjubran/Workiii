@@ -1,0 +1,32 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 34px;
+}
+.searchInput {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 32px;
+  background: var(--neutral-50);
+  padding: 10px 16px;
+}
+.searchContainer {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: Lama Sans;
+  color: var(--neutral-500);
+  font-style: normal;
+  font-size: 14px;
+}
+.searchContainer::placeholder {
+  font-family: Lama Sans;
+  color: var(--neutral-500);
+  font-style: normal;
+  font-size: 14px;
+}

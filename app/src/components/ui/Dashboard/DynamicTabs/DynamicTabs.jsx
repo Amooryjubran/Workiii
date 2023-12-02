@@ -6,6 +6,7 @@ import LinkButton from "@/components/Link";
 import Logo from "@/assets/logo.svg";
 import Arrow from "images/chev.svg";
 import Button from "@/components/Button";
+import Navbar from "../Navbar";
 
 const DynamicTabs = ({ tabs }) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -46,7 +47,10 @@ const DynamicTabs = ({ tabs }) => {
             </button>
           ))}
       </div>
-      <div className={styles.tabContent}>{tabs[activeTabIndex].component}</div>
+      <div className={styles.tabContent}>
+        <Navbar />
+        {tabs[activeTabIndex].component}
+      </div>
     </div>
   );
 };

@@ -13,11 +13,15 @@ const topServices = require("./controllers/Services/TopServices");
 const servicesCategories = require("./controllers/Services/servicesCategories");
 const listAService = require("./controllers/Services/listAService");
 
+// Dashboard
+const getCategories = require("./controllers/Dashboard/Categories/getCategories");
+
 module.exports = {
   // GET
   topServices,
   getServicesFromWishlist,
   servicesCategories,
+  getCategories,
 
   // POST
   createUser,

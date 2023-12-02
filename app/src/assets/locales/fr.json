@@ -121,6 +121,7 @@
   },
   "dashboard": {
     "Services": "Services",
-    "Users": "Utilisatrices"
+    "Users": "Utilisatrices",
+    "Categories": "Catégories"
   }
 }

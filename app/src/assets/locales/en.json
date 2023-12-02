@@ -121,6 +121,7 @@
   },
   "dashboard": {
     "Services": "Services",
-    "Users": "Users"
+    "Users": "Users",
+    "Categories": "Categories"
   }
 }

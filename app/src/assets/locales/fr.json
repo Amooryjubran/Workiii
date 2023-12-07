@@ -137,6 +137,8 @@
     "Required": "Requis",
     "Non": "Non",
     "Save": "Enregistrer",
-    "Cancel": "Annuler"
+    "Cancel": "Annuler",
+    "DeleteCategory": "Supprimer la catégorie !",
+    "DeleteCategorySure": "Etes-vous sûr de vouloir supprimer"
   }
 }

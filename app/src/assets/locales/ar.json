@@ -137,6 +137,8 @@
     "Required": "مطلوب",
     "Non": "لا",
     "Save": "حفظ",
-    "Cancel": "إلغاء"
+    "Cancel": "إلغاء",
+    "DeleteCategory": "حذف الفئة!",
+    "DeleteCategorySure": "هل أنت متأكد أنك تريد الحذف"
   }
 }

@@ -3,7 +3,14 @@ import DeleteImg from "images/Dashboard/delete.svg";
 import EditImg from "images/Dashboard/edit.svg";
 import Image from "@/components/Image";
 
-export const Columns = (setModalData, setModal, styles, t) => {
+export const Columns = (
+  setModalData,
+  setModal,
+  styles,
+  t,
+  setCategoryData,
+  setDeleteModal
+) => {
   return [
     {
       Header: t("dashboard.Number"),
@@ -54,7 +61,12 @@ export const Columns = (setModalData, setModal, styles, t) => {
               <Image src={EditImg} alt={t("dashboard.Edit")} />
               <span>{t("dashboard.Edit")}</span>
             </Button>
-            <Button>
+            <Button
+              onClick={() => {
+                setCategoryData(row.original); // eslint-disable-line react/prop-types
+                setDeleteModal(true);
+              }}
+            >
               <Image src={DeleteImg} alt={t("dashboard.Delete")} />
               <span>{t("dashboard.Delete")}</span>
             </Button>

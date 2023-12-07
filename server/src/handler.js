@@ -15,7 +15,8 @@ const listAService = require("./controllers/Services/listAService");
 
 // Dashboard
 const getCategories = require("./controllers/Dashboard/Categories/getCategories");
-
+const addCategory = require("./controllers/Dashboard/Categories/addCategory");
+const deleteCategory = require("./controllers/Dashboard/Categories/deleteCategory");
 module.exports = {
   // GET
   topServices,
@@ -28,10 +29,12 @@ module.exports = {
   verifyUser,
   signIn,
   listAService,
+  addCategory,
 
   // PATCH
   addToWishList,
 
   // DELETE
   removeFromWishList,
+  deleteCategory,
 };

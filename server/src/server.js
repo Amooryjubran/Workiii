@@ -44,6 +44,8 @@ const {
   signIn,
   addToWishList,
   removeFromWishList,
+  addCategory,
+  deleteCategory,
 } = require("./handler");
 
 // controllers
@@ -67,12 +69,14 @@ app.post("/api/createUser", createUser);
 app.post("/api/verifyUser", verifyUser);
 app.post("/api/signIn", signIn);
 app.post("/api/listAService", listAService);
+app.post("/api/addCategory", addCategory);
 
 // PATCH
 app.patch("/api/addToWishList", addToWishList);
 
 // DELETE
 app.delete("/api/removeFromWishList", removeFromWishList);
+app.delete("/api/deleteCategory", deleteCategory);
 
 // Start the server with server.listen, not app.listen
 server.listen(PORT, () => {

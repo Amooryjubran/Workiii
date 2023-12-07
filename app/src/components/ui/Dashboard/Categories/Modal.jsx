@@ -3,6 +3,8 @@ import styles from "./style.module.css";
 import PropTypes from "prop-types";
 import Input from "@/components/Input";
 import { useTranslation } from "react-i18next";
+import useUserStore from "@/store/useUserStore";
+import useCategoriesStore from "@/store/Dashboard/useCategories";
 
 export default function Modal({
   category,
@@ -15,7 +17,20 @@ export default function Modal({
     certificate || false
   );
   const { t } = useTranslation();
+  const { user } = useUserStore();
+  const { addCategory } = useCategoriesStore();
 
+  const handleCancelCategory = () => {
+    setModal(false);
+    setModalData({
+      category: "",
+      certificate: false,
+    });
+  };
+  const handleAddingCategory = () => {
+    addCategory(user._id, categoryName, certificateState);
+    handleCancelCategory();
+  };
   return (
     <div className={styles.newCategoryModal}>
       <h1>{t("dashboard.AddCategory")}</h1>
@@ -62,16 +77,10 @@ export default function Modal({
         </div>
       </div>
       <div className={styles.modalsBtns}>
-        <button>{t("dashboard.Save")}</button>
-        <button
-          onClick={() => {
-            setModal(false);
-            setModalData({
-              category: "",
-              certificate: false,
-            });
-          }}
-        >
+        <button onClick={() => handleAddingCategory()}>
+          {t("dashboard.Save")}
+        </button>
+        <button onClick={() => handleCancelCategory()}>
           {t("dashboard.Cancel")}
         </button>
       </div>

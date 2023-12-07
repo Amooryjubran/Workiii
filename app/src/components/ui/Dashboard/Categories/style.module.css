@@ -317,3 +317,49 @@ table th:last-child {
   background: var(--primery, #39374d);
   color: white;
 }
+
+/* --- Delete Category Modal ---*/
+.deleteCategoryModal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  overscroll-behavior: contain;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  height: fit-content;
+  min-height: 300px;
+  box-shadow: #000000b3 0 0 100vh 100vh;
+  z-index: 9999999;
+  width: 100%;
+  max-width: 662px;
+  position: fixed;
+}
+.deleteCategoryModal > h1 {
+  text-align: center;
+}
+.deleteCategoryModal > p {
+  text-align: center;
+}
+.newCategoryModalBtns {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.newCategoryModalBtns > button {
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 18px 24px;
+  border-radius: 16px;
+}
+.newCategoryModalBtns > button:not(:first-child) {
+  background: var(--primery, #39374d);
+  color: white;
+}

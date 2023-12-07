@@ -137,6 +137,8 @@
     "Required": "Required",
     "Non": "Non",
     "Save": "Save",
-    "Cancel": "Cancel"
+    "Cancel": "Cancel",
+    "DeleteCategory": "Delete Category !",
+    "DeleteCategorySure": "Are you sure you wanna delete"
   }
 }

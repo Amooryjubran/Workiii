@@ -122,6 +122,21 @@
   "dashboard": {
     "Services": "الخدمات",
     "Users": "المستخدمين",
-    "Categories": "الفئات"
+    "Categories": "الفئات",
+    "AddCategory": "أضف فئة جديدة",
+    "Number": "الرقم",
+    "Category": "الفئة",
+    "NumberOfServices": "عدد الخدمات",
+    "CertificateRequired": "شهادة مطلوبة",
+    "Status": "الحالة",
+    "Actions": "الإجراءات",
+    "Edit": "تعديل",
+    "Delete": "حذف",
+    "CategoryName": "اسم الفئة",
+    "Certificate": "شهادة",
+    "Required": "مطلوب",
+    "Non": "لا",
+    "Save": "حفظ",
+    "Cancel": "إلغاء"
   }
 }

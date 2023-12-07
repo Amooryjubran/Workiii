@@ -166,3 +166,154 @@ table th:last-child {
 .actionsBtns > button:first-child {
   color: var(--success-600, #5bae60);
 }
+
+/* --- Header --- */
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 95%;
+  margin: 30px 0;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.headerContainerParent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.headerContainerParent > h1 {
+  color: var(--neutral-700, #514f6e);
+  font-size: 22px;
+  margin: 0;
+}
+.headerContainerParent > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: Lama Sans;
+}
+.headerContainerTitle {
+  color: var(--neutral-500, #a0a3bd);
+}
+
+.headerContainerCurrentTab {
+  color: var(--Secondary, #ffb142);
+}
+.addNewCategoryBtn {
+  padding: 12px 24px;
+  max-width: 202px;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--Primary, #39374d);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.addNewCategoryBtn > div {
+  filter: brightness(0) invert(1);
+}
+.addNewCategoryBtn > span {
+  font-family: Lama Sans;
+  color: var(--neutral-white, #fff);
+}
+
+/* --- Category Modal --- */
+.newCategoryModal {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: #fff;
+  border-radius: 10px;
+  overscroll-behavior: contain;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  height: fit-content;
+  min-height: 456px;
+  box-shadow: #000000b3 0 0 100vh 100vh;
+  z-index: 9999999;
+  width: 100%;
+  max-width: 662px;
+  position: fixed;
+}
+.newCategoryModal > h1 {
+  color: var(--neutral-800, #0f1f48);
+}
+.newCategoryModal > div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.newCategoryModal > div > span {
+  color: var(--neutral-500, #a0a3bd);
+  font-size: 16px;
+}
+.radioGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.radioGroup > label {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+}
+.newCategoryModalInput {
+  min-height: 60px;
+}
+.radioLabel {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  user-select: none;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+
+.radioLabelActive {
+  border: 1px solid var(--Secondary, #ffb142);
+  background: var(--warning-100, #fefbee);
+  color: var(--Secondary, #ffb142);
+}
+
+.radioInput {
+  display: none;
+}
+
+.modalsBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row !important;
+}
+
+.modalsBtns > button {
+  max-width: 120px;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 18px 24px;
+  border-radius: 16px;
+}
+.modalsBtns > button:first-child {
+  background: var(--primery, #39374d);
+  color: white;
+}

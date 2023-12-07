@@ -1,55 +1,66 @@
 import Button from "@/components/Button";
-import styles from "./style.module.css";
 import DeleteImg from "images/Dashboard/delete.svg";
 import EditImg from "images/Dashboard/edit.svg";
 import Image from "@/components/Image";
-export const Columns = [
-  {
-    Header: "#",
-    accessor: (_, rowIndex) => rowIndex + 1,
-    id: "rowIndex",
-  },
-  {
-    Header: "Category",
-    accessor: "category",
-  },
-  {
-    Header: "Services",
-    accessor: "numberOfServices",
-  },
-  {
-    Header: "Certificate Required",
-    accessor: "certificateReuired",
-    Cell: (
-      { value } // eslint-disable-line react/prop-types
-    ) => (
-      <div
-        className={`${styles.certificateStatus} ${
-          value ? styles.certificateRequired : styles.certificateNotRequired
-        }`}
-      >
-        {value ? "Required" : "Non"}
-      </div>
-    ),
-  },
-  {
-    Header: "Status",
-    accessor: "status",
-  },
-  {
-    Header: "Actions",
-    id: "actions",
-    Cell: () => (
-      <div className={styles.actionsBtns}>
-        <Button>
-          <Image src={EditImg} alt="Edit" />
-          <span>Edit</span>
-        </Button>
-        <Button>
-          <Image src={DeleteImg} alt="Delete" />
-          <span>Delete</span>
-        </Button>
-      </div>
-    ),
-  },
-];
+
+export const Columns = (setModalData, setModal, styles, t) => {
+  return [
+    {
+      Header: t("dashboard.Number"),
+      accessor: (_, rowIndex) => rowIndex + 1,
+      id: "rowIndex",
+    },
+    {
+      Header: t("dashboard.Category"),
+      accessor: "category",
+    },
+    {
+      Header: t("dashboard.Services"),
+      accessor: "numberOfServices",
+    },
+    {
+      Header: t("dashboard.CertificateRequired"),
+      accessor: "certificateRequired",
+      Cell: (
+        { value } // eslint-disable-line react/prop-types
+      ) => (
+        <div
+          className={`${styles.certificateStatus} ${
+            value ? styles.certificateRequired : styles.certificateNotRequired
+          }`}
+        >
+          {value ? t("dashboard.Required") : t("dashboard.Non")}
+        </div>
+      ),
+    },
+    {
+      Header: t("dashboard.Status"),
+      accessor: "status",
+    },
+    {
+      Header: t("dashboard.Actions"),
+      id: "actions",
+      Cell: (
+        { row } // eslint-disable-line react/prop-types
+      ) => {
+        return (
+          <div className={styles.actionsBtns}>
+            <Button
+              onClick={() => {
+                setModalData(row.original); // eslint-disable-line react/prop-types
+                setModal(true);
+              }}
+            >
+              <Image src={EditImg} alt={t("dashboard.Edit")} />
+              <span>{t("dashboard.Edit")}</span>
+            </Button>
+            <Button>
+              <Image src={DeleteImg} alt={t("dashboard.Delete")} />
+              <span>{t("dashboard.Delete")}</span>
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};

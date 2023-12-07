@@ -122,6 +122,21 @@
   "dashboard": {
     "Services": "Services",
     "Users": "Users",
-    "Categories": "Categories"
+    "Categories": "Categories",
+    "AddCategory": "Add new category",
+    "Number": "Number",
+    "Category": "Category",
+    "NumberOfServices": "Number of Services",
+    "CertificateRequired": "Certificate Required",
+    "Status": "Status",
+    "Actions": "Actions",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "CategoryName": "Category Name",
+    "Certificate": "Certificate",
+    "Required": "Required",
+    "Non": "Non",
+    "Save": "Save",
+    "Cancel": "Cancel"
   }
 }

@@ -121,7 +121,22 @@
   },
   "dashboard": {
     "Services": "Services",
-    "Users": "Utilisatrices",
-    "Categories": "Catégories"
+    "Users": "Utilisateurs",
+    "Categories": "Catégories",
+    "AddCategory": "Ajouter une nouvelle catégorie",
+    "Number": "Numéro",
+    "Category": "Catégorie",
+    "NumberOfServices": "Nombre de services",
+    "CertificateRequired": "Certificat requis",
+    "Status": "Statut",
+    "Actions": "Actions",
+    "Edit": "Modifier",
+    "Delete": "Supprimer",
+    "CategoryName": "Nom de la catégorie",
+    "Certificate": "Certificat",
+    "Required": "Requis",
+    "Non": "Non",
+    "Save": "Enregistrer",
+    "Cancel": "Annuler"
   }
 }

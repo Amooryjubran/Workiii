@@ -18,7 +18,7 @@ jobs:
       - name: Push to WorkiiiServerproduction repository
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN  }}
           repository: Amooryjubran/WorkiiiServerproduction
           directory: server
           branch: main

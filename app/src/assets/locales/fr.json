@@ -139,6 +139,12 @@
     "Save": "Enregistrer",
     "Cancel": "Annuler",
     "DeleteCategory": "Supprimer la catégorie !",
-    "DeleteCategorySure": "Etes-vous sûr de vouloir supprimer"
+    "DeleteCategorySure": "Etes-vous sûr de vouloir supprimer",
+    "User": "Utilisateur",
+    "Type": "Type",
+    "PhoneNumber": "Numéro de Téléphone",
+    "MemberSince": "Membre Depuis",
+    "State": "État",
+    "Details": "Détails"
   }
 }

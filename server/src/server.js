@@ -38,6 +38,8 @@ const {
   servicesCategories,
   topServices,
   getCategories,
+  getAllUsers,
+
   listAService,
   createUser,
   verifyUser,
@@ -63,6 +65,7 @@ app.get("/api/topServices", topServices);
 app.get("/api/user/:userId/wishlist", getServicesFromWishlist);
 app.get("/api/servicesCategories", servicesCategories);
 app.get("/api/getCategories", getCategories);
+app.get("/api/getAllUsers", getAllUsers);
 
 // POST
 app.post("/api/createUser", createUser);

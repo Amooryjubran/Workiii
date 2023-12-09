@@ -25,3 +25,8 @@ export const deleteCategory = async (userId, categoryId) => {
     },
   });
 };
+
+// Function to get the list of users
+export const getAllUsers = async () => {
+  return axios.get(`${API_BASE_URL}/api/getAllUsers`);
+};

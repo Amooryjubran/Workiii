@@ -139,6 +139,12 @@
     "Save": "Save",
     "Cancel": "Cancel",
     "DeleteCategory": "Delete Category !",
-    "DeleteCategorySure": "Are you sure you wanna delete"
+    "DeleteCategorySure": "Are you sure you wanna delete",
+    "User": "User",
+    "Type": "Type",
+    "PhoneNumber": "Phone Number",
+    "MemberSince": "Member Since",
+    "State": "State",
+    "Details": "Details"
   }
 }

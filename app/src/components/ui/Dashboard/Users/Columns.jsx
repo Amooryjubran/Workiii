@@ -2,6 +2,12 @@ import Image from "@/components/Image";
 import LinkButton from "@/components/Link";
 import DetailsImg from "images/Dashboard/details.svg";
 export const Columns = (styles, t) => {
+  // Mapping user types to their CSS classes
+  const userTypeStyles = {
+    admin: styles.adminType,
+    provider: styles.providerType,
+    client: styles.clientType,
+  };
   return [
     {
       Header: "#",
@@ -14,7 +20,16 @@ export const Columns = (styles, t) => {
     },
     {
       Header: t("dashboard.Type"),
-      accessor: "userType",
+      id: "userType",
+      Cell: (
+        { row } // eslint-disable-line react/prop-types
+      ) => {
+        let userType = row?.original?.userType; // eslint-disable-line react/prop-types
+        const specificClassName = userTypeStyles[userType] || "";
+        const combinedClassName = `${styles.userType} ${specificClassName}`;
+
+        return <div className={combinedClassName}>{userType}</div>;
+      },
     },
     {
       Header: t("dashboard.PhoneNumber"),
@@ -38,7 +53,7 @@ export const Columns = (styles, t) => {
     },
     {
       Header: t("dashboard.State"),
-      accessor: "State",
+      accessor: "status",
     },
     {
       Header: t("dashboard.Actions"),

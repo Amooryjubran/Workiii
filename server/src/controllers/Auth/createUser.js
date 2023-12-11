@@ -52,6 +52,7 @@ const createUser = async (req, res) => {
       profileImg: "",
       userType: userType,
       phoneNumber: phoneNumber,
+      status: "active",
       email: email,
       password: "",
       isVerified: false,

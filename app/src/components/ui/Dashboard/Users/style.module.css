@@ -130,3 +130,26 @@ table th:last-child {
   align-items: center;
   gap: 7.5px;
 }
+.userType {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 14px;
+  width: fit-content;
+}
+.adminType {
+  background-color: #b2e1e8;
+  color: #17a2b8;
+  border: 1px solid #17a2b8;
+}
+.clientType {
+  color: var(--Primary, #39374d);
+  background: var(--neutral-300, #eff0f6);
+  border: 1px solid var(--Primary, #39374d);
+}
+.providerType {
+  color: var(--Secondary, #ffb142);
+  border: 1px solid #ffb142;
+  background: var(--warning-100, #fefbee);
+}

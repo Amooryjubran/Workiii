@@ -18,6 +18,7 @@ export const useDashboardTabs = () => {
       label: t("dashboard.Users"),
       component: <Users />,
       image: UsersImg,
+      action: "resetUserTab",
     },
     {
       label: t("dashboard.Categories"),

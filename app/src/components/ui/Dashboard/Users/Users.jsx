@@ -4,19 +4,23 @@ import { useTranslation } from "react-i18next";
 import TableComponent from "./Table";
 import { Columns } from "./Columns";
 import styles from "./style.module.css";
+import UserInformationTab from "./UserInformationTab";
 
 export default function Users() {
   const { t } = useTranslation();
-  const { users, fetchUsers } = useUsersStore();
+  const { users, fetchUsers, userTab } = useUsersStore();
 
   useEffect(() => {
     fetchUsers();
   }, []);
-  console.log(users);
   const columns = Columns(styles, t);
   return (
     <div>
-      <TableComponent columns={columns} data={users} />
+      {!userTab ? (
+        <TableComponent columns={columns} data={users} />
+      ) : (
+        <UserInformationTab />
+      )}
     </div>
   );
 }

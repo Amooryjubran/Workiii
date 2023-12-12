@@ -39,6 +39,7 @@ const {
   topServices,
   getCategories,
   getAllUsers,
+  getUser,
 
   listAService,
   createUser,
@@ -66,6 +67,7 @@ app.get("/api/user/:userId/wishlist", getServicesFromWishlist);
 app.get("/api/servicesCategories", servicesCategories);
 app.get("/api/getCategories", getCategories);
 app.get("/api/getAllUsers", getAllUsers);
+app.get("/api/user/:userId", getUser);
 
 // POST
 app.post("/api/createUser", createUser);

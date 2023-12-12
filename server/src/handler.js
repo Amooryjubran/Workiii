@@ -19,6 +19,7 @@ const addCategory = require("./controllers/Dashboard/Categories/addCategory");
 const deleteCategory = require("./controllers/Dashboard/Categories/deleteCategory");
 
 const getAllUsers = require("./controllers/Dashboard/Users/getAllUsers");
+const getUser = require("./controllers/Dashboard/Users/getUser");
 module.exports = {
   // GET
   topServices,
@@ -26,6 +27,7 @@ module.exports = {
   servicesCategories,
   getCategories,
   getAllUsers,
+  getUser,
 
   // POST
   createUser,

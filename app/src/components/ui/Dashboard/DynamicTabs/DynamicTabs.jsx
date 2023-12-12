@@ -7,13 +7,19 @@ import Logo from "@/assets/logo.svg";
 import Arrow from "images/chev.svg";
 import Button from "@/components/Button";
 import Navbar from "../Navbar";
+import useUsersStore from "@/store/Dashboard/useUsers";
 
 const DynamicTabs = ({ tabs }) => {
+  const { resetUserTab } = useUsersStore();
+
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
-  const handleTabChange = (index) => {
+  const handleTabChange = (tab, index) => {
     setActiveTabIndex(index);
+    if (tab.action === "resetUserTab") {
+      resetUserTab();
+    }
   };
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
@@ -40,7 +46,7 @@ const DynamicTabs = ({ tabs }) => {
                   ? `${styles.tab} ${styles.activeTab}`
                   : styles.tab
               }
-              onClick={() => handleTabChange(index)}
+              onClick={() => handleTabChange(tab, index)}
             >
               {tab.image && <Image src={tab.image} alt={`${tab.label} icon`} />}
               {tab.label}

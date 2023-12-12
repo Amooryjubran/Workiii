@@ -30,3 +30,8 @@ export const deleteCategory = async (userId, categoryId) => {
 export const getAllUsers = async () => {
   return axios.get(`${API_BASE_URL}/api/getAllUsers`);
 };
+
+// Function to get a specific user's information
+export const getUser = async (userId) => {
+  return axios.get(`${API_BASE_URL}/api/user/${userId}`);
+};

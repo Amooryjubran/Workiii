@@ -129,6 +129,10 @@ table th:last-child {
   display: flex;
   align-items: center;
   gap: 7.5px;
+  border: transparent;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
 }
 .userType {
   display: flex;

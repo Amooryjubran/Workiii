@@ -35,3 +35,13 @@ export const getAllUsers = async () => {
 export const getUser = async (userId) => {
   return axios.get(`${API_BASE_URL}/api/user/${userId}`);
 };
+
+// Function to get the list of services
+export const getAllServices = async () => {
+  return axios.get(`${API_BASE_URL}/api/getAllServices`);
+};
+
+// Function to get a specific service's information
+export const getService = async (serviceId) => {
+  return axios.get(`${API_BASE_URL}/api/service/${serviceId}`);
+};

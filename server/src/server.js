@@ -34,12 +34,15 @@ app.use(morgan("dev"));
 app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true, limit: "5mb" }));
 const {
+  // GET
   getServicesFromWishlist,
   servicesCategories,
   topServices,
   getCategories,
   getAllUsers,
   getUser,
+  getAllServices,
+  getService,
 
   listAService,
   createUser,
@@ -68,6 +71,8 @@ app.get("/api/servicesCategories", servicesCategories);
 app.get("/api/getCategories", getCategories);
 app.get("/api/getAllUsers", getAllUsers);
 app.get("/api/user/:userId", getUser);
+app.get("/api/getAllServices", getAllServices);
+app.get("/api/service/:serviceId", getService);
 
 // POST
 app.post("/api/createUser", createUser);

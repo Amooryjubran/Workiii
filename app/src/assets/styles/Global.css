@@ -12,3 +12,7 @@ body {
   overflow-x: hidden;
   min-width: 350px;
 }
+html,
+#root {
+  height: 100%;
+}

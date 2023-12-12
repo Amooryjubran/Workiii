@@ -1,0 +1,119 @@
+.userInformationParent {
+  background: var(--neutral-25, #fcfcfd);
+  padding: 14px 34px;
+}
+/* --- Header --- */
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 95%;
+  margin: 30px 0;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.headerContainerParent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.headerContainerParent > h1 {
+  color: var(--neutral-700, #514f6e);
+  font-size: 22px;
+  margin: 0;
+}
+.headerContainerParent > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: Lama Sans;
+}
+.headerContainerTitle {
+  color: var(--neutral-500, #a0a3bd);
+}
+
+.headerContainerCurrentTab {
+  color: var(--Secondary, #ffb142);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: fit-content;
+  padding: 0;
+}
+.addNewCategoryBtn {
+  padding: 12px 24px;
+  max-width: 202px;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--Primary, #39374d);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.addNewCategoryBtn > div {
+  filter: brightness(0) invert(1);
+}
+.addNewCategoryBtn > span {
+  font-family: Lama Sans;
+  color: var(--neutral-white, #fff);
+}
+
+/* --- User Blocks --- */
+.userInformation {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 16px;
+  background: var(--neutral-white, #fff);
+  padding: 24px;
+}
+.userInformation > h1 {
+  margin: 0;
+  color: var(--neutral-800, #0f1f48);
+  font-size: 18px;
+}
+.userInformation > div {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.userProfileInitial {
+  height: 60px;
+  width: 60px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-white);
+  font-size: 18px;
+}
+.seperator {
+  background: var(--Secondary, #ffb142);
+  width: 3px;
+  height: 57px;
+}
+.userBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.userBlock > p {
+  margin: 0;
+  color: var(--neutral-500, #a0a3bd);
+  font-size: 16px;
+}
+.userBlock > span {
+  color: var(--neutral-800, #0f1f48);
+  font-size: 16px;
+}

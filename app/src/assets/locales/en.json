@@ -145,6 +145,11 @@
     "PhoneNumber": "Phone Number",
     "MemberSince": "Member Since",
     "State": "State",
-    "Details": "Details"
+    "Details": "Details",
+    "Service": "Service",
+    "Labrors": "Labrors",
+    "Amount": "Amount",
+    "ServiceState": "Service State",
+    "ServiceType": "Service Type"
   }
 }

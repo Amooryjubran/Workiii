@@ -27,8 +27,6 @@ const useServicesStore = create((set) => ({
     try {
       const response = await getService(serviceId);
       if (response && response.data) {
-        console.log(response);
-
         set({ selectedService: response.data.data });
       }
     } catch (error) {

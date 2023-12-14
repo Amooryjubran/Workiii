@@ -1,6 +1,7 @@
 import useServicesStore from "@/store/Dashboard/useServices";
 import { useEffect } from "react";
 import Header from "./Header";
+import ServiceInformation from "@/components/ServiceInformation";
 
 export default function ServiceInformationTab() {
   const { fetchService, selectedService, selectedServiceId } =
@@ -15,10 +16,10 @@ export default function ServiceInformationTab() {
   if (!selectedService) {
     return <div>...</div>;
   }
-  console.log(selectedService);
   return (
     <div>
       <Header />
+      <ServiceInformation selectedService={selectedService} />
     </div>
   );
 }

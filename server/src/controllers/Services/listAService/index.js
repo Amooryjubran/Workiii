@@ -18,6 +18,7 @@ const listAService = async (req, res) => {
     const enrichedServiceData = {
       ...serviceData,
       status: "Pending", // Set the status to 'Pending'
+      ratings: [],
       dateCreated: new Date(), // Record the creation date and time
       userId: user._id, // Link the service to the user's ID
     };

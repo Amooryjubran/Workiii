@@ -65,6 +65,7 @@
 .tabContent {
   min-height: 950px;
   width: 100%;
+  background: var(--neutral-25, #fcfcfd);
 }
 .dashboardContainer {
   display: flex;

@@ -150,6 +150,7 @@
     "Labrors": "Labrors",
     "Amount": "Amount",
     "ServiceState": "Service State",
-    "ServiceType": "Service Type"
+    "ServiceType": "Service Type",
+    "ShowImages": "Show Images"
   }
 }

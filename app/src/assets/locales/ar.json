@@ -145,6 +145,12 @@
     "PhoneNumber": "رقم الهاتف",
     "MemberSince": "عضو منذ",
     "State": "الحالة",
-    "Details": "تفاصيل"
+    "Details": "تفاصيل",
+    "Service": "Service",
+    "Labrors": "Labrors",
+    "Amount": "Amount",
+    "ServiceState": "Service State",
+    "ServiceType": "Service Type",
+    "ShowImages": "Show Images"
   }
 }

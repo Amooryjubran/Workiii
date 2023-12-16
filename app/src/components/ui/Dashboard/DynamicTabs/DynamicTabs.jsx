@@ -8,9 +8,11 @@ import Arrow from "images/chev.svg";
 import Button from "@/components/Button";
 import Navbar from "../Navbar";
 import useUsersStore from "@/store/Dashboard/useUsers";
+import useServicesStore from "@/store/Dashboard/useServices";
 
 const DynamicTabs = ({ tabs }) => {
   const { resetUserTab } = useUsersStore();
+  const { resetServiceTab } = useServicesStore();
 
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -19,6 +21,9 @@ const DynamicTabs = ({ tabs }) => {
     setActiveTabIndex(index);
     if (tab.action === "resetUserTab") {
       resetUserTab();
+    }
+    if (tab.action === "resetServicesTab") {
+      resetServiceTab();
     }
   };
   const toggleSidebar = () => {

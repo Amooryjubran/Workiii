@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Header from "./Header";
 import styles from "./style.module.css";
+import Gallery from "./Gallery";
 
 export default function ServiceInformation({ selectedService }) {
   const { location, images, booking, serviceInfo, ratings } = selectedService;
@@ -14,6 +15,7 @@ export default function ServiceInformation({ selectedService }) {
         serviceCategory={serviceCategory}
         ratings={ratings}
       />
+      <Gallery images={images} />
     </div>
   );
 }

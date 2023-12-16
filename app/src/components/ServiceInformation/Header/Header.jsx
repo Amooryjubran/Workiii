@@ -13,7 +13,6 @@ export default function Header({
   serviceCategory,
   ratings,
 }) {
-  console.log(ratings);
   return (
     <div className={styles.header}>
       <div className={styles.headerInfo}>

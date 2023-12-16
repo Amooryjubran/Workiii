@@ -10,6 +10,9 @@
   position: relative;
   transition: transform 0.3s ease-out;
   will-change: transform;
+  height: 100%;
+  position: sticky;
+  top: 0;
 }
 .tabsHidden {
   transform: translateX(-50%);
@@ -66,6 +69,9 @@
   min-height: 950px;
   width: 100%;
   background: var(--neutral-25, #fcfcfd);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .dashboardContainer {
   display: flex;

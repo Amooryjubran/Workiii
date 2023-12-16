@@ -1,3 +1,8 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .toggleSwitch {
   position: relative;
   display: inline-block;

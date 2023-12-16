@@ -15,7 +15,7 @@ export default function Services() {
   }, []);
   const columns = Columns(styles, t);
   return (
-    <div>
+    <div className={styles.wrapper}>
       {!serviceTab ? (
         <TableComponent columns={columns} data={services} />
       ) : (

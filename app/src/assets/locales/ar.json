@@ -153,6 +153,8 @@
     "ServiceType": "Service Type",
     "ShowImages": "Show Images",
     "ServiceDetails": "تفاصيل الخدمة",
-    "ServiceProvider": "مقدم الخدمة"
+    "ServiceProvider": "مقدم الخدمة",
+    "ServiceAvailabilty": "توفر الخدمة",
+    "Closed": "مغلق"
   }
 }

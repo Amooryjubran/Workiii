@@ -4,6 +4,7 @@ import styles from "./style.module.css";
 import Gallery from "./Gallery";
 import Details from "./Details";
 import Providers from "./Providers";
+import Sidebar from "./Sidebar";
 
 export default function ServiceInformation({ selectedService }) {
   const {
@@ -15,7 +16,8 @@ export default function ServiceInformation({ selectedService }) {
     providerName,
     dateCreated,
   } = selectedService;
-  const { serviceTitle, serviceCategory, serviceDescription } = serviceInfo;
+  const { serviceTitle, serviceCategory, serviceDescription, servicePrice } =
+    serviceInfo;
   let addressComponents = [
     location?.street,
     location?.city,
@@ -47,6 +49,12 @@ export default function ServiceInformation({ selectedService }) {
             location={address}
           />
         </div>
+        <Sidebar
+          ratings={ratings}
+          booking={booking}
+          location={location}
+          price={servicePrice}
+        />
       </div>
     </div>
   );
@@ -66,6 +74,7 @@ ServiceInformation.propTypes = {
       serviceTitle: PropTypes.string,
       serviceCategory: PropTypes.string,
       serviceDescription: PropTypes.string,
+      servicePrice: PropTypes.string,
     }),
     ratings: PropTypes.array,
     dateCreated: PropTypes.string,

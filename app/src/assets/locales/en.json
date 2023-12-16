@@ -153,6 +153,8 @@
     "ServiceType": "Service Type",
     "ShowImages": "Show Images",
     "ServiceDetails": "Service Details",
-    "ServiceProvider": "Service  Provider"
+    "ServiceProvider": "Service  Provider",
+    "ServiceAvailabilty": "Service Availability",
+    "Closed": "Closed"
   }
 }

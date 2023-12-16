@@ -10,4 +10,11 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  width: 100%;
+  max-width: 69%;
+}
+.serviceBottom {
+  display: flex;
+  width: 100%;
+  gap: 24px;
 }

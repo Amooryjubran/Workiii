@@ -151,6 +151,8 @@
     "Amount": "Amount",
     "ServiceState": "Service State",
     "ServiceType": "Service Type",
-    "ShowImages": "Show Images"
+    "ShowImages": "Show Images",
+    "ServiceDetails": "Détails des services",
+    "ServiceProvider": "Fournisseur de services"
   }
 }

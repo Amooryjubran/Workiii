@@ -1,0 +1,14 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.details > h1 {
+  margin: 0;
+  color: var(--Neutral-800, #0f1f48);
+  font-size: 20px;
+}
+.details > span {
+  color: var(--Neutral-500, #a0a3bd);
+  font-size: 18px;
+}

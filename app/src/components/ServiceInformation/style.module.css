@@ -6,3 +6,8 @@
   padding: 36px;
   width: 100%;
 }
+.serviceBottomWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}

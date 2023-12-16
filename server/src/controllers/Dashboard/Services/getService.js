@@ -16,13 +16,22 @@ const getService = async (req, res) => {
     if (!service) {
       return res
         .status(404)
-        .json({ status: 404, message: "service not found" });
+        .json({ status: 404, message: "Service not found" });
     }
+
+    // Fetch user data based on userId
+    const user = await db.collection("users").findOne({ _id: service.userId });
+
+    // Include username in the response
+    const serviceWithUserName = {
+      ...service,
+      providerName: user ? user.name : "Unknown",
+    };
 
     // Return the response
     return res
       .status(200)
-      .json({ status: 200, data: service, message: "success" });
+      .json({ status: 200, data: serviceWithUserName, message: "Success" });
   } catch (err) {
     console.log("Error getting service", err);
     return res.status(500).json({ status: 500, message: err });

@@ -155,6 +155,7 @@
     "ServiceDetails": "Service Details",
     "ServiceProvider": "Service  Provider",
     "ServiceAvailabilty": "Service Availability",
-    "Closed": "Closed"
+    "Closed": "Closed",
+    "Approve": "Approve"
   }
 }

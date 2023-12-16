@@ -1,7 +1,12 @@
 import { create } from "zustand";
-import { getAllServices, getService } from "@/api/dashboard";
+import {
+  getAllServices,
+  getService,
+  approveService,
+  declineService,
+} from "@/api/dashboard";
 
-const useServicesStore = create((set) => ({
+const useServicesStore = create((set, get) => ({
   services: [],
   isLoading: false,
   serviceTab: false,
@@ -31,6 +36,39 @@ const useServicesStore = create((set) => ({
       }
     } catch (error) {
       console.error("Error fetching service:", error);
+    } finally {
+      set({ isLoading: false });
+    }
+  },
+
+  approveService: async (serviceId) => {
+    set({ isLoading: true });
+    try {
+      const response = await approveService(serviceId);
+      if (response && response.status === 200) {
+        console.log("Service approved successfully");
+        // Use get() to access fetchServices
+        await get().fetchServices();
+        await get().fetchService(serviceId);
+      }
+    } catch (error) {
+      console.error("Error approving service:", error);
+    } finally {
+      set({ isLoading: false });
+    }
+  },
+
+  declineService: async (serviceId) => {
+    set({ isLoading: true });
+    try {
+      const response = await declineService(serviceId);
+      if (response && response.status === 200) {
+        console.log("Service declined successfully");
+        await get().fetchServices();
+        await get().fetchService(serviceId);
+      }
+    } catch (error) {
+      console.error("Error declining service:", error);
     } finally {
       set({ isLoading: false });
     }

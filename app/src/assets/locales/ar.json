@@ -155,6 +155,7 @@
     "ServiceDetails": "تفاصيل الخدمة",
     "ServiceProvider": "مقدم الخدمة",
     "ServiceAvailabilty": "توفر الخدمة",
-    "Closed": "مغلق"
+    "Closed": "مغلق",
+    "Approve": "الموافقة"
   }
 }

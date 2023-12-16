@@ -155,6 +155,7 @@
     "ServiceDetails": "Détails des services",
     "ServiceProvider": "Fournisseur de services",
     "ServiceAvailabilty": "Disponibilité du service",
-    "Closed": "Fermé"
+    "Closed": "Fermé",
+    "Approve": "Approuver"
   }
 }

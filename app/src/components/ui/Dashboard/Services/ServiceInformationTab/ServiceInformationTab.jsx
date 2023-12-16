@@ -1,11 +1,24 @@
+import { useEffect, useState } from "react";
+import styles from "./style.module.css";
 import useServicesStore from "@/store/Dashboard/useServices";
-import { useEffect } from "react";
 import Header from "./Header";
+import Button from "@/components/Button";
 import ServiceInformation from "@/components/ServiceInformation";
-
+import CheckMark from "images/Dashboard/checkmark.svg";
+import Image from "@/components/Image";
+import { useTranslation } from "react-i18next";
+import Modal from "./Modal";
 export default function ServiceInformationTab() {
-  const { fetchService, selectedService, selectedServiceId } =
-    useServicesStore();
+  const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [actionType, setActionType] = useState("");
+  const {
+    fetchService,
+    selectedService,
+    selectedServiceId,
+    approveService,
+    declineService,
+  } = useServicesStore();
 
   useEffect(() => {
     if (selectedServiceId) {
@@ -16,10 +29,59 @@ export default function ServiceInformationTab() {
   if (!selectedService) {
     return <div>...</div>;
   }
+  const handleOpenModal = (type) => {
+    setActionType(type);
+    setIsModalOpen(true);
+  };
+
+  const handleConfirmAction = () => {
+    console.log(actionType);
+    if (actionType === "approve") {
+      approveService(selectedServiceId);
+    } else if (actionType === "decline") {
+      console.log("omar");
+      declineService(selectedServiceId);
+    }
+    setIsModalOpen(false);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+  console.log(selectedService);
   return (
     <div>
-      <Header />
+      <div className={styles.serviceHeader}>
+        <Header />
+        <div className={styles.serviceHeaderBtns}>
+          {selectedService.status === "Pending" && (
+            <>
+              <Button
+                className={`${styles.btn} ${styles.approve}`}
+                onClick={() => handleOpenModal("approve")}
+              >
+                <Image classNameWrapper={styles.img} src={CheckMark} />
+                <span>{t("dashboard.Approve")}</span>
+              </Button>
+              <Button
+                className={`${styles.btn} ${styles.cancel}`}
+                onClick={() => handleOpenModal("decline")}
+              >
+                <Image classNameWrapper={styles.img} src={CheckMark} />
+                <span>{t("dashboard.Cancel")}</span>
+              </Button>
+            </>
+          )}
+        </div>
+      </div>
       <ServiceInformation selectedService={selectedService} />
+      {isModalOpen && (
+        <Modal
+          actionType={actionType}
+          onConfirm={handleConfirmAction}
+          onCancel={handleCloseModal}
+        />
+      )}
     </div>
   );
 }

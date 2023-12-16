@@ -15,7 +15,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: process.env.WEBSOCKET,
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
   },
 });
 const PORT = process.env.PORT || 3000;
@@ -25,7 +25,7 @@ app.use(helmet());
 app.use(
   cors({
     origin: process.env.WEBSOCKET,
-    methods: ["GET", "POST", "PATCH", "DELETE"],
+    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
@@ -52,6 +52,10 @@ const {
   removeFromWishList,
   addCategory,
   deleteCategory,
+
+  // PUT
+  approveService,
+  declineService,
 } = require("./handler");
 
 // controllers
@@ -83,6 +87,10 @@ app.post("/api/addCategory", addCategory);
 
 // PATCH
 app.patch("/api/addToWishList", addToWishList);
+
+// PUT
+app.put("/api/:serviceId/approve", approveService);
+app.put("/api/:serviceId/decline", declineService);
 
 // DELETE
 app.delete("/api/removeFromWishList", removeFromWishList);

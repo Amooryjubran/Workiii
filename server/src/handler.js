@@ -22,6 +22,8 @@ const getAllUsers = require("./controllers/Dashboard/Users/getAllUsers");
 const getUser = require("./controllers/Dashboard/Users/getUser");
 const getAllServices = require("./controllers/Dashboard/Services/getAllServices");
 const getService = require("./controllers/Dashboard/Services/getService");
+const approveService = require("./controllers/Dashboard/Services/approveService");
+const declineService = require("./controllers/Dashboard/Services/declineService");
 
 module.exports = {
   // GET
@@ -43,6 +45,10 @@ module.exports = {
 
   // PATCH
   addToWishList,
+
+  // PUT
+  approveService,
+  declineService,
 
   // DELETE
   removeFromWishList,

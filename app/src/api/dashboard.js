@@ -45,3 +45,13 @@ export const getAllServices = async () => {
 export const getService = async (serviceId) => {
   return axios.get(`${API_BASE_URL}/api/service/${serviceId}`);
 };
+
+// Function to approve a service
+export const approveService = async (serviceId) => {
+  return axios.put(`${API_BASE_URL}/api/${serviceId}/approve`);
+};
+
+// Function to decline a service
+export const declineService = async (serviceId) => {
+  return axios.put(`${API_BASE_URL}/api/${serviceId}/decline`);
+};

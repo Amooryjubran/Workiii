@@ -5,9 +5,11 @@ import Header from "./Header";
 import Button from "@/components/Button";
 import ServiceInformation from "@/components/ServiceInformation";
 import CheckMark from "images/Dashboard/checkmark.svg";
+import X from "images/cross.svg";
 import Image from "@/components/Image";
 import { useTranslation } from "react-i18next";
 import Modal from "./Modal";
+
 export default function ServiceInformationTab() {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,6 +73,22 @@ export default function ServiceInformationTab() {
                 <span>{t("dashboard.Cancel")}</span>
               </Button>
             </>
+          )}
+          {selectedService.status !== "Pending" && (
+            <div
+              className={`${styles.status} ${
+                selectedService.status == "Approved"
+                  ? styles.approved
+                  : styles.declined
+              }`}
+            >
+              <Image
+                classNameWrapper={styles.img}
+                src={selectedService.status == "Approved" ? CheckMark : X}
+                alt={selectedService.status}
+              />
+              <span>{selectedService.status}</span>
+            </div>
           )}
         </div>
       </div>

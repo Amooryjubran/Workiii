@@ -142,3 +142,19 @@
   background-color: #fff;
   transition: background-color 0.3s;
 }
+.status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 50px;
+}
+.approved {
+  background-color: #5bae60;
+}
+.declined {
+  background-color: #d92c20;
+}
+.status > span {
+  color: white;
+}

@@ -38,7 +38,6 @@ export default function Sidebar({ ratings, booking, location, price }) {
     if (location.latLng) {
       setMapCenter(location.latLng);
     }
-    console.log(mapCenter);
   }, [location.latLng]);
 
   const availableBookings = transformBookingData(booking);

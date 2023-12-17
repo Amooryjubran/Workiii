@@ -43,6 +43,7 @@ const {
   getUser,
   getAllServices,
   getService,
+  getlAllApprovedServices,
 
   listAService,
   createUser,
@@ -77,6 +78,7 @@ app.get("/api/getAllUsers", getAllUsers);
 app.get("/api/user/:userId", getUser);
 app.get("/api/getAllServices", getAllServices);
 app.get("/api/service/:serviceId", getService);
+app.get("/api/getlAllApprovedServices", getlAllApprovedServices);
 
 // POST
 app.post("/api/createUser", createUser);

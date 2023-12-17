@@ -12,6 +12,7 @@ const removeFromWishList = require("./controllers/Services/wishList/removeFromWi
 const topServices = require("./controllers/Services/TopServices");
 const servicesCategories = require("./controllers/Services/servicesCategories");
 const listAService = require("./controllers/Services/listAService");
+const getlAllApprovedServices = require("./controllers/Services/getlAllApprovedServices");
 
 // Dashboard
 const getCategories = require("./controllers/Dashboard/Categories/getCategories");
@@ -35,6 +36,7 @@ module.exports = {
   getUser,
   getAllServices,
   getService,
+  getlAllApprovedServices,
 
   // POST
   createUser,

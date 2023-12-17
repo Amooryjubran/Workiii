@@ -1,6 +1,7 @@
 import useServicesStore from "@/store/Services/useServicesStore";
 import { useEffect, useState } from "react";
-import useDebounce from "@/hooks/useDebounce"; // Make sure this hook is correctly implemented
+import useDebounce from "@/hooks/useDebounce"; // Ensure this hook is implemented
+import { useNavigate, useLocation } from "react-router-dom"; // Import from react-router-dom
 
 export default function Services() {
   const { services, fetchServices, setFilter, filters } = useServicesStore();
@@ -10,6 +11,9 @@ export default function Services() {
 
   const debouncedPriceMin = useDebounce(priceMin, 500); // Debouncing priceMin
   const debouncedPriceMax = useDebounce(priceMax, 500); // Debouncing priceMax
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Fetch services on component mount
   useEffect(() => {
@@ -33,6 +37,27 @@ export default function Services() {
     setFilter("priceMax", debouncedPriceMax);
   }, [debouncedPriceMin, debouncedPriceMax, setFilter]);
 
+  // Update URL with filter changes
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.set("priceMin", debouncedPriceMin);
+    params.set("priceMax", debouncedPriceMax);
+    if (filters.category) {
+      params.set("category", filters.category);
+    }
+
+    navigate(
+      { pathname: location.pathname, search: params.toString() },
+      { replace: true }
+    );
+  }, [
+    debouncedPriceMin,
+    debouncedPriceMax,
+    filters.category,
+    navigate,
+    location.pathname,
+  ]);
+
   // Handlers for price range changes
   const handleMinPriceRangeChange = (value) => {
     setPriceMin(parseInt(value, 10));
@@ -42,14 +67,22 @@ export default function Services() {
     setPriceMax(parseInt(value, 10));
   };
 
-  // Handler for category change
+  // Handler for category change and reset functionality
   const handleCategoryChange = (category) => {
-    setFilter("category", category);
+    if (category === "") {
+      // Resetting all filters
+      setPriceMin(0);
+      setPriceMax(1000);
+      setFilter("category", "");
+    } else {
+      setFilter("category", category);
+    }
   };
 
   return (
     <div>
       {/* Category Filter Buttons */}
+      {/* ... */}
       <button onClick={() => handleCategoryChange("Electrician")}>
         Electrician
       </button>
@@ -62,6 +95,7 @@ export default function Services() {
       <button onClick={() => handleCategoryChange("")}>Reset Filters</button>
 
       {/* Price Range Slider */}
+      {/* ... */}
       <div>
         <label>Price Range:</label>
         <input
@@ -84,6 +118,7 @@ export default function Services() {
       </div>
 
       {/* Display Services */}
+      {/* ... */}
       {services.length > 0 ? (
         services.map((service) => (
           <div key={service._id}>{service.serviceInfo.serviceTitle}</div>

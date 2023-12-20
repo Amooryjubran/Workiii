@@ -1,0 +1,25 @@
+.servicesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  width: 100%;
+}
+
+.servivesContent {
+  display: flex;
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.servicesList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 12px;
+  row-gap: 12px;
+  transition: all 0.5s;
+  width: 100%;
+  max-width: 1068px;
+  justify-items: stretch;
+}

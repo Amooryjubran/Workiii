@@ -8,8 +8,8 @@ const useServicesStore = create((set, get) => ({
     category: "",
     priceMin: 0,
     priceMax: 1000,
-    // Add other filters as needed
   },
+  maxPrice: 1000,
 
   setFilter: (filterName, value) => {
     set((state) => ({
@@ -18,6 +18,15 @@ const useServicesStore = create((set, get) => ({
         [filterName]: value,
       },
     }));
+
+    // Recalculate maxPrice when services change
+    const services = get().services;
+    const maxPrice =
+      services
+        .map((service) => parseInt(service.serviceInfo.servicePrice, 10))
+        .filter((price) => !isNaN(price))
+        .reduce((max, price) => Math.max(max, price), 0) || 1000;
+    set({ maxPrice: Math.max(maxPrice, get().maxPrice) });
 
     // Fetch services with the updated filters
     get().fetchServices();

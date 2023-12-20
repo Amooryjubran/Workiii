@@ -157,5 +157,10 @@
     "ServiceAvailabilty": "توفر الخدمة",
     "Closed": "مغلق",
     "Approve": "الموافقة"
+  },
+  "services": {
+    "filterBy": "تصفية العناصر حسب",
+    "ServicesCategories": "فئات الخدمات",
+    "BookNow": "احجز الآن"
   }
 }

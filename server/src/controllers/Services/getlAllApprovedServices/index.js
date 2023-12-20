@@ -43,8 +43,41 @@ const getAllApprovedServices = async (req, res) => {
       });
     }
 
+    // Join with the users collection
+    pipeline.push({
+      $lookup: {
+        from: "users",
+        localField: "userId",
+        foreignField: "_id",
+        as: "userInfo",
+      },
+    });
+
+    // Unwind userInfo array (if needed)
+    pipeline.push({
+      $unwind: {
+        path: "$userInfo",
+        preserveNullAndEmptyArrays: true,
+      },
+    });
+
+    // Add fields (or project) to reshape the document
+    pipeline.push({
+      $addFields: {
+        userName: "$userInfo.name",
+        userProfileImg: "$userInfo.profileImg",
+      },
+    });
+
     // Exclude fields
-    pipeline.push({ $project: { booking: 0, dateCreated: 0, status: 0 } });
+    pipeline.push({
+      $project: {
+        booking: 0,
+        dateCreated: 0,
+        status: 0,
+        userInfo: 0,
+      },
+    });
 
     const result = await db
       .collection("services")

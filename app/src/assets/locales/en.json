@@ -157,5 +157,10 @@
     "ServiceAvailabilty": "Service Availability",
     "Closed": "Closed",
     "Approve": "Approve"
+  },
+  "services": {
+    "filterBy": "Filter elments by",
+    "ServicesCategories": "Services Categories",
+    "BookNow": "Book Now"
   }
 }

@@ -157,5 +157,10 @@
     "ServiceAvailabilty": "Disponibilité du service",
     "Closed": "Fermé",
     "Approve": "Approuver"
+  },
+  "services": {
+    "filterBy": "Filtrer les éléments par",
+    "ServicesCategories": "Catégories de services",
+    "BookNow": "Reserve maintenant"
   }
 }

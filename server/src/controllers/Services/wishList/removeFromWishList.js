@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const client = require("../../../utils/db");
 
 const removeFromWishList = async (req, res) => {
@@ -7,6 +8,9 @@ const removeFromWishList = async (req, res) => {
     await client.connect();
     const db = client.db(process.env.DB_NAME);
 
+    // Convert itemId to ObjectId
+    const itemIdObj = new ObjectId(itemId);
+
     // Find the user by userId
     const user = await db.collection("users").findOne({ _id: userId });
 
@@ -14,6 +18,7 @@ const removeFromWishList = async (req, res) => {
     if (!user) {
       return res.status(404).json({
         status: "error",
+        errorCode: "USER_NOT_FOUND",
         message: "User not found",
       });
     }
@@ -22,6 +27,7 @@ const removeFromWishList = async (req, res) => {
     if (!user.wishList.includes(itemId)) {
       return res.status(404).json({
         status: "error",
+        errorCode: "ITEM_NOT_IN_WISHLIST",
         message: "Item not found in wishlist",
       });
     }
@@ -37,9 +43,11 @@ const removeFromWishList = async (req, res) => {
     });
   } catch (err) {
     console.error("Error during removing item from wishlist: ", err);
-    res
-      .status(500)
-      .json({ status: "error", message: "An unexpected error occurred" });
+    res.status(500).json({
+      status: "error",
+      errorCode: "INTERNAL_SERVER_ERROR",
+      message: "An unexpected error occurred",
+    });
   } finally {
     await client.close();
   }

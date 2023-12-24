@@ -1,14 +1,23 @@
 import PropTypes from "prop-types";
 import styles from "./style.module.css";
 import { useTranslation } from "react-i18next";
+import { Heart } from "react-feather";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import useServicesStore from "@/store/Services/useServicesStore";
 import Image from "@/components/Image";
+import Button from "@/components/Button";
 import LinkButton from "@/components/Link";
 import StarImg from "images/Service/star.svg";
 import LocationImg from "images/Service/location.svg";
 import Arrow from "images/chev.svg";
-
+import useUserStore from "@/store/useUserStore";
+import { useState } from "react";
+import { showToast } from "@/utils/showToast";
 export default function ServiceCard({ service }) {
   const { t } = useTranslation();
+  const { user } = useUserStore();
+  const { addToWishlist, removeFromWishlist } = useServicesStore();
   const {
     serviceInfo,
     ratings,
@@ -17,8 +26,42 @@ export default function ServiceCard({ service }) {
     userProfileImg,
     _id,
     images,
+    isWishlisted,
   } = service;
-  const { serviceTitle, servicePrice } = serviceInfo;
+  const { serviceTitle, servicePrice, serviceCategory } = serviceInfo;
+  const [isInWishlist, setIsInWishlist] = useState(isWishlisted);
+  const handleWishList = async (e, serviceID) => {
+    e.preventDefault();
+    let userID = user?._id;
+
+    if (!userID) {
+      showToast("error", `${t("services.Login")}!`);
+      return;
+    }
+    try {
+      if (!isInWishlist) {
+        await removeFromWishlist(userID, serviceID);
+        setIsInWishlist(false);
+        showToast("info", "Item Removed");
+      } else {
+        await addToWishlist(userID, serviceID);
+        setIsInWishlist(true);
+        showToast("success", "Item Added");
+      }
+    } catch (error) {
+      toast.error("Error updating wishlist", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
+
   return (
     <div className={styles.serviceCard}>
       <Image
@@ -36,7 +79,9 @@ export default function ServiceCard({ service }) {
         </div>
         <div className={styles.headerInfoLocation}>
           <Image src={LocationImg} alt={location?.city} />
-          {location.city}, {location.state}
+          {location.city && location.state
+            ? `${location.city}, ${location.state}`
+            : location.city || location.state || ""}
         </div>
         <div className={styles.headerInfoProfile}>
           {userProfileImg ? (
@@ -54,6 +99,27 @@ export default function ServiceCard({ service }) {
           <Image src={Arrow} alt={"Arrow"} />
         </LinkButton>
       </div>
+      <div className={styles.serviceNav}>
+        <span>{serviceCategory}</span>
+        <Button
+          className={styles.serviceNavBtn}
+          onClick={(e) => handleWishList(e, _id)}
+        >
+          <Heart className={isWishlisted ? styles.activeHeart : styles.heart} />
+        </Button>
+      </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
@@ -62,6 +128,7 @@ ServiceCard.propTypes = {
     serviceInfo: PropTypes.shape({
       serviceTitle: PropTypes.string.isRequired,
       servicePrice: PropTypes.string.isRequired,
+      serviceCategory: PropTypes.string.isRequired,
     }),
     ratings: PropTypes.arrayOf(PropTypes.object),
     location: PropTypes.shape({

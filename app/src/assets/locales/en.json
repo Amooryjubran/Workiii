@@ -161,6 +161,7 @@
   "services": {
     "filterBy": "Filter elments by",
     "ServicesCategories": "Services Categories",
-    "BookNow": "Book Now"
+    "BookNow": "Book Now",
+    "Login": "Please Login"
   }
 }

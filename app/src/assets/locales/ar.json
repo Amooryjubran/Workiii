@@ -161,6 +161,7 @@
   "services": {
     "filterBy": "تصفية العناصر حسب",
     "ServicesCategories": "فئات الخدمات",
-    "BookNow": "احجز الآن"
+    "BookNow": "احجز الآن",
+    "Login": "يرجى تسجيل الدخول"
   }
 }

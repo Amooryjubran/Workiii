@@ -9,13 +9,26 @@ const getAllApprovedServices = async (req, res) => {
     let matchQuery = { status: "Approved" };
 
     // Extract query parameters
-    const { category, priceMin, priceMax, rating } = req.query;
+    const { category, priceMin, priceMax, rating, userId } = req.query;
 
     if (category) {
       matchQuery["serviceInfo.serviceCategory"] = category;
     }
     if (rating) {
       matchQuery["serviceInfo.serviceRating"] = { $gte: parseInt(rating) };
+    }
+
+    // Initialize user wishlist
+    let userWishlist = [];
+    let userExists = false;
+
+    // Check if the service is in the user's wishlist
+    if (userId) {
+      const user = await db.collection("users").findOne({ _id: userId });
+      if (user) {
+        userExists = true;
+        userWishlist = user.wishList || [];
+      }
     }
 
     // Aggregation pipeline
@@ -66,6 +79,7 @@ const getAllApprovedServices = async (req, res) => {
       $addFields: {
         userName: "$userInfo.name",
         userProfileImg: "$userInfo.profileImg",
+        isWishlisted: userExists ? { $in: ["$_id", userWishlist] } : "No User",
       },
     });
 

@@ -1,4 +1,5 @@
 const client = require("../../../utils/db");
+const { ObjectId } = require("mongodb");
 
 const addToWishList = async (req, res) => {
   const { userId, itemId } = req.body;
@@ -8,20 +9,32 @@ const addToWishList = async (req, res) => {
     const db = client.db(process.env.DB_NAME);
 
     // Check if the item exists in the services collection
-    const itemExists = await db.collection("services").findOne({ _id: itemId });
+    const itemExists = await db
+      .collection("services")
+      .findOne({ _id: new ObjectId(itemId) });
     if (!itemExists) {
       return res.status(404).json({
         status: "error",
+        errorCode: "ITEM_NOT_FOUND",
         message: "Item not found in services",
       });
     }
 
-    // Find the user by userId
+    // Find the user by userId and check for duplicates
     const user = await db.collection("users").findOne({ _id: userId });
     if (!user) {
       return res.status(404).json({
         status: "error",
+        errorCode: "USER_NOT_FOUND",
         message: "User not found",
+      });
+    }
+
+    if (user.wishList.includes(itemId)) {
+      return res.status(409).json({
+        status: "error",
+        errorCode: "ITEM_ALREADY_IN_WISHLIST",
+        message: "Item already in wishlist",
       });
     }
 
@@ -36,14 +49,14 @@ const addToWishList = async (req, res) => {
     });
   } catch (err) {
     console.error("Error during adding item to wishlist: ", err);
-    res
-      .status(500)
-      .json({ status: "error", message: "An unexpected error occurred" });
+    res.status(500).json({
+      status: "error",
+      errorCode: "INTERNAL_SERVER_ERROR",
+      message: "An unexpected error occurred",
+    });
   } finally {
     await client.close();
   }
 };
-
-module.exports = addToWishList;
 
 module.exports = addToWishList;

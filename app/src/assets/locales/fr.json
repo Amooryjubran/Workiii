@@ -161,6 +161,7 @@
   "services": {
     "filterBy": "Filtrer les éléments par",
     "ServicesCategories": "Catégories de services",
-    "BookNow": "Reserve maintenant"
+    "BookNow": "Reserve maintenant",
+    "Login": "Veuillez vous connecter"
   }
 }

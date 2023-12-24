@@ -5,19 +5,24 @@ import Input from "@/components/Input";
 import FilterSideBar from "@/components/ui/Services/FilterSideBar";
 import ServicesList from "@/components/ui/Services/ServiceCard";
 import styles from "./style.module.css";
+import useUserStore from "@/store/useUserStore";
 
 export default function Services() {
-  const { services, setFilter, filters, maxPrice } = useServicesStore();
+  const { services, setFilter, filters, maxPrice, fetchServices } =
+    useServicesStore();
+  const { user } = useUserStore();
 
-  const { debouncedPriceMin, debouncedPriceMax } = useServiceFilters(
-    setFilter,
-    filters
-  );
+  // const { debouncedPriceMin, debouncedPriceMax } = useServiceFilters(
+  //   setFilter,
+  //   filters
+  // );
 
   // Fetch services on component mount
   useEffect(() => {
-    setFilter();
-  }, [setFilter]);
+    if (user?._id) {
+      fetchServices(user._id);
+    }
+  }, [user?._id, fetchServices]);
 
   // Handlers for filter changes
   const handleCategoryChange = (category) => {
@@ -57,8 +62,8 @@ export default function Services() {
           </span>
         </div> */}
         <div className={styles.servicesList}>
-          {services.length > 0 ? (
-            services.map((service) => (
+          {services?.length > 0 ? (
+            services?.map((service) => (
               <ServicesList service={service} key={service._id} />
             ))
           ) : (

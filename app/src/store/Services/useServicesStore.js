@@ -1,5 +1,9 @@
 import { create } from "zustand";
-import { getService } from "@/api/servicesPage";
+import {
+  getService,
+  addToWishList,
+  removeFromWishList,
+} from "@/api/servicesPage";
 
 const useServicesStore = create((set, get) => ({
   services: [],
@@ -32,11 +36,11 @@ const useServicesStore = create((set, get) => ({
     get().fetchServices();
   },
 
-  fetchServices: async () => {
+  fetchServices: async (userId) => {
     const { filters } = get();
     set({ isLoading: true });
     try {
-      const response = await getService(filters);
+      const response = await getService(filters, userId);
       if (response && response.data) {
         set({ services: response.data.data });
       }
@@ -44,6 +48,28 @@ const useServicesStore = create((set, get) => ({
       console.error("Error fetching services:", error);
     } finally {
       set({ isLoading: false });
+    }
+  },
+
+  // Method to add a service to the wishlist
+  addToWishlist: async (userId, itemId) => {
+    try {
+      const response = await addToWishList(userId, itemId);
+      console.log(response.data.message);
+      // Additional logic if needed
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+    }
+  },
+
+  // Method to remove a service from the wishlist
+  removeFromWishlist: async (userId, itemId) => {
+    try {
+      const response = await removeFromWishList(userId, itemId);
+      console.log(response.data.message);
+      // Additional logic if needed
+    } catch (error) {
+      console.error("Error removing from wishlist:", error);
     }
   },
 }));

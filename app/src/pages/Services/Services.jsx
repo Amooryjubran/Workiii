@@ -40,11 +40,12 @@ export default function Services() {
   }, [categories, fetchServices, user?._id]);
   // Handlers for filter changes
   const handleCategoryChange = (category) => {
-    setFilter("category", category || "");
-    if (category === "") {
-      setFilter("priceMin", 0);
-      setFilter("priceMax", 1000);
-    }
+    setFilter(
+      "category",
+      filters.category.includes(category)
+        ? filters.category.filter((c) => c !== category)
+        : [...filters.category, category]
+    );
   };
 
   const handlePriceChange = (minOrMax, value) => {
@@ -74,19 +75,20 @@ export default function Services() {
         <FilterSideBar handleCategoryChange={handleCategoryChange} />
         <div className={styles.servivesParent}>
           <div className={styles.servivesFilter}>
-            {filtersTags && (
+            {filters?.category?.map((filterTag) => (
               <Button
-                onClick={() => handleCategoryChange("")}
+                key={filterTag}
+                onClick={() => handleCategoryChange(filterTag)}
                 className={styles.removeFilter}
               >
-                <span> {filtersTags}</span>
+                <span> {filterTag}</span>
                 <Image
                   src={X}
-                  alt={filtersTags}
+                  alt={filterTag}
                   className={styles.removeFilterImg}
                 />
               </Button>
-            )}
+            ))}
           </div>
           {/* <div>
           <label>Price Range:</label>

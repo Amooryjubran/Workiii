@@ -32,3 +32,20 @@
   text-align: left;
   border: none;
 }
+
+.filterCategoryLabel {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  color: var(--Neutral-800, #0f1f48);
+  font-size: 14px;
+}
+
+.filterCategoryCheckbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  accent-color: #ffb142;
+}

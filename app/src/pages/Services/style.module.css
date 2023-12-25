@@ -30,6 +30,9 @@
   position: relative;
 }
 .servivesFilter {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   position: absolute;
   top: -40px;
 }

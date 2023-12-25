@@ -12,7 +12,7 @@ const useServicesStore = create((set, get) => ({
   categories: [],
   categoriesLoading: false,
   filters: {
-    category: "",
+    category: [],
     priceMin: 0,
     priceMax: 1000,
   },

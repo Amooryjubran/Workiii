@@ -1,5 +1,5 @@
 import useServicesStore from "@/store/Services/useServicesStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import X from "images/cross.svg";
 import styles from "./style.module.css";
 import useUserStore from "@/store/useUserStore";
@@ -10,8 +10,10 @@ import ServicesList from "@/components/ui/Services/ServiceCard";
 import Skeleton from "@/components/Skeleton";
 import Image from "@/components/Image";
 import Button from "@/components/Button";
+import HeroBanner from "@/components/ui/Services/HeroBanner";
 
 export default function Services() {
+  const [searchQuery, setSearchQuery] = useState("");
   const {
     services,
     isLoading,
@@ -52,6 +54,18 @@ export default function Services() {
     setFilter(minOrMax, parseInt(value, 10));
   };
 
+  const handleSearch = () => {
+    // Reset other filters
+    setFilter("category", []);
+    setFilter("priceMin", 0);
+    setFilter("priceMax", 1000);
+    // Set the search query as a filter (if your backend supports it)
+    setFilter("searchQuery", searchQuery);
+
+    // Fetch services based on the search query
+    fetchServices(user?._id);
+  };
+
   const renderContent = () => {
     if (isLoading) {
       return Array(6)
@@ -67,10 +81,14 @@ export default function Services() {
 
     return <p>No services found</p>;
   };
-  let filtersTags = filters?.category;
-  console.log(filters);
+
   return (
     <div className={styles.servicesWrapper}>
+      <HeroBanner
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        onSearch={handleSearch}
+      />
       <div className={styles.servivesContent}>
         <FilterSideBar handleCategoryChange={handleCategoryChange} />
         <div className={styles.servivesParent}>

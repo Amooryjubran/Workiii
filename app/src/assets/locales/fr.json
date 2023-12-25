@@ -162,6 +162,11 @@
     "filterBy": "Filtrer les éléments par",
     "ServicesCategories": "Catégories de services",
     "BookNow": "Reserve maintenant",
-    "Login": "Veuillez vous connecter"
+    "Login": "Veuillez vous connecter",
+    "Services": "Prestations",
+    "Home": "Prestations",
+    "Search": "Recherche",
+    "Servicess": "Prestations",
+    "PlaceHolder": "Qu'est-ce que tu cherches ?"
   }
 }

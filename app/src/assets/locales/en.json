@@ -162,6 +162,11 @@
     "filterBy": "Filter elments by",
     "ServicesCategories": "Services Categories",
     "BookNow": "Book Now",
-    "Login": "Please Login"
+    "Login": "Please Login",
+    "Services": "Services",
+    "Home": "Home",
+    "Search": "Search",
+    "Servicess": "Services",
+    "PlaceHolder": "What are you looking for ?"
   }
 }

@@ -6,12 +6,15 @@ const API_BASE_URL = `${import.meta.env.VITE_API}`;
 export const getService = async (filters = {}, userId) => {
   const queryParams = new URLSearchParams(filters).toString();
   const userIdParam = userId ? `&userId=${userId}` : "";
-  console.log("how many times");
   return axios.get(
     `${API_BASE_URL}/api/getlAllApprovedServices?${queryParams}${userIdParam}`
   );
 };
 
+// function to get all the categories of the services
+export const getCategories = async () => {
+  return axios.get(`${API_BASE_URL}/api/servicesCategories`);
+};
 // Add to wishlist API function
 export const addToWishList = async (userId, itemId) => {
   return axios.patch(`${API_BASE_URL}/api/addToWishList`, { userId, itemId });

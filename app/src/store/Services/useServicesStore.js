@@ -1,13 +1,16 @@
 import { create } from "zustand";
 import {
   getService,
+  getCategories,
   addToWishList,
   removeFromWishList,
 } from "@/api/servicesPage";
 
 const useServicesStore = create((set, get) => ({
   services: [],
-  isLoading: false,
+  isLoading: true,
+  categories: [],
+  categoriesLoading: false,
   filters: {
     category: "",
     priceMin: 0,
@@ -42,12 +45,25 @@ const useServicesStore = create((set, get) => ({
     try {
       const response = await getService(filters, userId);
       if (response && response.data) {
-        set({ services: response.data.data });
+        set({ services: response.data.data, isLoading: false });
       }
     } catch (error) {
       console.error("Error fetching services:", error);
     } finally {
       set({ isLoading: false });
+    }
+  },
+  fetchCategories: async () => {
+    set({ categoriesLoading: true });
+    try {
+      const response = await getCategories();
+      if (response && response.data) {
+        set({ categories: response?.data?.data });
+      }
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    } finally {
+      set({ categoriesLoading: false });
     }
   },
 

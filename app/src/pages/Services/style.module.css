@@ -11,7 +11,7 @@
   width: 100%;
   max-width: 1700px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 40px;
 }
 
 .servicesList {
@@ -23,4 +23,29 @@
   width: 100%;
   max-width: 1068px;
   justify-items: stretch;
+}
+
+.servivesParent {
+  width: 100%;
+  position: relative;
+}
+.servivesFilter {
+  position: absolute;
+  top: -40px;
+}
+.servivesFilter > .removeFilter {
+  padding: 6px 12px;
+  font-size: 16px;
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border-radius: 100px;
+  border: 1px solid gray;
+  background-color: transparent;
+  cursor: pointer;
+}
+.removeFilterImg {
+  filter: brightness(0%);
 }

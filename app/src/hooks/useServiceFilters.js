@@ -9,31 +9,6 @@ const useServiceFilters = (setFilter, filters) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Define default filter values
-  const defaultFilters = {
-    priceMin: 0,
-    priceMax: 1000,
-    category: "",
-  };
-
-  // Parse URL Parameters and Initialize Filters
-  useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    const priceMinFromUrl = queryParams.get("priceMin");
-    const priceMaxFromUrl = queryParams.get("priceMax");
-    const categoryFromUrl = queryParams.get("category");
-
-    if (priceMinFromUrl !== null) {
-      setFilter("priceMin", parseInt(priceMinFromUrl, 10));
-    }
-    if (priceMaxFromUrl !== null) {
-      setFilter("priceMax", parseInt(priceMaxFromUrl, 10));
-    }
-    if (categoryFromUrl !== null) {
-      setFilter("category", categoryFromUrl);
-    }
-  }, [location.search, setFilter]);
-
   // Update filters in the Zustand store when debounced values change
   useEffect(() => {
     setFilter("priceMin", debouncedPriceMin);
@@ -43,28 +18,20 @@ const useServiceFilters = (setFilter, filters) => {
   // Update URL with filter changes
   useEffect(() => {
     const params = new URLSearchParams();
-
-    // Add parameters only if they differ from default values
-    if (debouncedPriceMin !== defaultFilters.priceMin) {
-      params.set("priceMin", debouncedPriceMin);
-    }
-    if (debouncedPriceMax !== defaultFilters.priceMax) {
-      params.set("priceMax", debouncedPriceMax);
-    }
-    if (filters.category && filters.category !== defaultFilters.category) {
+    params.set("priceMin", debouncedPriceMin);
+    params.set("priceMax", debouncedPriceMax);
+    if (filters.category) {
       params.set("category", filters.category);
+    } else {
+      params.delete("category");
     }
 
-    // Determine if we need to update the URL
-    const newSearchString = params.toString();
-    if (location.search !== `?${newSearchString}` && newSearchString !== "") {
+    // Only update the URL if there are changes
+    if (location.search !== params.toString()) {
       navigate(
-        { pathname: location.pathname, search: newSearchString },
+        { pathname: location.pathname, search: params.toString() },
         { replace: true }
       );
-    } else if (location.search !== "" && newSearchString === "") {
-      // Navigate back to the base URL if all filters are default
-      navigate(location.pathname, { replace: true });
     }
   }, [
     debouncedPriceMin,
@@ -72,7 +39,6 @@ const useServiceFilters = (setFilter, filters) => {
     filters.category,
     navigate,
     location.pathname,
-    location.search,
   ]);
 
   return { debouncedPriceMin, debouncedPriceMax };

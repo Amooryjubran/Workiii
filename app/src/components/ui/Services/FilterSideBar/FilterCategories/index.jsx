@@ -1,22 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import useServicesStore from "@/store/Services/useServicesStore";
 import styles from "../style.module.css";
 
-export default function FilterCategories({ handleCategoryChange }) {
-  const { fetchCategories, categories, filters } = useServicesStore();
+export default function FilterCategories() {
+  const { fetchCategories, categories, filters, handleCategoryChange } =
+    useServicesStore();
   const { t } = useTranslation();
-  const [selectedCategories, setSelectedCategories] = useState({});
 
   useEffect(() => {
     fetchCategories();
   }, []);
 
   const toggleCategory = (category) => {
-    setSelectedCategories((prev) => ({
-      ...prev,
-      [category]: !prev[category],
-    }));
     handleCategoryChange(category);
   };
 
@@ -40,8 +36,7 @@ export default function FilterCategories({ handleCategoryChange }) {
       <button
         className={styles.filterCategoriesBtns}
         onClick={() => {
-          handleCategoryChange("");
-          setSelectedCategories({});
+          handleCategoryChange("reset");
         }}
       >
         Reset Filters

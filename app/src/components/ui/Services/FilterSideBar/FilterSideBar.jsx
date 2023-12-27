@@ -1,7 +1,7 @@
 import styles from "./style.module.css";
 import { useTranslation } from "react-i18next";
 import FilterCategories from "./FilterCategories";
-export default function FilterSideBar({ handleCategoryChange }) {
+export default function FilterSideBar() {
   const { t } = useTranslation();
 
   return (
@@ -9,7 +9,7 @@ export default function FilterSideBar({ handleCategoryChange }) {
       <span className={styles.filterSideBarTitle}>
         {t("services.filterBy")} ?
       </span>
-      <FilterCategories handleCategoryChange={handleCategoryChange} />
+      <FilterCategories />
     </div>
   );
 }

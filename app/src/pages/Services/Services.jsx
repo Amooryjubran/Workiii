@@ -13,7 +13,7 @@ import Button from "@/components/Button";
 import HeroBanner from "@/components/ui/Services/HeroBanner";
 
 export default function Services() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
   const {
     services,
     isLoading,
@@ -22,6 +22,10 @@ export default function Services() {
     maxPrice,
     fetchServices,
     categories,
+    searchQuery,
+    setSearchQuery,
+    handleSearch,
+    handleCategoryChange,
   } = useServicesStore();
   const { user } = useUserStore();
 
@@ -30,40 +34,32 @@ export default function Services() {
   //   filters
   // );
 
+  useEffect(() => {
+    // Call fetchServices whenever filters change
+    if (isClicked) {
+      // Ensure this runs only after a search is initiated
+      fetchServices(user?._id);
+      setIsClicked(false); // Reset the click state
+    }
+  }, [filters, fetchServices, user?._id, isClicked]);
+
   // Fetch services on component mount
   useEffect(() => {
     if (categories.length > 0) {
       const timer = setTimeout(() => {
         fetchServices(user?._id);
       }, 500);
-
       return () => clearTimeout(timer);
     }
   }, [categories, fetchServices, user?._id]);
   // Handlers for filter changes
-  const handleCategoryChange = (category) => {
-    setFilter(
-      "category",
-      filters.category.includes(category)
-        ? filters.category.filter((c) => c !== category)
-        : [...filters.category, category]
-    );
-  };
 
   const handlePriceChange = (minOrMax, value) => {
     setFilter(minOrMax, parseInt(value, 10));
   };
 
-  const handleSearch = () => {
-    // Reset other filters
-    setFilter("category", []);
-    setFilter("priceMin", 0);
-    setFilter("priceMax", 1000);
-    // Set the search query as a filter (if your backend supports it)
-    setFilter("searchQuery", searchQuery);
-
-    // Fetch services based on the search query
-    fetchServices(user?._id);
+  const onSearch = async (e) => {
+    handleSearch(user?._id, searchQuery);
   };
 
   const renderContent = () => {
@@ -87,10 +83,10 @@ export default function Services() {
       <HeroBanner
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        onSearch={handleSearch}
+        onSearch={onSearch}
       />
       <div className={styles.servivesContent}>
-        <FilterSideBar handleCategoryChange={handleCategoryChange} />
+        <FilterSideBar />
         <div className={styles.servivesParent}>
           <div className={styles.servivesFilter}>
             {filters?.category?.map((filterTag) => (

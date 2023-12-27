@@ -9,7 +9,26 @@ const getAllApprovedServices = async (req, res) => {
     let matchQuery = { status: "Approved" };
 
     // Extract query parameters
-    const { category, priceMin, priceMax, rating, userId } = req.query;
+    const { category, priceMin, priceMax, rating, userId, search } = req.query;
+
+    let searchQuery = [];
+    if (search) {
+      const searchTerms = search.split(/\s+/); // Split the search string into words
+      searchQuery = searchTerms.flatMap((term) => [
+        { "serviceInfo.serviceTitle": { $regex: term, $options: "i" } },
+        { "serviceInfo.serviceDescription": { $regex: term, $options: "i" } },
+        { "serviceInfo.serviceCategory": { $regex: term, $options: "i" } },
+        { "location.street": { $regex: term, $options: "i" } },
+        { "location.city": { $regex: term, $options: "i" } },
+        { "location.state": { $regex: term, $options: "i" } },
+        { "location.postalCode": { $regex: term, $options: "i" } },
+        { "location.country": { $regex: term, $options: "i" } },
+      ]);
+    }
+
+    if (searchQuery.length > 0) {
+      matchQuery.$or = searchQuery;
+    }
 
     if (category) {
       matchQuery["serviceInfo.serviceCategory"] = category;

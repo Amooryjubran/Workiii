@@ -17,14 +17,32 @@ const useServicesStore = create((set, get) => ({
     priceMax: 1000,
   },
   maxPrice: 1000,
+  searchQuery: "",
+
+  // Search Funciton
+  setSearchQuery: (query) => set({ searchQuery: query }),
 
   setFilter: (filterName, value) => {
-    set((state) => ({
-      filters: {
-        ...state.filters,
-        [filterName]: value,
-      },
-    }));
+    if (filterName === "reset") {
+      // Reset all filters and the search query
+      set({
+        filters: {
+          category: [],
+          priceMin: 0,
+          priceMax: 1000,
+        },
+        searchQuery: "",
+      });
+    } else {
+      // Update a specific filter
+      set((state) => ({
+        filters: {
+          ...state.filters,
+          [filterName]: value,
+        },
+        searchQuery: state.searchQuery,
+      }));
+    }
 
     // Recalculate maxPrice when services change
     const services = get().services;
@@ -38,14 +56,19 @@ const useServicesStore = create((set, get) => ({
     // Fetch services with the updated filters
     get().fetchServices();
   },
-
-  fetchServices: async (userId) => {
+  // Add a new parameter for the search query
+  fetchServices: async (userId, searchQuery = "") => {
     const { filters } = get();
     set({ isLoading: true });
     try {
-      const response = await getService(filters, userId);
+      console.log(searchQuery);
+      // Include search query in the filters if it's provided
+      const effectiveFilters = searchQuery
+        ? { ...filters, searchQuery }
+        : filters;
+      const response = await getService(effectiveFilters, userId);
       if (response && response.data) {
-        set({ services: response.data.data, isLoading: false });
+        set({ services: response.data.data });
       }
     } catch (error) {
       console.error("Error fetching services:", error);
@@ -53,6 +76,7 @@ const useServicesStore = create((set, get) => ({
       set({ isLoading: false });
     }
   },
+
   fetchCategories: async () => {
     set({ categoriesLoading: true });
     try {
@@ -67,6 +91,46 @@ const useServicesStore = create((set, get) => ({
     }
   },
 
+  // Search For Services Function
+  handleSearch: async (userId, query) => {
+    get().setSearchQuery(query);
+    get().setFilter({
+      category: [],
+      priceMin: 0,
+      priceMax: 1000,
+      searchQuery: query,
+    });
+
+    setTimeout(() => {
+      get().fetchServices(userId, query);
+    }, 1000);
+  },
+
+  // handle Category Change
+  handleCategoryChange: (category) => {
+    console.log(category);
+    if (category === "reset") {
+      set({
+        filters: {
+          category: [],
+          priceMin: 0,
+          priceMax: 1000,
+        },
+        searchQuery: "",
+      });
+    } else {
+      set((state) => ({
+        filters: {
+          ...state.filters,
+          category: state.filters.category.includes(category)
+            ? state.filters.category.filter((c) => c !== category)
+            : [...state.filters.category, category],
+        },
+      }));
+    }
+    // Trigger the fetchServices with the updated filters
+    get().fetchServices();
+  },
   // Method to add a service to the wishlist
   addToWishlist: async (userId, itemId) => {
     try {

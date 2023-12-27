@@ -7,7 +7,10 @@ import Button from "@/components/Button";
 
 export default function HeroBanner({ searchQuery, setSearchQuery, onSearch }) {
   const { t } = useTranslation();
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch();
+  };
   return (
     <div
       className={styles.heroBanner}
@@ -24,17 +27,17 @@ export default function HeroBanner({ searchQuery, setSearchQuery, onSearch }) {
           <div />
           <Link to="services">{t("services.Servicess")}</Link>
         </div>
-        <div className={styles.heroBannerSearch}>
+        <form onSubmit={handleSubmit} className={styles.heroBannerSearch}>
           <Input
-            name="search"
+            name="text"
             placeholder={t("services.PlaceHolder")}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <Button className={styles.heroBannerSearchBtn} onClick={onSearch}>
+          <Button className={styles.heroBannerSearchBtn} type="submit">
             {t("services.Search")}
           </Button>
-        </div>
+        </form>
       </div>
     </div>
   );

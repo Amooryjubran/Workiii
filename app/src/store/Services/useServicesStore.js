@@ -131,6 +131,9 @@ const useServicesStore = create((set, get) => ({
     // Trigger the fetchServices with the updated filters
     get().fetchServices();
   },
+
+  // Handle price change
+
   // Method to add a service to the wishlist
   addToWishlist: async (userId, itemId) => {
     try {

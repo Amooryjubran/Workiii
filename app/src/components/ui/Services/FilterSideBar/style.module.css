@@ -22,11 +22,13 @@
   flex-direction: column;
   gap: 16px;
 }
+
 .wrapper > span {
   color: var(--Neutral-800, #0f1f48);
   font-size: 16px;
   font-weight: 700;
 }
+
 .filterCategoriesBtns {
   background-color: transparent;
   text-align: left;
@@ -46,6 +48,112 @@
   height: 20px;
   margin-right: 10px;
   cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+}
+
+.filterCategoryCheckbox:checked {
+  background-color: #ffb142;
+  border: 1px solid #ffb142;
+}
+
+.filterCategoryCheckbox:checked::after {
+  content: "✔";
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  color: white;
+  font-size: 12px;
+}
+.rangeSlider {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 10px;
+  background: var(--Neutral-50, #f8fafc);
+  padding: 24px;
+}
+
+.rangeSlider > span {
+  color: var(--Neutral-800, #0f1f48);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.rangeSliderMinMax {
+  display: flex;
+  align-content: center;
+  gap: 15px;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.rangeSliderMinMax > div {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--Neutral-500, #a0a3bd);
+  background: var(--Neutral-white, #fff);
+  padding: 10px;
+  color: var(--Neutral-500, #a0a3bd);
+  font-size: 12px;
+}
+
+.doubleSlider {
+  position: relative;
+}
+
+.lowerSlider,
+.upperSlider {
+  width: 100%;
+  position: absolute;
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+.lowerSlider::-webkit-slider-thumb,
+.upperSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  accent-color: #ffb142;
+  background: #ffb142;
+  z-index: 99999999;
+  cursor: pointer;
+}
+
+.lowerSlider::-webkit-slider-runnable-track,
+.upperSlider::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 2px;
+  background: #d9d9d9;
+}
+
+.doubleSlider::before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  background: #ffb142;
+  left: var(--min-range);
+  right: var(--max-range);
+  z-index: 9999;
+}
+
+.lowerSlider::-webkit-slider-thumb,
+.upperSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffb142;
+  cursor: pointer;
+  margin-top: -9px;
+  box-sizing: border-box;
 }

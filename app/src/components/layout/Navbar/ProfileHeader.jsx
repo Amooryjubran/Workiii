@@ -11,7 +11,7 @@ export default function ProfileHeader({ user }) {
         {profileImg ? (
           <img src={profileImg} alt={name} />
         ) : (
-          <div className={styles.profileInitial}>{name.charAt(0)}</div>
+          <div className={styles.profileInitial}>{name?.charAt(0)}</div>
         )}
       </div>
       <div className={styles.profileHeaderWrapper}>

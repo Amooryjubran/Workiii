@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import X from "images/cross.svg";
 import styles from "./style.module.css";
 import useUserStore from "@/store/useUserStore";
-import useServiceFilters from "@/hooks/useServiceFilters";
-import Input from "@/components/Input";
 import FilterSideBar from "@/components/ui/Services/FilterSideBar";
 import ServicesList from "@/components/ui/Services/ServiceCard";
 import Skeleton from "@/components/Skeleton";
@@ -17,9 +15,7 @@ export default function Services() {
   const {
     services,
     isLoading,
-    setFilter,
     filters,
-    maxPrice,
     fetchServices,
     categories,
     searchQuery,
@@ -28,11 +24,6 @@ export default function Services() {
     handleCategoryChange,
   } = useServicesStore();
   const { user } = useUserStore();
-
-  // const { debouncedPriceMin, debouncedPriceMax } = useServiceFilters(
-  //   setFilter,
-  //   filters
-  // );
 
   useEffect(() => {
     // Call fetchServices whenever filters change
@@ -54,11 +45,7 @@ export default function Services() {
   }, [categories, fetchServices, user?._id]);
   // Handlers for filter changes
 
-  const handlePriceChange = (minOrMax, value) => {
-    setFilter(minOrMax, parseInt(value, 10));
-  };
-
-  const onSearch = async (e) => {
+  const onSearch = async () => {
     handleSearch(user?._id, searchQuery);
   };
 
@@ -104,31 +91,10 @@ export default function Services() {
               </Button>
             ))}
           </div>
-          {/* <div>
-          <label>Price Range:</label>
-          <Input
-            type="range"
-            min="0"
-            max={maxPrice}
-            value={filters.priceMin}
-            onChange={(e) => handlePriceChange("priceMin", e.target.value)}
-          />
-          <Input
-            type="range"
-            min="0"
-            max={maxPrice}
-            value={filters.priceMax} // Use non-debounced value for slider input
-            onChange={(e) => handlePriceChange("priceMax", e.target.value)}
-          />
-          <span>
-            {debouncedPriceMin} - {debouncedPriceMax}
-          </span>
-        </div> */}
+
           <div className={styles.servicesList}>{renderContent()}</div>
         </div>
       </div>
-
-      {/* Display Services */}
     </div>
   );
 }

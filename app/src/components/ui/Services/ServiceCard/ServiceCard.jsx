@@ -99,15 +99,19 @@ export default function ServiceCard({ service }) {
           <Image src={Arrow} alt={"Arrow"} />
         </LinkButton>
       </div>
-      <div className={styles.serviceNav}>
-        <span>{serviceCategory}</span>
-        <Button
-          className={styles.serviceNavBtn}
-          onClick={(e) => handleWishList(e, _id)}
-        >
-          <Heart className={isWishlisted ? styles.activeHeart : styles.heart} />
-        </Button>
-      </div>
+      {user && (
+        <div className={styles.serviceNav}>
+          <span>{serviceCategory}</span>
+          <Button
+            className={styles.serviceNavBtn}
+            onClick={(e) => handleWishList(e, _id)}
+          >
+            <Heart
+              className={isWishlisted ? styles.activeHeart : styles.heart}
+            />
+          </Button>
+        </div>
+      )}
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
@@ -138,6 +142,7 @@ ServiceCard.propTypes = {
     userName: PropTypes.string.isRequired,
     userProfileImg: PropTypes.string,
     _id: PropTypes.string.isRequired,
+    isWishlisted: PropTypes.bool,
     images: PropTypes.arrayOf(
       PropTypes.shape({
         src: PropTypes.string.isRequired,

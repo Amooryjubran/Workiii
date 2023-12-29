@@ -157,3 +157,34 @@
   margin-top: -9px;
   box-sizing: border-box;
 }
+
+@media (max-width: 1028px) {
+  .filterSideBar {
+    width: 100%;
+  }
+  .filterSideBarTitle {
+    color: var(--Neutral-1000, #0f1317);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .filterSideBarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .filterModalBtn {
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    width: fit-content;
+    transform: rotate(90deg);
+  }
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .arrowActive {
+    transform: rotate(180deg);
+  }
+}

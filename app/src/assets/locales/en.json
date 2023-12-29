@@ -5,7 +5,9 @@
     "reviews": "Reviews",
     "about": "About Us",
     "login": "Login",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy"
   },
   "home": {
     "homeMessage": "Welcome to our home page!"

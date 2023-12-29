@@ -5,7 +5,9 @@
     "reviews": "Avis",
     "about": "À propos de nous",
     "login": "Connexion",
-    "signUp": "S'inscrire"
+    "signUp": "S'inscrire",
+    "terms": "Termes et conditions",
+    "privacy": "politique de confidentialité"
   },
   "home": {
     "homeMessage": "Bienvenue sur notre page d'accueil!"

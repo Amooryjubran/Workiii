@@ -36,12 +36,13 @@ export default function Services() {
 
   // Fetch services on component mount
   useEffect(() => {
-    if (categories.length > 0) {
-      const timer = setTimeout(() => {
-        fetchServices(user?._id);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
+    // if (categories.length > 0) {
+    const timer = setTimeout(() => {
+      fetchServices(user?._id);
+    }, 500);
+    console.log("omar");
+    return () => clearTimeout(timer);
+    // }
   }, [categories, fetchServices, user?._id]);
   // Handlers for filter changes
 
@@ -64,6 +65,7 @@ export default function Services() {
 
     return <p>No services found</p>;
   };
+  console.log(categories);
 
   return (
     <div className={styles.servicesWrapper}>

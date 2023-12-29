@@ -11,7 +11,7 @@ import Logo from "@/assets/logo.svg";
 import Search from "@/assets/images/search.svg";
 import useLanguageSelector from "@/store/useLanguageSelector";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
-import MobileNav from "./MobileNav";
+import MobileNav from "./Mobile";
 import ProfileHeader from "./ProfileHeader";
 import useUserStore from "@/store/useUserStore";
 import { isPathExcluded } from "@/helpers/pathHelper";

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 import { Link } from "react-router-dom";
 import styles from "./style.module.css";
 import Input from "@/components/Input";
@@ -7,6 +8,8 @@ import Button from "@/components/Button";
 
 export default function HeroBanner({ searchQuery, setSearchQuery, onSearch }) {
   const { t } = useTranslation();
+  const windowWidth = useWindowWidth();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch();
@@ -34,9 +37,11 @@ export default function HeroBanner({ searchQuery, setSearchQuery, onSearch }) {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <Button className={styles.heroBannerSearchBtn} type="submit">
-            {t("services.Search")}
-          </Button>
+          {windowWidth >= 1028 && (
+            <Button className={styles.heroBannerSearchBtn} type="submit">
+              {t("services.Search")}
+            </Button>
+          )}
         </form>
       </div>
     </div>

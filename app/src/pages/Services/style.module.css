@@ -52,3 +52,17 @@
 .removeFilterImg {
   filter: brightness(0%);
 }
+
+@media (max-width: 1028px) {
+  .servicesWrapper {
+    gap: 20px;
+  }
+  .servivesContent {
+    flex-direction: column;
+    max-width: none;
+    padding: 20px;
+  }
+  .servicesList {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

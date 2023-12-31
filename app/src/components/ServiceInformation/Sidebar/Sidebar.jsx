@@ -1,15 +1,22 @@
-import styles from "./style.module.css";
-import PropTypes from "prop-types";
-import Image from "@/components/Image";
-import StarImg from "images/Service/star.svg";
-import { useTranslation } from "react-i18next";
-import GoogleMapReact from "google-map-react";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
+import styles from "./style.module.css";
 import { getDefaultMapCenter } from "@/helpers/locationHelper";
+import GoogleMapReact from "google-map-react";
+import StarImg from "images/Service/star.svg";
+import Image from "@/components/Image";
 
 const Marker = () => <div className={styles.marker} />;
 
-export default function Sidebar({ ratings, booking, location, price }) {
+export default function Sidebar({
+  ratings,
+  booking,
+  location,
+  price,
+  pageType,
+  setModal,
+}) {
   const { t } = useTranslation();
   const defaultMapCenter = getDefaultMapCenter();
   const [mapCenter, setMapCenter] = useState(location?.latLng);
@@ -75,6 +82,14 @@ export default function Sidebar({ ratings, booking, location, price }) {
           <Marker lat={mapCenter.lat} lng={mapCenter.lng} />
         </GoogleMapReact>
       </div>
+      {pageType === "SERVICE" && (
+        <button
+          className={styles.sideBarBookBtn}
+          onClick={() => setModal(true)}
+        >
+          {t("services.BookNow")}
+        </button>
+      )}
     </div>
   );
 }
@@ -91,4 +106,6 @@ Sidebar.propTypes = {
   booking: PropTypes.object,
   ratings: PropTypes.array,
   price: PropTypes.string,
+  pageType: PropTypes.string,
+  setModal: PropTypes.func,
 };

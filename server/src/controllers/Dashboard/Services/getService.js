@@ -26,6 +26,7 @@ const getService = async (req, res) => {
     const serviceWithUserName = {
       ...service,
       providerName: user ? user.name : "Unknown",
+      pageType: "DASHBOARD",
     };
 
     // Return the response

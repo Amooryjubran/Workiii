@@ -12,6 +12,7 @@ export default function Header({
   serviceTitle,
   serviceCategory,
   ratings,
+  pageType,
 }) {
   return (
     <div className={styles.header}>
@@ -29,16 +30,18 @@ export default function Header({
           {ratings?.length == 0 ? 0 : 15}({ratings?.length})
         </div>
       </div>
-      <Button className={styles.headerBtn}>
-        <div>
-          <Image src={PDFIMG} alt="Pdf" />
-          <div className={styles.headerBtnInfo}>
-            <span>filename.pdf</span>
-            <p>5 MB</p>
+      {pageType === "DASHBOARD" && (
+        <Button className={styles.headerBtn}>
+          <div>
+            <Image src={PDFIMG} alt="Pdf" />
+            <div className={styles.headerBtnInfo}>
+              <span>filename.pdf</span>
+              <p>5 MB</p>
+            </div>
           </div>
-        </div>
-        <Image src={DownloadImg} alt="download" />
-      </Button>
+          <Image src={DownloadImg} alt="download" />
+        </Button>
+      )}
     </div>
   );
 }
@@ -51,5 +54,6 @@ Header.propTypes = {
   }),
   serviceTitle: PropTypes.string,
   serviceCategory: PropTypes.string,
+  pageType: PropTypes.string,
   ratings: PropTypes.array,
 };

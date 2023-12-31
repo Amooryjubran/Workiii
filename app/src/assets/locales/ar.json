@@ -169,6 +169,18 @@
     "Home": "الصفحة الرئيسية",
     "Search": "بحث",
     "Servicess": "الخدمات",
-    "PlaceHolder": "ما الذي تبحث عنه ؟"
+    "PlaceHolder": "ما الذي تبحث عنه ؟",
+    "booking": {
+      "Cancel": "إلغاء",
+      "Next": "التالي",
+      "Back": "رجوع",
+      "Confirm": "تأكيد",
+      "Appoiment": "موعد",
+      "Payment": "الدفع",
+      "Done": "تم",
+      "AppoimentSub": "التاريخ والوقت",
+      "PaymentSub": "التاريخ والوقت",
+      "DoneSub": "التاريخ والوقت"
+    }
   }
 }

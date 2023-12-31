@@ -13,6 +13,7 @@ const topServices = require("./controllers/Services/TopServices");
 const servicesCategories = require("./controllers/Services/servicesCategories");
 const listAService = require("./controllers/Services/listAService");
 const getlAllApprovedServices = require("./controllers/Services/getlAllApprovedServices");
+const getServiceDetail = require("./controllers/Services/getServiceDetail");
 
 // Dashboard
 const getCategories = require("./controllers/Dashboard/Categories/getCategories");
@@ -37,6 +38,7 @@ module.exports = {
   getAllServices,
   getService,
   getlAllApprovedServices,
+  getServiceDetail,
 
   // POST
   createUser,

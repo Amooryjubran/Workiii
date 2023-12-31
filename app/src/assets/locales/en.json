@@ -169,6 +169,18 @@
     "Home": "Home",
     "Search": "Search",
     "Servicess": "Services",
-    "PlaceHolder": "What are you looking for ?"
+    "PlaceHolder": "What are you looking for ?",
+    "booking": {
+      "Cancel": "Cancel",
+      "Next": "Next",
+      "Back": "Back",
+      "Confirm": "Confirm",
+      "Appoiment": "Appoiment",
+      "Payment": "Payment",
+      "Done": "Done",
+      "AppoimentSub": "Date & Time",
+      "PaymentSub": "Date & Time",
+      "DoneSub": "Date & Time"
+    }
   }
 }

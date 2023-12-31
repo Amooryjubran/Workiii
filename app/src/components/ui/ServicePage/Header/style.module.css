@@ -1,0 +1,83 @@
+.heroBanner {
+  min-height: 511px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heroBannerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+.heroBannerContent > h1 {
+  color: var(--Neutral-white, #fff);
+  font-size: 36px;
+  margin: 0;
+}
+.heroBannerNav {
+  display: flex;
+  align-items: end;
+  gap: 5px;
+}
+.heroBannerNav > a {
+  text-decoration: none;
+  color: var(--Neutral-white, #fff);
+  font-size: 20px;
+  line-height: 0;
+}
+.heroBannerNav > div {
+  background-color: #ffb142;
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+}
+
+.heroBannerSearch {
+  margin: 50px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  background: var(--Neutral-white, #fff);
+  box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  padding: 16px;
+}
+.heroBannerSearch > input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+.heroBannerSearchBtn {
+  width: 120px;
+  height: 100%;
+  padding: 18px 24px;
+  border-radius: 10px;
+  background: var(--Primary, #39374d);
+  border: none;
+  outline: none;
+  color: var(--Neutral-white, #fff);
+  font-size: 18px;
+}
+
+@media (max-width: 1028px) {
+  .heroBanner {
+    margin-top: 70px;
+    min-height: 250px;
+    position: relative;
+  }
+  .heroBannerSearch {
+    margin: 0;
+    bottom: -25px;
+    position: absolute;
+    max-width: 90%;
+  }
+}

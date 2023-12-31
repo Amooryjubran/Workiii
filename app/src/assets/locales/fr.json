@@ -169,6 +169,18 @@
     "Home": "Prestations",
     "Search": "Recherche",
     "Servicess": "Prestations",
-    "PlaceHolder": "Qu'est-ce que tu cherches ?"
+    "PlaceHolder": "Qu'est-ce que tu cherches ?",
+    "booking": {
+      "Cancel": "Annuler",
+      "Next": "Suivant",
+      "Back": "Retour",
+      "Confirm": "Confirmer",
+      "Appoiment": "Rendez-vous",
+      "Payment": "Paiement",
+      "Done": "Terminé",
+      "AppoimentSub": "Date & Heure",
+      "PaymentSub": "Date & Heure",
+      "DoneSub": "Date & Heure"
+    }
   }
 }

@@ -5,8 +5,11 @@ import Gallery from "./Gallery";
 import Details from "./Details";
 import Providers from "./Providers";
 import Sidebar from "./Sidebar";
+import BookService from "./BookService";
+import useBookServiceStore from "@/store/Services/useBookServiceStore";
 
 export default function ServiceInformation({ selectedService }) {
+  const { modal, setModal } = useBookServiceStore();
   const {
     location,
     images,
@@ -15,6 +18,7 @@ export default function ServiceInformation({ selectedService }) {
     ratings,
     providerName,
     dateCreated,
+    pageType,
   } = selectedService;
   const { serviceTitle, serviceCategory, serviceDescription, servicePrice } =
     serviceInfo;
@@ -38,6 +42,7 @@ export default function ServiceInformation({ selectedService }) {
         serviceTitle={serviceTitle}
         serviceCategory={serviceCategory}
         ratings={ratings}
+        pageType={pageType}
       />
       <Gallery images={images} />
       <div className={styles.serviceBottom}>
@@ -54,8 +59,11 @@ export default function ServiceInformation({ selectedService }) {
           booking={booking}
           location={location}
           price={servicePrice}
+          pageType={pageType}
+          setModal={setModal}
         />
       </div>
+      {modal && <BookService setModal={setModal} />}
     </div>
   );
 }
@@ -68,6 +76,7 @@ ServiceInformation.propTypes = {
       state: PropTypes.string,
       country: PropTypes.string,
     }),
+    pageType: PropTypes.string,
     images: PropTypes.array,
     booking: PropTypes.object,
     serviceInfo: PropTypes.shape({

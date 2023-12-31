@@ -78,3 +78,15 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
+
+.sideBarBookBtn {
+  border-radius: 10px;
+  background: var(--primery, #39374d);
+  padding: 18px 24px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--Neutral-50, #f8fafc);
+  font-size: 18px;
+  font-weight: 700;
+}

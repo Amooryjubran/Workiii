@@ -8,6 +8,7 @@ import useLanguageSelector from "@/store/useLanguageSelector";
 import Login from "@/pages/Login";
 import ListAService from "@/pages/ListAService";
 import Dashboard from "@/pages/Dashboard";
+import ServicePage from "@/pages/ServicePage";
 
 const SubRoutes = () => {
   const { lang } = useParams();
@@ -25,6 +26,7 @@ const SubRoutes = () => {
       <Route path="login" element={<Login />} />
       <Route path="list-a-service" element={<ListAService />} />
       <Route path="dashboard" element={<Dashboard />} />
+      <Route path="service/:id" element={<ServicePage />} />
       {/* ... other sub-routes */}
     </Routes>
   );

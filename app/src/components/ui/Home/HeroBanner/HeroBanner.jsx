@@ -56,7 +56,11 @@ export default function HeroBanner() {
           <LinkButton className={styles.heroBannerServicesLink} to="services">
             {t("landingPage.wantService")}
           </LinkButton>
-          <LinkButton className={styles.heroBannerSignUpLink} to="signup">
+          <LinkButton
+            className={styles.heroBannerSignUpLink}
+            to="list-a-service
+          "
+          >
             {t("landingPage.offerService")}
           </LinkButton>
         </div>

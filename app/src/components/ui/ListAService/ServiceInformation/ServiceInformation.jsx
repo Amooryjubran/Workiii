@@ -49,7 +49,7 @@ export default function ServiceInformation() {
         });
     }
   };
-  let categories = data?.data[0]?.categories;
+  let categories = data?.data;
   return (
     <div className={styles.serviceInformationContainer}>
       <div className={styles.serviceInformationWrapper}>

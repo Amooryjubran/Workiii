@@ -180,7 +180,8 @@
       "Done": "Done",
       "AppoimentSub": "Date & Time",
       "PaymentSub": "Date & Time",
-      "DoneSub": "Date & Time"
+      "DoneSub": "Date & Time",
+      "toastError": "Please complete the forms"
     }
   }
 }

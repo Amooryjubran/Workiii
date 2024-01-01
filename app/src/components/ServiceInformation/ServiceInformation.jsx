@@ -61,6 +61,7 @@ export default function ServiceInformation({ selectedService }) {
           price={servicePrice}
           pageType={pageType}
           setModal={setModal}
+          selectedService={selectedService}
         />
       </div>
       {modal && <BookService setModal={setModal} />}

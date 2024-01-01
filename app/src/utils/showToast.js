@@ -9,6 +9,7 @@ export const showToast = (type, message) => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
+    pauseOnFocusLoss: false,
     theme: "dark",
   };
 

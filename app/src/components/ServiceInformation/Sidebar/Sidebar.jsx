@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import styles from "./style.module.css";
 import { getDefaultMapCenter } from "@/helpers/locationHelper";
+import useBookServiceStore from "@/store/Services/useBookServiceStore";
 import GoogleMapReact from "google-map-react";
 import StarImg from "images/Service/star.svg";
 import Image from "@/components/Image";
@@ -16,10 +17,12 @@ export default function Sidebar({
   price,
   pageType,
   setModal,
+  selectedService,
 }) {
   const { t } = useTranslation();
   const defaultMapCenter = getDefaultMapCenter();
   const [mapCenter, setMapCenter] = useState(location?.latLng);
+  const { setServiceInformation } = useBookServiceStore();
   const transformBookingData = (bookingData) => {
     const daysOfWeek = [
       "Sunday",
@@ -46,6 +49,11 @@ export default function Sidebar({
       setMapCenter(location.latLng);
     }
   }, [location.latLng]);
+
+  const handleBookNow = () => {
+    setServiceInformation(selectedService);
+    setModal(true);
+  };
 
   const availableBookings = transformBookingData(booking);
   return (
@@ -83,10 +91,7 @@ export default function Sidebar({
         </GoogleMapReact>
       </div>
       {pageType === "SERVICE" && (
-        <button
-          className={styles.sideBarBookBtn}
-          onClick={() => setModal(true)}
-        >
+        <button className={styles.sideBarBookBtn} onClick={handleBookNow}>
           {t("services.BookNow")}
         </button>
       )}
@@ -108,4 +113,5 @@ Sidebar.propTypes = {
   price: PropTypes.string,
   pageType: PropTypes.string,
   setModal: PropTypes.func,
+  selectedService: PropTypes.object,
 };

@@ -2,23 +2,31 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./style.module.css";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import useBookServiceStore from "@/store/Services/useBookServiceStore";
 import Appointment from "./Appointment";
 import Payment from "./Payment";
 import Done from "./Done";
 import Button from "@/components/Button";
 import Image from "@/components/Image";
+import { ToastContainer } from "react-toastify";
+import { showToast } from "@/utils/showToast";
+import "react-toastify/dist/ReactToastify.css";
 import Back from "@/assets/images/Signup/back.svg";
 import CalenderImg from "@/assets/images/Service/calender.svg";
 import WalletImg from "@/assets/images/Service/wallet.svg";
 import DoneImg from "@/assets/images/Service/done.svg";
-import useBookServiceStore from "@/store/Services/useBookServiceStore";
 
 export default function BookService() {
   const { t } = useTranslation();
-  const { currentStep, setCurrentStep, setModal, nextStep, previousStep } =
-    useBookServiceStore();
+  const {
+    currentStep,
+    setCurrentStep,
+    setModal,
+    nextStep,
+    previousStep,
+    location,
+  } = useBookServiceStore();
   const stepsComponents = [Appointment, Payment, Done];
-
   const stepData = [
     {
       titleKey: "services.booking.Appoiment",
@@ -52,7 +60,17 @@ export default function BookService() {
             <Button onClick={() => setModal(false)}>
               {t("services.booking.Cancel")}
             </Button>
-            <Button onClick={nextStep}>{t("services.booking.Next")}</Button>
+            <Button
+              onClick={() => {
+                if (!location.length) {
+                  showToast("error", `${t("services.booking.toastError")}`);
+                  return;
+                }
+                nextStep();
+              }}
+            >
+              {t("services.booking.Next")}
+            </Button>
           </>
         );
       case 1:
@@ -107,6 +125,16 @@ export default function BookService() {
         {React.createElement(stepsComponents[currentStep])}
         <div className={styles.navigationButtons}>{renderButtons()}</div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={true}
+        rtl={false}
+        draggable
+        theme="dark"
+      />
     </div>
   );
 }

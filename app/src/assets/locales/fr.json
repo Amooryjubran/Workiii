@@ -180,7 +180,8 @@
       "Done": "Terminé",
       "AppoimentSub": "Date & Heure",
       "PaymentSub": "Date & Heure",
-      "DoneSub": "Date & Heure"
+      "DoneSub": "Date & Heure",
+      "toastError": "Veuillez remplir les formulaires"
     }
   }
 }

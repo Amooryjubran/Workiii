@@ -5,6 +5,7 @@ const useBookServiceStore = create((set) => ({
   currentStep: 0,
   location: [],
   serviceInformation: null,
+  selectedTimes: [],
 
   errors: {
     location: {},
@@ -23,9 +24,11 @@ const useBookServiceStore = create((set) => ({
   },
 
   // function to store the service to be re-used
-  // Function to set the service informtion
   setServiceInformation: (serviceInfo) =>
     set(() => ({ serviceInformation: serviceInfo })),
+
+  // Function to set selectedTimes
+  setSelectedTimes: (times) => set(() => ({ selectedTimes: times })),
 
   // Navigation functions
   setCurrentStep: (currentStep) => set(() => ({ currentStep })),

@@ -21,6 +21,7 @@ export default function BookService() {
   const {
     currentStep,
     setCurrentStep,
+    selectedTimes,
     setModal,
     nextStep,
     previousStep,
@@ -62,7 +63,7 @@ export default function BookService() {
             </Button>
             <Button
               onClick={() => {
-                if (!location.length) {
+                if (location.length === 0 || selectedTimes.length === 0) {
                   showToast("error", `${t("services.booking.toastError")}`);
                   return;
                 }

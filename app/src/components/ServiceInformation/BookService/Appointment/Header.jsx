@@ -18,7 +18,6 @@ export default function Header() {
     month: "long",
     year: "numeric",
   });
-  console.log(images);
 
   return (
     <div className={styles.header}>

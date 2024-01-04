@@ -11,8 +11,7 @@
   position: fixed;
   animation: slideUp 0.3s;
   width: 100%;
-  max-width: 1700px;
-  padding: 40px;
+  overflow-y: scroll;
 }
 .bookServiceModalWrapper {
   display: flex;
@@ -22,6 +21,7 @@
   background: var(--Neutral-white, #fff);
   width: 100%;
   padding: 36px;
+  max-width: 1700px;
 }
 
 .BookServiceBackToHome {
@@ -108,6 +108,7 @@
   background: var(--primery, #39374d);
   color: var(--Neutral-50, #f8fafc);
 }
+
 @keyframes slideUp {
   0% {
     right: -100%;

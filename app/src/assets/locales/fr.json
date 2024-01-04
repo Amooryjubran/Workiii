@@ -181,7 +181,9 @@
       "AppoimentSub": "Date & Heure",
       "PaymentSub": "Date & Heure",
       "DoneSub": "Date & Heure",
-      "toastError": "Veuillez remplir les formulaires"
+      "toastError": "Veuillez remplir les formulaires",
+      "selectedTime": "Votre heure sélectionnée est :",
+      "noTime": "Il n'y a pas de créneau horaire disponible ce jour-là !"
     }
   }
 }

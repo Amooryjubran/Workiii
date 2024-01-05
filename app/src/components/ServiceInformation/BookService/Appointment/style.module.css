@@ -228,6 +228,8 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  align-items: center;
+  margin: 15px 0;
 }
 .timeSelected {
   display: flex;
@@ -238,7 +240,12 @@
   align-items: center;
   gap: 5px;
 }
-.timeSelected > div > span {
+.timeSelectedHeader > h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+.timeSelectedWrapper > span {
   padding: 5px 10px;
   border: 1px solid var(--neutral-500, #a0a3bd);
   border-radius: 30px;

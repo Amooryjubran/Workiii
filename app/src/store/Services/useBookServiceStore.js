@@ -6,6 +6,7 @@ const useBookServiceStore = create((set) => ({
   location: [],
   serviceInformation: null,
   selectedTimes: [],
+  totalPrice: 0,
 
   errors: {
     location: {},
@@ -29,6 +30,15 @@ const useBookServiceStore = create((set) => ({
 
   // Function to set selectedTimes
   setSelectedTimes: (times) => set(() => ({ selectedTimes: times })),
+
+  // Function to update total price
+  updateTotalPrice: () =>
+    set((state) => {
+      const pricePerHalfHour =
+        state.serviceInformation?.serviceInfo?.servicePrice || 0;
+      const totalSlots = state.selectedTimes.length;
+      return { totalPrice: totalSlots * pricePerHalfHour };
+    }),
 
   // Navigation functions
   setCurrentStep: (currentStep) => set(() => ({ currentStep })),

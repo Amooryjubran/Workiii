@@ -182,8 +182,9 @@
       "PaymentSub": "Date & Time",
       "DoneSub": "Date & Time",
       "toastError": "Please complete the forms",
-      "selectedTime": "Your selected time is :",
-      "noTime": "There is no available time slots at this day!"
+      "selectedTime": "Selected time is :",
+      "noTime": "There is no available time slots at this day!",
+      "total": "Total of"
     }
   }
 }

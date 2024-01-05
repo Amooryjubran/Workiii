@@ -10,8 +10,13 @@ import { useTranslation } from "react-i18next";
 export default function DateComponent() {
   const { t } = useTranslation();
 
-  const { serviceInformation, setSelectedTimes, selectedTimes } =
-    useBookServiceStore();
+  const {
+    serviceInformation,
+    setSelectedTimes,
+    selectedTimes,
+    updateTotalPrice,
+  } = useBookServiceStore();
+
   const { booking } = serviceInformation;
 
   const [date, setDate] = useState(new Date());
@@ -66,6 +71,7 @@ export default function DateComponent() {
       setSelectedTimes,
       timeSlots
     );
+    updateTotalPrice();
   };
 
   return (

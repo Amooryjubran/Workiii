@@ -1,0 +1,120 @@
+.paymentWrapper {
+  display: flex;
+  gap: 24px;
+}
+.paymentWrapper > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.paymentMethodsWrapper {
+  gap: 24px;
+}
+.paymentMethodsWrapper > h1 {
+  margin: 0;
+  color: var(--Neutral-800, #0f1f48);
+  font-size: 22px;
+}
+.paymentMethodsWrapperBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  padding: 18px 24px;
+  border-radius: 10px;
+  border: 1px solid var(--Primary, #39374d);
+  outline: none;
+  background-color: transparent;
+  max-height: 64px;
+}
+.paymentMethodsWrapperBtnStripe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  padding: 18px 24px;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-size: 16px;
+  border: 1px solid var(--Primary, #39374d);
+  background-color: var(--Primary, #39374d);
+  color: white;
+  outline: none;
+  max-height: 64px;
+}
+.error {
+  color: red;
+}
+.paymentMethodsCards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-height: 600px;
+  overflow: scroll;
+}
+.cardContainer {
+  display: flex;
+  align-items: center;
+  padding: 18px;
+  gap: 18px;
+  border-radius: 10px;
+  border: 1px solid var(--Neutral-500, #a0a3bd);
+  background: var(--Neutral-white, #fff);
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.cardContainerMiddle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 7.5px;
+  align-items: baseline;
+}
+.cardContainerMiddle > span {
+  color: var(--Neutral-800, #0f1f48);
+  font-size: 14px;
+}
+.cardContainerMiddle > span:nth-child(2) {
+  font-weight: bolder;
+  font-size: 18px;
+}
+.cardContainerLast > div {
+  margin: 0 0 0 auto;
+}
+.cardContainer:hover,
+.activeCard {
+  border-radius: 10px;
+  border: 1px solid var(--Secondary, #ffb142);
+  background: var(--warning-50, #fffdf7);
+  transition: all 0.2s ease-in-out;
+}
+.cardContainerLast {
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 7.5px;
+  align-items: baseline;
+  height: 100%;
+}
+.inputsNames,
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.formContainer input {
+  padding: 16px 40px 16px 16px;
+  border-radius: 8px;
+  border: 1px solid rgb(176, 176, 176);
+}
+.stripeCards {
+  display: block;
+}
+.cardElementContainer {
+  padding: 16px 40px 16px 16px;
+  border-radius: 8px;
+  border: 1px solid rgb(176, 176, 176);
+  background-color: white;
+}

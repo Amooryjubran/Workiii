@@ -184,7 +184,15 @@
       "toastError": "Veuillez remplir les formulaires",
       "selectedTime": "Votre heure sélectionnée est :",
       "noTime": "Il n'y a pas de créneau horaire disponible ce jour-là !",
-      "total": "Total de"
+      "total": "Total de",
+      "PaymentMethods": "Méthodes de payement",
+      "AddCard": "Ajouter une nouvelle carte",
+      "EndsAt": "Fini à",
+      "AddCreditCard": "Ajouter une carte de crédit",
+      "FirstName": "Prénom",
+      "LastName": "Nom de famille",
+      "EmailAddress": "Adresse e-mail",
+      "PleaseEnterYourName": "Veuillez entrer votre nom."
     }
   }
 }

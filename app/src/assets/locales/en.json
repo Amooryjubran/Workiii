@@ -184,7 +184,15 @@
       "toastError": "Please complete the forms",
       "selectedTime": "Selected time is :",
       "noTime": "There is no available time slots at this day!",
-      "total": "Total of"
+      "total": "Total of",
+      "PaymentMethods": "Payment Methods",
+      "AddCard": "Add New Card",
+      "EndsAt": "Ends at",
+      "AddCreditCard": "Add Credit Card",
+      "FirstName": "First Name",
+      "LastName": "Last Name",
+      "EmailAddress": "Email Address",
+      "PleaseEnterYourName": "Please enter your name."
     }
   }
 }

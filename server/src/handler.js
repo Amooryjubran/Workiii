@@ -27,6 +27,10 @@ const getService = require("./controllers/Dashboard/Services/getService");
 const approveService = require("./controllers/Dashboard/Services/approveService");
 const declineService = require("./controllers/Dashboard/Services/declineService");
 
+// PAYMENT
+const addCreditCard = require("./controllers/Payment/CreditCards/addCreditCard");
+const getCreditCards = require("./controllers/Payment/CreditCards/getCreditCards");
+
 module.exports = {
   // GET
   topServices,
@@ -39,6 +43,7 @@ module.exports = {
   getService,
   getlAllApprovedServices,
   getServiceDetail,
+  getCreditCards,
 
   // POST
   createUser,
@@ -49,7 +54,7 @@ module.exports = {
 
   // PATCH
   addToWishList,
-
+  addCreditCard,
   // PUT
   approveService,
   declineService,

@@ -1,9 +1,10 @@
-import { loginUser } from "@/api/userAuth";
+import { loginUser, updateCreditCard, getCreditCards } from "@/api/userAuth";
 import { create } from "zustand";
 
 const useUserStore = create((set) => ({
   user: null,
   isLoading: false,
+  creditCards: [],
 
   setUser: (user) => {
     set({ user });
@@ -35,6 +36,44 @@ const useUserStore = create((set) => ({
     set({ user: null, isLoading: false });
   },
   finishLoading: () => set({ isLoading: false }),
+
+  addCreditCard: async (userId, paymentMethod) => {
+    try {
+      const response = await updateCreditCard(userId, paymentMethod.id);
+
+      if (response && response.status === 200) {
+        set((state) => {
+          const updatedUser = {
+            ...state.user,
+            creditCards: state.user.creditCards
+              ? [...state.user.creditCards, paymentMethod]
+              : [paymentMethod],
+          };
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+          return { user: updatedUser };
+        });
+      } else {
+        console.error("Update failed", response.message);
+      }
+    } catch (err) {
+      console.error("Error updating user's card:", err);
+    }
+  },
+  fetchCreditCards: async (userId) => {
+    set({ isLoading: true });
+    try {
+      const response = await getCreditCards(userId);
+      if (response && response.status === 200) {
+        set({ creditCards: response.data.creditCards, isLoading: false });
+      } else {
+        console.error("Fetch failed", response.message);
+        set({ isLoading: false });
+      }
+    } catch (err) {
+      console.error("Error fetching user's credit cards:", err);
+      set({ isLoading: false });
+    }
+  },
 
   loadUser: () => {
     const storedUser = localStorage.getItem("user");

@@ -45,15 +45,19 @@ const {
   getService,
   getlAllApprovedServices,
   getServiceDetail,
+  getCreditCards,
 
   listAService,
   createUser,
   verifyUser,
   signIn,
-  addToWishList,
   removeFromWishList,
   addCategory,
   deleteCategory,
+
+  // PATCH
+  addToWishList,
+  addCreditCard,
 
   // PUT
   approveService,
@@ -81,6 +85,7 @@ app.get("/api/getAllServices", getAllServices);
 app.get("/api/service/:serviceId", getService);
 app.get("/api/getlAllApprovedServices", getlAllApprovedServices);
 app.get("/api/getServiceDetail/:id", getServiceDetail);
+app.get("/api/user/:_id/creditCards", getCreditCards);
 
 // POST
 app.post("/api/createUser", createUser);
@@ -91,6 +96,7 @@ app.post("/api/addCategory", addCategory);
 
 // PATCH
 app.patch("/api/addToWishList", addToWishList);
+app.patch("/api/user/:_id/creditCards", addCreditCard);
 
 // PUT
 app.put("/api/:serviceId/approve", approveService);

@@ -24,7 +24,6 @@ export default function Navbar() {
   const currentLanguage = i18n.language;
   const navigate = useNavigate();
   const windowWidth = useWindowWidth();
-
   const languageOptions = [
     { code: "en", label: "English" },
     { code: "fr", label: "French" },

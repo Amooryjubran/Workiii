@@ -19,3 +19,22 @@ export const loginUser = async (email, password) => {
     password,
   });
 };
+export const updateCreditCard = async (userId, paymentMethodId) => {
+  const API_BASE_URL = `${import.meta.env.VITE_API}`;
+  try {
+    const response = await axios.patch(
+      `${API_BASE_URL}/api/user/${userId}/creditCards`,
+      {
+        paymentMethodId,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error updating user's card:", error);
+    throw error;
+  }
+};
+
+export const getCreditCards = async (userId) => {
+  return axios.get(`${API_BASE_URL}/api/user/${userId}/creditCards`);
+};

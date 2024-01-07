@@ -184,7 +184,15 @@
       "toastError": "يرجى استكمال النماذج",
       "selectedTime": "الوقت الذي اخترته هو:",
       "noTime": "لا يوجد فترات زمنية متاحة في هذا اليوم!",
-      "total": "مجموع ال"
+      "total": "مجموع ال",
+      "PaymentMethods": "طرق الدفع",
+      "AddCard": "إضافة بطاقة جديدة",
+      "EndsAt": "ينتهي عند",
+      "AddCreditCard": "أضف بطاقة ائتمان",
+      "FirstName": "الاسم الأول",
+      "LastName": "اسم العائلة",
+      "EmailAddress": "عنوان البريد الإلكتروني",
+      "PleaseEnterYourName": "الرجاء إدخال اسمك."
     }
   }
 }

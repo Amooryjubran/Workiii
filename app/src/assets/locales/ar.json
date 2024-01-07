@@ -192,7 +192,17 @@
       "FirstName": "الاسم الأول",
       "LastName": "اسم العائلة",
       "EmailAddress": "عنوان البريد الإلكتروني",
-      "PleaseEnterYourName": "الرجاء إدخال اسمك."
+      "PleaseEnterYourName": "الرجاء إدخال اسمك.",
+      "Date": "التاريخ",
+      "Time": "الوقت",
+      "Provider": "المزود",
+      "Subtotal": "المجموع الفرعي",
+      "CouponDiscount": "خصم القسيمة",
+      "GST": "ضريبة السلع والخدمات",
+      "Total": "المجموع",
+      "EnterCoupon": "أدخل القسيمة",
+      "Apply": "تطبيق",
+      "ServiceFee": "رسوم الخدمة"
     }
   }
 }

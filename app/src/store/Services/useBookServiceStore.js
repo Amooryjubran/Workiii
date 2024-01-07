@@ -5,9 +5,11 @@ const useBookServiceStore = create((set) => ({
   currentStep: 0,
   location: [],
   serviceInformation: null,
+  selectedDate: null,
   selectedTimes: [],
   totalPrice: 0,
-
+  serviceFee: 0,
+  selectedCard: null,
   errors: {
     location: {},
   },
@@ -31,13 +33,28 @@ const useBookServiceStore = create((set) => ({
   // Function to set selectedTimes
   setSelectedTimes: (times) => set(() => ({ selectedTimes: times })),
 
-  // Function to update total price
+  // Function to set selectedDate
+  setSelectedDate: (date) => set(() => ({ selectedDate: date })),
+
+  // Function to set the selected card
+  setSelectedCard: (cardId) => set(() => ({ selectedCard: cardId })),
+
+  // Function to calculate service fee
+  calculateServiceFee: () =>
+    set((state) => {
+      const fee = state.totalPrice * 0.1; // 10% service fee
+      return { serviceFee: fee };
+    }),
+
+  // Updated function to calculate total price and service fee
   updateTotalPrice: () =>
     set((state) => {
       const pricePerHalfHour =
         state.serviceInformation?.serviceInfo?.servicePrice || 0;
       const totalSlots = state.selectedTimes.length;
-      return { totalPrice: totalSlots * pricePerHalfHour };
+      const basePrice = totalSlots * pricePerHalfHour;
+      const serviceFee = basePrice * 0.1; // 10% service fee
+      return { totalPrice: basePrice, serviceFee: serviceFee };
     }),
 
   // Navigation functions

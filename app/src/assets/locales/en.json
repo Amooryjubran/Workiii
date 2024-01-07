@@ -192,7 +192,17 @@
       "FirstName": "First Name",
       "LastName": "Last Name",
       "EmailAddress": "Email Address",
-      "PleaseEnterYourName": "Please enter your name."
+      "PleaseEnterYourName": "Please enter your name.",
+      "Date": "Date",
+      "Time": "Time",
+      "Provider": "Provider",
+      "Subtotal": "Subtotal",
+      "CouponDiscount": "Coupon Discount",
+      "GST": "GST",
+      "Total": "Total",
+      "EnterCoupon": "Enter Coupon",
+      "Apply": "Apply",
+      "ServiceFee": "Service Fee"
     }
   }
 }

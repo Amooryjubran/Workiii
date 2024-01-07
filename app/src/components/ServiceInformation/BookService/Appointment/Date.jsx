@@ -14,6 +14,7 @@ export default function DateComponent() {
     serviceInformation,
     setSelectedTimes,
     selectedTimes,
+    setSelectedDate,
     updateTotalPrice,
   } = useBookServiceStore();
 
@@ -61,6 +62,7 @@ export default function DateComponent() {
 
   const handleDateChange = (newDate) => {
     setDate(newDate);
+    setSelectedDate(newDate);
     setSelectedTimes([]);
   };
 

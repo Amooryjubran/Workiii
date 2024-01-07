@@ -16,6 +16,7 @@ import Amex from "images/CreditCards/americanExpress.svg";
 import discover from "images/CreditCards/discover.svg";
 import Unchecked from "images/CreditCards/Unchecked.svg";
 import Checked from "images/CreditCards/Checked.svg";
+import useBookServiceStore from "@/store/Services/useBookServiceStore";
 const stripePromise = loadStripe(`${import.meta.env.VITE_STRIPE_KEY}`);
 
 const getCardImage = (brand) => {
@@ -35,9 +36,9 @@ const getCardImage = (brand) => {
 
 export default function PaymentMethods() {
   const { user, fetchCreditCards, creditCards, isLoading } = useUserStore();
+  const { setSelectedCard, selectedCard } = useBookServiceStore();
   const { t } = useTranslation();
   const [showInputs, setShowInputs] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
     if (user && user._id) {
@@ -100,7 +101,6 @@ export default function PaymentMethods() {
       </Button>
     ));
   };
-
   return (
     <div className={styles.paymentMethodsWrapper}>
       <h1>{t("services.booking.PaymentMethods")}</h1>

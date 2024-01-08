@@ -54,6 +54,7 @@ const {
   removeFromWishList,
   addCategory,
   deleteCategory,
+  bookService,
 
   // PATCH
   addToWishList,
@@ -93,6 +94,7 @@ app.post("/api/verifyUser", verifyUser);
 app.post("/api/signIn", signIn);
 app.post("/api/listAService", listAService);
 app.post("/api/addCategory", addCategory);
+app.post("/api/bookService", bookService);
 
 // PATCH
 app.patch("/api/addToWishList", addToWishList);

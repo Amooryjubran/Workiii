@@ -30,6 +30,7 @@ const declineService = require("./controllers/Dashboard/Services/declineService"
 // PAYMENT
 const addCreditCard = require("./controllers/Payment/CreditCards/addCreditCard");
 const getCreditCards = require("./controllers/Payment/CreditCards/getCreditCards");
+const bookService = require("./controllers/Payment/Booking/bookService");
 
 module.exports = {
   // GET
@@ -51,6 +52,7 @@ module.exports = {
   signIn,
   listAService,
   addCategory,
+  bookService,
 
   // PATCH
   addToWishList,

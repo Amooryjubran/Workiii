@@ -158,7 +158,8 @@
     "ServiceProvider": "Service  Provider",
     "ServiceAvailabilty": "Service Availability",
     "Closed": "Closed",
-    "Approve": "Approve"
+    "Approve": "Approve",
+    "Bookings": "Bookings"
   },
   "services": {
     "filterBy": "Filter elments by",

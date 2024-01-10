@@ -158,7 +158,8 @@
     "ServiceProvider": "Fournisseur de services",
     "ServiceAvailabilty": "Disponibilité du service",
     "Closed": "Fermé",
-    "Approve": "Approuver"
+    "Approve": "Approuver",
+    "Bookings": "Réservations"
   },
   "services": {
     "filterBy": "Filtrer les éléments par",

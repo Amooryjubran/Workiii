@@ -2,18 +2,21 @@ import PropTypes from "prop-types";
 import Image from "@/components/Image";
 import styles from "./style.module.css";
 import Arrow from "images/chev.svg";
+import LinkButton from "@/components/Link";
 
 export default function ProfileHeader({ user }) {
   const { name, profileImg, userType } = user;
   return (
     <button className={styles.profileHeader}>
-      <div>
-        {profileImg ? (
-          <img src={profileImg} alt={name} />
-        ) : (
-          <div className={styles.profileInitial}>{name?.charAt(0)}</div>
-        )}
-      </div>
+      <LinkButton to="dashboard">
+        <div>
+          {profileImg ? (
+            <img src={profileImg} alt={name} />
+          ) : (
+            <div className={styles.profileInitial}>{name?.charAt(0)}</div>
+          )}
+        </div>
+      </LinkButton>
       <div className={styles.profileHeaderWrapper}>
         <span>{name}</span>
         <p>{userType}</p>

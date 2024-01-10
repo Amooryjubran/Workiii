@@ -158,7 +158,8 @@
     "ServiceProvider": "مقدم الخدمة",
     "ServiceAvailabilty": "توفر الخدمة",
     "Closed": "مغلق",
-    "Approve": "الموافقة"
+    "Approve": "الموافقة",
+    "Bookings": "الحجوزات"
   },
   "services": {
     "filterBy": "تصفية العناصر حسب",

@@ -6,3 +6,8 @@ const API_BASE_URL = `${import.meta.env.VITE_API}`;
 export const getServiceDetail = async (id) => {
   return axios.get(`${API_BASE_URL}/api/getServiceDetail/${id}`);
 };
+
+// function to reserve a service (Booking)
+export const bookService = async (bookingData) => {
+  return axios.post(`${API_BASE_URL}/api/bookService`, bookingData);
+};

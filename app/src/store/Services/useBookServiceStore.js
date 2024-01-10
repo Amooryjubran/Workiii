@@ -1,6 +1,6 @@
 import { create } from "zustand";
-
-const useBookServiceStore = create((set) => ({
+import { bookService } from "@/api/ServicePage";
+const useBookServiceStore = create((set, get) => ({
   modal: false,
   currentStep: 0,
   location: [],
@@ -56,6 +56,30 @@ const useBookServiceStore = create((set) => ({
       const serviceFee = basePrice * 0.1; // 10% service fee
       return { totalPrice: basePrice, serviceFee: serviceFee };
     }),
+
+  // Function to initiate the booking process
+  initiateBooking: async (id, serviceId) => {
+    const state = get();
+    try {
+      const bookingData = {
+        userId: id,
+        serviceId: serviceId,
+        location: state.location,
+        selectedDate: state.selectedDate,
+        selectedTimes: state.selectedTimes,
+        totalPrice: state.totalPrice,
+        serviceFee: state.serviceFee,
+        selectedCreditCard: state.selectedCard,
+      };
+      console.log(bookingData);
+      const response = await bookService(bookingData);
+      console.log("Booking successful:", response);
+      set({ modal: false, currentStep: 0 });
+    } catch (error) {
+      console.error("Booking failed:", error);
+      set((state) => ({ errors: { ...state.errors, booking: error } }));
+    }
+  },
 
   // Navigation functions
   setCurrentStep: (currentStep) => set(() => ({ currentStep })),

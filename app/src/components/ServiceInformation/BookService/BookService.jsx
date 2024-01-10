@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import styles from "./style.module.css";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
@@ -15,9 +16,12 @@ import Back from "@/assets/images/Signup/back.svg";
 import CalenderImg from "@/assets/images/Service/calender.svg";
 import WalletImg from "@/assets/images/Service/wallet.svg";
 import DoneImg from "@/assets/images/Service/done.svg";
+import useUserStore from "@/store/useUserStore";
 
-export default function BookService() {
+export default function BookService({ serviceID }) {
   const { t } = useTranslation();
+  useLockBodyScroll();
+  const { user } = useUserStore();
   const {
     currentStep,
     setCurrentStep,
@@ -26,6 +30,7 @@ export default function BookService() {
     nextStep,
     previousStep,
     location,
+    initiateBooking,
   } = useBookServiceStore();
   const stepsComponents = [Appointment, Payment, Done];
   const stepData = [
@@ -46,11 +51,15 @@ export default function BookService() {
     },
   ];
 
-  useLockBodyScroll();
-
   const handleConfirm = async () => {
-    // Add your API call logic here
-    nextStep();
+    try {
+      let id = user._id;
+      await initiateBooking(id, serviceID);
+      showToast("success", `${t("services.booking.bookingSuccess")}`);
+      // nextStep(); // Move to the next step after successful booking
+    } catch (error) {
+      showToast("error", `${t("services.booking.bookingError")}`);
+    }
   };
 
   const renderButtons = () => {
@@ -139,3 +148,7 @@ export default function BookService() {
     </div>
   );
 }
+
+BookService.propTypes = {
+  serviceID: PropTypes.string,
+};

@@ -19,6 +19,7 @@ export default function ServiceInformation({ selectedService }) {
     providerName,
     dateCreated,
     pageType,
+    _id,
   } = selectedService;
   const { serviceTitle, serviceCategory, serviceDescription, servicePrice } =
     serviceInfo;
@@ -64,13 +65,14 @@ export default function ServiceInformation({ selectedService }) {
           selectedService={selectedService}
         />
       </div>
-      {modal && <BookService setModal={setModal} />}
+      {modal && <BookService setModal={setModal} serviceID={_id} />}
     </div>
   );
 }
 
 ServiceInformation.propTypes = {
   selectedService: PropTypes.shape({
+    _id: PropTypes.string,
     location: PropTypes.shape({
       city: PropTypes.string,
       street: PropTypes.string,

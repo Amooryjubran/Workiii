@@ -53,6 +53,7 @@ const bookService = async (req, res) => {
       customer: existingUser.stripeCustomerId,
       payment_method: selectedCreditCard,
       confirm: true,
+      capture_method: "manual", // capture the charge in the bank (hold in the payment), if the labourler accepts, we charge, otherwise we release
       automatic_payment_methods: {
         enabled: true,
         allow_redirects: "never",
@@ -71,6 +72,7 @@ const bookService = async (req, res) => {
       serviceFee,
       paymentStatus: paymentIntent.status,
       serviceId: serviceId,
+      status: "PENDING",
       createdAt: new Date(),
     };
     const bookingResult = await db

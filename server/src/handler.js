@@ -27,6 +27,8 @@ const getService = require("./controllers/Dashboard/Services/getService");
 const approveService = require("./controllers/Dashboard/Services/approveService");
 const declineService = require("./controllers/Dashboard/Services/declineService");
 
+const getListOfBookings = require("./controllers/Dashboard/Bookings/getListOfBookings");
+
 // PAYMENT
 const addCreditCard = require("./controllers/Payment/CreditCards/addCreditCard");
 const getCreditCards = require("./controllers/Payment/CreditCards/getCreditCards");
@@ -45,6 +47,7 @@ module.exports = {
   getlAllApprovedServices,
   getServiceDetail,
   getCreditCards,
+  getListOfBookings,
 
   // POST
   createUser,

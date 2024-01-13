@@ -46,6 +46,7 @@ const {
   getlAllApprovedServices,
   getServiceDetail,
   getCreditCards,
+  getListOfBookings,
 
   listAService,
   createUser,
@@ -87,6 +88,7 @@ app.get("/api/service/:serviceId", getService);
 app.get("/api/getlAllApprovedServices", getlAllApprovedServices);
 app.get("/api/getServiceDetail/:id", getServiceDetail);
 app.get("/api/user/:_id/creditCards", getCreditCards);
+app.get("/api/:userId/getListOfBookings", getListOfBookings);
 
 // POST
 app.post("/api/createUser", createUser);

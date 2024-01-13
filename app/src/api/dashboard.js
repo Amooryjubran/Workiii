@@ -55,3 +55,8 @@ export const approveService = async (serviceId) => {
 export const declineService = async (serviceId) => {
   return axios.put(`${API_BASE_URL}/api/${serviceId}/decline`);
 };
+
+// Function to view all the bookins list for the Labrouer
+export const getListOfBookings = async (userID) => {
+  return axios.get(`${API_BASE_URL}/api/${userID}/getListOfBookings`);
+};

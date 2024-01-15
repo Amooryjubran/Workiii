@@ -74,6 +74,7 @@ const bookService = async (req, res) => {
       serviceId: serviceId,
       status: "PENDING",
       createdAt: new Date(),
+      clientID: existingUser._id,
     };
     const bookingResult = await db
       .collection("serviceBookings")

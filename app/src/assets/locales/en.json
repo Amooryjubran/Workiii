@@ -159,7 +159,9 @@
     "ServiceAvailabilty": "Service Availability",
     "Closed": "Closed",
     "Approve": "Approve",
-    "Bookings": "Bookings"
+    "Bookings": "Bookings",
+    "Date": "Date & Time",
+    "ServiceStatus": "Service Status"
   },
   "services": {
     "filterBy": "Filter elments by",

@@ -111,3 +111,174 @@
   flex-direction: column;
   gap: 10px;
 }
+
+/* --- Table --- */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 95%;
+}
+table th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+table th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+.th,
+.td {
+  text-align: left;
+  padding: 14px 20px;
+}
+.td {
+  font-size: 14px;
+}
+.td:first-child {
+  color: #7f7f7f;
+  font-family: Lama Sans;
+}
+.thead {
+  background-color: var(--gray-100, #edeff1);
+  border-radius: 16px;
+}
+.thead > tr > th {
+}
+
+.th {
+  background-color: #f5f5f5;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.pagination > button {
+  border-radius: 5px;
+  padding: 15px 16px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  justify-content: center;
+  border: none;
+  font-family: Lama Sans;
+  cursor: pointer;
+}
+.pagination > button:disabled {
+  cursor: not-allowed;
+}
+.pageButtonActive {
+  background: var(--Primary, #39374d) !important;
+  color: #fff;
+}
+
+.button {
+  border: none;
+  padding: 8px 16px;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ddd;
+}
+
+.button:disabled {
+  color: grey;
+  cursor: not-allowed;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.userProfileImg {
+  height: 36px;
+  width: 36px;
+  background-color: var(--primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-white);
+  font-size: 12px;
+}
+.serviceImg,
+.serviceImgs {
+  height: 36px;
+  width: 36px;
+  border-radius: 10px;
+}
+.serviceImgsWrapper {
+  height: 100% !important;
+}
+.serviceImg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.userProfile > span,
+.serviceImg > span {
+  color: #000;
+  font-family: Lama Sans;
+  font-size: 14px;
+}
+.bookingDates {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #7f7f7f;
+  font-size: 14px;
+}
+.bookingDates > span {
+  font-size: 14px;
+}
+
+.bookingCategory {
+  border-radius: 100px;
+  width: fit-content;
+  padding: 6px 12px 6px 16px;
+  border: 1px solid #39374d;
+  background: var(--neutral-100, #edeff1);
+  color: var(--Primary, #39374d);
+}
+.actionsBtns {
+  display: flex;
+  align-content: center;
+  gap: 10px;
+}
+
+.actionsBtns > button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  gap: 8px;
+  color: var(--error-600, #d92c20);
+  font-family: Lama Sans;
+}
+.img {
+  width: 24px !important;
+  height: 24px !important;
+}
+.approve {
+  background: var(--success-600, #5bae60);
+  border: 1px solid transparent;
+  color: var(--Neutral-white, #fff);
+}
+.approve > span {
+  color: var(--success-600, #5bae60);
+}

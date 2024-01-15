@@ -159,7 +159,9 @@
     "ServiceAvailabilty": "توفر الخدمة",
     "Closed": "مغلق",
     "Approve": "الموافقة",
-    "Bookings": "الحجوزات"
+    "Bookings": "الحجوزات",
+    "Date": "التاريخ والوقت",
+    "ServiceStatus": "حالة الخدمة"
   },
   "services": {
     "filterBy": "تصفية العناصر حسب",

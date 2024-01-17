@@ -282,3 +282,13 @@ table th:last-child {
 .approve > span {
   color: var(--success-600, #5bae60);
 }
+.detailsLink {
+  display: flex;
+  align-items: center;
+  gap: 7.5px;
+  border: transparent;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  color: #39374d !important;
+}

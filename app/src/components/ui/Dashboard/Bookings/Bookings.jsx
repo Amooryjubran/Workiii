@@ -6,10 +6,11 @@ import useBookingsStore from "@/store/Dashboard/useBookings";
 import { useEffect } from "react";
 import { Columns } from "./Columns";
 import { useTranslation } from "react-i18next";
+import ClientInformationTab from "./ClientInformationTab";
 
 export default function Bookings() {
   const { t } = useTranslation();
-  const { bookings, fetchBookings } = useBookingsStore();
+  const { bookings, fetchBookings, clientTab } = useBookingsStore();
   const { user } = useUserStore();
   useEffect(() => {
     if (user?._id && bookings.length === 0) {
@@ -21,11 +22,16 @@ export default function Bookings() {
   }
   const columns = Columns(styles, t);
   let data = bookings.bookings;
-  console.log(data);
   return (
     <div className={styles.bookingWrapper}>
-      <Header />
-      <TableComponent columns={columns} data={data} />
+      {!clientTab ? (
+        <>
+          <Header />
+          <TableComponent columns={columns} data={data} />
+        </>
+      ) : (
+        <ClientInformationTab />
+      )}
     </div>
   );
 }

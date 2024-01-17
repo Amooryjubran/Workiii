@@ -1,9 +1,10 @@
 import Button from "@/components/Button";
 import DeleteImg from "images/Dashboard/delete.svg";
-import EditImg from "images/Dashboard/edit.svg";
+import DetailsImg from "images/Dashboard/details.svg";
 import Image from "@/components/Image";
 import moment from "moment";
 import CheckMark from "images/Dashboard/approve.svg";
+import useBookingsStore from "@/store/Dashboard/useBookings";
 
 export const Columns = (styles, t) => {
   return [
@@ -41,7 +42,7 @@ export const Columns = (styles, t) => {
         { value } // eslint-disable-line react/prop-types
       ) => {
         if (!value) return null;
-        const { category, image } = value;
+        const { category, image } = value; // eslint-disable-line react/prop-types
 
         return (
           <div className={styles.userProfile}>
@@ -71,15 +72,17 @@ export const Columns = (styles, t) => {
         { value } // eslint-disable-line react/prop-types
       ) => {
         if (!value) return null;
-        const { day, hours } = value;
+        const { day, hours } = value; // eslint-disable-line react/prop-types
         const renderHours = () => {
           if (hours.length > 1) {
+            // eslint-disable-line react/prop-types
             return (
               <span>
                 {hours[0]} - {hours[hours.length - 1]}
               </span>
             );
           } else if (hours.length === 1) {
+            // eslint-disable-line react/prop-types
             return <span>{hours[0]}</span>;
           }
           return null;
@@ -106,7 +109,6 @@ export const Columns = (styles, t) => {
       Cell: (
         { value } // eslint-disable-line react/prop-types
       ) => {
-        console.log(value);
         if (!value) return null;
 
         return <div className={styles.bookingCategory}>{value}</div>;
@@ -118,6 +120,9 @@ export const Columns = (styles, t) => {
       Cell: (
         { row } // eslint-disable-line react/prop-types
       ) => {
+        let clientID = row?.original?.clientID; // eslint-disable-line react/prop-types
+        let clientOrder = row?.original; // eslint-disable-line react/prop-types
+        const { setClientTab } = useBookingsStore();
         return (
           <div className={styles.actionsBtns}>
             <Button
@@ -142,6 +147,13 @@ export const Columns = (styles, t) => {
             >
               <Image src={DeleteImg} alt={t("dashboard.Delete")} />
               <span>{t("dashboard.Delete")}</span>
+            </Button>
+            <Button
+              className={styles.detailsLink}
+              onClick={() => setClientTab(clientID, clientOrder)}
+            >
+              <Image src={DetailsImg} alt={t("dashboard.Details")} />
+              {t("dashboard.Details")}
             </Button>
           </div>
         );

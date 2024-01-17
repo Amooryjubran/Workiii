@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import styles from "./style.module.css";
 import useUsersStore from "@/store/Dashboard/useUsers";
-import Header from "./Header";
-
 import PersonalHeader from "./PersonalHeader";
+import Location from "./Location";
 
 export default function UserInformationTab() {
   const { fetchUser, selectedUser, selectedUserId } = useUsersStore();
@@ -17,12 +16,11 @@ export default function UserInformationTab() {
   if (!selectedUser) {
     return <div>...</div>;
   }
-  console.log(selectedUser);
 
   return (
     <div className={styles.userInformationParent}>
-      <Header />
       <PersonalHeader selectedUser={selectedUser} />
+      <Location />
     </div>
   );
 }

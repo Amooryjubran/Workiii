@@ -161,7 +161,15 @@
     "Approve": "Approuver",
     "Bookings": "Réservations",
     "Date": "Date & Heure",
-    "ServiceStatus": "État du service"
+    "ServiceStatus": "État du service",
+    "header": {
+      "Service": "Service",
+      "YouSure": " Êtes-vous sûr de vouloir",
+      "Order": " la commande de",
+      "Paid": "et vous serez payé",
+      "At": "à",
+      "Reject": "Rejeter"
+    }
   },
   "services": {
     "filterBy": "Filtrer les éléments par",

@@ -60,3 +60,12 @@ export const declineService = async (serviceId) => {
 export const getListOfBookings = async (userID) => {
   return axios.get(`${API_BASE_URL}/api/${userID}/getListOfBookings`);
 };
+// Function to view a booking
+export const getTheBooking = async (bookingID) => {
+  return axios.get(`${API_BASE_URL}/api/bookings/${bookingID}`);
+};
+
+// Function to accept a booking
+export const acceptBooking = async (data) => {
+  return axios.post(`${API_BASE_URL}/api/acceptBooking`, data);
+};

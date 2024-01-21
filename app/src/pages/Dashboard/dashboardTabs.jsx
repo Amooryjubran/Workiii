@@ -12,7 +12,6 @@ import Bookings from "@/components/ui/Dashboard/Bookings";
 export const useDashboardTabs = () => {
   const { t } = useTranslation();
   const { user } = useUserStore();
-  console.log(user.userType);
   const allTabs = [
     {
       label: t("dashboard.Services"),
@@ -24,6 +23,7 @@ export const useDashboardTabs = () => {
       label: t("dashboard.Bookings"),
       component: <Bookings />,
       image: BookingImg,
+      action: "resetBookingsTab",
       roles: ["admin", "client"],
     },
     {

@@ -47,7 +47,9 @@ const {
   getServiceDetail,
   getCreditCards,
   getListOfBookings,
+  getBooking,
 
+  // POST
   listAService,
   createUser,
   verifyUser,
@@ -56,6 +58,7 @@ const {
   addCategory,
   deleteCategory,
   bookService,
+  acceptBooking,
 
   // PATCH
   addToWishList,
@@ -89,6 +92,7 @@ app.get("/api/getlAllApprovedServices", getlAllApprovedServices);
 app.get("/api/getServiceDetail/:id", getServiceDetail);
 app.get("/api/user/:_id/creditCards", getCreditCards);
 app.get("/api/:userId/getListOfBookings", getListOfBookings);
+app.get("/api/bookings/:bookingId", getBooking);
 
 // POST
 app.post("/api/createUser", createUser);
@@ -97,6 +101,7 @@ app.post("/api/signIn", signIn);
 app.post("/api/listAService", listAService);
 app.post("/api/addCategory", addCategory);
 app.post("/api/bookService", bookService);
+app.post("/api/acceptBooking", acceptBooking);
 
 // PATCH
 app.patch("/api/addToWishList", addToWishList);

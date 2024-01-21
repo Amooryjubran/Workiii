@@ -9,11 +9,12 @@ import Button from "@/components/Button";
 import Navbar from "../Navbar";
 import useUsersStore from "@/store/Dashboard/useUsers";
 import useServicesStore from "@/store/Dashboard/useServices";
+import useBookingsStore from "@/store/Dashboard/useBookings";
 
 const DynamicTabs = ({ tabs }) => {
   const { resetUserTab } = useUsersStore();
   const { resetServiceTab } = useServicesStore();
-
+  const { resetClientTab } = useBookingsStore();
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
@@ -25,6 +26,10 @@ const DynamicTabs = ({ tabs }) => {
     if (tab.action === "resetServicesTab") {
       resetServiceTab();
     }
+    if (tab.action === "resetBookingsTab") {
+      resetClientTab();
+    }
+    console.log(tab);
   };
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);

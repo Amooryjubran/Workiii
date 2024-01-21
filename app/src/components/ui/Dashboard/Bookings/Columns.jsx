@@ -122,6 +122,7 @@ export const Columns = (styles, t) => {
       ) => {
         let clientID = row?.original?.clientID; // eslint-disable-line react/prop-types
         let clientOrder = row?.original; // eslint-disable-line react/prop-types
+        let bookingID = row?.original?._id; // eslint-disable-line react/prop-types
         const { setClientTab } = useBookingsStore();
         return (
           <div className={styles.actionsBtns}>
@@ -150,7 +151,7 @@ export const Columns = (styles, t) => {
             </Button>
             <Button
               className={styles.detailsLink}
-              onClick={() => setClientTab(clientID, clientOrder)}
+              onClick={() => setClientTab(clientID, clientOrder, bookingID)}
             >
               <Image src={DetailsImg} alt={t("dashboard.Details")} />
               {t("dashboard.Details")}

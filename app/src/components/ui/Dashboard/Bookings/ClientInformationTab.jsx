@@ -18,10 +18,9 @@ export default function ClientInformationTab() {
   if (!selectedClient) {
     return <div>...</div>;
   }
-
   return (
     <div className={styles.userInformationParent}>
-      <Header />
+      <Header tab={"Client"} />
       <PersonalHeader selectedUser={selectedClient} />
       <Location location={location} />
     </div>

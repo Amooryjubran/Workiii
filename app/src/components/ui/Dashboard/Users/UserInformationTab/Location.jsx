@@ -3,6 +3,9 @@ import styles from "./style.module.css";
 import UserBlock from "./UserBlock";
 
 export default function Location({ location }) {
+  if (!location) {
+    return null;
+  }
   const { street, city, state, country, postalCode } = location;
 
   const Separator = () => <div className={styles.seperator} />;

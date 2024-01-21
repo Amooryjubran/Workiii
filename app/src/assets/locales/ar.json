@@ -161,7 +161,15 @@
     "Approve": "الموافقة",
     "Bookings": "الحجوزات",
     "Date": "التاريخ والوقت",
-    "ServiceStatus": "حالة الخدمة"
+    "ServiceStatus": "حالة الخدمة",
+    "header": {
+      "Service": "الخدمة",
+      "YouSure": " هل أنت متأكد أنك تريد",
+      "Order": " طلب",
+      "Paid": "وسيتم دفع لك",
+      "At": "في",
+      "Reject": "رفض"
+    }
   },
   "services": {
     "filterBy": "تصفية العناصر حسب",

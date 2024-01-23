@@ -4,6 +4,7 @@ import {
   getUser,
   getTheBooking,
   acceptBooking,
+  declineBooking,
 } from "@/api/dashboard";
 
 const useBookingsStore = create((set, get) => ({
@@ -75,6 +76,25 @@ const useBookingsStore = create((set, get) => ({
       return true;
     } catch (error) {
       console.error("Error in accepting booking:", error);
+      return false;
+    } finally {
+      set({ isLoading: false });
+    }
+  },
+
+  // Function to decline a booking
+  declineBookingRequest: async (userId, bookingId, clientId) => {
+    set({ isLoading: true });
+    try {
+      const response = await declineBooking({ userId, bookingId, clientId });
+      if (response) {
+        console.log("Booking accepted:", response.data);
+        // Re-fetch bookings list after successful booking acceptance
+        await get().fetchBookings(userId);
+      }
+      return true;
+    } catch (error) {
+      console.log("Error in declining booking", error);
       return false;
     } finally {
       set({ isLoading: false });

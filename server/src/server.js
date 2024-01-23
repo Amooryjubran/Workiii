@@ -59,6 +59,7 @@ const {
   deleteCategory,
   bookService,
   acceptBooking,
+  declineBooking,
 
   // PATCH
   addToWishList,
@@ -102,6 +103,7 @@ app.post("/api/listAService", listAService);
 app.post("/api/addCategory", addCategory);
 app.post("/api/bookService", bookService);
 app.post("/api/acceptBooking", acceptBooking);
+app.post("/api/declineBooking", declineBooking);
 
 // PATCH
 app.patch("/api/addToWishList", addToWishList);

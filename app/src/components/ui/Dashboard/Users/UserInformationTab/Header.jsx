@@ -27,6 +27,7 @@ export default function Header({ tab }) {
     fetchAbooking,
     selectedBookingID,
     acceptBookingRequest,
+    declineBookingRequest,
   } = useBookingsStore();
   useEffect(() => {
     if (selectedBookingID || bookingUpdated) {
@@ -49,6 +50,18 @@ export default function Header({ tab }) {
     const clientID = selectedABooking.clientID;
 
     const success = await acceptBookingRequest(userID, bookingID, clientID);
+    if (success) {
+      setModalType(false);
+      setBookingUpdated(true);
+    }
+  };
+
+  const handleDecline = async () => {
+    const userID = user._id;
+    const bookingID = selectedABooking._id;
+    const clientID = selectedABooking.clientID;
+
+    const success = await declineBookingRequest(userID, bookingID, clientID);
     if (success) {
       setModalType(false);
       setBookingUpdated(true);
@@ -118,6 +131,7 @@ export default function Header({ tab }) {
             </>
           )}
           {selectedABooking.status === "IN-PROGRESS" && <div>Cancel</div>}
+          {selectedABooking.status === "DECLINED" && <div>DECLINED</div>}
         </div>
       );
     }
@@ -142,7 +156,9 @@ export default function Header({ tab }) {
         <div>
           <RenderOrderInformation status={t("dashboard.Cancel")} />
           <div className={styles.actionModalsBtns}>
-            <Button>{t("dashboard.header.Reject")}</Button>
+            <Button onClick={handleDecline}>
+              {t("dashboard.header.Reject")}
+            </Button>
             <Button onClick={handleCancel}>{t("dashboard.Cancel")}</Button>
           </div>
         </div>

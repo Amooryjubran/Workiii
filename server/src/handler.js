@@ -29,6 +29,7 @@ const declineService = require("./controllers/Dashboard/Services/declineService"
 
 const getListOfBookings = require("./controllers/Dashboard/Bookings/getListOfBookings");
 const acceptBooking = require("./controllers/Dashboard/Bookings/acceptBooking");
+const declineBooking = require("./controllers/Dashboard/Bookings/declineBooking");
 const getBooking = require("./controllers/Dashboard/Bookings/getBooking");
 
 // PAYMENT
@@ -60,6 +61,7 @@ module.exports = {
   addCategory,
   bookService,
   acceptBooking,
+  declineBooking,
 
   // PATCH
   addToWishList,

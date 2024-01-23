@@ -69,3 +69,8 @@ export const getTheBooking = async (bookingID) => {
 export const acceptBooking = async (data) => {
   return axios.post(`${API_BASE_URL}/api/acceptBooking`, data);
 };
+
+// Function to decline a booking
+export const declineBooking = async (data) => {
+  return axios.post(`${API_BASE_URL}/api/declineBooking`, data);
+};

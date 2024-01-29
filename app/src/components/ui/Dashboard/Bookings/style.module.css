@@ -292,3 +292,28 @@ table th:last-child {
   cursor: pointer;
   color: #39374d !important;
 }
+
+.statusPending,
+.statusDeclined,
+.statusCancelled,
+.statusDefault {
+  border-radius: 100px;
+  width: fit-content;
+  padding: 6px 12px 6px 16px;
+}
+
+.statusDeclined {
+  color: var(--error-600);
+  border: 1px var(--error-600) solid;
+  background-color: #feefee;
+}
+.statusCancelled {
+  color: #c02418;
+  border: 1px solid #c02418;
+  background-color: #ffe5e5;
+}
+.statusPending {
+  color: #e6a800;
+  border: 1px solid #e6a800;
+  background-color: #fff5e0;
+}

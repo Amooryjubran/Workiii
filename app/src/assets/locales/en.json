@@ -162,6 +162,7 @@
     "Bookings": "Bookings",
     "Date": "Date & Time",
     "ServiceStatus": "Service Status",
+    "Chat": "Chat",
     "header": {
       "Service": "Service",
       "YouSure": " You sure you want to",

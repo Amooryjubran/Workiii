@@ -1,12 +1,25 @@
 import Button from "@/components/Button";
 import DeleteImg from "images/Dashboard/delete.svg";
 import DetailsImg from "images/Dashboard/details.svg";
+import ChatImg from "images/Dashboard/chat.svg";
 import Image from "@/components/Image";
 import moment from "moment";
 import CheckMark from "images/Dashboard/approve.svg";
 import useBookingsStore from "@/store/Dashboard/useBookings";
 
 export const Columns = (styles, t) => {
+  const getStatusClassName = (status) => {
+    switch (status) {
+      case "PENDING":
+        return styles.statusPending;
+      case "DECLINED":
+        return styles.statusDeclined;
+      case "CANCELLED":
+        return styles.statusCancelled;
+      default:
+        return styles.statusDefault;
+    }
+  };
   return [
     {
       Header: "#",
@@ -20,7 +33,7 @@ export const Columns = (styles, t) => {
         { value } // eslint-disable-line react/prop-types
       ) => {
         if (!value) return null;
-        const { profileImg, name } = value;
+        const { profileImg, name } = value; // eslint-disable-line react/prop-types
         return (
           <div className={styles.userProfile}>
             {profileImg ? (
@@ -102,6 +115,14 @@ export const Columns = (styles, t) => {
     {
       Header: t("dashboard.ServiceStatus"),
       accessor: "status",
+      Cell: (
+        { value } // eslint-disable-line react/prop-types
+      ) => {
+        console.log(value);
+        if (!value) return null;
+        const className = getStatusClassName(value);
+        return <div className={className}>{value}</div>;
+      },
     },
     {
       Header: t("dashboard.ServiceType"),
@@ -126,7 +147,7 @@ export const Columns = (styles, t) => {
         const { setClientTab } = useBookingsStore();
         return (
           <div className={styles.actionsBtns}>
-            <Button
+            {/* <Button
               className={styles.approve}
               // onClick={() => {
               //   setModalData(row.original); // eslint-disable-line react/prop-types
@@ -148,6 +169,10 @@ export const Columns = (styles, t) => {
             >
               <Image src={DeleteImg} alt={t("dashboard.Delete")} />
               <span>{t("dashboard.Delete")}</span>
+            </Button> */}
+            <Button className={styles.detailsLink}>
+              <Image src={ChatImg} alt={"omar"} />
+              {t("dashboard.Chat")}
             </Button>
             <Button
               className={styles.detailsLink}

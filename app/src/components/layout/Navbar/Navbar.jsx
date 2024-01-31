@@ -54,7 +54,12 @@ export default function Navbar() {
     <div className={styles.navbar}>
       <div>
         <LinkButton to="/" className={styles.logoLink}>
-          <Image src={Logo} alt="Logo" className={styles.logoLinkImg} />
+          <Image
+            src={Logo}
+            alt="Logo"
+            className={styles.logoLinkImg}
+            classNameWrapper={styles.logoLinkImgWrapper}
+          />
         </LinkButton>
       </div>
       <div className={styles.navbarNavigations}>

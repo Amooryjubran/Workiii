@@ -18,7 +18,12 @@ export default function MobileNav() {
     <>
       <div className={styles.mobileNavbar}>
         <LinkButton to="/" className={styles.logoLink}>
-          <Image src={Logo} alt="Logo" className={styles.logoLinkImg} />
+          <Image
+            src={Logo}
+            alt="Logo"
+            className={styles.logoLinkImg}
+            classNameWrapper={styles.logoLinkImgWrapper}
+          />
         </LinkButton>
         <div>
           <Button className={styles.btn}>

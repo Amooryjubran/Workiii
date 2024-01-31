@@ -17,6 +17,9 @@
 .logoLinkImg {
   max-height: 30px;
 }
+.logoLinkImgWrapper {
+  height: 50px !important;
+}
 .navbarBtns {
   gap: 16px;
 }

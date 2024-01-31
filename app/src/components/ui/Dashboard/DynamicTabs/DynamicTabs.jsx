@@ -48,7 +48,12 @@ const DynamicTabs = ({ tabs }) => {
         }`}
       >
         <LinkButton to="/" className={styles.logoLink}>
-          <Image src={Logo} alt="Logo" className={styles.logoLinkImg} />
+          <Image
+            src={Logo}
+            alt="Logo"
+            className={styles.logoLinkImg}
+            classNameWrapper={styles.logoLinkImgWrapper}
+          />
         </LinkButton>
         <Button className={styles.sideBarHideBtn} onClick={toggleSidebar}>
           <Image src={Arrow} alt="Hide" />

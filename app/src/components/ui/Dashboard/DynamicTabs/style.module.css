@@ -41,10 +41,14 @@
 .logoLinkImg {
   max-width: 158px;
   filter: brightness(0) invert(1);
+  object-fit: contain;
 }
 .logoLink {
   margin: 0 auto;
   padding: 15px 0 45px;
+}
+.logoLinkImgWrapper {
+  height: 50px !important;
 }
 .activeTab {
   background: var(--neutral-white, #fff);

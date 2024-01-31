@@ -27,4 +27,7 @@
     width: 100%;
     max-width: none;
   }
+  .serviceInformation {
+    padding: 18px;
+  }
 }

@@ -79,3 +79,15 @@
   overflow: auto;
   height: 100%;
 }
+@media (max-width: 1028px) {
+  .tabs {
+    position: fixed;
+    max-width: 70%;
+    box-shadow: #000000b3 0 0 100vh 100vh;
+    z-index: 9999999;
+  }
+  .tabsHidden {
+    transform: translateX(-150%);
+    box-shadow: none;
+  }
+}

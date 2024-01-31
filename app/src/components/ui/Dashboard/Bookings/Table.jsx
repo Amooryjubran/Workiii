@@ -30,7 +30,7 @@ function TableComponent({ columns, data }) {
     pageNumbers.push(i);
   }
   return (
-    <>
+    <div className={styles.tableContainer}>
       <table {...getTableProps()} className={styles.table}>
         <thead className={styles.thead}>
           {headerGroups.map((headerGroup, headerGroupIndex) => (
@@ -95,7 +95,7 @@ function TableComponent({ columns, data }) {
           {">"}
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

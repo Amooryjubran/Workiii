@@ -43,6 +43,10 @@
   transform: translateX(26px);
 }
 
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -362,4 +366,31 @@ table th:last-child {
 .newCategoryModalBtns > button:not(:first-child) {
   background: var(--primery, #39374d);
   color: white;
+}
+
+@media (max-width: 1028px) {
+  .tableContainer {
+    overflow-x: auto;
+    padding: 0 0 12px;
+  }
+
+  .pagination > button {
+    padding: 10px;
+    font-size: 14px;
+    width: auto; /* Adjust width as per content */
+  }
+  td {
+    width: fit-content;
+  }
+  .headerContainer {
+    padding: 14px 14px 0;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .headerContainer > div {
+    width: 100%;
+  }
+  .addNewCategoryBtn {
+    max-width: none;
+  }
 }

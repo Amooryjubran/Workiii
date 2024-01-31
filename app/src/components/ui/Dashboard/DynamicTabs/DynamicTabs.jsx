@@ -10,13 +10,19 @@ import Navbar from "../Navbar";
 import useUsersStore from "@/store/Dashboard/useUsers";
 import useServicesStore from "@/store/Dashboard/useServices";
 import useBookingsStore from "@/store/Dashboard/useBookings";
+import MobileNav from "../Navbar/MobileNav";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 const DynamicTabs = ({ tabs }) => {
+  const windowWidth = useWindowWidth();
+  const isMobile = windowWidth >= 1028;
   const { resetUserTab } = useUsersStore();
   const { resetServiceTab } = useServicesStore();
   const { resetClientTab } = useBookingsStore();
   const [activeTabIndex, setActiveTabIndex] = useState(0);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(
+    isMobile ? true : false
+  );
 
   const handleTabChange = (tab, index) => {
     setActiveTabIndex(index);
@@ -29,11 +35,11 @@ const DynamicTabs = ({ tabs }) => {
     if (tab.action === "resetBookingsTab") {
       resetClientTab();
     }
-    console.log(tab);
   };
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
+
   return (
     <div className={styles.dashboardContainer}>
       <div
@@ -56,7 +62,12 @@ const DynamicTabs = ({ tabs }) => {
                   ? `${styles.tab} ${styles.activeTab}`
                   : styles.tab
               }
-              onClick={() => handleTabChange(tab, index)}
+              onClick={() => {
+                if (!isMobile) {
+                  setIsSidebarVisible(false);
+                }
+                handleTabChange(tab, index);
+              }}
             >
               {tab.image && <Image src={tab.image} alt={`${tab.label} icon`} />}
               {tab.label}
@@ -64,7 +75,11 @@ const DynamicTabs = ({ tabs }) => {
           ))}
       </div>
       <div className={styles.tabContent}>
-        <Navbar />
+        {isMobile ? (
+          <Navbar />
+        ) : (
+          <MobileNav setIsSidebarVisible={setIsSidebarVisible} />
+        )}
         {tabs[activeTabIndex].component}
       </div>
     </div>

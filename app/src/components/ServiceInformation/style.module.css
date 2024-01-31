@@ -18,3 +18,13 @@
   width: 100%;
   gap: 24px;
 }
+
+@media (max-width: 1028px) {
+  .serviceBottom {
+    flex-direction: column;
+  }
+  .serviceBottom > div {
+    width: 100%;
+    max-width: none;
+  }
+}

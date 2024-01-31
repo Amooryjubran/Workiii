@@ -158,3 +158,10 @@
 .status > span {
   color: white;
 }
+
+@media (max-width: 1028px) {
+  .serviceHeader {
+    flex-direction: column;
+    align-items: baseline;
+  }
+}

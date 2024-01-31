@@ -68,3 +68,13 @@
   font-size: 16px;
   color: #767676;
 }
+
+@media (max-width: 1028px) {
+  .header {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .headerInfoLocation {
+    font-size: 16px;
+  }
+}

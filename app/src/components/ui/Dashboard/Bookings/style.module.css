@@ -317,3 +317,38 @@ table th:last-child {
   border: 1px solid #e6a800;
   background-color: #fff5e0;
 }
+
+@media (max-width: 1028px) {
+  .tableContainer {
+    overflow-x: auto;
+    padding: 12px;
+  }
+  .headerWrappers {
+    padding: 14px;
+  }
+  .pagination > button {
+    padding: 10px;
+    font-size: 14px;
+    width: auto; /* Adjust width as per content */
+  }
+  td {
+    width: fit-content;
+  }
+  .serviceImg {
+    width: 100%;
+  }
+  .userProfile,
+  .bookingDates {
+    width: max-content;
+  }
+  .headerParent {
+    flex-direction: column;
+    width: 100%;
+  }
+  .headerParent > div {
+    width: 100%;
+  }
+  .headerParentBtns {
+    justify-content: initial !important;
+  }
+}

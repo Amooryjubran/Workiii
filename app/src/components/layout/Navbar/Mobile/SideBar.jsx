@@ -39,6 +39,9 @@ export default function SideBar({ innerRef, setModal }) {
             <LinkButton to="/">{t("navbar.home")}</LinkButton>
           </Button>
           <Button onClick={handleCloseModal}>
+            <LinkButton to="dashboard">{t("navbar.dashboard")}</LinkButton>
+          </Button>
+          <Button onClick={handleCloseModal}>
             <LinkButton to="services">{t("navbar.services")}</LinkButton>
           </Button>
           <Button onClick={handleCloseModal}>

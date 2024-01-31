@@ -7,7 +7,8 @@
     "login": "Connexion",
     "signUp": "S'inscrire",
     "terms": "Termes et conditions",
-    "privacy": "politique de confidentialité"
+    "privacy": "politique de confidentialité",
+    "dashboard": "Tableau de bord"
   },
   "home": {
     "homeMessage": "Bienvenue sur notre page d'accueil!"

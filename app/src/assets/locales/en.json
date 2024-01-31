@@ -7,7 +7,8 @@
     "login": "Login",
     "signUp": "Sign Up",
     "terms": "Terms and Conditions",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "dashboard": "Dashboard"
   },
   "home": {
     "homeMessage": "Welcome to our home page!"

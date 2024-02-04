@@ -217,5 +217,12 @@
       "Apply": "Apply",
       "ServiceFee": "Service Fee"
     }
+  },
+  "profile": {
+    "MyProfile": "My Profile",
+    "profileTab": {
+      "YourInformation": "Your Information",
+      "PersonalInformation": "Personal Information"
+    }
   }
 }

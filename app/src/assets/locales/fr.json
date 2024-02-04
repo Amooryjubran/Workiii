@@ -218,5 +218,8 @@
       "Apply": "Appliquer",
       "ServiceFee": "Frais de service"
     }
+  },
+  "profile": {
+    "MyProfile": "Mon profil"
   }
 }

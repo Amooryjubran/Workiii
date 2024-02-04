@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  gap: 20px;
+}
+.tabs {
+  display: flex;
+  align-items: baseline;
+  padding: 24px 36px 36px;
+  background: #f8fafc;
+  border-radius: 10px;
+  height: fit-content;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.profileInitial {
+  height: 100px;
+  width: 100px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-white);
+  font-size: 36px;
+  margin: 0 auto;
+}
+.profileImg {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebarInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.sidebarInfo > h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+.sidebarInfo > span {
+  margin: 0;
+  font-size: 16px;
+  color: #6f6c90;
+}
+.sideBarBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.tab,
+.activeTab {
+  width: 100%;
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 224px;
+  transition: background 0.3s ease-in;
+}
+
+.tab:hover,
+.activeTab {
+  background-color: #39374d;
+  color: white;
+}
+.tab:hover > div > img,
+.activeTab > div > img {
+  filter: invert(100%);
+}

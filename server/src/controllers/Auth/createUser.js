@@ -57,6 +57,7 @@ const createUser = async (req, res) => {
       password: "",
       isVerified: false,
       verificationCode: "",
+      dateOfBirth: "",
       creditCards: [],
       wishList: [],
       creationDate: new Date().toISOString(),

@@ -218,5 +218,9 @@
       "Apply": "تطبيق",
       "ServiceFee": "رسوم الخدمة"
     }
+  },
+
+  "profile": {
+    "MyProfile": "ملفي"
   }
 }

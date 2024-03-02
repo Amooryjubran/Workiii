@@ -37,6 +37,9 @@ const addCreditCard = require("./controllers/Payment/CreditCards/addCreditCard")
 const getCreditCards = require("./controllers/Payment/CreditCards/getCreditCards");
 const bookService = require("./controllers/Payment/Booking/bookService");
 
+// PROFILE PAGE
+const updateUserProfile = require("./controllers/Profile/updateUserProfile");
+
 module.exports = {
   // GET
   topServices,
@@ -66,9 +69,11 @@ module.exports = {
   // PATCH
   addToWishList,
   addCreditCard,
+
   // PUT
   approveService,
   declineService,
+  updateUserProfile,
 
   // DELETE
   removeFromWishList,

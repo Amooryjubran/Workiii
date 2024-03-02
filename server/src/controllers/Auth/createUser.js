@@ -61,6 +61,8 @@ const createUser = async (req, res) => {
       creditCards: [],
       wishList: [],
       creationDate: new Date().toISOString(),
+      location: "",
+      dateOfBirth: "",
     };
 
     // Generate a verification code for the new user

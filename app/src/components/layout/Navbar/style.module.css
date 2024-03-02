@@ -133,6 +133,94 @@
 .arrow {
   transform: rotate(90deg);
 }
+
+/* --- User Modal --- */
+
+.profileDropDown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.22);
+  z-index: 11;
+}
+.profileDropDownImgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 20px 15px;
+  text-decoration: none;
+  list-style: none;
+}
+.profileDropDownImgContainer > div {
+  position: relative;
+}
+.profileDropDownImgContainer > span {
+  color: #313338;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.profileDropDownImgWrapper > img:first-child {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profileDropDownImgWrapper > img:not(:first-child) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.profileDropDownLinks,
+.profileDropDownLogout {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.profileDropDownLinks:hover,
+.profileDropDownLogout:hover {
+  background-color: #313338;
+}
+
+.profileDropDownLinks > span,
+.profileDropDownLogout > span {
+  color: #313338;
+  font-size: 14px;
+  font-weight: 500;
+}
+.profileDropDownLinks {
+  border-top: 1px solid #4a5267;
+  border-bottom: 1px solid #4a5267;
+  padding: 16px 15px;
+  text-decoration: none;
+}
+.profileDropDownLogout {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 15px 15px;
+}
+.userModalBtn,
+.profileHeaderWrapper {
+  padding: 0 !important;
+  margin: 0;
+  border: none !important;
+}
+.userModalBtn {
+  width: fit-content !important;
+  background-color: transparent;
+}
 @media (max-width: 1028px) {
   .logoLinkSidebar {
     max-height: none;

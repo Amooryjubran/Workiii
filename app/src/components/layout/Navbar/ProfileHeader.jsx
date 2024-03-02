@@ -3,11 +3,12 @@ import Image from "@/components/Image";
 import styles from "./style.module.css";
 import Arrow from "images/chev.svg";
 import LinkButton from "@/components/Link";
+import Button from "@/components/Button";
 
-export default function ProfileHeader({ user }) {
+export default function ProfileHeader({ user, setUserModal }) {
   const { name, profileImg, userType } = user;
   return (
-    <button className={styles.profileHeader}>
+    <Button className={styles.profileHeader}>
       <LinkButton to="dashboard">
         <div>
           {profileImg ? (
@@ -21,14 +22,19 @@ export default function ProfileHeader({ user }) {
         <span>{name}</span>
         <p>{userType}</p>
       </div>
-      <Image
-        className={styles.arrow}
-        src={Arrow}
-        alt="Profile"
-        height={20}
-        width={20}
-      />
-    </button>
+      <Button
+        onClick={() => setUserModal(true)}
+        className={styles.userModalBtn}
+      >
+        <Image
+          className={styles.arrow}
+          src={Arrow}
+          alt="Profile"
+          height={20}
+          width={20}
+        />
+      </Button>
+    </Button>
   );
 }
 ProfileHeader.propTypes = {
@@ -37,4 +43,5 @@ ProfileHeader.propTypes = {
     profileImg: PropTypes.string,
     userType: PropTypes.string.isRequired,
   }).isRequired,
+  setUserModal: PropTypes.func.isRequired,
 };

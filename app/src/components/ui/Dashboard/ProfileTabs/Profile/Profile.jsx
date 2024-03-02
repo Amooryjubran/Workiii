@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./style.module.css";
 import useUserStore from "@/store/useUserStore";
@@ -8,60 +8,54 @@ import Image from "@/components/Image";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import UserInputs from "./UserInputs";
+import useProfileStore from "@/store/Profile/useProfileStore";
 
 export default function Profile() {
   const { t } = useTranslation();
+  const {
+    userImg,
+    setUserImg,
+    isDragging,
+    handleDragIn,
+    handleDragOut,
+    handleDragOver,
+    handleDrop,
+    handleRemoveImg,
+    initializeFromUser,
+    userName,
+    userPhoneNumber,
+    userEmail,
+    userDateOfBirth,
+    userAddress,
+  } = useProfileStore();
+
   const { user } = useUserStore();
-  const { name, profileImg, phoneNumber, email, dateOfBirth } = user;
   const fileInputRef = useRef(null);
-  const [userImg, setUserImg] = useState(profileImg);
 
-  const [isDragging, setIsDragging] = useState(false);
+  useEffect(() => {
+    initializeFromUser(user);
+  }, [user, initializeFromUser]);
 
-  const handleButtonClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const handleDragIn = useCallback((e) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
-
-  const handleDragOut = useCallback((e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(false);
-  }, []);
-
-  const handleDragOver = useCallback((e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.dataTransfer.items && e.dataTransfer.items.length > 0) {
-      setIsDragging(true);
-    }
-  }, []);
-
-  const handleDrop = useCallback((e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(false);
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      // Assuming you want to read the first image file
-      const file = e.dataTransfer.files[0];
-      setUserImg(URL.createObjectURL(file));
-      e.dataTransfer.clearData();
-    }
-  }, []);
-
+  // This function overrides the previous handleChange to use the store
   const handleChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
       setUserImg(URL.createObjectURL(file));
     }
   };
-  const handleRemoveImg = () => {
-    setUserImg(null);
+
+  // This function makes an api call to make the changes
+  const handleSaveChaged = () => {
+    const newChanges = {
+      name: userName,
+      phoneNumber: userPhoneNumber,
+      email: userEmail,
+      dateOfBirth: userDateOfBirth,
+      location: userAddress,
+    };
+    console.log(newChanges);
   };
+
   const renderUser = () => {
     return userImg ? (
       <>
@@ -70,16 +64,18 @@ export default function Profile() {
         </Button>
         <Image
           src={userImg}
-          alt={name}
+          alt="Profile"
           className={styles.profileImg}
           classNameWrapper={styles.profileImg}
         />
       </>
     ) : (
-      <div className={styles.profileInitial}>{name?.charAt(0)}</div>
+      <div className={styles.profileInitial}>{user.name?.charAt(0)}</div>
     );
   };
-
+  if (!user) {
+    return null;
+  }
   return (
     <div
       className={`${styles.container} ${isDragging ? styles.dragging : ""}`}
@@ -97,12 +93,13 @@ export default function Profile() {
           onChange={handleChange}
           style={{ display: "none" }}
           id="fileInput"
-          name="upload image"
           ref={fileInputRef}
-          value=""
         />
         <label htmlFor="fileInput" className={styles.uploadInput}>
-          <Button className={styles.uploadBtn} onClick={handleButtonClick}>
+          <Button
+            className={styles.uploadBtn}
+            onClick={() => fileInputRef.current && fileInputRef.current.click()}
+          >
             <Image
               src={ImageUploadImg}
               alt={t("listAServiceServicesTab.drag")}
@@ -111,8 +108,12 @@ export default function Profile() {
           </Button>
         </label>
       </div>
-      <div className={styles.profileInputs}>
-        <UserInputs />
+      <UserInputs />
+      <div className={styles.profileActionBtns}>
+        <Button onClick={handleSaveChaged}>
+          {t("profile.profileTab.saveChanges")}
+        </Button>
+        <Button>{t("dashboard.Cancel")}</Button>
       </div>
     </div>
   );

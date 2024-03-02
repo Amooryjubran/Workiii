@@ -15,10 +15,12 @@ import MobileNav from "./Mobile";
 import ProfileHeader from "./ProfileHeader";
 import useUserStore from "@/store/useUserStore";
 import { isPathExcluded } from "@/helpers/pathHelper";
+import UserModal from "./UserModal";
 
 export default function Navbar() {
   const { user } = useUserStore();
   const [langModal, setLangModal] = useState(false);
+  const [userModal, setUserModal] = useState(false);
   const { t } = useTranslation();
   const { setLanguage } = useLanguageSelector();
   const currentLanguage = i18n.language;
@@ -101,7 +103,10 @@ export default function Navbar() {
           )}
         </div>
         {user ? (
-          <ProfileHeader user={user} />
+          <div className={styles.profileHeaderWrapper}>
+            <ProfileHeader user={user} setUserModal={setUserModal} />
+            {userModal && <UserModal setUserModal={setUserModal} user={user} />}
+          </div>
         ) : (
           <>
             <LinkButton to="login" className={styles.navbarLinksLogin}>

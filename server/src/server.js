@@ -68,6 +68,7 @@ const {
   // PUT
   approveService,
   declineService,
+  updateUserProfile,
 } = require("./handler");
 
 // controllers
@@ -112,6 +113,7 @@ app.patch("/api/user/:_id/creditCards", addCreditCard);
 // PUT
 app.put("/api/:serviceId/approve", approveService);
 app.put("/api/:serviceId/decline", declineService);
+app.put("/api/updateUserProfile", updateUserProfile);
 
 // DELETE
 app.delete("/api/removeFromWishList", removeFromWishList);

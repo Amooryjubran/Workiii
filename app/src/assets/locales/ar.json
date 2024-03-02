@@ -221,6 +221,11 @@
   },
 
   "profile": {
-    "MyProfile": "ملفي"
+    "MyProfile": "ملفي الشخصي",
+    "profileTab": {
+      "YourInformation": "معلوماتك",
+      "PersonalInformation": "المعلومات الشخصية",
+      "saveChanges": "حفظ التغييرات"
+    }
   }
 }

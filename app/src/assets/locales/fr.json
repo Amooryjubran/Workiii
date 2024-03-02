@@ -220,6 +220,11 @@
     }
   },
   "profile": {
-    "MyProfile": "Mon profil"
+    "MyProfile": "Mon profil",
+    "profileTab": {
+      "YourInformation": "Vos informations",
+      "PersonalInformation": "Informations personnelles",
+      "saveChanges": "Enregistrer les modifications"
+    }
   }
 }

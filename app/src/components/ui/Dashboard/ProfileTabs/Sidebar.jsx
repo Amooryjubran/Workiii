@@ -8,6 +8,7 @@ import Button from "@/components/Button";
 export default function Sidebar({ tabs, activeTabIndex, handleTabChange }) {
   const { t } = useTranslation();
   const { user } = useUserStore();
+  if (!user) return null;
   const { name, profileImg, creationDate } = user;
   const formattedDate = new Date(creationDate).toLocaleDateString("en-GB", {
     month: "short",

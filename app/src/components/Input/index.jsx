@@ -32,6 +32,7 @@ Input.defaultProps = {
   type: "text",
   placeholder: "",
   className: "",
+  value: "",
 };
 
 export default Input;

@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 import styles from "./style.module.css";
 import useUserStore from "@/store/useUserStore";
 import ImageUploadImg from "images/ListAService/image-upload.svg";
@@ -9,6 +10,9 @@ import Input from "@/components/Input";
 import Button from "@/components/Button";
 import UserInputs from "./UserInputs";
 import useProfileStore from "@/store/Profile/useProfileStore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { showToast } from "@/utils/showToast";
 
 export default function Profile() {
   const { t } = useTranslation();
@@ -27,6 +31,7 @@ export default function Profile() {
     userEmail,
     userDateOfBirth,
     userAddress,
+    setUserAddress,
   } = useProfileStore();
 
   const { user } = useUserStore();
@@ -45,15 +50,72 @@ export default function Profile() {
   };
 
   // This function makes an api call to make the changes
-  const handleSaveChaged = () => {
+  const handleSaveChaged = async () => {
+    const id = user._id;
     const newChanges = {
+      _id: id,
       name: userName,
       phoneNumber: userPhoneNumber,
       email: userEmail,
       dateOfBirth: userDateOfBirth,
       location: userAddress,
     };
-    console.log(newChanges);
+    // Filter out fields that haven't changed
+    const updatedFields = Object.entries(newChanges).reduce(
+      (acc, [key, value]) => {
+        if (value !== user[key]) {
+          acc[key] = value;
+        }
+        return acc;
+      },
+      {}
+    );
+    if (Object.keys(updatedFields).length === 0) {
+      // No fields have changed, so no need to make an API call
+      return;
+    }
+
+    const updateUserProfileApi = async (userData) => {
+      try {
+        const response = await axios.put(
+          `${import.meta.env.VITE_API}/api/updateUserProfile`,
+          userData
+        );
+
+        if (response.status !== 200) {
+          throw new Error("Failed to update user profile");
+        }
+        showToast("success", t("profile.profileTab.Success"));
+        return response.data;
+      } catch (error) {
+        toast.error(t("profile.profileTab.Error"), {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        console.error("Error updating user profile:", error);
+        throw error;
+      }
+    };
+
+    try {
+      await updateUserProfileApi(newChanges);
+      // Update localStorage after successful update
+      const updatedUser = { ...user, ...updatedFields };
+      if (userAddress) {
+        setUserAddress(userAddress);
+      }
+      useUserStore.getState().setUser(updatedUser);
+      console.log(updatedUser);
+    } catch (error) {
+      console.error("Error updating user profile:", error);
+      // Handle error
+    }
   };
 
   const renderUser = () => {
@@ -94,6 +156,7 @@ export default function Profile() {
           style={{ display: "none" }}
           id="fileInput"
           ref={fileInputRef}
+          name="profileImg"
         />
         <label htmlFor="fileInput" className={styles.uploadInput}>
           <Button
@@ -110,10 +173,29 @@ export default function Profile() {
       </div>
       <UserInputs />
       <div className={styles.profileActionBtns}>
-        <Button onClick={handleSaveChaged}>
+        <Button
+          className={styles.profileActionBtnSave}
+          onClick={handleSaveChaged}
+        >
           {t("profile.profileTab.saveChanges")}
         </Button>
-        <Button>{t("dashboard.Cancel")}</Button>
+        <Button className={styles.profileActionBtnCancel}>
+          {t("dashboard.Cancel")}
+        </Button>
+      </div>
+      <div className={styles.toast} style={{ bottom: "-10px" }}>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </div>
     </div>
   );

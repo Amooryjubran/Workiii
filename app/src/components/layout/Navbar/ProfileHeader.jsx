@@ -8,7 +8,7 @@ import Button from "@/components/Button";
 export default function ProfileHeader({ user, setUserModal }) {
   const { name, profileImg, userType } = user;
   return (
-    <Button className={styles.profileHeader}>
+    <div className={styles.profileHeader}>
       <LinkButton to="dashboard">
         <div>
           {profileImg ? (
@@ -34,7 +34,7 @@ export default function ProfileHeader({ user, setUserModal }) {
           width={20}
         />
       </Button>
-    </Button>
+    </div>
   );
 }
 ProfileHeader.propTypes = {

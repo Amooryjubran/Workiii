@@ -37,6 +37,7 @@ Button.propTypes = {
   color: PropTypes.string,
   borderColor: PropTypes.string,
   textColor: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {

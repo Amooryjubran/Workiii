@@ -225,7 +225,16 @@
     "profileTab": {
       "YourInformation": "معلوماتك",
       "PersonalInformation": "المعلومات الشخصية",
-      "saveChanges": "حفظ التغييرات"
+      "saveChanges": "حفظ التغييرات",
+      "name": "الاسم",
+      "PhoneNumber": "رقم الهاتف",
+      "DateOfBirth": "تاريخ الميلاد",
+      "Month": "الشهر",
+      "Day": "اليوم",
+      "Year": "السنة",
+      "Email": "البريد الإلكتروني",
+      "Success": "تم تحديث الملف الشخصي",
+      "Error": "خطأ في تحديث الملف الشخصي"
     }
   }
 }

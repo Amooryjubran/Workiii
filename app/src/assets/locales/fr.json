@@ -224,7 +224,16 @@
     "profileTab": {
       "YourInformation": "Vos informations",
       "PersonalInformation": "Informations personnelles",
-      "saveChanges": "Enregistrer les modifications"
+      "saveChanges": "Enregistrer les modifications",
+      "name": "Nom",
+      "PhoneNumber": "Numéro de téléphone",
+      "DateOfBirth": "Date de naissance",
+      "Month": "Mois",
+      "Day": "Jour",
+      "Year": "Année",
+      "Email": "Email",
+      "Success": "Le profil a été mis à jour",
+      "Error": "Erreur lors de la mise à jour du profil"
     }
   }
 }

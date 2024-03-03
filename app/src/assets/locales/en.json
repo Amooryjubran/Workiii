@@ -223,7 +223,16 @@
     "profileTab": {
       "YourInformation": "Your Information",
       "PersonalInformation": "Personal Information",
-      "saveChanges": "Save Changes"
+      "saveChanges": "Save Changes",
+      "name": "Name",
+      "PhoneNumber": "Phone Number",
+      "DateOfBirth": "Date Of Birth",
+      "Month": "Month",
+      "Day": "Day",
+      "Year": "Year",
+      "Email": "Email",
+      "Success": "Profile Has Been Updated",
+      "Error": "Error updating profile"
     }
   }
 }

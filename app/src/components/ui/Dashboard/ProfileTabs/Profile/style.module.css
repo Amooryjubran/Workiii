@@ -255,6 +255,29 @@
   color: #2d3846;
   font-size: 16px;
 }
+.profileActionBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profileActionBtns > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 18px;
+  border-radius: 16px;
+  max-height: 42px;
+  outline: none;
+  border: none;
+}
+.profileActionBtnSave {
+  background-color: #39374d;
+  color: #fff;
+}
+.profileActionBtnCancel {
+  background: #edeff1;
+}
 @media (max-width: 1028px) {
   .mapWrapper {
     gap: 15px;
@@ -262,5 +285,31 @@
   .locationInformation {
     gap: 15px;
     grid-template-columns: auto;
+  }
+  .container {
+    align-items: center;
+  }
+  .userInputContainer {
+    flex-direction: column;
+  }
+  .mapWrapper {
+    width: 100%;
+  }
+  .profileActionBtns {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+  .profileActionBtns > button {
+    width: 100%;
+    padding: 24px;
+  }
+  .toast > div > div {
+    max-width: 90% !important;
+    margin: 0 auto;
+    bottom: 10px;
+  }
+  .toast > div > div > div {
+    border-radius: 5px;
   }
 }

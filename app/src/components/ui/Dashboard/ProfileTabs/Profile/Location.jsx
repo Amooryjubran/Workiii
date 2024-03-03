@@ -8,26 +8,32 @@ import styles from "./style.module.css";
 import { useTranslation } from "react-i18next";
 import Input from "@/components/Input";
 import useProfileStore from "@/store/Profile/useProfileStore";
+import useUserStore from "@/store/useUserStore";
 const Marker = () => <div className={styles.marker} />;
 
 export default function Location({ onAddressSelect }) {
   const { t } = useTranslation();
-  const { userAddress } = useProfileStore();
+  const { userAddress, setUserAddress } = useProfileStore();
+  const { user } = useUserStore();
   const [address, setAddress] = useState("");
   const setLocation = useListAServiceStore((state) => state.setLocation);
   const location = useListAServiceStore((state) => state.location);
   const defaultMapCenter = getDefaultMapCenter();
   const [mapCenter, setMapCenter] = useState(defaultMapCenter);
+
   useEffect(() => {
     if (location.latLng) {
       setMapCenter(location.latLng);
     }
   }, [location.latLng]);
-
   useEffect(() => {
     // If there's an address in the store, use it as the initial value
     if (userAddress) {
       setAddress(userAddress);
+    }
+    if (user.location) {
+      setUserAddress(user.location);
+      handleSelect(user.location);
     }
   }, [userAddress]);
 
@@ -37,6 +43,7 @@ export default function Location({ onAddressSelect }) {
       const locationData = await geocodeAddress(value);
       setLocation(locationData);
       onAddressSelect(value);
+      setUserAddress(value);
     } catch (error) {
       console.log(error);
     }

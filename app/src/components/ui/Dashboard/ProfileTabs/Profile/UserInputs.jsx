@@ -6,7 +6,7 @@ import styles from "./style.module.css";
 import useProfileStore from "@/store/Profile/useProfileStore";
 import Button from "@/components/Button";
 import useClickOutside from "@/hooks/useClickOutside";
-import useUserStore from "@/store/useUserStore";
+import { useTranslation } from "react-i18next";
 const Location = lazy(() => import("./Location"));
 // Modal Component
 const SimpleModal = ({ onClose, title, children, innerRef }) => (
@@ -30,6 +30,7 @@ SimpleModal.propTypes = {
 
 // UserInputs Component
 export default function UserInputs() {
+  const { t } = useTranslation();
   const monthModalRef = useRef();
   const dayModalRef = useRef();
   const yearModalRef = useRef();
@@ -50,10 +51,7 @@ export default function UserInputs() {
     setShowYearModal,
     setUserAddress,
   } = useProfileStore();
-  const { user } = useUserStore();
-  const { location } = user;
 
-  console.log(location);
   useClickOutside(monthModalRef, () => setShowMonthModal(false));
   useClickOutside(dayModalRef, () => setShowDayModal(false));
   useClickOutside(yearModalRef, () => setShowYearModal(false));
@@ -99,29 +97,31 @@ export default function UserInputs() {
       <div className={styles.userInputContainer}>
         <div className={styles.inputContainer}>
           <div className={styles.inputWrapper}>
-            <span>Name</span>
+            <span>{t("profile.profileTab.name")}</span>
             <Input
               className={styles.userInput}
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              placeholder="Name"
+              placeholder={t("profile.profileTab.name")}
+              name={t("profile.profileTab.name")}
             />
           </div>
 
           <div className={styles.inputWrapper}>
-            <span>Phone Number</span>
+            <span>{t("profile.profileTab.PhoneNumber")}</span>
             <Input
               className={styles.userInput}
               value={userPhoneNumber}
               onChange={(e) => setUserPhoneNumber(e.target.value)}
-              placeholder="+9655"
+              placeholder={t("profile.profileTab.PhoneNumberPlaceholder")}
+              name={t("profile.profileTab.PhoneNumber")}
             />
           </div>
         </div>
 
         <div className={`${styles.inputContainer}`}>
           <div className={`${styles.inputContainerDOB}`}>
-            <span>Date Of Birth</span>
+            <span>{t("profile.profileTab.DateOfBirth")}</span>
             <div className={styles.inputContainerDOBWrapper}>
               <div>
                 <Button onClick={() => setShowMonthModal(true)}>
@@ -130,7 +130,7 @@ export default function UserInputs() {
                 {showMonthModal && (
                   <SimpleModal
                     onClose={() => setShowMonthModal(false)}
-                    title="Month"
+                    title={t("profile.profileTab.Month")}
                     innerRef={monthModalRef}
                   >
                     {months.map((month, index) => (
@@ -151,7 +151,7 @@ export default function UserInputs() {
                 {showDayModal && (
                   <SimpleModal
                     onClose={() => setShowDayModal(false)}
-                    title="Day"
+                    title={t("profile.profileTab.Day")}
                     innerRef={dayModalRef}
                   >
                     {Array.from({ length: 31 }, (_, i) => (
@@ -172,7 +172,7 @@ export default function UserInputs() {
                 {showYearModal && (
                   <SimpleModal
                     onClose={() => setShowYearModal(false)}
-                    title="Year"
+                    title={t("profile.profileTab.Year")}
                     innerRef={yearModalRef}
                   >
                     {years.map((year) => (
@@ -189,12 +189,13 @@ export default function UserInputs() {
             </div>
           </div>
           <div className={`${styles.inputWrapper} ${styles.inputContainer}`}>
-            <span>Email</span>
+            <span>{t("profile.profileTab.Email")}</span>
             <Input
               className={styles.userInput}
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
               placeholder="email@example.com"
+              name="Email"
             />
           </div>
         </div>

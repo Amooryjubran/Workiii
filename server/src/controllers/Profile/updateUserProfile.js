@@ -1,33 +1,25 @@
 const client = require("../../utils/db");
 
 const updateUserProfile = async (req, res) => {
-  const {
-    userId,
-    name,
-    phoneNumber,
-    email,
-    dateOfBirth,
-    location,
-    profileImg,
-  } = req.body;
+  const { _id, name, phoneNumber, email, dateOfBirth, location, profileImg } =
+    req.body;
 
   try {
     await client.connect();
     const db = client.db(process.env.DB_NAME);
-
-    // Find the current user by userId
-    const currentUser = await db.collection("users").findOne({ _id: userId });
+    // Find the current user by _id
+    console.log(_id);
+    const currentUser = await db.collection("users").findOne({ _id: _id });
     if (!currentUser) {
       return res.status(404).json({
         status: "error",
         message: "User not found",
       });
     }
-
     // Check if email is being used by another user
     const existingUserWithEmail = await db
       .collection("users")
-      .findOne({ email: email, _id: { $ne: userId } });
+      .findOne({ email: email, _id: { $ne: _id } });
     if (existingUserWithEmail) {
       return res.status(400).json({
         status: "error",
@@ -37,9 +29,7 @@ const updateUserProfile = async (req, res) => {
 
     // Check if the updates are necessary
     const isDateOfBirthChanged =
-      currentUser.dateOfBirth.year !== dateOfBirth.year ||
-      currentUser.dateOfBirth.month !== dateOfBirth.month ||
-      currentUser.dateOfBirth.day !== dateOfBirth.day;
+      JSON.stringify(currentUser.dateOfBirth) === JSON.stringify(dateOfBirth);
 
     const isLocationChanged =
       JSON.stringify(currentUser.location) !== JSON.stringify(location);
@@ -48,7 +38,7 @@ const updateUserProfile = async (req, res) => {
       currentUser.name === name &&
       currentUser.phoneNumber === phoneNumber &&
       currentUser.email === email &&
-      !isDateOfBirthChanged &&
+      isDateOfBirthChanged &&
       !isLocationChanged &&
       currentUser.profileImg === profileImg
     ) {
@@ -58,14 +48,26 @@ const updateUserProfile = async (req, res) => {
           "No updates are necessary; provided information matches the current profile.",
       });
     }
+    console.log(req.body);
+
+    console.log(currentUser.dateOfBirth);
 
     // Perform the update
     await db.collection("users").updateOne(
-      { _id: userId },
+      { _id: _id },
       {
         $set: { name, phoneNumber, email, dateOfBirth, location, profileImg },
       }
     );
+    // Perform the update
+    const updateResult = await db.collection("users").updateOne(
+      { _id: _id },
+      {
+        $set: { name, phoneNumber, email, dateOfBirth, location, profileImg },
+      }
+    );
+
+    console.log("Update result:", updateResult);
 
     res.status(200).json({
       status: "success",

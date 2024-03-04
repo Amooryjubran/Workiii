@@ -15,7 +15,11 @@ const LinkButton = ({ to, children, className }) => {
 
   const optionalClassName = className ? ` ${className}` : "";
   return (
-    <Link to={fullPath} className={`${styles.linkButton}${optionalClassName}`}>
+    <Link
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      to={fullPath}
+      className={`${styles.linkButton}${optionalClassName}`}
+    >
       {children}
     </Link>
   );

@@ -11,7 +11,9 @@
     "dashboard": "Tableau de bord"
   },
   "home": {
-    "homeMessage": "Bienvenue sur notre page d'accueil!"
+    "homeMessage": "Bienvenue sur notre page d'accueil!",
+    "bannerBrowse": "Parcourez notre collection de plus de 50 services Laberors",
+    "browseCollection": "Parcourir la collection"
   },
   "signup": {
     "backToHome": "Retour à l'accueil",

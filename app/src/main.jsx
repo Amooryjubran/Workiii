@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import App from "@/App.jsx";
+import ScrollToTop from "@/helpers/ScrollToTop";
 import loadGoogleMapsAPI from "@/api/loadGoogleMapsAPI";
 import useLanguageSelector from "@/store/useLanguageSelector";
 import { getLanguageFromURL } from "@/config/i18n";
@@ -20,6 +21,7 @@ export function Main() {
     <React.StrictMode>
       <BrowserRouter>
         <App />
+        <ScrollToTop />
       </BrowserRouter>
     </React.StrictMode>
   );

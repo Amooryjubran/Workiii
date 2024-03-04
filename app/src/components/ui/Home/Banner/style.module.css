@@ -1,0 +1,63 @@
+.banner {
+  min-height: 360px;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 0 100px;
+}
+
+.link {
+  background-color: white;
+  color: #39374d;
+  padding: 18px 28px;
+  font-size: 14px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  width: 50%;
+  max-width: 228px;
+}
+
+.overlay > h1 {
+  color: white;
+  font-size: 34px;
+  font-weight: 700;
+  width: 50%;
+}
+
+@media (max-width: 1028px) {
+  .overlay {
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    padding: 20px;
+  }
+  .overlay > h1 {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+  }
+  .link {
+    width: 100%;
+    max-width: none;
+  }
+  .banner {
+    min-height: 280px;
+  }
+}

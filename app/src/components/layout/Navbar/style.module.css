@@ -301,6 +301,12 @@
     align-content: center;
     justify-content: space-between;
   }
+  .logoLinkImgWrapper {
+    height: 100% !important;
+  }
+  .logoLinkImg {
+    max-height: 100% !important;
+  }
 }
 @keyframes slideFooter {
   0% {

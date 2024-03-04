@@ -11,7 +11,9 @@
     "dashboard": "Dashboard"
   },
   "home": {
-    "homeMessage": "Welcome to our home page!"
+    "homeMessage": "Welcome to our home page!",
+    "bannerBrowse": "Browse our collection of 50+ Services Laberors",
+    "browseCollection": "Browse Collection"
   },
   "signup": {
     "backToHome": "Back To Home",

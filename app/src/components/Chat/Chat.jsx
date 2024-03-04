@@ -91,7 +91,7 @@ export default function Chat() {
   if (!isChatModalOpen) {
     return (
       <Button className={styles.chatWrapper} onClick={defaultChatModal}>
-        <MessageCircle />
+        <MessageCircle color="black" />
       </Button>
     );
   }

@@ -260,6 +260,12 @@
     width: fit-content !important;
     border: none;
   }
+  .mobileNavigationLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px !important;
+  }
 
   .mobileNav {
     display: flex;
@@ -268,16 +274,23 @@
     gap: 32px;
     padding: 30px 0;
   }
+  .mobileNavigationLinks > button,
   .mobileNav > button {
     width: fit-content;
     background-color: transparent;
     border: none;
     outline: none;
   }
+  .mobileNavigationLinks > button > a {
+    color: var(--Neutral-white, #fff);
+    font-size: 16px;
+  }
+
   .mobileNav > button > a {
     color: var(--Neutral-white, #fff);
     font-size: 18px;
   }
+  .mobileNavigationLinks > a:hover,
   .mobileNav > a:hover {
     color: var(--Secondary, #ffb142);
   }

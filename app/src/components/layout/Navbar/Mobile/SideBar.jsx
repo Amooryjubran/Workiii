@@ -11,9 +11,14 @@ import FB from "images/Home/FB.svg";
 import IG from "images/Home/IG.svg";
 import Twitter from "images/Home/X.svg";
 import LI from "images/Home/LI.svg";
+import useUserStore from "@/store/useUserStore";
+import { useNavigate } from "react-router-dom";
 
 export default function SideBar({ innerRef, setModal }) {
   const { t } = useTranslation();
+  const { user } = useUserStore();
+  const logout = useUserStore((state) => state.logout);
+  const navigate = useNavigate();
 
   useLockBodyScroll();
 
@@ -51,6 +56,29 @@ export default function SideBar({ innerRef, setModal }) {
             <LinkButton to="about">{t("navbar.about")}</LinkButton>
           </Button>
         </div>
+      </div>
+      <div className={styles.mobileNavigationLinks}>
+        {user ? (
+          <>
+            <Button
+              onClick={() => {
+                logout();
+                navigate("/");
+              }}
+            >
+              <LinkButton to="login">{t("UserModal.Logout")}</LinkButton>
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button onClick={handleCloseModal}>
+              <LinkButton to="login">{t("navbar.login")}</LinkButton>
+            </Button>
+            <Button onClick={handleCloseModal}>
+              <LinkButton to="sign-up">{t("navbar.signUp")}</LinkButton>
+            </Button>
+          </>
+        )}
       </div>
       <div>
         <div className={styles.mobileLinks}>

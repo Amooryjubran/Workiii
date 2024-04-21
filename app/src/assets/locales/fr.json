@@ -8,7 +8,8 @@
     "signUp": "S'inscrire",
     "terms": "Termes et conditions",
     "privacy": "politique de confidentialité",
-    "dashboard": "Tableau de bord"
+    "dashboard": "Tableau de bord",
+    "logout": "Se Déconnecter"
   },
   "home": {
     "homeMessage": "Bienvenue sur notre page d'accueil!",

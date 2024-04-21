@@ -64,9 +64,10 @@ export default function SideBar({ innerRef, setModal }) {
               onClick={() => {
                 logout();
                 navigate("/");
+                handleCloseModal();
               }}
             >
-              <LinkButton to="login">{t("UserModal.Logout")}</LinkButton>
+              <LinkButton to="login">{t("navbar.logout")}</LinkButton>
             </Button>
           </>
         ) : (

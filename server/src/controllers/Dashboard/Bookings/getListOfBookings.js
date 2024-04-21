@@ -59,7 +59,6 @@ const getListOfBookings = async (req, res) => {
         .status(404)
         .json({ status: 404, message: "No bookings found for this user" });
     }
-    console.log();
     // Respond with the list of bookings
     res.status(200).json({
       status: 200,

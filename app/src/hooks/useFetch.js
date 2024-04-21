@@ -31,7 +31,7 @@ export const useFetch = (url, dependencies = []) => {
     };
 
     fetchUrl();
-  }, dependencies);
+  }, [url, ...dependencies]);
 
   return { data, error, loading };
 };

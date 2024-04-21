@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import useUserStore from "@/store/useUserStore";
 import { useNavigate } from "react-router-dom";
 import i18n from "@/config/i18n";
-import ProfileTabs from "@/components/ui/Dashboard/ProfileTabs";
-import Bookings from "@/components/ui/Dashboard/ProfileTabs/Bookings";
-import Profile from "@/components/ui/Dashboard/ProfileTabs/Profile";
+import ProfileTabs from "@/components/ui/ProfileTabs";
+import Bookings from "@/components/ui/ProfileTabs/Bookings";
+import Profile from "@/components/ui/ProfileTabs/Profile";
 import BookingImg from "images/Dashboard/bookingProfile.svg";
 import ProfileImg from "images/Dashboard/profile.svg";
 

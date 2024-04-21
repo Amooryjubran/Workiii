@@ -236,6 +236,17 @@
       "Email": "Email",
       "Success": "Le profil a été mis à jour",
       "Error": "Erreur lors de la mise à jour du profil"
+    },
+    "bookingsTab": {
+      "Booking": "Réservations",
+      "Amount": "Montant",
+      "TimeDate": "Heure & Date",
+      "Location": "Lieu",
+      "Provider": "Fournisseur",
+      "Chat": "Discuter",
+      "Cancel": "Annuler",
+      "Rebook": "Réserver de nouveau",
+      "Review": "Évaluer"
     }
   }
 }

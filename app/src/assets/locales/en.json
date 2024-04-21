@@ -235,6 +235,17 @@
       "Email": "Email",
       "Success": "Profile Has Been Updated",
       "Error": "Error updating profile"
+    },
+    "bookingsTab": {
+      "Booking": "Booking",
+      "Amount": "Amount",
+      "TimeDate": "Time & Date",
+      "Location": "Location",
+      "Provider": "Provider",
+      "Chat": "Chat",
+      "Cancel": "Cancel",
+      "Rebook": "Rebook",
+      "Review": "Review"
     }
   }
 }

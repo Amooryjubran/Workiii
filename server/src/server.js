@@ -48,6 +48,7 @@ const {
   getCreditCards,
   getListOfBookings,
   getBooking,
+  getListOfBookingsPagination,
 
   // POST
   listAService,
@@ -95,6 +96,10 @@ app.get("/api/getServiceDetail/:id", getServiceDetail);
 app.get("/api/user/:_id/creditCards", getCreditCards);
 app.get("/api/:userId/getListOfBookings", getListOfBookings);
 app.get("/api/bookings/:bookingId", getBooking);
+app.get(
+  "/api/:userId/getListOfBookingsPagination",
+  getListOfBookingsPagination
+);
 
 // POST
 app.post("/api/createUser", createUser);

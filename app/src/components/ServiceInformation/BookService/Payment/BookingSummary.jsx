@@ -43,7 +43,7 @@ export default function BookingSummary() {
       <div className={styles.paymentMethodsContainer}>
         <div className={styles.paymentMethodsContainerHeader}>
           <Image
-            src={images[0].src}
+            src={images[0]?.src}
             alt={serviceTitle}
             className={styles.paymentMethodsImg}
           />

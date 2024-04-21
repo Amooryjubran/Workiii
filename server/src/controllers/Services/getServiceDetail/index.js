@@ -3,13 +3,13 @@ const { ObjectId } = require("mongodb");
 
 const getServiceDetail = async (req, res) => {
   try {
+    await client.connect();
     const db = client.db(process.env.DB_NAME);
     const serviceId = req.params.id;
 
     const service = await db
       .collection("services")
       .findOne({ _id: new ObjectId(serviceId) });
-
     if (!service) {
       return res
         .status(404)

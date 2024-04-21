@@ -1,0 +1,183 @@
+.bookingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 30px;
+}
+.bookingContainer > h1 {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+/* --- service Card --- */
+.serviceCard {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #a0a3bd;
+  padding: 24px;
+  border-radius: 10px;
+  gap: 24px;
+}
+.serviceCardHeader {
+  display: flex;
+  gap: 18px;
+}
+.serviceCardImageWrapper {
+  max-width: 151px;
+  max-height: 151px;
+}
+.serviceCardImageWrapper > img {
+  border-radius: 10px;
+}
+.serviceTitle {
+  width: 151px;
+  height: 151px;
+  background-color: #39374d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.serviceCardSubHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.serviceCardSubHeaderTop {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.serviceCardSubHeaderTop > h1 {
+  font-weight: 700;
+  font-size: 16px;
+}
+.serviceCardSubHeaderTop > span {
+  font-size: 14px;
+  padding: 6px 12px 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  border-radius: 100px;
+}
+
+.in-progress {
+  border: 1px solid #0085c9;
+  background-color: #f0f9ff;
+  color: #0085c9;
+}
+.pending {
+  border: 1px solid #e6a800;
+  color: #e6a800;
+  background-color: #fff5e0;
+}
+.cancelled {
+  border: 1px solid #d92c20;
+  color: #d92c20;
+  background-color: #fef3f2;
+}
+.complete {
+  border: 1px solid #5bae60;
+  color: #5bae60;
+  background-color: #eff7ef;
+}
+.serviceCardSubHeaderBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.serviceCardSubHeaderBottom > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.serviceCardSubHeaderBottom > div > h2 {
+  font-weight: 500;
+  font-size: 16px;
+  color: #0f1f48;
+  width: 100%;
+}
+.serviceCardSubHeaderBottom > div > p,
+.serviceCardSubHeaderBottom > div > p > p {
+  font-weight: 500;
+  font-size: 16px;
+  color: #6f6c90;
+  overflow: scroll;
+  max-width: 250px;
+  width: 100%;
+  white-space: pre;
+}
+.bookingCardActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.actionBtns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.actionBtns > button {
+  padding: 12px 24px 12px 16px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.rebookBtn,
+.chatBtn {
+  background-color: #39374d;
+  color: white;
+}
+.cancelBtn {
+  border: 1px solid #d92c20 !important;
+  color: #d92c20;
+  background-color: #fef3f2;
+}
+
+@media (max-width: 1028px) {
+  .serviceCard,
+  .serviceCardHeader {
+    flex-direction: column;
+  }
+  .serviceCardSubHeader {
+    width: 100%;
+    gap: 15px;
+  }
+  .serviceCardSubHeaderBottom > div {
+    gap: 10px;
+  }
+  .serviceTitle,
+  .serviceCardImageWrapper {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .serviceCardSubHeaderBottom > div > p,
+  .serviceCardSubHeaderBottom > div > p > p {
+    white-space: normal;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  .serviceCardSubHeaderBottom {
+    gap: 10px;
+  }
+  .serviceCard {
+    gap: 24px;
+  }
+  .actionBtns {
+    width: 100%;
+  }
+}

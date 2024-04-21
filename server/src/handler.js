@@ -39,6 +39,7 @@ const bookService = require("./controllers/Payment/Booking/bookService");
 
 // PROFILE PAGE
 const updateUserProfile = require("./controllers/Profile/updateUserProfile");
+const getListOfBookingsPagination = require("./controllers/Profile/getListOfBookingsPagination");
 
 module.exports = {
   // GET
@@ -55,6 +56,7 @@ module.exports = {
   getCreditCards,
   getListOfBookings,
   getBooking,
+  getListOfBookingsPagination,
 
   // POST
   createUser,

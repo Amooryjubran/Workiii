@@ -107,4 +107,12 @@
     min-width: fit-content;
     white-space: nowrap;
   }
+  .tabs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    max-width: 90%;
+  }
 }

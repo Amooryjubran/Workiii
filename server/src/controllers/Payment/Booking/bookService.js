@@ -48,12 +48,12 @@ const bookService = async (req, res) => {
 
     // Step 3: Stripe Payment Processing
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: totalPrice + serviceFee,
+      amount: Math.round((totalPrice + serviceFee) * 100), // Convert dollars to cents
       currency: "usd",
       customer: existingUser.stripeCustomerId,
       payment_method: selectedCreditCard,
       confirm: true,
-      capture_method: "manual", // capture the charge in the bank (hold in the payment), if the labourler accepts, we charge, otherwise we release
+      capture_method: "manual",
       automatic_payment_methods: {
         enabled: true,
         allow_redirects: "never",
@@ -76,17 +76,13 @@ const bookService = async (req, res) => {
       createdAt: new Date(),
       clientID: existingUser._id,
     };
-    const bookingResult = await db
-      .collection("serviceBookings")
-      .insertOne(serviceBooking);
+    await db.collection("serviceBookings").insertOne(serviceBooking);
     const bookingId = ID;
 
-    // Update User's bookedServices
+    // Update User's and Service's bookedServices
     await db
       .collection("users")
       .updateOne({ _id: userId }, { $push: { bookedServices: bookingId } });
-
-    // Update Service's bookedServices
     await db
       .collection("services")
       .updateOne(
@@ -94,7 +90,7 @@ const bookService = async (req, res) => {
         { $push: { bookedServices: bookingId } }
       );
 
-    // Prepare email details
+    // Prepare and send booking success email
     const serviceDetails = {
       title: existingService.serviceInfo.serviceTitle,
       date: selectedDate,
@@ -118,11 +114,13 @@ const bookService = async (req, res) => {
     });
   } catch (err) {
     console.error("Error in bookService:", err);
-    res
-      .status(500)
-      .json({ status: 500, message: "An unexpected error occurred" });
+    res.status(500).json({
+      status: 500,
+      message: "An unexpected error occurred",
+      error: err.message,
+    });
   } finally {
-    client.close();
+    await client.close(); // Ensure proper closure of the database client
   }
 };
 

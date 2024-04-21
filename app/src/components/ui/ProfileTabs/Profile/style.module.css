@@ -312,4 +312,11 @@
   .toast > div > div > div {
     border-radius: 5px;
   }
+  .container > h1 {
+    display: none;
+  }
+  .imageUpload,
+  .container > h2 {
+    margin: 0 auto 0 0;
+  }
 }

@@ -1,4 +1,5 @@
 const nodeoutlook = require("nodejs-nodemailer-outlook");
+const verificationEmail = require("../templates/Auth/createUser");
 async function sendVerificationEmail(email, code) {
   nodeoutlook.sendEmail({
     auth: {
@@ -7,8 +8,8 @@ async function sendVerificationEmail(email, code) {
     },
     from: process.env.EMAIL_USER,
     to: email,
-    subject: "Account Verification",
-    html: `<p>Your verification code is: ${code}</p>`,
+    subject: "Account Verifications",
+    html: verificationEmail(email, code),
     onError: (e) => console.log(e),
     onSuccess: (i) => console.log(i),
   });

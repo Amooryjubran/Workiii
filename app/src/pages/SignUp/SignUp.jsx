@@ -22,10 +22,11 @@ export default function SignUp() {
 
   // Check if the user is already logged in and redirect if necessary
   useEffect(() => {
+    reset(); // Reset the step to initial state
     if (user) {
       navigate("/");
     }
-  }, [user, navigate]);
+  }, [reset, user, navigate]);
 
   return (
     <div className={styles.authContainer}>

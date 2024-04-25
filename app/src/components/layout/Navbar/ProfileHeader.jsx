@@ -12,7 +12,11 @@ export default function ProfileHeader({ user, setUserModal }) {
       <LinkButton to="dashboard">
         <div>
           {profileImg ? (
-            <img src={profileImg} alt={name} />
+            <Image
+              src={profileImg}
+              alt={name}
+              classNameWrapper={styles.profileImage}
+            />
           ) : (
             <div className={styles.profileInitial}>{name?.charAt(0)}</div>
           )}

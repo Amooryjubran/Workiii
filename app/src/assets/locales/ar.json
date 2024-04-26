@@ -39,7 +39,12 @@
     "signUpTitle": "التسجيل ك{{userType}}",
     "fillFields": "املأ الحقول للتسجيل",
     "login": "تسجيل الدخول",
-    "orLogin": "أو تسجيل الدخو"
+    "orLogin": "أو تسجيل الدخول",
+    "Name": "الاسم",
+    "Email": "البريد الإلكتروني",
+    "PhoneNumber": "رقم الهاتف",
+    "EnterPhone": "أدخل رقم الهاتف",
+    "Password": "كلمة المرور"
   },
   "signUpSuccess": {
     "success": "لقد تم تسجيلك بنجاح",

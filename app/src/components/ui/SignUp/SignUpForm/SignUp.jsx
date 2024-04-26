@@ -21,7 +21,7 @@ export default function SignUpForm() {
 
   const userTypeCapitalized =
     userType.charAt(0).toUpperCase() + userType.slice(1);
-
+  console.log(userType);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -67,18 +67,21 @@ export default function SignUpForm() {
   return (
     <div className={styles.authForm}>
       <h2>
-        {t("signUpForm.signUpTitle", { userType: userTypeCapitalized })} <br />
+        {t("signUpForm.signUpTitle", {
+          userType: t(`userTypeSelector.${userType}`),
+        })}
+        <br />
         {t("signUpForm.fillFields")}
       </h2>
       <form className={styles.authFormContainer}>
         <div className={styles.formInputs}>
-          <label>Name</label>
+          <label>{t("signUpForm.Name")}</label>
           <div>
             <Image
               classNameWrapper={styles.inputImgWrapper}
               className={styles.inputImg}
               src={ContactImg}
-              alt="Name"
+              alt={t("signUpForm.Name")}
               height={24}
               width={24}
             />
@@ -87,19 +90,19 @@ export default function SignUpForm() {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              placeholder="Full Name"
+              placeholder={t("signUpForm.Name")}
               className={styles.input}
             />
           </div>
         </div>
         <div className={styles.formInputs}>
-          <label>Email</label>
+          <label>{t("signUpForm.Email")}</label>{" "}
           <div>
             <Image
               classNameWrapper={styles.inputImgWrapper}
               className={styles.inputImg}
               src={EmailImg}
-              alt="Email"
+              alt={t("signUpForm.Email")}
               height={24}
               width={24}
             />
@@ -114,22 +117,23 @@ export default function SignUpForm() {
           </div>
         </div>
         <div className={styles.formInputs}>
-          <label>Phone Number</label>
+          <label>{t("signUpForm.PhoneNumber")}</label>
           <PhoneInput
-            placeholder="Enter phone number"
+            placeholder={t("signUpForm.EnterPhone")}
             value={formData.phoneNumber}
             onChange={handlePhoneChange}
             defaultCountry="CA"
+            className={styles.phoneInput}
           />
         </div>
         <div className={styles.formInputs}>
-          <label>Password</label>
+          <label>{t("signUpForm.Password")}</label>{" "}
           <div>
             <Image
               classNameWrapper={styles.inputImgWrapper}
               className={styles.inputImg}
               src={PasswordImg}
-              alt="Password"
+              alt={t("signUpForm.Password")}
               height={24}
               width={24}
             />

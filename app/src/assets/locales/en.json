@@ -39,7 +39,12 @@
     "signUpTitle": "{{userType}} Sign up",
     "fillFields": "Fill the fields to sign up",
     "login": "Login",
-    "orLogin": "Or Login"
+    "orLogin": "Or Login",
+    "Name": "Name",
+    "Email": "Email",
+    "PhoneNumber": "Phone Number",
+    "EnterPhone": "Enter Phone Number",
+    "Password": "Password"
   },
   "signUpSuccess": {
     "success": "You have registered successfully",

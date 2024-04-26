@@ -66,6 +66,9 @@
   padding: 0 !important;
   text-indent: 30px;
 }
+.phoneInput > input {
+  font-size: 16px;
+}
 .formInputs > div > input:-webkit-autofill {
   background-color: transparent !important;
   -webkit-box-shadow: 0 0 0 50px white inset;

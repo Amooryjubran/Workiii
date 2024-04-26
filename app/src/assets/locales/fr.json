@@ -39,7 +39,12 @@
     "signUpTitle": "Inscription en tant que {{userType}}",
     "fillFields": "Remplissez les champs pour vous inscrire",
     "login": "Connexion",
-    "orLogin": "Ou Connexion"
+    "orLogin": "Ou connexion",
+    "Name": "Nom",
+    "Email": "Email",
+    "PhoneNumber": "Numéro de téléphone",
+    "EnterPhone": "Entrez le numéro de téléphone",
+    "Password": "Mot de passe"
   },
   "signUpSuccess": {
     "success": "Vous vous êtes inscrit avec succès",

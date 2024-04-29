@@ -21,7 +21,6 @@ export default function SignUpForm() {
 
   const userTypeCapitalized =
     userType.charAt(0).toUpperCase() + userType.slice(1);
-  console.log(userType);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -43,8 +42,13 @@ export default function SignUpForm() {
         phoneNumber: formData.phoneNumber,
         userType: userType,
       });
+      console.log(response);
+
       // Handle the response accordingly
-      if (response.status === 201 && response.data.status === "success") {
+      if (
+        (response.status === 201 && response.data.status === "success") ||
+        response.status === 202
+      ) {
         // The user was created successfully
         goToNextStep();
       } else if (response.status === 200 && response.data.status === "info") {

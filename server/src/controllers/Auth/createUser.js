@@ -32,7 +32,7 @@ const createUser = async (req, res) => {
 
         // Send verification email
         await sendVerificationEmail(email, newVerificationCode);
-        return res.status(200).json({
+        return res.status(202).json({
           status: "success",
           message: "New verification code sent to unverified user",
         });

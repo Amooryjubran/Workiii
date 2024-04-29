@@ -1,6 +1,6 @@
 const verificationEmail = (email, code) => {
   const logoSrc =
-    "https://res.cloudinary.com/movieslify/image/upload/v1713914841/hxvzkwlrra5mit3hu7q7.svg";
+    "https://res.cloudinary.com/movieslify/image/upload/v1714091618/sccow5zc46nixipzgysq.png";
   const primaryColor = "#123456";
   const secondaryColor = "#ffb142";
 
@@ -11,11 +11,6 @@ const verificationEmail = (email, code) => {
                 <td style="text-align: center;">
                   <table >
                     <tr>
-                      <td style="padding-right: 10px;">
-                        <div style="background: ${secondaryColor};; border-radius: 8px; padding: 4.688px 3.125px 3.125px 4.688px;">
-                          <img src="${logoSrc}" alt="Workiii Logo" style="width: 50px; height: 50px; border-radius: 50%; filter: brightness(0) invert(1);">
-                        </div>
-                      </td>
                       <td>
                         <h1 style="margin: 0; font-size: 24px; color: ${primaryColor};">Workiii</h1>
                       </td>
@@ -37,11 +32,6 @@ const verificationEmail = (email, code) => {
               <td style="text-align: center;">
                 <table style="margin: auto;">
                   <tr>
-                    <td style="padding-right: 10px;">
-                      <div style="background: ${secondaryColor}; border-radius: 8px; padding: 4.688px 3.125px 3.125px 4.688px;">
-                        <img src="${logoSrc}" alt="Workiii Logo" style="width: 32px; height: 32px; border-radius: 50%; filter: brightness(0) invert(1);">
-                      </div>
-                    </td>
                     <td>
                       <h1 style="margin: 0; font-size: 24px; color: #fff;">Workiii</h1>
                     </td>

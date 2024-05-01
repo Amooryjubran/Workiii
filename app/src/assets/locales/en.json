@@ -25,7 +25,12 @@
     "findingRightJob": "Finding the right job or the perfect laborer has never been easier. Let's get started and bridge the gap between hard work and great opportunities.",
     "agreeTo": "I agree to the",
     "privacyPolicy": "Privacy Policy",
-    "next": "Let's Start"
+    "next": "Let's Start",
+    "verificationCode": "Enter your verification code",
+    "verify": "Verify",
+    "didYouRecieve": "Did you recieve a verification code ?",
+    "resend": "Resend the code",
+    "timeExpired": "Time expired. Please resend the code"
   },
   "userTypeSelector": {
     "prompt": "Hey 👋🏻 What do you need?",

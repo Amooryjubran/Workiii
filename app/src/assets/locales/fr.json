@@ -25,7 +25,12 @@
     "findingRightJob": "Trouver le bon travail ou le parfait ouvrier n'a jamais été aussi simple. Commençons et faisons le lien entre le travail acharné et les grandes opportunités.",
     "agreeTo": "Je suis d'accord avec",
     "privacyPolicy": "Politique de Confidentialité",
-    "next": "Commençons"
+    "next": "Commençons",
+    "verificationCode": "Entrez votre code de vérification",
+    "verify": "Vérifier",
+    "didYouRecieve": "Avez-vous reçu un code de vérification?",
+    "resend": "Renvoyer le code",
+    "timeExpired": "Temps expiré. Veuillez renvoyer le code."
   },
   "userTypeSelector": {
     "prompt": "Salut 👋🏻 De quoi as-tu besoin?",

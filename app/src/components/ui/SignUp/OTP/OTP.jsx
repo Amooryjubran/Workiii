@@ -1,13 +1,16 @@
 import { useState, useRef, useEffect } from "react";
+import styles from "./style.module.css";
 import { useTranslation } from "react-i18next";
 import useSignUpStore from "@/store/useSignUpStore";
-import { verifyUser } from "@/api/userAuth";
 import useUserStore from "@/store/useUserStore";
+import { verifyUser, resendVerificationCode } from "@/api/userAuth";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import Image from "@/components/Image";
-import styles from "./style.module.css";
 import Timer from "images/Signup/timer.svg";
+import { showToast } from "@/utils/showToast";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function OTP() {
   const { t } = useTranslation();
@@ -18,7 +21,7 @@ export default function OTP() {
   } = useSignUpStore();
   const setUser = useUserStore((state) => state.setUser);
   const [otp, setOTP] = useState(Array(6).fill(""));
-  const [localErrors, setLocalErrors] = useState(""); // Local state for errors
+  const [localErrors, setLocalErrors] = useState("");
   const inputRefs = useRef(new Array(6).fill(null));
   const [timeLeft, setTimeLeft] = useState(300);
   const handlePaste = (e) => {
@@ -74,6 +77,32 @@ export default function OTP() {
       );
     }
   };
+  const handleResendCode = async () => {
+    // Reset the timer immediately when the user clicks "Resend Code"
+    setTimeLeft(300);
+
+    try {
+      // Call your API to resend the verification code
+      const response = await resendVerificationCode({ email: formData.email });
+      if (response.data.status === "success") {
+        showToast("success", `${t("signup.verificationSent")}`);
+        setLocalErrors("");
+      } else {
+        setLocalErrors(
+          response.data.message || "Failed to resend verification code."
+        );
+      }
+    } catch (error) {
+      setLocalErrors(
+        error.response?.data?.message ||
+          "An error occurred while resending the verification code."
+      );
+    } finally {
+      setTimeout(() => {
+        setLocalErrors("");
+      }, 3000);
+    }
+  };
   useEffect(() => {
     inputRefs.current[0].focus();
     const timerId = setInterval(() => {
@@ -102,38 +131,52 @@ export default function OTP() {
   };
 
   return (
-    <div className={styles.verificationContainer}>
-      <h2>{t("signup.verificationCode")}</h2>
-      <div className={styles.verificationInputs}>
-        {otp.map((value, index) => (
-          <Input
-            key={index}
-            ref={(el) => (inputRefs.current[index] = el)}
-            value={value}
-            onChange={handleChange(index)}
-            onKeyDown={handleKeyDown(index)}
-            onPaste={handlePaste}
-            maxLength={1}
-            className={styles.otpInput}
-            placeholder="-"
-            autoComplete="off"
-          />
-        ))}
-      </div>
-      {localErrors && <p className={styles.error}>*{localErrors}</p>}
-      <Button className={styles.verifyBtn} onClick={verifyOTP}>
-        {t("signup.verify")}
-      </Button>
-      <div className={styles.resendContainer}>
-        <div className={styles.resendWrapper}>
-          <span>{t("signup.didYouRecieve")}</span>
-          <Button>{t("signup.resend")}</Button>
+    <>
+      <div className={styles.verificationContainer}>
+        <h2>{t("signup.verificationCode")}</h2>
+        <div className={styles.verificationInputs}>
+          {otp.map((value, index) => (
+            <Input
+              key={index}
+              ref={(el) => (inputRefs.current[index] = el)}
+              value={value}
+              onChange={handleChange(index)}
+              onKeyDown={handleKeyDown(index)}
+              onPaste={handlePaste}
+              maxLength={1}
+              className={styles.otpInput}
+              placeholder="-"
+              autoComplete="off"
+            />
+          ))}
         </div>
-        <div className={styles.resendTimer}>
-          <Image src={Timer} />
-          <span>{formatTime()}</span>
+        {localErrors && <p className={styles.error}>*{localErrors}</p>}
+        <Button className={styles.verifyBtn} onClick={verifyOTP}>
+          {t("signup.verify")}
+        </Button>
+        <div className={styles.resendContainer}>
+          <div className={styles.resendWrapper}>
+            <span>{t("signup.didYouRecieve")}</span>
+            <Button onClick={handleResendCode}>{t("signup.resend")}</Button>
+          </div>
+          <div className={styles.resendTimer}>
+            <Image src={Timer} />
+            <span>{formatTime()}</span>
+          </div>
         </div>
       </div>
-    </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={15000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+    </>
   );
 }

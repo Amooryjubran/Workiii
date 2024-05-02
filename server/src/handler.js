@@ -1,6 +1,7 @@
 // Auth
 const createUser = require("./controllers/Auth/createUser");
 const verifyUser = require("./controllers/Auth/verifyUser");
+const resendVerificationCode = require("./controllers/Auth/resendVerificationCode");
 const signIn = require("./controllers/Auth/signIn");
 
 // Actions
@@ -61,6 +62,7 @@ module.exports = {
   // POST
   createUser,
   verifyUser,
+  resendVerificationCode,
   signIn,
   listAService,
   addCategory,

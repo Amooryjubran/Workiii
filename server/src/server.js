@@ -54,6 +54,7 @@ const {
   listAService,
   createUser,
   verifyUser,
+  resendVerificationCode,
   signIn,
   removeFromWishList,
   addCategory,
@@ -103,6 +104,7 @@ app.get(
 
 // POST
 app.post("/api/createUser", createUser);
+app.post("/api/resendVerificationCode", resendVerificationCode);
 app.post("/api/verifyUser", verifyUser);
 app.post("/api/signIn", signIn);
 app.post("/api/listAService", listAService);

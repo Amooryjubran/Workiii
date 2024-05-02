@@ -30,7 +30,9 @@
     "verify": "Vérifier",
     "didYouRecieve": "Avez-vous reçu un code de vérification?",
     "resend": "Renvoyer le code",
-    "timeExpired": "Temps expiré. Veuillez renvoyer le code."
+    "timeExpired": "Temps expiré. Veuillez renvoyer le code.",
+    "verificationSent": "Code de vérification renvoyé avec succès",
+    "errorForms": "Veuillez remplir tous les champs."
   },
   "userTypeSelector": {
     "prompt": "Salut 👋🏻 De quoi as-tu besoin?",

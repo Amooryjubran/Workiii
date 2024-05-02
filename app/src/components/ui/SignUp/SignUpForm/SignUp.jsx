@@ -19,8 +19,6 @@ export default function SignUpForm() {
   const [userMessage, setUserMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
-  const userTypeCapitalized =
-    userType.charAt(0).toUpperCase() + userType.slice(1);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -33,6 +31,19 @@ export default function SignUpForm() {
     event.preventDefault();
     setUserMessage(""); // Clear any previous messages
     setIsError(false); // Reset the error state
+
+    // Check if all required fields are filled
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phoneNumber ||
+      !formData.password
+    ) {
+      setUserMessage(t("signup.errorForms"));
+      setIsError(true);
+      return; // Stop the function if any field is empty
+    }
+
     try {
       // POST request to your API endpoint
       const response = await createUser({
@@ -42,7 +53,6 @@ export default function SignUpForm() {
         phoneNumber: formData.phoneNumber,
         userType: userType,
       });
-      console.log(response);
 
       // Handle the response accordingly
       if (
@@ -61,9 +71,7 @@ export default function SignUpForm() {
         setIsError(true);
       }
     } catch (error) {
-      setUserMessage(
-        error.response?.data?.message || "An error occurred during sign up."
-      );
+      setUserMessage(error.response?.data?.message || t("signup.errorForms"));
       setIsError(true);
     }
   };

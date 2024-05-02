@@ -5,6 +5,10 @@ const API_BASE_URL = `${import.meta.env.VITE_API}`;
 export const createUser = async (userData) => {
   return axios.post(`${API_BASE_URL}/api/createUser`, userData);
 };
+export const resendVerificationCode = async (email) => {
+  console.log(email);
+  return axios.post(`${API_BASE_URL}/api/resendVerificationCode`, email);
+};
 
 export const verifyUser = async (email, otp) => {
   return axios.post(`${API_BASE_URL}/api/verifyUser`, {

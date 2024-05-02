@@ -30,7 +30,9 @@
     "verify": "Verify",
     "didYouRecieve": "Did you recieve a verification code ?",
     "resend": "Resend the code",
-    "timeExpired": "Time expired. Please resend the code"
+    "timeExpired": "Time expired. Please resend the code",
+    "verificationSent": "Verification code resent successfully",
+    "errorForms": "Please fill in all fields."
   },
   "userTypeSelector": {
     "prompt": "Hey 👋🏻 What do you need?",

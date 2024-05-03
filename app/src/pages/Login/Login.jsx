@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./style.module.css";
+import { Loader } from "react-feather";
 import { useTranslation } from "react-i18next";
 import useUserStore from "@/store/useUserStore";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +16,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation();
   const { user } = useUserStore();
   const login = useUserStore((state) => state.login);
@@ -36,16 +38,34 @@ export default function Login() {
       setPassword(value);
     }
   };
+  const isValidEmail = (email) => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
   const handleLogin = async () => {
+    if (!email || !password) {
+      setErrors({ ...errors, login: t("login.missingCredentials") });
+      setTimeout(() => setErrors({ ...errors, login: "" }), 3000);
+      return;
+    }
+    if (!isValidEmail(email)) {
+      setErrors({ ...errors, login: t("login.invalidEmail") });
+      setTimeout(() => setErrors({ ...errors, login: "" }), 3000);
+      return;
+    }
+    setErrors({});
+    setIsLoading(true);
     try {
       await login(email, password);
       navigate("/");
     } catch (error) {
-      console.log();
       setErrors({
         ...errors,
-        login: error.response.data.message || "An error occurred during login.",
+        login: error.response.data.message || t("login.errorOccurred"),
       });
+    } finally {
+      setIsLoading(false);
+      setTimeout(() => setErrors({ ...errors, login: "" }), 3000);
     }
   };
 
@@ -60,13 +80,13 @@ export default function Login() {
         <span>{t("login.welcome")}</span>
         <form className={styles.authFormContainer}>
           <div className={styles.formInputs}>
-            <label>Email</label>
+            <label>{t("signUpForm.Email")}</label>
             <div>
               <Image
                 classNameWrapper={styles.inputImgWrapper}
                 className={styles.inputImg}
                 src={EmailImg}
-                alt="Email"
+                alt={t("signUpForm.Email")}
                 height={24}
                 width={24}
               />
@@ -81,13 +101,13 @@ export default function Login() {
             </div>
           </div>
           <div className={styles.formInputs}>
-            <label>Password</label>
+            <label>{t("signUpForm.Password")}</label>
             <div>
               <Image
                 classNameWrapper={styles.inputImgWrapper}
                 className={styles.inputImg}
                 src={PasswordImg}
-                alt="Password"
+                alt={t("signUpForm.Password")}
                 height={24}
                 width={24}
               />
@@ -100,12 +120,14 @@ export default function Login() {
                 className={styles.input}
               />
             </div>
-            {errors && (
-              <span className={styles.errorMessage}>{errors.login}</span>
-            )}
+            <div className={styles.errorContainer}>
+              {errors.login && (
+                <span className={styles.errorMessage}>{errors.login}</span>
+              )}
+            </div>
           </div>
           <LinkButton
-            to="/forgot-password"
+            to="forgot-password"
             className={styles.authContainerBackLink}
           >
             {t("login.forgotPassword")}
@@ -115,7 +137,11 @@ export default function Login() {
             type="button"
             onClick={handleLogin}
           >
-            {t("login.login")}
+            {isLoading ? (
+              <Loader className={styles.loader} />
+            ) : (
+              t("login.login")
+            )}
           </Button>
         </form>
       </div>

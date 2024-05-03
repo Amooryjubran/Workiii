@@ -63,7 +63,9 @@
     "prompt": "Bon retour👋🏻",
     "welcome": "C'est génial de vous revoir. Veuillez vous connecter pour continuer.",
     "forgotPassword": "Mot de passe oublié",
-    "login": "Se connecter"
+    "login": "Se connecter",
+    "missingCredentials": "*L'email et le mot de passe sont requis.",
+    "invalidEmail": "L'adresse e-mail n'est pas valide."
   },
   "landingPage": {
     "welcome": "Bienvenue à Workiii",

@@ -63,7 +63,9 @@
     "prompt": "Welcome Back👋🏻",
     "welcome": "It's great to see you again. Please log in to continue.",
     "forgotPassword": "Forgot Password",
-    "login": "Log in"
+    "login": "Log in",
+    "missingCredentials": "*Email and password are required.",
+    "invalidEmail": "The email address is not valid."
   },
   "landingPage": {
     "welcome": "Welcome to Workiii",

@@ -1,15 +1,17 @@
 import { useState } from "react";
-import useSignUpStore from "@/store/useSignUpStore";
 import styles from "./style.module.css";
+import { useTranslation } from "react-i18next";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+import useSignUpStore from "@/store/useSignUpStore";
 import Button from "@/components/Button";
+import Image from "@/components/Image";
 import Provider from "@/assets/images/Signup/provider.svg";
 import Client from "@/assets/images/Signup/client.svg";
 import UserTypeChecked from "@/assets/images/Signup/userTypeChecked.svg";
-import { useTranslation } from "react-i18next";
-import Image from "@/components/Image";
 
 export default function UserTypeSelector() {
   const { t } = useTranslation();
+  const windowWidth = useWindowWidth();
   const [selectedType, setSelectedType] = useState(null);
   const { setUserType, goToNextStep, errors, setErrors } = useSignUpStore();
 
@@ -42,8 +44,15 @@ export default function UserTypeSelector() {
           onClick={() => handleUserTypeSelection("provider")}
         >
           <span>{t("userTypeSelector.offerService")}</span>
-          <Image src={Provider} alt="Provider" />
-          <h3>{t("userTypeSelector.provider")}</h3>
+          <Image
+            src={Provider}
+            alt="Provider"
+            height={windowWidth > 1028 ? 118 : 70}
+            width={windowWidth > 1028 ? 118 : 70}
+          />
+          <h3 className={selectedType === "provider" ? styles.activeH3 : ""}>
+            {t("userTypeSelector.provider")}
+          </h3>
           {selectedType === "provider" && (
             <Image
               className={styles.checkedImg}
@@ -59,8 +68,15 @@ export default function UserTypeSelector() {
           onClick={() => handleUserTypeSelection("client")}
         >
           <span>{t("userTypeSelector.needService")}</span>
-          <Image src={Client} alt="Client" />
-          <h3>{t("userTypeSelector.client")}</h3>
+          <Image
+            src={Client}
+            alt="Client"
+            height={windowWidth > 1028 ? 118 : 70}
+            width={windowWidth > 1028 ? 118 : 70}
+          />
+          <h3 className={selectedType === "client" ? styles.activeH3 : ""}>
+            {t("userTypeSelector.client")}
+          </h3>
           {selectedType === "client" && (
             <Image
               className={styles.checkedImg}

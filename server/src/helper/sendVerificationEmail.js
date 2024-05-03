@@ -6,10 +6,14 @@ async function sendVerificationEmail(email, code) {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD,
     },
-    from: process.env.EMAIL_USER,
+    from: {
+      name: "Workiii",
+      address: process.env.EMAIL_USER,
+    },
     to: email,
     subject: "Account Verifications",
     html: verificationEmail(email, code),
+    text: "Workiii",
     onError: (e) => console.log(e),
     onSuccess: (i) => console.log(i),
   });

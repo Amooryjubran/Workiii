@@ -32,7 +32,8 @@
     "resend": "Resend the code",
     "timeExpired": "Time expired. Please resend the code",
     "verificationSent": "Verification code resent successfully",
-    "errorForms": "Please fill in all fields."
+    "errorForms": "Please fill in all fields.",
+    "emailCode": "Email Code"
   },
   "userTypeSelector": {
     "prompt": "Hey 👋🏻 What do you need?",

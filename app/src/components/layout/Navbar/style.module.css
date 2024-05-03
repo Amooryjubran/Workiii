@@ -326,6 +326,7 @@
   }
   .logoLinkImgWrapper {
     height: 100% !important;
+    min-width: 108px;
   }
   .logoLinkImg {
     max-height: 100% !important;

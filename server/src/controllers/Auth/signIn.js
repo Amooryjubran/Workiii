@@ -10,12 +10,14 @@ const signIn = async (req, res) => {
     const db = client.db(process.env.DB_NAME);
     const user = await db.collection("users").findOne({ email });
     if (!user) {
-      return res.status(404).json({ status: 404, message: "User not found" });
+      return res.status(404).json({ status: 404, message: "*User not found" });
     }
 
     const passwordIsValid = await bcrypt.compare(password, user.password);
     if (!passwordIsValid) {
-      return res.status(403).json({ status: 403, message: "Invalid password" });
+      return res
+        .status(403)
+        .json({ status: 403, message: "*Invalid password" });
     }
 
     delete user.password;

@@ -134,6 +134,7 @@ export default function OTP() {
     <>
       <div className={styles.verificationContainer}>
         <h2>{t("signup.verificationCode")}</h2>
+        <span>{t("signup.emailCode")}</span>
         <div className={styles.verificationInputs}>
           {otp.map((value, index) => (
             <Input
@@ -167,7 +168,7 @@ export default function OTP() {
       </div>
       <ToastContainer
         position="bottom-right"
-        autoClose={15000}
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -176,6 +177,7 @@ export default function OTP() {
         draggable
         pauseOnHover
         theme="dark"
+        className={styles.toast}
       />
     </>
   );

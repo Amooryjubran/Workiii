@@ -124,3 +124,13 @@
   height: 1px; /* Adjust the thickness of the line */
   background-color: var(--gray-300); /* Change the color as needed */
 }
+
+@media (max-width: 1028px) {
+  .authForm {
+    padding: 24px 0;
+  }
+  .authForm > h2 {
+    font-size: 25px;
+    line-height: 32px;
+  }
+}

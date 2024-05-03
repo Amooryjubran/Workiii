@@ -32,7 +32,8 @@
     "resend": "Renvoyer le code",
     "timeExpired": "Temps expiré. Veuillez renvoyer le code.",
     "verificationSent": "Code de vérification renvoyé avec succès",
-    "errorForms": "Veuillez remplir tous les champs."
+    "errorForms": "Veuillez remplir tous les champs.",
+    "emailCode": "Code de l'e-mail"
   },
   "userTypeSelector": {
     "prompt": "Salut 👋🏻 De quoi as-tu besoin?",

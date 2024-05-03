@@ -1,5 +1,5 @@
-const sendVerificationEmail = require("../../helper/sendVerificationEmail");
 const client = require("../../utils/db");
+const sendVerificationEmail = require("../../helper/sendVerificationEmail");
 
 function generateVerificationCode() {
   return Math.floor(Math.random() * 900000) + 100000;

@@ -51,6 +51,7 @@
   color: var(--gray-white);
   font-size: 18px;
   font-weight: 700;
+  height: 57.5px;
 }
 .resendContainer {
   display: flex;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Loader } from "react-feather";
 import styles from "./style.module.css";
 import useSignUpStore from "@/store/useSignUpStore";
 import Button from "@/components/Button";
@@ -18,6 +19,7 @@ export default function SignUpForm() {
   const { userType, goToNextStep, formData, setFormData } = useSignUpStore();
   const [userMessage, setUserMessage] = useState("");
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -43,7 +45,7 @@ export default function SignUpForm() {
       setIsError(true);
       return; // Stop the function if any field is empty
     }
-
+    setIsLoading(true);
     try {
       // POST request to your API endpoint
       const response = await createUser({
@@ -73,6 +75,8 @@ export default function SignUpForm() {
     } catch (error) {
       setUserMessage(error.response?.data?.message || t("signup.errorForms"));
       setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -167,7 +171,7 @@ export default function SignUpForm() {
           className={`${styles.button} ${styles.authContainerBtn}`}
           type="button"
         >
-          {t("signup.next")}
+          {isLoading ? <Loader className={styles.loader} /> : t("signup.next")}
         </Button>
       </form>
       <div className={styles.loginText}>{t("signUpForm.orLogin")}</div>

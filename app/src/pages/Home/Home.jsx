@@ -1,15 +1,22 @@
-import Services from "@/components/ui/Home/Services";
-import styles from "./style.module.css";
+import { Suspense, lazy } from "react";
 import HeroBanner from "@/components/ui/Home/HeroBanner";
-import PopularServices from "@/components/ui/Home/PopularServices";
-import Banner from "@/components/ui/Home/Banner";
+import styles from "./style.module.css";
+
+// Lazily load the other components
+const Services = lazy(() => import("@/components/ui/Home/Services"));
+const PopularServices = lazy(() =>
+  import("@/components/ui/Home/PopularServices")
+);
+const Banner = lazy(() => import("@/components/ui/Home/Banner"));
 export default function Home() {
   return (
     <div className={styles.wrapper}>
       <HeroBanner />
-      <Services />
-      <PopularServices />
-      <Banner />
+      <Suspense fallback={<div>...</div>}>
+        <Services />
+        <PopularServices />
+        <Banner />
+      </Suspense>
     </div>
   );
 }

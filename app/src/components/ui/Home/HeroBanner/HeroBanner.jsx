@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./style.module.css";
 import { useTranslation } from "react-i18next";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 import LinkButton from "@/components/Link";
 import Image from "@/components/Image";
 import Plumber from "images/Home/Plumber.png";
@@ -8,6 +9,7 @@ import Electrician from "images/Home/Electrician.png";
 
 export default function HeroBanner() {
   const { t } = useTranslation();
+  const windowWidth = useWindowWidth();
   const [professionKey, setProfession] = useState("landingPage.Plumber");
   const [imageSrc, setImageSrc] = useState(Plumber);
   const [animate, setAnimate] = useState(false);
@@ -27,8 +29,8 @@ export default function HeroBanner() {
         setProfession(professions[currentProfession].key);
         setImageSrc(professions[currentProfession].image);
         setAnimate(false); // Reset for entry animation
-      }, 500); // Halfway through the interval
-    }, 3000); // Interval includes time for exit and entry animation
+      }, 1000); // Halfway through the interval
+    }, 4000); // Interval includes time for exit and entry animation
 
     return () => clearInterval(interval);
   }, []);
@@ -67,7 +69,14 @@ export default function HeroBanner() {
       </div>
       <div className={styles.backgroundContainer}>
         <div className={` ${animate ? styles.slideOut : styles.slideIn}`}>
-          <Image src={imageSrc} className={styles.img} alt={professionKey} />
+          <Image
+            className={styles.img}
+            classNameWrapper={styles.imgWrapper}
+            alt={professionKey}
+            src={imageSrc}
+            height={windowWidth > 1028 ? 300 : 400}
+            width={windowWidth > 1028 ? 500 : "100%"}
+          />
         </div>
       </div>
     </div>

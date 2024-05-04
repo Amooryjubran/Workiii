@@ -51,6 +51,11 @@
 .heroBannerHeaderTitle > h1 > strong {
   color: var(--secondary);
 }
+.heroBannerHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 .heroBannerNavigations {
   display: flex;
   align-items: center;
@@ -66,22 +71,36 @@
   background: var(--primary);
   color: #fff;
   border: 1px solid transparent;
+  transition: background 0.1s ease-in, color 0.1s ease-in, border 0.1s ease-in;
+}
+.heroBannerServicesLink:hover {
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--primary, #39374d);
 }
 .heroBannerSignUpLink {
   padding: 18px 20px;
   color: var(--primary);
-  border: 1px solid var(--primary, #39374d);
+  border: 1px solid var(--primary);
+  background: transparent;
+  transition: background 0.1s ease-in, color 0.1s ease-in, border 0.1s ease-in;
+}
+
+.heroBannerSignUpLink:hover {
+  background: var(--primary);
+  color: #fff;
+  border: 1px solid transparent;
 }
 .slideIn {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .slideOut {
   opacity: 0;
   transform: translateY(-20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 @media (max-width: 1028px) {
   .heroBanner {
@@ -110,12 +129,19 @@
   .img {
     min-height: 325px;
     max-height: 350px;
+    object-fit: contain;
   }
   .slideIn,
   .slideOut {
     width: 100%;
   }
+  .imgWrapper {
+    max-height: 333px;
+  }
   .backgroundContainer {
     text-align: center;
+  }
+  .heroBannerHeader {
+    gap: 12px;
   }
 }

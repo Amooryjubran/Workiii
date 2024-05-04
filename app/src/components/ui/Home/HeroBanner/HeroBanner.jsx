@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import styles from "./style.module.css";
 import { useTranslation } from "react-i18next";
 import LinkButton from "@/components/Link";
-import styles from "./style.module.css";
+import Image from "@/components/Image";
 import Plumber from "images/Home/Plumber.svg";
 import Electrician from "images/Home/Electrician.png";
-import Image from "@/components/Image";
 
 export default function HeroBanner() {
   const { t } = useTranslation();
@@ -42,7 +42,7 @@ export default function HeroBanner() {
         <div className={styles.heroBannerHeader}>
           <div className={styles.heroBannerHeaderTitle}>
             <h1>
-              {t("landingPage.allLaborers")}{" "}
+              {t("landingPage.allLaborers")} <br />
               <strong className={animate ? styles.slideOut : styles.slideIn}>
                 {t(professionKey)}
               </strong>

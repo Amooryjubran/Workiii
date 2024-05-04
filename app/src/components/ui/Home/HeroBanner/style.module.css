@@ -19,6 +19,7 @@
 .img {
   max-height: 852px;
   max-width: 750px;
+  min-height: 500px;
 }
 .heroBannerTitle {
   display: flex;
@@ -38,6 +39,9 @@
   font-size: 16px;
   color: var(--primary);
   line-height: 1.4;
+}
+.heroBannerDescreption > p {
+  font-weight: 500;
 }
 .heroBannerHeaderTitle > h1 {
   color: #000;
@@ -84,11 +88,15 @@
     padding: 20px 0;
     gap: 30px;
     flex-direction: column-reverse;
+    max-width: none;
+    width: 100%;
   }
   .heroBannerTitle {
     display: none;
   }
-
+  .heroBanner > div {
+    max-width: none;
+  }
   .heroBannerHeaderTitle > h1 {
     font-size: 32px;
   }
@@ -97,6 +105,17 @@
   }
   .heroBannerNavigations > a {
     width: 100%;
+    text-align: center;
+  }
+  .img {
+    min-height: 325px;
+    max-height: 350px;
+  }
+  .slideIn,
+  .slideOut {
+    width: 100%;
+  }
+  .backgroundContainer {
     text-align: center;
   }
 }

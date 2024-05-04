@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import { useTranslation } from "react-i18next";
 import LinkButton from "@/components/Link";
 import Image from "@/components/Image";
-import Plumber from "images/Home/Plumber.svg";
+import Plumber from "images/Home/Plumber.png";
 import Electrician from "images/Home/Electrician.png";
 
 export default function HeroBanner() {

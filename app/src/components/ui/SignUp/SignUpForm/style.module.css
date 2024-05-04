@@ -91,6 +91,7 @@
   outline: none;
   color: var(--gray-white);
   font-size: 18px;
+  height: 57.5px;
 }
 .authContainerBtn:disabled {
   background-color: var(--disabled-btn);

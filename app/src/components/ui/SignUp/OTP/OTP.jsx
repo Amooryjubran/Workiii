@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./style.module.css";
 import { useTranslation } from "react-i18next";
+import { Loader } from "react-feather";
 import useSignUpStore from "@/store/useSignUpStore";
 import useUserStore from "@/store/useUserStore";
 import { verifyUser, resendVerificationCode } from "@/api/userAuth";
@@ -22,6 +23,7 @@ export default function OTP() {
   const setUser = useUserStore((state) => state.setUser);
   const [otp, setOTP] = useState(Array(6).fill(""));
   const [localErrors, setLocalErrors] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const inputRefs = useRef(new Array(6).fill(null));
   const [timeLeft, setTimeLeft] = useState(300);
   const handlePaste = (e) => {
@@ -58,7 +60,7 @@ export default function OTP() {
       setGlobalErrors({ otp: "Please enter all 6 digits of the OTP." }); // Update Zustand store if needed elsewhere
       return;
     }
-
+    setIsLoading(true);
     try {
       const response = await verifyUser(formData.email, otpString);
       if (response.data.status === 200) {
@@ -75,6 +77,8 @@ export default function OTP() {
         error.response?.data?.message ||
           "An error occurred during verification."
       );
+    } finally {
+      setIsLoading(false);
     }
   };
   const handleResendCode = async () => {
@@ -153,7 +157,11 @@ export default function OTP() {
         </div>
         {localErrors && <p className={styles.error}>*{localErrors}</p>}
         <Button className={styles.verifyBtn} onClick={verifyOTP}>
-          {t("signup.verify")}
+          {isLoading ? (
+            <Loader className={styles.loader} />
+          ) : (
+            t("signup.verify")
+          )}
         </Button>
         <div className={styles.resendContainer}>
           <div className={styles.resendWrapper}>

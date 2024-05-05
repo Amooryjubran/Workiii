@@ -12,8 +12,6 @@ const topServices = async (req, res) => {
   } catch (err) {
     console.log("Error getting list of top Providers", err);
     return res.status(500).json({ status: 500, message: err });
-  } finally {
-    client.close();
   }
 };
 module.exports = topServices;

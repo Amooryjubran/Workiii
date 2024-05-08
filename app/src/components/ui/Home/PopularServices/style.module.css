@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 64px;
-  padding: 250px 90px;
+  padding: 120px 90px;
   max-width: 1918px;
   width: 100%;
   margin: 0 auto;
@@ -51,6 +51,7 @@
   grid-template-columns: repeat(3, auto);
   grid-gap: 50px;
   max-width: 1364px;
+  padding: 40px 0;
 }
 
 /* --- Service Card --- */
@@ -162,5 +163,6 @@
   }
   .popularServicesWrapper {
     grid-template-columns: auto;
+    padding: 0;
   }
 }

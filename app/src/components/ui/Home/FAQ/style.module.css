@@ -51,6 +51,7 @@
 }
 .faqButton > span {
   text-align: left;
+  color: var(--primary);
 }
 
 .chevron {
@@ -125,17 +126,26 @@
 .faqIMGWrapper {
   background-color: #f8fafc;
   opacity: 1;
+  background-image: radial-gradient(#ffb142 0.5px, #f8fafc 0.5px);
   background-size: 10px 10px;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #ffb142 0,
-    #ffb142 1px,
-    #f8fafc 0,
-    #f8fafc 50%
-  );
 }
 .faqWrapperIMG {
   width: 100% !important;
+}
+
+.faqWrapperIMG {
+  transition: opacity 1s ease, transform 1s ease;
+  z-index: 999;
+}
+
+.slideIn {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 @media (max-width: 1028px) {
@@ -159,18 +169,4 @@
     text-align: left;
     line-height: 1.4;
   }
-}
-
-.faqWrapperIMG {
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.slideIn {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
-
-.fadeOut {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
 }

@@ -17,7 +17,6 @@ export default function Services() {
   return (
     <div className={styles.serivesWrapper}>
       <div className={styles.title}>
-        <h1>{t("landingPage.services")}</h1>
         <h2>{t("landingPage.whatDoYouNeed")}</h2>
       </div>
       <Slider {...settings} className={styles.serivesCards}>

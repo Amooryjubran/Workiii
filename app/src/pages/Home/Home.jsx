@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import HeroBanner from "@/components/ui/Home/HeroBanner";
 import { motion } from "framer-motion";
 import styles from "./style.module.css";
+import FAQ from "@/components/ui/Home/FAQ";
 
 // Lazily load the other components
 const Services = lazy(() => import("@/components/ui/Home/Services"));
@@ -49,6 +50,14 @@ export default function Home() {
           variants={variants}
         >
           <Banner />
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={variants}
+        >
+          <FAQ />
         </motion.div>
       </Suspense>
     </div>

@@ -44,7 +44,6 @@ export default function PopularServices() {
   return (
     <div className={styles.popularServices}>
       <div className={styles.title}>
-        <h1>{t("landingPage.top")}</h1>
         <h2>{t("landingPage.topProviders")}</h2>
       </div>
       {windowWidth <= 1024 ? sliderContent : standardContent}

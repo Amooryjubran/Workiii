@@ -14,7 +14,19 @@
   "home": {
     "homeMessage": "Bienvenue sur notre page d'accueil!",
     "bannerBrowse": "Parcourez notre collection de plus de 50 services Laberors",
-    "browseCollection": "Parcourir la collection"
+    "browseCollection": "Parcourir la collection",
+    "faq": {
+      "title": "Foire aux Questions",
+      "description": "Explorez notre FAQ pour en savoir plus sur la manière dont nous vous connectons avec des travailleurs fiables et compétents, assurant que vos besoins soient satisfaits de manière efficace et sécuritaire.",
+      "question1": "Comment puis-je réserver un service sur la plateforme ?",
+      "answer1": "Pour réserver un service, parcourez simplement la liste des ouvriers disponibles, consultez leurs profils pour voir leurs évaluations, des photos de leurs travaux précédents et leurs tarifs. Une fois que vous avez trouvé le prestataire qui répond à vos besoins, sélectionnez le service désiré et suivez les instructions pour confirmer votre réservation.",
+      "question2": "Que se passe-t-il si un prestataire annule à la dernière minute ?",
+      "answer2": "Nous comprenons l'inconvénient causé par les annulations de dernière minute. Dans de tels cas, notre plateforme vous aidera à trouver un prestataire alternatif dès que possible. De plus, les prestataires qui annulent fréquemment seront soumis à des évaluations et pourraient être retirés de notre plateforme pour garantir la fiabilité.",
+      "question3": "Puis-je laisser un avis après la fin du service ?",
+      "answer3": "Absolument ! Nous vous encourageons à laisser un avis après la fin du service. Partager votre expérience aide non seulement d'autres clients à prendre des décisions éclairées, mais encourage également la qualité et la responsabilité parmi nos prestataires de services.",
+      "question4": "Pourquoi utiliser votre plateforme ?",
+      "answer4": "Notre plateforme est conçue pour faciliter la recherche de main-d'œuvre fiable et compétente de manière simple et sans stress. Voici quelques raisons pour lesquelles nos utilisateurs nous choisissent : Processus de vérification complet, avis pilotés par les utilisateurs, tarification compétitive, support client, sécurité avant tout."
+    }
   },
   "signup": {
     "backToHome": "Retour à l'accueil",

@@ -11,6 +11,7 @@ export function SampleNextArrow({ onClick }) {
         src={Arrow}
         classNameWrapper={styles.sliderNextBtnWrapper}
         className={styles.sliderNextBtnImg}
+        alt={"Arrow"}
       />
     </Button>
   );
@@ -23,6 +24,7 @@ export function SamplePrevArrow({ onClick }) {
         src={Arrow}
         classNameWrapper={styles.sliderNextBtnWrapper}
         className={styles.sliderNextBtnImg}
+        alt={"Arrow"}
       />
     </Button>
   );

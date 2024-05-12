@@ -14,7 +14,19 @@
   "home": {
     "homeMessage": "Welcome to our home page!",
     "bannerBrowse": "Browse our collection of 50+ Services Laberors",
-    "browseCollection": "Browse Collection"
+    "browseCollection": "Browse Collection",
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Explore our FAQ to learn more about how we connect you with reliable and skilled laborers, ensuring your needs are met efficiently and safely.",
+      "question1": "How do I book a service on the platform?",
+      "answer1": "To book a service, simply browse through the list of available laborers, view their profiles to see their reviews, photos of past work, and pricing. Once you find the service provider that meets your needs, select the desired service and follow the prompts to confirm your booking.",
+      "question2": "What happens if a service provider cancels last minute?",
+      "answer2": "We understand the inconvenience caused by last-minute cancellations. In such cases, our platform will assist you in finding an alternative provider as soon as possible. Additionally, providers who frequently cancel will be subject to reviews and possible removal from our platform to ensure reliability.",
+      "question3": "Can I leave a review after the service is completed?",
+      "answer3": "Absolutely! We encourage you to leave a review after your service is completed. Sharing your experience not only helps other clients make informed decisions but also promotes quality and accountability among our service providers.",
+      "question4": "Why use your platform?",
+      "answer4": "Our platform is designed to make finding reliable laborers as easy and stress-free as possible. Here are a few reasons why our users choose us: Comprehensive Vetting Process, User-Driven Reviews, Competitive Pricing, Customer Support, Safety First."
+    }
   },
   "signup": {
     "backToHome": "Back To Home",

@@ -44,7 +44,8 @@ export default function HeroBanner() {
         <div className={styles.heroBannerHeader}>
           <div className={styles.heroBannerHeaderTitle}>
             <h1>
-              {t("landingPage.allLaborers")} <br />
+              {t("landingPage.allLaborers")}
+              <br />
               <strong className={animate ? styles.slideOut : styles.slideIn}>
                 {t(professionKey)}
               </strong>

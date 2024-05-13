@@ -18,7 +18,12 @@ const FAQItem = ({ faqKey, isOpen, toggleOpen }) => {
     <div className={styles.faqItem} onClick={toggleOpen}>
       <Button className={styles.faqButton}>
         <span>{t(questionKey)}</span>
-        <ChevronUp className={isOpen ? styles.chevron : styles.chevronDown} />
+        <ChevronUp
+          className={isOpen ? styles.chevron : styles.chevronDown}
+          width={24}
+          height={24}
+          color="black"
+        />
       </Button>
       {isOpen && (
         <div className={styles.faqContent}>

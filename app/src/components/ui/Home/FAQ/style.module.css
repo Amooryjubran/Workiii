@@ -42,6 +42,7 @@
   border: none;
   display: flex;
   align-items: center;
+  gap: 0;
   justify-content: space-between;
   width: 100%;
   cursor: pointer;
@@ -52,8 +53,12 @@
 .faqButton > span {
   text-align: left;
   color: var(--primary);
+  margin: auto 0;
 }
-
+.chevron,
+.chevronDown {
+  flex: 0 0 auto;
+}
 .chevron {
   transition: transform 0.3s ease-in-out;
 }
@@ -168,5 +173,12 @@
     font-size: 16px;
     text-align: left;
     line-height: 1.4;
+  }
+  .faqButton {
+    align-items: baseline;
+    color: var(--primary);
+  }
+  .faqLink {
+    width: 100%;
   }
 }

@@ -119,6 +119,7 @@
   .heroBannerHeaderTitle > h1 {
     font-size: 32px;
   }
+
   .heroBannerNavigations {
     flex-direction: column;
   }

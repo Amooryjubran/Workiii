@@ -1,0 +1,138 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  padding: 120px 70px;
+  max-width: 1918px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: black;
+}
+.footerHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.footerHeaderList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 0 20px 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.267);
+}
+.footerHeaderList > h1 {
+  font-size: 16px;
+  color: white;
+}
+.footerHeaderList > div {
+  display: flex;
+  flex-direction: column;
+  gap: 12.5px;
+}
+.footerHeaderList > div > a {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+.footerHeaderList > div > a:hover {
+  color: white;
+}
+.footerLanguageBtnWrapper {
+  position: relative;
+}
+.footerLanguageBtn {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row !important;
+  background-color: #1a1a1a;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  gap: 20px;
+  padding: 15px 15px 10px;
+  border-radius: 5px;
+}
+
+.footerLanguageBtn > span {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+.footerSocial {
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+.footerSocial > a > svg {
+  color: rgba(255, 255, 255, 0.6);
+}
+.footerSocial > a > svg:hover {
+  color: white;
+}
+.footerLogo {
+  filter: invert(100%);
+  min-height: 30px !important;
+  width: 100px !important;
+}
+.footerBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footerBottom > ul {
+  display: flex;
+  color: rgba(255, 255, 255, 0.6);
+  gap: 30px;
+}
+.footerBottom > span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  text-align: center;
+}
+.footerBottom > ul > li {
+  font-size: 14px;
+  padding-left: 13px;
+}
+
+.footerBottom > ul > li:first-of-type {
+  list-style: none;
+}
+
+@media (max-width: 1028px) {
+  .footer {
+    padding: 50px 24px;
+    gap: 40px;
+  }
+  .footerHeader {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: unset;
+    border-bottom: none;
+  }
+  .footerHeaderList {
+    border: none;
+  }
+  .footerBottom {
+    gap: 15px;
+  }
+  .footerBottom > ul {
+    gap: 7.5px;
+    padding: 0;
+    margin: 0;
+  }
+  .footerBottom > ul > li {
+    list-style: none;
+    padding: 0;
+  }
+  .footerSocial {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  .footerHeaderList:last-child {
+    grid-column: 1 / -1;
+  }
+}

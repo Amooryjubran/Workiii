@@ -9,8 +9,8 @@ const Services = lazy(() => import("@/components/ui/Home/Services"));
 const PopularServices = lazy(() =>
   import("@/components/ui/Home/PopularServices")
 );
-
 const Banner = lazy(() => import("@/components/ui/Home/Banner"));
+const Testimonials = lazy(() => import("@/components/ui/Home/Testimonials"));
 
 export default function Home() {
   // Animation variants
@@ -50,6 +50,14 @@ export default function Home() {
           variants={variants}
         >
           <Banner />
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={variants}
+        >
+          <Testimonials />
         </motion.div>
         <motion.div
           initial="hidden"

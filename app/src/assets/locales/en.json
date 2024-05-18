@@ -26,6 +26,23 @@
       "answer3": "Absolutely! We encourage you to leave a review after your service is completed. Sharing your experience not only helps other clients make informed decisions but also promotes quality and accountability among our service providers.",
       "question4": "Why use your platform?",
       "answer4": "Our platform is designed to make finding reliable laborers as easy and stress-free as possible. Here are a few reasons why our users choose us: Comprehensive Vetting Process, User-Driven Reviews, Competitive Pricing, Customer Support, Safety First."
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "Discover why customers trust us to connect them with reliable service providers.",
+      "quotes": [
+        "Quickly connected with a reliable plumber. Easy and fast!",
+        "Joined Workiii and was happy with the customers.",
+        "Professional and efficient handyman.",
+        "Amazing carpenter built custom shelves for my store."
+      ],
+      "names": ["Erica Chidi Cohen", "Saeed Eshaq", "John Doe", "Jane Smith"],
+      "roles": [
+        "Doula and Health Educator",
+        "Professional Moving Company",
+        "Homeowner",
+        "Business Owner"
+      ]
     }
   },
   "signup": {

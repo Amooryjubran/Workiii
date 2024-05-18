@@ -69,19 +69,19 @@
 }
 .heroBannerServicesLink {
   background: var(--primary);
-  color: #fff;
-  border: 1px solid transparent;
+  color: #fff !important;
+  border: 1px solid transparent !important;
   transition: background 0.1s ease-in, color 0.1s ease-in, border 0.1s ease-in;
 }
 .heroBannerServicesLink:hover {
   background: white;
-  color: var(--primary);
-  border: 1px solid var(--primary, #39374d);
+  color: var(--primary) !important;
+  border: 1px solid var(--primary, #39374d) !important;
 }
 .heroBannerSignUpLink {
   padding: 18px 20px;
   color: var(--primary);
-  border: 1px solid var(--primary);
+  border: 1px solid var(--primary) !important;
   background: transparent;
   transition: background 0.1s ease-in, color 0.1s ease-in, border 0.1s ease-in;
 }
@@ -89,7 +89,7 @@
 .heroBannerSignUpLink:hover {
   background: var(--primary);
   color: #fff;
-  border: 1px solid transparent;
+  border: 1px solid transparent !important;
 }
 .slideIn {
   opacity: 1;

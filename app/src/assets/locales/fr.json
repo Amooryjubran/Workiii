@@ -26,6 +26,23 @@
       "answer3": "Absolument ! Nous vous encourageons à laisser un avis après la fin du service. Partager votre expérience aide non seulement d'autres clients à prendre des décisions éclairées, mais encourage également la qualité et la responsabilité parmi nos prestataires de services.",
       "question4": "Pourquoi utiliser votre plateforme ?",
       "answer4": "Notre plateforme est conçue pour faciliter la recherche de main-d'œuvre fiable et compétente de manière simple et sans stress. Voici quelques raisons pour lesquelles nos utilisateurs nous choisissent : Processus de vérification complet, avis pilotés par les utilisateurs, tarification compétitive, support client, sécurité avant tout."
+    },
+    "testimonials": {
+      "title": "Testimonios",
+      "subtitle": "Descubra por qué los clientes confían en nosotros para conectarlos con proveedores de servicios confiables.",
+      "quotes": [
+        "¡Conectado rápidamente con un plomero confiable. ¡Fácil y rápido!",
+        "Se unió a nosotros y estaba feliz con los clientes.",
+        "Manitas profesional y eficiente.",
+        "Carpintero increíble construyó estantes personalizados para mi tienda."
+      ],
+      "names": ["Erica Chidi Cohen", "Saeed Eshaq", "John Doe", "Jane Smith"],
+      "roles": [
+        "Doula y Educadora de Salud",
+        "Propietario de una empresa de mudanzas profesional",
+        "Propietario de casa",
+        "Propietario de negocio"
+      ]
     }
   },
   "signup": {

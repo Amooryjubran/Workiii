@@ -1,8 +1,9 @@
 import useDetectLanguageChange from "@/hooks/useDetectLanguageChange";
-import Navbar from "@/components/layout/Navbar/Navbar";
 import MainRoutes from "./Routes/index";
-import Chat from "./components/Chat";
 import useUserStore from "./store/useUserStore";
+import Navbar from "@/components/layout/Navbar/Navbar";
+import Footer from "@/components/layout/Footer";
+import Chat from "@/components/Chat";
 
 function App() {
   const { user } = useUserStore();
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <MainRoutes />
       {user && <Chat />}
+      <Footer />
     </>
   );
 }

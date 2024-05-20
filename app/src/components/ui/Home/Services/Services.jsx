@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 import ServiceCard from "./ServiceCard";
@@ -10,9 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function Services() {
   const { t } = useTranslation();
-  const [middleIndex, setMiddleIndex] = useState(1);
   const services = getServicesData(t);
-  const settings = sliderSettings(setMiddleIndex, services.length);
+  const settings = sliderSettings();
 
   return (
     <div className={styles.serivesWrapper}>
@@ -21,12 +19,7 @@ export default function Services() {
       </div>
       <Slider {...settings} className={styles.serivesCards}>
         {services.map((service, index) => (
-          <ServiceCard
-            service={service}
-            index={index}
-            middleIndex={middleIndex}
-            key={index}
-          />
+          <ServiceCard service={service} index={index} key={index} />
         ))}
       </Slider>
     </div>

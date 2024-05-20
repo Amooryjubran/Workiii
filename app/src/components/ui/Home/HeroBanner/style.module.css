@@ -51,6 +51,7 @@
   color: #000;
   font-size: 64px;
   margin: 0;
+  line-height: 1;
 }
 .heroBannerHeaderTitle > h1 > strong {
   color: var(--secondary);

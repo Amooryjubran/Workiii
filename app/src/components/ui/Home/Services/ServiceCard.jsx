@@ -1,24 +1,22 @@
 import styles from "./style.module.css";
 import PropTypes from "prop-types";
-import { useWindowWidth } from "@/hooks/useWindowWidth";
 import Image from "@/components/Image";
 import LinkButton from "@/components/Link";
 
-const ServiceCard = ({ service, index, middleIndex }) => {
-  const windowWidth = useWindowWidth();
-
+const ServiceCard = ({ service, index }) => {
+  console.log(service);
   return (
-    <div
-      className={`${styles.serivesCard} ${
-        index === middleIndex && windowWidth > 1028 ? styles.highlight : ""
-      }`}
-      key={index}
-    >
-      <Image src={service.img} alt={service.alt} className={styles.img} />
-      <h1>{service.title}</h1>
-      <p>{service.description}</p>
-      <LinkButton to={service.link}>See more</LinkButton>
-    </div>
+    <LinkButton className={styles.serivesCard} key={index}>
+      <Image
+        src={service.img}
+        classNameWrapper={styles.serviceImageWrapper}
+        alt={service.alt}
+      />
+      <div className={styles.serivesCardHeader}>
+        <span>{service.description}</span>
+        <h1>{service.title}</h1>
+      </div>
+    </LinkButton>
   );
 };
 

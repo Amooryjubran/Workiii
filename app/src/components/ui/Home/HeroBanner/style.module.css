@@ -13,8 +13,12 @@
   gap: 32px;
 }
 .backgroundContainer {
-  background: url("images/Home/backgroundContainer.svg");
   position: relative;
+  display: flex;
+  gap: 25px;
+}
+.imgWrapper:first-of-type {
+  padding: 40px 0;
 }
 .img {
   max-height: 852px;
@@ -105,7 +109,6 @@
 @media (max-width: 1028px) {
   .heroBanner {
     padding: 20px 0;
-    gap: 30px;
     flex-direction: column-reverse;
     max-width: none;
     width: 100%;
@@ -141,6 +144,7 @@
   }
   .backgroundContainer {
     text-align: center;
+    gap: 5px;
   }
   .heroBannerHeader {
     gap: 12px;

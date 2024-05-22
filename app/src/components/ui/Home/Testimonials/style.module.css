@@ -122,7 +122,6 @@
 .firstSlideItem {
   height: 450px;
   width: 375px;
-  /* margin-right: 20px;  */
 }
 
 .firstSlideImage {
@@ -156,6 +155,7 @@
     width: auto;
   }
   .sliderWrapper {
+    gap: 5px;
     flex-direction: column-reverse;
   }
   .sliderSlick {
@@ -177,5 +177,12 @@
   }
   .name {
     margin: 0;
+  }
+  .firstSlideItem {
+    height: 385px;
+  }
+  .quote {
+    font-size: 28px;
+    margin: 20px 0 0;
   }
 }

@@ -2,29 +2,22 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import styles from "./style.module.css";
 import HeartImg from "images/Home/heart.svg";
-import Arrow from "images/chev.svg";
 import Image from "@/components/Image";
 import Button from "@/components/Button";
 import LinkButton from "@/components/Link";
 import ReactStarsRating from "react-awesome-stars-rating";
 
-export default function ServiceCard({ service }) {
+export default function ServiceCard({
+  service: { _id, providerName, ratingsRate, ratings, images, serviceInfo },
+}) {
   const { t } = useTranslation();
-  const {
-    _id,
-    serviceType,
-    providerName,
-    rate,
-    ratingsCount,
-    ratingsRate,
-    image,
-  } = service;
+
   return (
-    <div className={styles.serviceCard}>
+    <LinkButton className={styles.serviceCard} to={`service/${_id}`}>
       <div>
         <div className={styles.serviceCardImgWrapper}>
           <Image
-            src={image}
+            src={images[0].src}
             alt={providerName}
             className={styles.cardImg}
             classNameWrapper={styles.cardImgWrapper}
@@ -39,40 +32,46 @@ export default function ServiceCard({ service }) {
         </div>
         <div className={styles.cardInfo}>
           <div className={styles.cardInfoHeader}>
-            <h1>{providerName}</h1>
+            <h1>{serviceInfo.serviceTitle}</h1>
             <h1>
-              ${rate}
+              ${serviceInfo.servicePrice}
               <span>/{t("landingPage.hr")}</span>
             </h1>
           </div>
-          <span>{serviceType}</span>
+          <span>{serviceInfo.serviceCategory}</span>
+          <p>{serviceInfo.serviceDescription}</p>
           <div className={styles.ratingsContainer}>
             <ReactStarsRating
-              size={20}
+              size={14}
               isEdit={false}
               primaryColor={"#F9D853"}
               value={Number(ratingsRate)}
             />
-            <span>({ratingsCount})</span>
+            <span>({ratings.length})</span>
           </div>
         </div>
       </div>
-
-      <LinkButton className={styles.navLink} to={`service/${_id}`}>
-        <span>{t("landingPage.details")}</span>
-        <Image src={Arrow} alt={"Chev"} />
-      </LinkButton>
-    </div>
+    </LinkButton>
   );
 }
+
 ServiceCard.propTypes = {
   service: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     serviceType: PropTypes.string.isRequired,
-    rate: PropTypes.string.isRequired,
     providerName: PropTypes.string.isRequired,
-    ratingsCount: PropTypes.string.isRequired,
     ratingsRate: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    serviceInfo: PropTypes.shape({
+      serviceTitle: PropTypes.string.isRequired,
+      servicePrice: PropTypes.string.isRequired,
+      serviceCategory: PropTypes.string.isRequired,
+      serviceDescription: PropTypes.string.isRequired,
+    }).isRequired,
+    ratings: PropTypes.array.isRequired,
   }),
 };

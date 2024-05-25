@@ -44,12 +44,12 @@ export default function UserModal({ innerRef, setUserModal, user }) {
               src={Logo}
               alt="Logo"
               className={styles.logoLinkImg}
-              classNameWrapper={styles.logoLinkImgWrapper}
+              classNameWrapper={styles.logoLinkImgUserModel}
             />
           </LinkButton>
         </Button>
         <Button className={styles.closeBtn} onClick={() => setUserModal(false)}>
-          <X />
+          <X size={18} color="black" />
         </Button>
         <div className={styles.profileNav}>
           <Button onClick={() => setUserModal(false)}>
@@ -180,7 +180,7 @@ export default function UserModal({ innerRef, setUserModal, user }) {
       </Button>
       {windowWidth <= 1028 && (
         <Button className={styles.closeBtn} onClick={() => setUserModal(false)}>
-          <X />
+          <X size={18} color="black" />
         </Button>
       )}
     </div>

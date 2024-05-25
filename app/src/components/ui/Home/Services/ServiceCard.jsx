@@ -4,7 +4,6 @@ import Image from "@/components/Image";
 import LinkButton from "@/components/Link";
 
 const ServiceCard = ({ service, index }) => {
-  console.log(service);
   return (
     <LinkButton className={styles.serivesCard} key={index}>
       <Image

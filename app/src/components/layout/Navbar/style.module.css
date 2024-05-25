@@ -42,7 +42,7 @@
 }
 .navbarBtns > a {
   padding: 12px 24px;
-  border-radius: 10px;
+  border-radius: 30px;
   color: var(--primery, #39374d);
   border: 1px solid var(--primery, #39374d);
 }
@@ -156,18 +156,30 @@
   gap: 5px;
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.22);
+  border: 1px solid lightgray;
+  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.087);
   z-index: 11;
+  padding: 15px;
 }
 .profileDropDownImgContainer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  padding: 20px 20px 15px;
+  padding-bottom: 15px;
   text-decoration: none;
   list-style: none;
+}
+.profileDropDownHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+.profileDropDownHeader > h1 {
+  font-size: 14px;
+}
+.profileDropDownHeader > span {
+  font-size: 12px;
 }
 .profileDropDownImgContainer > div {
   position: relative;
@@ -191,22 +203,43 @@
   bottom: 0;
   right: 0;
 }
+.profileNav {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 5px;
+}
+.profileNav > button > a,
 .profileDropDownLinks,
 .profileDropDownLogout {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   align-items: center;
+  border-radius: 30px;
+  color: #181340;
 }
+.profileNav > button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+.profileNav > button > a {
+  padding: 10px;
+  width: 100%;
+}
+.profileNav > button > a:hover,
 .profileDropDownLinks:hover,
 .profileDropDownLogout:hover {
-  background-color: #313338;
+  background-color: rgb(237, 237, 237);
 }
 
 .profileDropDownLinks > span,
 .profileDropDownLogout > span {
-  color: #313338;
+  color: #181340;
   font-size: 14px;
-  font-weight: 500;
 }
 .profileDropDownLinks {
   border-top: 1px solid #4a5267;
@@ -219,13 +252,18 @@
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 10px 15px 15px;
+  padding: 10px;
 }
 .userModalBtn,
 .profileHeaderWrapper {
   padding: 0 !important;
   margin: 0;
   border: none !important;
+}
+.profileDropDownHeaderBtn {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid lightgray;
 }
 .userModalBtn {
   width: fit-content !important;
@@ -328,8 +366,50 @@
     height: 100% !important;
     min-width: 108px;
   }
+  .logoLinkImgUserModel {
+    height: 100% !important;
+    min-width: 100px;
+  }
   .logoLinkImg {
     max-height: 100% !important;
+  }
+  .profileDropDown {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999999999;
+    transform: translateX(100%);
+    animation: slideIn 0.5s ease-out forwards;
+  }
+  .profileDropDownImgContainer {
+    justify-content: flex-start;
+  }
+  .profileDropDownLogout {
+    margin: auto 0 0;
+    border: 1px solid lightgray;
+    padding: 13px 15px;
+    justify-content: center;
+  }
+  .mobileFooter > button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  .closeBtn {
+    width: fit-content;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 15px;
+  }
+  .mobileFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto 0 0;
   }
 }
 @keyframes slideFooter {
@@ -341,5 +421,13 @@
   to {
     left: 0;
     opacity: 1;
+  }
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

@@ -4,12 +4,14 @@ import styles from "../style.module.css";
 import LinkButton from "@/components/Link";
 import Image from "@/components/Image";
 import Button from "@/components/Button";
-import SideBar from "./SideBar";
 import Logo from "@/assets/logo.svg";
 import Search from "@/assets/images/search.svg";
 import Burger from "@/assets/images/burger.svg";
+import UserModal from "../UserModal";
+import useUserStore from "@/store/useUserStore";
 
 export default function MobileNav() {
+  const { user } = useUserStore();
   const [modal, setModal] = useState(false);
   const ref = useRef();
   useClickOutside(ref, () => setModal(false));
@@ -34,7 +36,9 @@ export default function MobileNav() {
           </Button>
         </div>
       </div>
-      {modal && <SideBar innerRef={ref} setModal={setModal} />}
+      {modal && (
+        <UserModal setUserModal={setModal} user={user} innerRef={ref} />
+      )}
     </>
   );
 }

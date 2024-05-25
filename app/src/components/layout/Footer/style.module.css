@@ -54,12 +54,56 @@
   gap: 20px;
   padding: 15px 15px 10px;
   border-radius: 5px;
+  border: 1px solid transparent;
 }
-
+.footerLanguageBtn:hover {
+  background-color: black;
+  border: 1px solid #1a1a1a;
+}
+.footerLanguageBtn > div {
+  display: flex;
+  align-items: center;
+  gap: 7.5px;
+}
+.footerLanguageBtn > div > span,
 .footerLanguageBtn > span {
   color: white;
   font-size: 14px;
   font-weight: 500;
+}
+.checvBottom {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease-in-out;
+}
+.checvTop {
+  transform: rotate(0);
+  transition: transform 0.2s ease-in-out;
+}
+.langModel {
+  position: absolute;
+  left: 0;
+  top: 110%;
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 9999;
+}
+.langOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  gap: 5px;
+  padding: 7.5px 10px;
+  color: white;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.langOption:hover {
+  background-color: black;
 }
 .footerSocial {
   flex-direction: row !important;

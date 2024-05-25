@@ -1,35 +1,52 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "./style.module.css";
+import useUserStore from "@/store/useUserStore";
 import { useTranslation } from "react-i18next";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import LinkButton from "@/components/Link";
 import Image from "@/components/Image";
 
+const professions = [
+  { key: "landingPage.Plumber" },
+  { key: "landingPage.Electrician" },
+];
+
 export default function HeroBanner() {
   const { t } = useTranslation();
+  const { user } = useUserStore();
   const windowWidth = useWindowWidth();
-  const [professionKey, setProfession] = useState("landingPage.Plumber");
+  const [professionKey, setProfession] = useState(professions[0].key);
   const [animate, setAnimate] = useState(false);
 
-  // Effect to change the profession and image every second
+  const updateProfession = useCallback(() => {
+    setAnimate(true); // Trigger exit animation
+    setTimeout(() => {
+      const nextProfessionIndex =
+        (professions.findIndex((p) => p.key === professionKey) + 1) %
+        professions.length;
+      setProfession(professions[nextProfessionIndex].key);
+      setAnimate(false);
+    }, 1000);
+  }, [professionKey]);
+
   useEffect(() => {
-    const professions = [
-      { key: "landingPage.Plumber" },
-      { key: "landingPage.Electrician" },
-    ];
-    let currentProfession = 0;
-
-    const interval = setInterval(() => {
-      setAnimate(true); // Trigger exit animation
-      setTimeout(() => {
-        currentProfession = (currentProfession + 1) % professions.length;
-        setProfession(professions[currentProfession].key);
-        setAnimate(false);
-      }, 1000);
-    }, 4000);
-
+    const interval = setInterval(updateProfession, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [updateProfession]);
+
+  let link = "sign-up";
+  let buttonText = t("landingPage.offerService");
+
+  switch (user?.userType) {
+    case "provider":
+      link = "list-a-service";
+      buttonText = t("userTypeSelector.offerService");
+      break;
+    case "client":
+      link = "services";
+      buttonText = t("home.browseCollection");
+      break;
+  }
   return (
     <div className={styles.heroBanner}>
       <div className={styles.heroBannerWrapper}>
@@ -55,12 +72,8 @@ export default function HeroBanner() {
           <LinkButton className={styles.heroBannerServicesLink} to="services">
             {t("landingPage.wantService")}
           </LinkButton>
-          <LinkButton
-            className={styles.heroBannerSignUpLink}
-            to="list-a-service
-          "
-          >
-            {t("landingPage.offerService")}
+          <LinkButton className={styles.heroBannerSignUpLink} to={link}>
+            {buttonText}
           </LinkButton>
         </div>
       </div>

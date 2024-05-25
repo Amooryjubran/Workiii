@@ -9,6 +9,7 @@
     "terms": "Termes et conditions",
     "privacy": "politique de confidentialité",
     "dashboard": "Tableau de bord",
+    "contact": "Contact",
     "logout": "Se Déconnecter"
   },
   "home": {
@@ -103,6 +104,7 @@
     "allLaborersDescreption": "Trouvez des travailleurs experts pour toute tâche chez Workiii. Notre plateforme vous connecte sans effort avec des professionnels expérimentés en plomberie, électricité, aménagement paysager, et plus encore, assurant un service fiable et sans faille pour vos projets.",
     "wantService": "Trouver un service",
     "offerService": "Devenir prestataire de services",
+    "addService": "Ajouter un service",
     "Plumber": "Plombier",
     "Electrician": "Électricien",
     "services": "Services",

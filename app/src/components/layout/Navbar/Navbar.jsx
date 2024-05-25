@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown } from "react-feather";
 import { useTranslation } from "react-i18next";
@@ -11,6 +11,7 @@ import Logo from "@/assets/logo.svg";
 import Search from "@/assets/images/search.svg";
 import useLanguageSelector from "@/store/useLanguageSelector";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
+import useClickOutside from "@/hooks/useClickOutside";
 import MobileNav from "./Mobile";
 import ProfileHeader from "./ProfileHeader";
 import useUserStore from "@/store/useUserStore";
@@ -19,13 +20,16 @@ import UserModal from "./UserModal";
 
 export default function Navbar() {
   const { user } = useUserStore();
+  const { t } = useTranslation();
   const [langModal, setLangModal] = useState(false);
   const [userModal, setUserModal] = useState(false);
-  const { t } = useTranslation();
+  const ref = useRef();
   const { setLanguage } = useLanguageSelector();
-  const currentLanguage = i18n.language;
   const navigate = useNavigate();
   const windowWidth = useWindowWidth();
+  useClickOutside(ref, () => setUserModal(false));
+
+  const currentLanguage = i18n.language;
   const languageOptions = [
     { code: "en", label: "English" },
     { code: "fr", label: "French" },
@@ -105,7 +109,13 @@ export default function Navbar() {
         {user ? (
           <div className={styles.profileHeaderWrapper}>
             <ProfileHeader user={user} setUserModal={setUserModal} />
-            {userModal && <UserModal setUserModal={setUserModal} user={user} />}
+            {userModal && (
+              <UserModal
+                setUserModal={setUserModal}
+                user={user}
+                innerRef={ref}
+              />
+            )}
           </div>
         ) : (
           <>

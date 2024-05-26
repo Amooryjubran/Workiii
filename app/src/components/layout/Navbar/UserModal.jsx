@@ -59,7 +59,7 @@ export default function UserModal({ innerRef, setUserModal, user }) {
             </LinkButton>
           </Button>
           <Button onClick={() => setUserModal(false)}>
-            <LinkButton onClick={() => setUserModal(false)} to="profile">
+            <LinkButton onClick={() => setUserModal(false)} to="services">
               <Briefcase color="#181340" size={18} />
               <span>{t("landingPage.services")}</span>
             </LinkButton>
@@ -67,19 +67,19 @@ export default function UserModal({ innerRef, setUserModal, user }) {
         </div>
         <div className={styles.profileNav}>
           <Button onClick={() => setUserModal(false)}>
-            <LinkButton onClick={() => setUserModal(false)} to="dashboard">
+            <LinkButton onClick={() => setUserModal(false)} to="about">
               <Users color="#181340" size={18} />
               <span>{t("navbar.about")}</span>
             </LinkButton>
           </Button>
           <Button onClick={() => setUserModal(false)}>
-            <LinkButton onClick={() => setUserModal(false)} to="dashboard">
+            <LinkButton onClick={() => setUserModal(false)} to="terms">
               <Clipboard color="#181340" size={18} />
               <span>{t("navbar.terms")}</span>
             </LinkButton>
           </Button>
           <Button onClick={() => setUserModal(false)}>
-            <LinkButton onClick={() => setUserModal(false)} to="dashboard">
+            <LinkButton onClick={() => setUserModal(false)} to="faq">
               <HelpCircle color="#181340" size={18} />
               <span>{t("home.faq.title")}</span>
             </LinkButton>

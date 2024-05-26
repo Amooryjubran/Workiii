@@ -372,6 +372,7 @@
   }
   .logoLinkImg {
     max-height: 100% !important;
+    max-width: 108px;
   }
   .profileDropDown {
     position: fixed;

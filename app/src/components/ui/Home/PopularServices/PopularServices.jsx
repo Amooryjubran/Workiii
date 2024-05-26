@@ -1,12 +1,28 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { useTranslation } from "react-i18next";
 import ServiceCard from "./ServiceCard";
-import { useFetch } from "@/hooks/useFetch";
 import styles from "./style.module.css";
 
 export default function PopularServices() {
-  const { data } = useFetch(`${import.meta.env.VITE_API}/api/topServices`);
+  const [data, setData] = useState(null);
   const { t } = useTranslation();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API}/api/topServices`
+        );
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  console.log(data);
   if (!data) {
     return null;
   }

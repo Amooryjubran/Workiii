@@ -294,5 +294,10 @@
       "Rebook": "Rebook",
       "Review": "Review"
     }
+  },
+  "notFound": {
+    "notFoundTitle": "Oops!",
+    "notFoundMessage": "We could not find the page you were looking for",
+    "goHome": "Go Home"
   }
 }

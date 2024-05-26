@@ -10,7 +10,7 @@ import ListAService from "@/pages/ListAService";
 import Dashboard from "@/pages/Dashboard";
 import ServicePage from "@/pages/ServicePage";
 import MyProfile from "@/pages/MyProfile";
-import NotFoundPage from "@/pages/NotFoundPage/NotFoundPage";
+import NotFoundPage from "@/pages/NotFoundPage";
 
 const SubRoutes = () => {
   const { lang } = useParams();

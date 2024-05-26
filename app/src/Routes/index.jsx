@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import usePathHasLang from "@/hooks/usePathHasLang";
+import NotFoundPage from "@/pages/NotFoundPage";
 import SubRoutes from "./SubRoutes";
-import NotFoundPage from "@/pages/NotFoundPage/NotFoundPage";
+import usePathHasLang from "@/hooks/usePathHasLang";
 
 const MainRoutes = () => {
   const location = useLocation();

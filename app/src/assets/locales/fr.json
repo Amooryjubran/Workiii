@@ -295,5 +295,10 @@
       "Rebook": "Réserver de nouveau",
       "Review": "Évaluer"
     }
+  },
+  "notFound": {
+    "notFoundTitle": "Oups!",
+    "notFoundMessage": "Nous n'avons pas pu trouver la page que vous cherchiez",
+    "goHome": "Retour à l'accueil"
   }
 }

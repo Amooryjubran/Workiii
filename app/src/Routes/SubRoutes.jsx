@@ -10,6 +10,7 @@ import ListAService from "@/pages/ListAService";
 import Dashboard from "@/pages/Dashboard";
 import ServicePage from "@/pages/ServicePage";
 import MyProfile from "@/pages/MyProfile";
+import NotFoundPage from "@/pages/NotFoundPage";
 
 const SubRoutes = () => {
   const { lang } = useParams();
@@ -29,6 +30,8 @@ const SubRoutes = () => {
       <Route path="dashboard" element={<Dashboard />} />
       <Route path="profile" element={<MyProfile />} />
       <Route path="service/:id" element={<ServicePage />} />
+      <Route path="*" element={<NotFoundPage />} />
+
       {/* ... other sub-routes */}
     </Routes>
   );

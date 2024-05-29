@@ -1,15 +1,63 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { Grid } from "react-feather";
+import { ChevronLeft, Grid, Share, Heart } from "react-feather";
 import GalleryModal from "./GalleryModal";
 import styles from "./style.module.css";
 import Image from "../../Image";
 import Button from "../../Button";
 import SkeletonImg from "images/skeleton.jpeg";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { sliderSettings } from "./sliderSettings";
+
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+import LinkButton from "@/components/Link";
 export default function Gallery({ images }) {
   const { t } = useTranslation();
+  const windowSize = useWindowWidth();
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleSlideChange = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const settings = sliderSettings(handleSlideChange);
+
+  if (windowSize <= 1028) {
+    return (
+      <div className={styles.serivesCardsWrapper}>
+        <Slider {...settings} className={styles.serivesCards}>
+          {images?.map((image, index) => (
+            <Image
+              key={index}
+              src={image?.src}
+              classNameWrapper={styles.carouselImgWrapper}
+              className={styles.carouselImg}
+            />
+          ))}
+        </Slider>
+        <div className={styles.slideCount}>
+          {currentSlide + 1} / {images.length}
+        </div>
+        <div className={styles.serivesCardsHeader}>
+          <LinkButton to="services" className={styles.carouselBackBtn}>
+            <ChevronLeft color="white" size={18} />
+          </LinkButton>
+          <div>
+            <Button>
+              <Share color="white" size={18} />
+            </Button>
+            <Button>
+              <Heart color="white" size={18} />
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const openModal = () => {
     setModalOpen(true);

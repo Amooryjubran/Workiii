@@ -51,6 +51,11 @@ export default function Navbar() {
     `/${currentLanguage}/dashboard`, // Dashboard Page,
   ];
 
+  // Add mobile-specific exclusion for the service page
+  if (windowWidth <= 1024) {
+    pathsToExclude.push(`/${currentLanguage}/service/:id`); // Service Page on mobile
+  }
+
   if (isPathExcluded(location.pathname, pathsToExclude)) return null;
 
   if (windowWidth <= 1024) {

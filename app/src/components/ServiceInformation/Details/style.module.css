@@ -12,3 +12,9 @@
   color: var(--Neutral-500, #a0a3bd);
   font-size: 18px;
 }
+
+@media (max-width: 1028px) {
+  .details {
+    gap: 12px;
+  }
+}

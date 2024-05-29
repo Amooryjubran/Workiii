@@ -7,9 +7,12 @@ import Providers from "./Providers";
 import Sidebar from "./Sidebar";
 import BookService from "./BookService";
 import useBookServiceStore from "@/store/Services/useBookServiceStore";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 export default function ServiceInformation({ selectedService }) {
   const { modal, setModal } = useBookServiceStore();
+  const windowWidth = useWindowWidth();
+
   const {
     location,
     images,
@@ -36,16 +39,39 @@ export default function ServiceInformation({ selectedService }) {
     month: "short",
     year: "numeric",
   });
+
+  const OrderComponent = () => {
+    if (windowWidth >= 1028) {
+      return (
+        <>
+          <Header
+            location={location}
+            serviceTitle={serviceTitle}
+            serviceCategory={serviceCategory}
+            ratings={ratings}
+            pageType={pageType}
+          />
+          <Gallery images={images} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Gallery images={images} />
+          <Header
+            location={location}
+            serviceTitle={serviceTitle}
+            serviceCategory={serviceCategory}
+            ratings={ratings}
+            pageType={pageType}
+          />
+        </>
+      );
+    }
+  };
   return (
     <div className={styles.serviceInformation}>
-      <Header
-        location={location}
-        serviceTitle={serviceTitle}
-        serviceCategory={serviceCategory}
-        ratings={ratings}
-        pageType={pageType}
-      />
-      <Gallery images={images} />
+      <OrderComponent />
       <div className={styles.serviceBottom}>
         <div className={styles.serviceBottomWrapper}>
           <Details serviceDescription={serviceDescription} />

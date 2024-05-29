@@ -3,7 +3,7 @@
   flex-direction: column;
   border-radius: 16px;
   background: var(--neutral-white, #fff);
-  padding: 36px;
+  padding: 10px 36px;
   width: 100%;
 }
 .serviceBottomWrapper {
@@ -26,8 +26,10 @@
   .serviceBottom > div {
     width: 100%;
     max-width: none;
+    gap: 12px;
   }
   .serviceInformation {
-    padding: 18px;
+    padding: 0 18px;
+    gap: 5px;
   }
 }

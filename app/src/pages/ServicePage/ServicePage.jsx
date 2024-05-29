@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "./style.module.css";
 import useServicePageStore from "@/store/ServiceDetail/useServicePageStore";
 import ServiceInformation from "@/components/ServiceInformation";
-import Header from "@/components/ui/ServicePage/Header";
+import Loader from "./Loader";
 
 export default function ServicePage() {
   const { id } = useParams();
@@ -14,7 +14,7 @@ export default function ServicePage() {
   }, [id, fetchServiceDetail]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (status === "error") {
@@ -27,7 +27,6 @@ export default function ServicePage() {
   let selectedService = service?.data;
   return (
     <div className={styles.servicePage}>
-      <Header />
       <div className={styles.wrapper}>
         <ServiceInformation selectedService={selectedService} />
       </div>

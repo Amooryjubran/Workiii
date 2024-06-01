@@ -120,3 +120,71 @@
     box-shadow: #000000b3 0 0 100vh 100vh;
   }
 }
+
+@media (max-width: 1028px) {
+  .bookServiceModal {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+    background-color: #353c4d;
+    height: 90%;
+    animation-name: slideInFromBottom;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+    box-shadow: #000000b3 0 0 100vh 100vh;
+    border-radius: 10px 10px 0 0;
+  }
+  .bookServiceModalWrapper {
+    padding: 24px;
+  }
+  .inActive {
+    display: none;
+  }
+  .toasify {
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    z-index: 100000;
+  }
+
+  .bookServiceModalWrapperNav {
+    position: sticky;
+    top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999999;
+  }
+  .bookServiceModalWrapperNav > button {
+    border: none;
+    background-color: lightgray;
+    height: 5px;
+    border-radius: 10px;
+    width: 60px;
+  }
+  .tab {
+    padding: 12px;
+  }
+  .tab > .img {
+    width: 45px !important;
+    height: 45px !important;
+    padding: 10px;
+  }
+  .tab > div > h1 {
+    font-size: 20px;
+  }
+  @keyframes slideInFromBottom {
+    0% {
+      top: 120%;
+      opacity: 0;
+    }
+    100% {
+      top: 10%;
+      opacity: 1;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import styles from "./style.module.css";
@@ -7,6 +7,7 @@ import useBookServiceStore from "@/store/Services/useBookServiceStore";
 import GoogleMapReact from "google-map-react";
 import StarImg from "images/Service/star.svg";
 import Image from "@/components/Image";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 const Marker = () => <div className={styles.marker} />;
 
@@ -20,8 +21,11 @@ export default function Sidebar({
   selectedService,
 }) {
   const { t } = useTranslation();
+  const bookButtonRef = useRef(null);
+  const windowSize = useWindowWidth();
   const defaultMapCenter = getDefaultMapCenter();
   const [mapCenter, setMapCenter] = useState(location?.latLng);
+  const [isFixed, setIsFixed] = useState(false);
   const { setServiceInformation } = useBookServiceStore();
   const transformBookingData = (bookingData) => {
     const daysOfWeek = [
@@ -49,6 +53,22 @@ export default function Sidebar({
       setMapCenter(location.latLng);
     }
   }, [location.latLng]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (windowSize >= 1028) return;
+      if (!bookButtonRef.current) return;
+      const buttonRect = bookButtonRef.current.getBoundingClientRect();
+      const offset = 190;
+      const shouldBeFixed = window.scrollY > buttonRect.top + offset;
+      setIsFixed(shouldBeFixed);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [windowSize]);
 
   const handleBookNow = () => {
     setServiceInformation(selectedService);
@@ -91,7 +111,13 @@ export default function Sidebar({
         </GoogleMapReact>
       </div>
       {pageType === "SERVICE" && (
-        <button className={styles.sideBarBookBtn} onClick={handleBookNow}>
+        <button
+          ref={bookButtonRef}
+          className={`${styles.sideBarBookBtn} ${
+            !isFixed ? styles.fixedButton : ""
+          }`}
+          onClick={handleBookNow}
+        >
           {t("services.BookNow")}
         </button>
       )}

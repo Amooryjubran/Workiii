@@ -224,3 +224,26 @@
   font-size: 14px;
   height: 48px;
 }
+
+@media (max-width: 1028px) {
+  .paymentMethodsContainerHeader {
+    flex-direction: column;
+  }
+  .paymentWrapper {
+    flex-direction: column;
+  }
+  .paymentMethodsImg {
+    max-width: none;
+  }
+  .paymentMethodsContainerFooter {
+    margin: 10px 0;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .paymentMethodsContainerFooter > div {
+    max-height: 50px;
+  }
+  .paymentMethodsContainerFooter > button {
+    max-width: none;
+  }
+}

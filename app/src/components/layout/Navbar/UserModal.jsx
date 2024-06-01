@@ -22,12 +22,15 @@ import {
 } from "react-feather";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import Logo from "@/assets/logo.svg";
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 export default function UserModal({ innerRef, setUserModal, user }) {
   const windowWidth = useWindowWidth();
   const logout = useUserStore((state) => state.logout);
   const navigate = useNavigate();
   const { t } = useTranslation();
+  useLockBodyScroll();
+
   if (windowWidth <= 1028 && !user) {
     return (
       <div className={styles.profileDropDown} ref={innerRef}>
@@ -190,8 +193,8 @@ UserModal.propTypes = {
   innerRef: oneOfType([func, shape({ current: instanceOf(Element) })]),
   setUserModal: func.isRequired,
   user: shape({
-    email: string.isRequired,
+    email: string,
     image: string,
     fullName: string,
-  }).isRequired,
+  }),
 };

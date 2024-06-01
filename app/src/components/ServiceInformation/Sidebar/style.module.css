@@ -90,3 +90,17 @@
   font-size: 18px;
   font-weight: 700;
 }
+
+@media (max-width: 1028px) {
+  .fixedButton {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    z-index: 999;
+  }
+  .sideBarBookBtn {
+    z-index: 1000;
+  }
+}

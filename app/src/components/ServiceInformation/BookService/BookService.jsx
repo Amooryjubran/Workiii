@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import styles from "./style.module.css";
@@ -17,10 +17,13 @@ import CalenderImg from "@/assets/images/Service/calender.svg";
 import WalletImg from "@/assets/images/Service/wallet.svg";
 import DoneImg from "@/assets/images/Service/done.svg";
 import useUserStore from "@/store/useUserStore";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 export default function BookService({ serviceID }) {
   const { t } = useTranslation();
+  const modalRef = useRef(null);
   useLockBodyScroll();
+  const windowSize = useWindowWidth();
   const { user } = useUserStore();
   const {
     currentStep,
@@ -77,6 +80,11 @@ export default function BookService({ serviceID }) {
                   return;
                 }
                 nextStep();
+                modalRef.current?.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
               }}
             >
               {t("services.booking.Next")}
@@ -100,22 +108,28 @@ export default function BookService({ serviceID }) {
   };
 
   return (
-    <div className={styles.bookServiceModal}>
+    <div className={styles.bookServiceModal} ref={modalRef}>
       <div className={styles.bookServiceModalWrapper}>
-        <Button
-          onClick={() => setModal(false)}
-          className={styles.BookServiceBackToHome}
-        >
-          <Image src={Back} alt="Back" />
-          <span>{t("signup.backToHome")}</span>
-        </Button>
+        {windowSize >= 1028 ? (
+          <Button
+            onClick={() => setModal(false)}
+            className={styles.BookServiceBackToHome}
+          >
+            <Image src={Back} alt="Back" />
+            <span>{t("signup.backToHome")}</span>
+          </Button>
+        ) : (
+          <div className={styles.bookServiceModalWrapperNav}>
+            <Button onClick={() => setModal(false)}></Button>
+          </div>
+        )}
         <div className={styles.bookServiceModalTabs}>
           <div className={styles.tabs}>
             {stepData.map((step, index) => (
               <button
                 key={index}
                 className={`${styles.tab} ${
-                  index === currentStep ? styles.active : ""
+                  index === currentStep ? styles.active : styles.inActive
                 }`}
                 onClick={() => setCurrentStep(index)}
               >
@@ -137,13 +151,14 @@ export default function BookService({ serviceID }) {
       </div>
       <ToastContainer
         position="bottom-right"
-        autoClose={5000}
+        autoClose={false}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={true}
         rtl={false}
         draggable
         theme="dark"
+        className={styles.toasify}
       />
     </div>
   );

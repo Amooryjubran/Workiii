@@ -70,6 +70,7 @@
     flex-direction: column;
     gap: 10px;
     min-height: 900px;
+    padding: 0;
   }
   .loaderWrapperHeader {
     padding: 10px;

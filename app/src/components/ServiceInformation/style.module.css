@@ -27,6 +27,7 @@
     width: 100%;
     max-width: none;
     gap: 12px;
+    margin-bottom: 30px;
   }
   .serviceInformation {
     padding: 0 18px;

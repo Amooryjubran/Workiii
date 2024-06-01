@@ -10,7 +10,7 @@ export default function Loader() {
   if (windowWidth <= 1028) {
     return (
       <div className={styles.loaderWrapper}>
-        <Skeleton width="auto" height="306px" borderRadius="20px" />
+        <Skeleton width="auto" height="306px" borderRadius="0 0 10px 10px" />
         <div className={styles.loaderWrapperHeader}>
           <Skeleton width="70%" height="30px" borderRadius="10px" />
           <Skeleton width="20%" height="30px" borderRadius="30px" />

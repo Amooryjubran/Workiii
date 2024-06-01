@@ -259,4 +259,23 @@
     gap: 15px;
     grid-template-columns: auto;
   }
+  .header {
+    flex-direction: column;
+  }
+  .calenderWrapper {
+    flex-direction: column-reverse;
+  }
+  .timeSlots {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 10px;
+  }
+  .timeSlot {
+    min-width: auto;
+    padding: 12px;
+    width: auto;
+  }
+  .timeSelected > div {
+    flex-wrap: wrap;
+  }
 }

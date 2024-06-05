@@ -4,7 +4,7 @@
 <br />
 <div align="center">
 <a href="https://workiii.com">
-    <img src="https://workiii.com/assets/logo-abcd3170.svg" alt="Logo" width="60" height="60" style="background-color: white; border-radius: 10px; padding: 10px;">
+   <img src="https://res.cloudinary.com/movieslify/image/upload/v1717620810/bhz8rshbmylmmjrsv93c.png" alt="Logo" width="60" height="60" >
   </a>
 
   <h3 align="center">Workiii</h3>

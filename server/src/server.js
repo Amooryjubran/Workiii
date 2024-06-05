@@ -45,6 +45,7 @@ const {
   getService,
   getlAllApprovedServices,
   getServiceDetail,
+  getReviews,
   getCreditCards,
   getListOfBookings,
   getBooking,
@@ -62,6 +63,7 @@ const {
   bookService,
   acceptBooking,
   declineBooking,
+  addReview,
 
   // PATCH
   addToWishList,
@@ -94,6 +96,7 @@ app.get("/api/getAllServices", getAllServices);
 app.get("/api/service/:serviceId", getService);
 app.get("/api/getlAllApprovedServices", getlAllApprovedServices);
 app.get("/api/getServiceDetail/:id", getServiceDetail);
+app.get("/api/getReviews/:id", getReviews);
 app.get("/api/user/:_id/creditCards", getCreditCards);
 app.get("/api/:userId/getListOfBookings", getListOfBookings);
 app.get("/api/bookings/:bookingId", getBooking);
@@ -112,6 +115,7 @@ app.post("/api/addCategory", addCategory);
 app.post("/api/bookService", bookService);
 app.post("/api/acceptBooking", acceptBooking);
 app.post("/api/declineBooking", declineBooking);
+app.post("/api/addReview", addReview);
 
 // PATCH
 app.patch("/api/addToWishList", addToWishList);

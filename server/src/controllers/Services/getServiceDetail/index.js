@@ -17,6 +17,29 @@ const getServiceDetail = async (req, res) => {
     }
 
     let response = { ...service };
+    // Calculate the average rating and count reviews if ratings exist
+    if (service.ratings && service.ratings.length > 0) {
+      const totalReviews = service.ratings.length;
+      const averageRating =
+        service.ratings.reduce((acc, cur) => acc + cur.rate, 0) / totalReviews;
+      // Calculate total images across all reviews
+      const reviewsImagesCount = service.ratings.reduce(
+        (acc, cur) => acc + (cur.images ? cur.images.length : 0),
+        0
+      );
+      response = {
+        ...response,
+        averageRating,
+        totalReviews,
+        reviewsImagesCount,
+      };
+    } else {
+      response = {
+        ...response,
+        averageRating: 0,
+        totalReviews: 0,
+      };
+    }
 
     if (service.status === "Approved") {
       const user = await db
@@ -28,7 +51,7 @@ const getServiceDetail = async (req, res) => {
       }
 
       response = {
-        ...service,
+        ...response,
         providerName: user.name,
         pageType: "SERVICE",
       };

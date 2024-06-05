@@ -220,7 +220,14 @@
       "Paid": "and the you`d be paid",
       "At": "at",
       "Reject": "Reject"
-    }
+    },
+    "AddReview": "Add Review",
+    "ShowMMore": "Show More",
+    "ShowLess": "Show Less",
+    "weBelieve": "We believe in transparency, please share your experience",
+    "viewAll": "View All Photos",
+    "title": "Title",
+    "errorReview": "Please fill out all fields and rate the service."
   },
   "services": {
     "filterBy": "Filter elments by",

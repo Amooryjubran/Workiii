@@ -15,6 +15,7 @@ const servicesCategories = require("./controllers/Services/servicesCategories");
 const listAService = require("./controllers/Services/listAService");
 const getlAllApprovedServices = require("./controllers/Services/getlAllApprovedServices");
 const getServiceDetail = require("./controllers/Services/getServiceDetail");
+const getReviews = require("./controllers/Services/getReviews");
 
 // Dashboard
 const getCategories = require("./controllers/Dashboard/Categories/getCategories");
@@ -32,6 +33,7 @@ const getListOfBookings = require("./controllers/Dashboard/Bookings/getListOfBoo
 const acceptBooking = require("./controllers/Dashboard/Bookings/acceptBooking");
 const declineBooking = require("./controllers/Dashboard/Bookings/declineBooking");
 const getBooking = require("./controllers/Dashboard/Bookings/getBooking");
+const addReview = require("./controllers/Services/addReview");
 
 // PAYMENT
 const addCreditCard = require("./controllers/Payment/CreditCards/addCreditCard");
@@ -54,6 +56,7 @@ module.exports = {
   getService,
   getlAllApprovedServices,
   getServiceDetail,
+  getReviews,
   getCreditCards,
   getListOfBookings,
   getBooking,
@@ -69,6 +72,7 @@ module.exports = {
   bookService,
   acceptBooking,
   declineBooking,
+  addReview,
 
   // PATCH
   addToWishList,

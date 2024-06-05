@@ -16,13 +16,13 @@ export default function GalleryModal({ images, closeModal }) {
         <div className={styles.GalleryModalImgsWrapper}>
           {images?.map((image, index) => (
             <Image
-              src={image.src}
+              src={image.src || image}
               key={index}
               classNameWrapper={styles.GalleryImg}
               alt={`Labourer-Img-${index}`}
               onClick={() => {
                 setFullScreen(true);
-                setSelectedImgs(image.src);
+                setSelectedImgs(image.src || image);
               }}
             />
           ))}

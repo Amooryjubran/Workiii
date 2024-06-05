@@ -221,7 +221,15 @@
       "Paid": "et vous serez payé",
       "At": "à",
       "Reject": "Rejeter"
-    }
+    },
+
+    "AddReview": "Ajouter un avis",
+    "ShowMMore": "Afficher plus",
+    "ShowLess": "Afficher moins",
+    "weBelieve": "Nous croyons en la transparence, veuillez partager votre expérience",
+    "viewAll": "Voir toutes les photos",
+    "title": "Titre",
+    "errorReview": "Veuillez remplir tous les champs et évaluer le service."
   },
   "services": {
     "filterBy": "Filtrer les éléments par",

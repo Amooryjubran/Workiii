@@ -11,3 +11,8 @@ export const getServiceDetail = async (id) => {
 export const bookService = async (bookingData) => {
   return axios.post(`${API_BASE_URL}/api/bookService`, bookingData);
 };
+
+// function to get all the reviews of a service
+export const getServiceReviews = async (id) => {
+  return axios.get(`${API_BASE_URL}/api/getReviews/${id}`);
+};

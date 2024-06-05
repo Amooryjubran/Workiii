@@ -54,7 +54,8 @@ CustomNextArrow.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default function ImageUpload({ images, setImages }) {
+export default function ImageUpload({ images, setImages, hideArrows }) {
+  console.log(hideArrows);
   const { t } = useTranslation();
   const inputRef = useRef();
   const windowWidth = useWindowWidth();
@@ -105,7 +106,7 @@ export default function ImageUpload({ images, setImages }) {
     speed: 500,
     slidesToShow: windowWidth >= 1028 ? 4 : 2,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: !hideArrows,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
   };
@@ -170,4 +171,5 @@ ImageUpload.propTypes = {
     })
   ).isRequired,
   setImages: PropTypes.func.isRequired,
+  hideArrows: PropTypes.bool,
 };

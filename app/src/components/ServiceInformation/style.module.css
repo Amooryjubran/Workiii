@@ -18,7 +18,25 @@
   width: 100%;
   gap: 24px;
 }
-
+.tabsButtons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+}
+.tabsButtons > button {
+  width: fit-content;
+  padding-bottom: 20px;
+  background-color: transparent;
+  border: none;
+  color: var(--Neutral-800, #0f1f48);
+  font-size: 20px;
+  font-weight: 600;
+}
+.activeTab {
+  border-bottom: 1px solid black !important;
+}
 @media (max-width: 1028px) {
   .serviceBottom {
     flex-direction: column;
@@ -27,10 +45,19 @@
     width: 100%;
     max-width: none;
     gap: 12px;
-    margin-bottom: 30px;
   }
   .serviceInformation {
     padding: 0 18px;
     gap: 5px;
+  }
+  .tabsButtons {
+    gap: 10px;
+    overflow-x: auto;
+    width: 100%;
+    white-space: nowrap;
+    margin: 32px 0 0;
+  }
+  .tabsButtons > button {
+    font-size: 22px;
   }
 }

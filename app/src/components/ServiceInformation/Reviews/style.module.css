@@ -1,0 +1,328 @@
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.reviewsHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.reviewsHeader > h1 {
+  font-size: 84px;
+}
+.reviewsFooter {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 7.5px 0 0;
+}
+.reviewsHeaderCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5px;
+}
+.reviewsImgsBtn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  text-decoration: underline;
+  text-underline-offset: 1.5px;
+  text-decoration-thickness: 2px;
+  font-weight: 600;
+  color: black;
+}
+.reviewsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+}
+.reviewsTitle > div {
+  width: 50%;
+}
+
+.addReviewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.addReviewsContainer > span {
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-family: Lama Sans;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 300px;
+  line-height: 1;
+}
+.addReviewsContainer > button {
+  border: none;
+  background-color: black;
+  padding: 18px 15px;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+}
+.reviewsWrapper {
+  border-top: 1px solid lightgrey;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.review {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-bottom: 1px solid lightgrey;
+}
+.review > p {
+  font-family: Lama Sans;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  margin: 5px 0;
+}
+.reviewDescreption {
+  font-family: Lama Sans;
+  color: rgb(34, 34, 34);
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 400;
+  margin: 14px 0;
+}
+.reviewDescreption > button {
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-weight: bolder;
+}
+.reviewDescreption > button > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  margin: 0;
+}
+.reviewDescreption > button > div > span {
+  color: #0202ffd4;
+}
+.reviewImages {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.reviewImages > button {
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+.reviewImage {
+  width: 70px;
+  height: 100px;
+  border-radius: 5px;
+}
+.writeReview {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: white;
+  padding: 10px 24px;
+  box-shadow: rgb(0 0 0 / 70%) 0rem 0rem 40000vh 40000vh;
+  min-width: 400px;
+  height: 100%;
+  z-index: 9999999999;
+  animation: slideIn 0.3s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: space-between;
+}
+.writeReviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: scroll;
+}
+.writeReviewClose {
+  width: fit-content;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin: 0 0 0 auto;
+}
+.writeReviewBtn {
+  border: none;
+  background-color: black;
+  padding: 15px;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+}
+.writeReviewWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.writeReviewImgs,
+.writeReviewTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.writeReviewTitle > input {
+  margin: 0;
+  outline: none;
+  font-size: 12px;
+  color: rgb(26, 25, 25);
+}
+.writeReviewImgs > span,
+.writeReviewTitle > span {
+  font-size: 14px;
+}
+.writeReviewTitleStars > span {
+  cursor: pointer;
+}
+.writeReviewTitle > span:first-of-type::after {
+  content: "*";
+  font-size: 14px;
+  color: rgb(201, 0, 0);
+  display: inline-block;
+}
+.reviewContainer {
+  height: 100px;
+}
+.writeReviewTitle > textarea {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  color: rgb(26, 25, 25);
+  transition: border-color 0.3s ease;
+  resize: vertical;
+  height: 100%;
+  min-height: 150px;
+  outline: none;
+  font-family: "Inter", sans-serif;
+}
+.writeReviewImgs > div {
+  margin: 5px 0;
+}
+.writeReviewImgs > div > div {
+  min-height: auto;
+}
+.writeReviewImgs > div > span {
+  font-size: 12px;
+}
+.writeReviewImgs > div > div > div {
+  max-width: 320px;
+}
+:global(.slick-prev) {
+  left: 0;
+  top: 25px;
+  border: 1px solid lightgray;
+  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.087);
+  background-color: white;
+}
+:global(.slick-next) {
+  right: 0;
+  top: 25px;
+  border: 1px solid lightgray;
+  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.087);
+  background-color: white;
+}
+
+.writeReviewImgs > div > div > span {
+  font-size: 12px;
+}
+.writeReviewImgs > div > div > div > img {
+  height: 30px;
+}
+.writeReviewImgs > div > div > div > div > div > div > div > input {
+  display: none;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  min-height: 18px;
+}
+.errorDisplay::before {
+  content: "*";
+  font-size: 14px;
+  color: rgb(201, 0, 0);
+  display: inline-block;
+}
+.loader {
+  animation: spin 0.3s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    box-shadow: rgb(0 0 0 / 70%) 0rem 0rem 400vh 400vh;
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1028px) {
+  .reviewsTitle > div {
+    width: 100%;
+  }
+  .reviewsTitle {
+    padding: 18px 24px;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .review,
+  .reviewsWrapper {
+    padding: 18px;
+  }
+  .writeReview {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+    height: 90%;
+    animation-name: slideInFromBottom;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+    box-shadow: #000000b3 0 0 100vh 100vh;
+    border-radius: 10px 10px 0 0;
+  }
+  @keyframes slideInFromBottom {
+    0% {
+      top: 120%;
+      opacity: 0;
+    }
+    100% {
+      top: 10%;
+      opacity: 1;
+    }
+  }
+}

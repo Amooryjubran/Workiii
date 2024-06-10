@@ -1,14 +1,21 @@
 import PropTypes from "prop-types";
 import styles from "./style.module.css";
+import { Check } from "react-feather";
 
-function ServicesModal({ categories, onSelectCategory }) {
+function ServicesModal({ categories, onSelectCategory, selectedCategory }) {
   return (
     <div className={styles.serviceModal}>
       <ul>
         {categories?.map((category, index) => (
-          <li key={index} onClick={() => onSelectCategory(category.category)}>
+          <button
+            key={index}
+            onClick={() => onSelectCategory(category.category)}
+          >
             {category.category}
-          </li>
+            {selectedCategory === category.category && (
+              <Check size={16} className={styles.checkIcon} />
+            )}
+          </button>
         ))}
       </ul>
     </div>
@@ -23,6 +30,7 @@ ServicesModal.propTypes = {
     })
   ),
   onSelectCategory: PropTypes.func.isRequired,
+  selectedCategory: PropTypes.string,
 };
 
 export default ServicesModal;

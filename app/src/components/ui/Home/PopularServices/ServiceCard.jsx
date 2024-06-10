@@ -13,7 +13,10 @@ export default function ServiceCard({
   const { t } = useTranslation();
 
   return (
-    <LinkButton className={styles.serviceCard} to={`service/${_id}`}>
+    <LinkButton
+      className={styles.serviceCard}
+      to={`service/665b31ad38622417b9215567`}
+    >
       <div>
         <div className={styles.serviceCardImgWrapper}>
           <Image

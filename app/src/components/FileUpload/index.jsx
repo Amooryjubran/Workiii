@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import PropTypes from "prop-types";
+import { UploadCloud } from "react-feather";
 
 const FileUpload = ({ onFileSelect, accept, buttonText, className }) => {
   const fileInputRef = useRef(null);
@@ -10,7 +11,10 @@ const FileUpload = ({ onFileSelect, accept, buttonText, className }) => {
 
   return (
     <div className={className}>
-      <button onClick={triggerFileInput}>{buttonText}</button>
+      <button onClick={triggerFileInput}>
+        <UploadCloud size={16} />
+        {buttonText}
+      </button>
       <input
         type="file"
         ref={fileInputRef}

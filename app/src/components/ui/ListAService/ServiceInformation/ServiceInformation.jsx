@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import styles from "./style.module.css";
 import { useFetch } from "@/hooks/useFetch";
 import { useTranslation } from "react-i18next";
@@ -8,6 +8,10 @@ import useListAServiceStore from "@/store/useListAServiceStore";
 import ServicesModal from "./ServicesModal";
 import PriceImg from "images/ListAService/$.svg";
 import Image from "@/components/Image";
+import Button from "@/components/Button";
+import { Trash2 } from "react-feather";
+// Lazy load the RichTextEditor
+const RichTextEditor = lazy(() => import("@/components/RichTextEditor"));
 export default function ServiceInformation() {
   const { t } = useTranslation();
 
@@ -39,7 +43,7 @@ export default function ServiceInformation() {
         .then((data) => {
           if (data.secure_url) {
             // Update Zustand store with the URL of the uploaded file
-            setServiceInfo({ serviceCertificate: data.secure_url });
+            setServiceInfo({ serviceCertificate: data });
           } else {
             console.error("Cloudinary upload error:", data.error);
           }
@@ -54,7 +58,7 @@ export default function ServiceInformation() {
     <div className={styles.serviceInformationContainer}>
       <div className={styles.serviceInformationWrapper}>
         <div>
-          <label>{t("listAServiceServicesTab.ServiceTitle")}</label>
+          <span>{t("listAServiceServicesTab.ServiceTitle")}</span>
           <Input
             type="text"
             name="serviceTitle"
@@ -65,10 +69,12 @@ export default function ServiceInformation() {
           />
         </div>
         <div className={styles.serviceCategoryWrapper}>
-          <label>{t("listAServiceServicesTab.ServiceCategory")}</label>
+          <span>{t("listAServiceServicesTab.ServiceCategory")}</span>
           <button
             onClick={() => setServicesModal(true)}
-            className={styles.caregoriesBtn}
+            className={`${styles.caregoriesBtn} ${
+              !serviceInfo.serviceCategory ? styles.caregoriesBtnInActive : ""
+            } `}
           >
             {serviceInfo.serviceCategory ||
               t("listAServiceServicesTab.SelectCategory")}
@@ -77,35 +83,46 @@ export default function ServiceInformation() {
             <ServicesModal
               categories={categories}
               onSelectCategory={selectCategory}
+              selectedCategory={serviceInfo.serviceCategory}
             />
           )}
         </div>
       </div>
       <div className={styles.serviceCategoryContainer}>
-        <label>{t("listAServiceServicesTab.ServiceDescription")}</label>
-        <Input
-          type="text"
-          name="serviceDescription"
-          value={serviceInfo.serviceDescription}
-          onChange={handleInputChange}
-          placeholder={t("listAServiceServicesTab.DescribeYourService")}
-          className={styles.input}
-        />
+        <span>{t("listAServiceServicesTab.ServiceDescription")}</span>
+        <Suspense fallback={<div>Loading...</div>}>
+          <RichTextEditor
+            value={serviceInfo.serviceDescription}
+            onChange={(data) => setServiceInfo({ serviceDescription: data })}
+          />
+        </Suspense>
       </div>
       <div className={styles.serviceCategoryContainer}>
-        <label>{t("listAServiceServicesTab.ServiceCertificate")}</label>
+        <span>{t("listAServiceServicesTab.ServiceCertificate")}</span>
         <div className={styles.serviceCertificate}>
-          <span>{serviceInfo?.serviceCertificate?.name}</span>
+          {serviceInfo?.serviceCertificate && (
+            <span className={styles.titleCertificate}>
+              {`${serviceInfo?.serviceCertificate?.original_filename}.${serviceInfo?.serviceCertificate?.format}`}
+
+              <Button
+                className={styles.deleteCertificate}
+                onClick={() => setServiceInfo({ serviceCertificate: "" })}
+              >
+                <Trash2 size={16} color="#C70039 " />
+              </Button>
+            </span>
+          )}
+
           <FileUpload
             onFileSelect={(event) => handleFileSelect(event.target.files[0])}
             accept=".pdf"
-            buttonText={t("listAServiceServicesTab.UploadCertificate")}
+            buttonText={t("listAServiceServicesTab.Upload")}
           />
         </div>
       </div>
       <div className={styles.serviceInformationWrapper}>
         <div>
-          <label>{t("listAServiceServicesTab.ServicePrice")}</label>
+          <span>{t("listAServiceServicesTab.ServicePrice")}</span>
           <div className={styles.serviceCategoryPricing}>
             <Input
               type="number"
@@ -123,7 +140,7 @@ export default function ServiceInformation() {
           </div>
         </div>
         <div>
-          <label>{t("listAServiceServicesTab.ServiceDuration")}</label>
+          <span>{t("listAServiceServicesTab.ServiceDuration")}</span>
           <div className={styles.serviceCategoryPricing}>
             <Input
               type="number"

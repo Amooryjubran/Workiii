@@ -130,11 +130,17 @@
     "Booking": "Réservation",
     "Location": "Localisation",
     "Images": "Images",
+    "QnA": "Questions et réponses",
     "Next": "Suivant",
     "ServiceInformationService": "Qu'offrez-vous ?",
     "BookingService": "Définissez vos disponibilités",
     "LocationService": "Où les clients peuvent-ils vous trouver ?",
-    "ImagesService": "Mettez en avant votre meilleur travail"
+    "ImagesService": "Mettez en avant votre meilleur travail",
+    "ServiceInformationInfo": "Définissez les services que vous offrez. Incluez tous les détails nécessaires tels que le type de service, la portée, et tout point de vente unique qui différencie votre service des autres.",
+    "BookingInfo": "Définissez vos disponibilités pour les rendez-vous ou les consultations. Cela peut inclure les heures de travail, les dates disponibles spéciales, ou toutes conditions ou exigences de réservation.",
+    "LocationInfo": "Spécifiez l'endroit où vos services sont fournis. Cela peut être une adresse physique, une zone de service, ou même des détails de réunion virtuelle si applicable.",
+    "ImagesInfo": "Présentez votre travail ou les résultats de vos services à travers des images. Cela peut aider à démontrer visuellement la qualité et le style de votre service aux clients potentiels.",
+    "QnAInfo": "Fournissez une section pour les questions fréquemment posées où vous pouvez répondre aux demandes courantes, aidant à clarifier les doutes et à rationaliser le processus d'interaction avec les clients."
   },
   "listAServiceServicesTab": {
     "ServiceTitle": "Titre du service",
@@ -142,6 +148,7 @@
     "ServiceDescription": "Description du service",
     "ServiceCertificate": "Certificat de service",
     "UploadCertificate": "Télécharger le certificat",
+    "Upload": "Télécharger",
     "ServicePrice": "Prix du service",
     "ServiceDuration": "Durée du service",
     "SelectCategory": "Sélectionner la catégorie",

@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 45px;
-  padding: 36px;
+  padding: 36px 36px 50px;
   max-width: 1420px;
   justify-content: center;
   width: 100%;
@@ -20,28 +20,60 @@
 
 .serviceContainerBackLink > span {
   color: var(--gray-500);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* --- Tabs --- */
 .navTabs {
   display: flex;
+  gap: 20px;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  gap: 16px;
+  border-bottom: 1px solid lightgrey;
 }
 .navTabs > button {
+  width: fit-content;
+  padding-bottom: 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 22.5px 18px;
-  border-radius: 10px;
-  background: var(--neutral-50);
-  outline: none;
-  border: none;
+  gap: 10px;
   cursor: pointer;
+  position: relative;
+}
+.modal {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid lightgray;
+  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.087);
+  z-index: 11;
+  padding: 10px;
   width: 100%;
+  max-width: 300px;
+  width: max-content;
+}
+.modal {
+  text-align: left;
+}
+.activeTab {
+  border-bottom: 1px solid black !important;
+}
+.navTab > svg {
+  filter: invert(77%) sepia(0%) saturate(0%) hue-rotate(330deg) brightness(89%)
+    contrast(87%);
+}
+.activeTab > svg {
+  filter: none;
 }
 .navTabHeader {
   display: flex;
@@ -50,10 +82,13 @@
   gap: 5px;
   text-align: left;
 }
-.navTabHeader > span {
-  color: var(--neutral-800);
-  font-size: 18px;
-  font-weight: 700;
+.navTabHeader > h1 {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #a9a9a9;
+}
+.activeTab > .navTabHeader > h1 {
+  color: var(--Neutral-800, #0f1f48);
 }
 .navTabHeader > p {
   margin: 0;
@@ -70,15 +105,45 @@
   filter: invert(69%) sepia(52%) saturate(673%) hue-rotate(337deg)
     brightness(106%) contrast(101%);
 }
+.submitButton,
+.nextButton {
+  border: none;
+  background-color: black;
+  padding: 18px 15px;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 45px auto 100px;
+  max-width: 400px;
+  width: 100%;
+  cursor: pointer;
+}
 
 @media (max-width: 1028px) {
   .serviceContainer {
     padding: 90px 20px;
   }
-  .navTabs > button {
-    display: none;
+  .navTabs {
+    overflow-y: scroll;
   }
-  .navTab.activeTab {
-    display: flex;
+  .navTab {
+    width: 100% !important;
+  }
+  .navTabs > button {
+    position: unset;
+  }
+  .navTabHeader {
+    white-space: nowrap;
+    overflow: visible;
+  }
+  .modal {
+    top: 140px;
+    left: 20px;
+    transition: all 1s ease-in-out;
+  }
+
+  .serviceContainerBackLink {
+    display: none;
   }
 }

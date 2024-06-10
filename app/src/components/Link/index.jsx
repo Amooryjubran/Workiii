@@ -5,7 +5,7 @@ import useLanguageSelector from "@/store/useLanguageSelector";
 
 const LinkButton = ({ to, children, className }) => {
   const { selectedLanguage } = useLanguageSelector();
-
+  console.log(selectedLanguage);
   let fullPath;
   if (to === "/") {
     fullPath = `/${selectedLanguage}`;

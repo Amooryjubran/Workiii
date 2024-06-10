@@ -1,0 +1,40 @@
+.richTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.previewContainer,
+:global(.ck-editor__editable) {
+  min-height: 200px !important;
+}
+
+.richTextTabs {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+}
+.richTextTabs > button {
+  width: fit-content;
+  padding-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #a9a9a9;
+}
+.active {
+  color: var(--Neutral-800, #0f1f48) !important;
+  border-bottom: 1px solid black !important;
+}
+
+.previewContainer {
+  border: 1px solid lightgray;
+  padding: 20px;
+  overflow: auto;
+}

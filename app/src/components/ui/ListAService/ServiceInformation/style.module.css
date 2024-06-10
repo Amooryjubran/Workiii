@@ -21,37 +21,58 @@
 .caregoriesBtn {
   display: flex;
   align-items: baseline;
-  border-radius: 10px;
-  border: 1px solid var(--neutral-500, #a0a3bd);
+  border-radius: 5px;
+  border: 1px solid lightgray;
   background: var(--neutral-white, #fff);
   padding: 11.5px 20px;
   cursor: pointer;
+  min-height: 41px;
+  font-size: 16px;
+  margin: 8px 0;
+}
+.caregoriesBtnInActive {
+  color: grey;
 }
 .serviceCertificate {
   display: flex;
   align-items: baseline;
-  border-radius: 10px;
-  border: 1px solid var(--neutral-500, #a0a3bd);
+  border-radius: 5px;
+  border: 1px solid lightgray;
   background: var(--neutral-white, #fff);
-  padding: 9px 20px;
-  cursor: pointer;
+  padding: 12px 20px;
 }
 .serviceCertificate > div {
   margin: 0 0 0 auto;
 }
 .serviceCertificate > div > button {
-  padding: 10px 20px;
-  border-radius: 0px 10px 10px 0px;
-  background: var(--neutral-100);
-  color: var(--neutral-800);
-  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background-color: black;
+  color: white;
   outline: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+}
+.deleteCertificate {
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  outline: none;
+}
+.titleCertificate {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px !important;
 }
 .input {
-  border-radius: 10px;
-  border: 1px solid var(--neutral-500, #a0a3bd);
+  border-radius: 5px;
+  border: 1px solid lightgray;
   background: var(--neutral-white, #fff);
   padding: 10px 20px;
   max-height: 64px;
@@ -59,7 +80,7 @@
 }
 
 .input:focus {
-  border: 1px solid var(--primary);
+  border: 1px solid gray;
 }
 /* Chrome, Safari, Edge, Opera */
 .input::-webkit-outer-spin-button,
@@ -72,41 +93,64 @@
 .input[type="number"] {
   -moz-appearance: textfield;
 }
+span,
 .serviceCertificate > span,
 label {
-  color: var(--neutral-600);
+  color: var(--primary);
+  font-size: 14px;
+}
+.serviceCategoryContainer > span,
+.serviceInformationContainer > div > div > span {
   font-size: 16px;
+  font-weight: 800;
 }
 .serviceCategoryWrapper {
   position: relative;
 }
 .serviceModal {
   position: absolute;
-  left: 0;
   top: 110%;
-  background-color: #fff;
-  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.22);
-  padding: 10px;
-  z-index: 99;
-  border-radius: 8px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid lightgray;
+  z-index: 11;
+  width: 100%;
 }
 .serviceModal > ul {
   list-style: none;
-  padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 7.5px;
   height: 100%;
+  padding: 7.5px;
 }
-.serviceModal > ul > li {
+.serviceModal > ul > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  gap: 5px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: transparent;
+  outline: none;
   cursor: pointer;
-  font-size: 12px;
+  color: black;
+  border: none;
+}
+.serviceModal > ul > button:hover {
+  background-color: var(--primary);
+  color: white;
 }
 .serviceCategoryContainer {
   display: flex;
   flex-direction: column;
-  gap: 7.5px;
+  gap: 20px;
 }
 .serviceCategoryContainer > button {
   display: flex;

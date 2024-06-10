@@ -1,0 +1,89 @@
+.qnaContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+}
+
+.qnaContainer > h1 {
+  font-size: 34px;
+}
+.qnaContainer > p {
+  font-family: Lama Sans;
+  color: rgb(34, 34, 34);
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 400;
+  margin: 14px 0;
+}
+
+.qnaListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.qnaList {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 15px;
+}
+.qnaList > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.qnaList > div > input {
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  padding: 12px;
+  border: 2px solid lightgrey;
+}
+.qnaList > div > input:focus {
+  border: 2px solid black;
+}
+.textArea {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: rgb(26, 25, 25);
+  transition: border-color 0.3s ease;
+  resize: vertical;
+  height: 100%;
+  min-height: 70px;
+  outline: none;
+  font-family: "Inter", sans-serif;
+}
+.textArea:focus {
+  border: 2px solid black;
+}
+
+.qnaList > button {
+  width: fit-content;
+}
+.removeQnA {
+  background-color: #efefef;
+  color: black;
+  font-weight: 600;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  margin: 0 0 0 auto;
+  padding: 10.5px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addQnA {
+  border: none;
+  background-color: black;
+  padding: 15px;
+  border-radius: 30px;
+  color: white;
+  font-size: 14px;
+  width: 120px;
+}

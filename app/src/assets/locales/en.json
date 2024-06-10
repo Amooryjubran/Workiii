@@ -130,11 +130,17 @@
     "Booking": "Booking",
     "Location": "Location",
     "Images": "Images",
+    "QnA": "Questions and Answers",
     "Next": "Next",
     "ServiceInformationService": "What Are You Offering?",
     "BookingService": "Set your availability",
     "LocationService": "Where Can Clients Find You?",
-    "ImagesService": "Highlight Your Best Work"
+    "ImagesService": "Highlight Your Best Work",
+    "ServiceInformationInfo": "Define the services you are offering. Include all necessary details such as the type of service, scope, and any unique selling points that differentiate your service from others.",
+    "BookingInfo": "Set your availability for appointments or consultations. This can include working hours, special available dates, or any booking requirements or conditions.",
+    "LocationInfo": "Specify the location where your services are provided. This can be a physical address, a service area, or even virtual meeting details if applicable.",
+    "ImagesInfo": "Showcase your work or the results of your services through images. This can help visually demonstrate the quality and style of your service to potential clients.",
+    "QnAInfo": "Provide a section for frequently asked questions where you can address common inquiries, helping to clarify any doubts and streamline the client interaction process."
   },
   "listAServiceServicesTab": {
     "ServiceTitle": "Service Title",
@@ -142,6 +148,7 @@
     "ServiceDescription": "Service Description",
     "ServiceCertificate": "Service Certificate",
     "UploadCertificate": "Upload Certificate",
+    "Upload": "Upload",
     "ServicePrice": "Service Price",
     "ServiceDuration": "Service Duration",
     "SelectCategory": "Select Category",

@@ -5,7 +5,7 @@ import LinkButton from "@/components/Link";
 
 const ServiceCard = ({ service, index }) => {
   return (
-    <LinkButton className={styles.serivesCard} key={index}>
+    <LinkButton className={styles.serivesCard} key={index} to="services">
       <Image
         src={service.img}
         classNameWrapper={styles.serviceImageWrapper}

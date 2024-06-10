@@ -22,8 +22,11 @@ i18n.use(initReactI18next).init({
 
 export const getLanguageFromURL = () => {
   const pathSegments = window.location.pathname.split("/");
-  if (pathSegments.length > 1) {
-    return pathSegments[1].toUpperCase();
+  if (
+    pathSegments.length > 1 &&
+    SUPPORTED_LANGUAGES.includes(pathSegments[1].toLowerCase())
+  ) {
+    return pathSegments[1].toLowerCase();
   }
   return null;
 };

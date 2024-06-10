@@ -1,36 +1,43 @@
+import { useState } from "react";
 import useListAServiceStore from "@/store/useListAServiceStore";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import {
+  AlertCircle,
+  BookOpen,
+  MapPin,
+  HelpCircle,
+  Image as ImageIcon,
+  ChevronLeft,
+  Type,
+} from "react-feather";
 import styles from "./style.module.css";
-import Back from "images/Signup/back.svg";
-import ServiceInformationImg from "images/ListAService/service.svg";
-import BookingImg from "images/ListAService/booking.svg";
-import LocationImg from "images/ListAService/location.svg";
-import ImagesImg from "images/ListAService/images.svg";
 import LinkButton from "@/components/Link";
-import Image from "@/components/Image";
 import Images from "@/components/ui/ListAService/Images";
 import Booking from "@/components/ui/ListAService/Booking";
 import Location from "@/components/ui/ListAService/Location";
 import ServiceInformation from "@/components/ui/ListAService/ServiceInformation";
 import useUserStore from "@/store/useUserStore";
+import QnA from "@/components/ui/ListAService/Q&A";
 
 export default function ListAService() {
   const { t } = useTranslation();
   const { user } = useUserStore();
   const navigate = useNavigate();
+  const [activeModal, setActiveModal] = useState(null);
   const { step, goToNextStep, setStep, reset, submitService } =
     useListAServiceStore();
 
   // Mapping object for tab images
   const tabImages = {
-    ServiceInformation: ServiceInformationImg,
-    Booking: BookingImg,
-    Location: LocationImg,
-    Images: ImagesImg,
+    ServiceInformation: <Type size={18} color="black" />,
+    Booking: <BookOpen size={18} color="black" />,
+    Location: <MapPin size={18} color="black" />,
+    QnA: <HelpCircle size={18} color="black" />,
+    Images: <ImageIcon size={18} color="black" />,
   };
   // Map steps to their corresponding components
-  const stepComponents = [ServiceInformation, Booking, Location, Images];
+  const stepComponents = [ServiceInformation, Booking, Location, QnA, Images];
 
   // Get the current component based on the step
   const CurrentStepComponent = stepComponents[step - 1];
@@ -52,34 +59,33 @@ export default function ListAService() {
         onClick={reset}
         className={styles.serviceContainerBackLink}
       >
-        <Image src={Back} alt="Back" />
+        <ChevronLeft />
         <span>{t("listAService.backToHome")}</span>
       </LinkButton>
 
       <div className={styles.navTabs}>
-        {["Service Information", "Booking", "Location", "Images"].map(
-          (tab, index) => (
-            <button
-              key={tab}
-              className={`${styles.navTab} ${
-                step === index + 1 ? styles.activeTab : ""
-              }`}
-              onClick={() => handleTabClick(index + 1)}
-            >
-              <Image
-                src={tabImages[tab.replace(" ", "")]}
-                alt={tab}
-                className={styles.navImg}
-                width={50}
-                height={50}
-              />
-              <div className={styles.navTabHeader}>
-                <span> {t(`listAService.${tab.replace(" ", "")}`)}</span>
-                <p> {t(`listAService.${tab.replace(" ", "")}Service`)}</p>
+        {Object.keys(tabImages).map((tab, index) => (
+          <button
+            key={tab}
+            className={`${styles.navTab} ${
+              step === index + 1 ? styles.activeTab : ""
+            }`}
+            onClick={() => handleTabClick(index + 1)}
+            onMouseEnter={() => setActiveModal(index)}
+            onMouseLeave={() => setActiveModal(null)}
+          >
+            {tabImages[tab]}
+            <div className={styles.navTabHeader}>
+              <h1>{t(`listAService.${tab.replace(" ", "")}`)}</h1>
+            </div>
+            {activeModal === index && (
+              <div className={styles.modal}>
+                <AlertCircle size={14} color="black" />
+                <span>{t(`listAService.${tab}Info`)}</span>
               </div>
-            </button>
-          )
-        )}
+            )}
+          </button>
+        ))}
       </div>
 
       <div className={styles.contentArea}>
@@ -87,8 +93,14 @@ export default function ListAService() {
         {CurrentStepComponent && <CurrentStepComponent />}
       </div>
 
-      {step < 4 ? (
-        <button className={styles.nextButton} onClick={goToNextStep}>
+      {step < 5 ? (
+        <button
+          className={styles.nextButton}
+          onClick={() => {
+            goToNextStep();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
           {t("listAService.Next")}
         </button>
       ) : (

@@ -95,7 +95,7 @@ export default function Navbar() {
         </div>
         <div>
           <Button onClick={() => setLangModal(true)}>
-            <span>{currentLanguage}</span>
+            <span>{currentLanguage.toLocaleUpperCase()}</span>
             <ChevronDown size={18} />
           </Button>
           {langModal && (

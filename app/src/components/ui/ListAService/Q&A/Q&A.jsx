@@ -1,51 +1,60 @@
-import { useState } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./style.module.css";
+import useListAServiceStore from "@/store/useListAServiceStore";
+import { useDebounce } from "@uidotdev/usehooks";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 
+const RichTextEditor = lazy(() => import("@/components/RichTextEditor"));
+
 export default function QnA() {
-  const [qnaList, setQnaList] = useState([{ question: "", answer: "" }]);
+  const { t } = useTranslation();
+  const { frequentlyAskedQuestions, setFrequentlyAskedQuestions } =
+    useListAServiceStore((state) => ({
+      frequentlyAskedQuestions: state.frequentlyAskedQuestions,
+      setFrequentlyAskedQuestions: state.setFrequentlyAskedQuestions,
+    }));
+
+  const [inputValues, setInputValues] = useState(frequentlyAskedQuestions);
+  const debouncedInputValues = useDebounce(inputValues, 500);
+
+  useEffect(() => {
+    setFrequentlyAskedQuestions(debouncedInputValues);
+  }, [debouncedInputValues]);
 
   const handleInputChange = (index, type, value) => {
-    const newList = [...qnaList];
-    if (type === "question") {
-      newList[index].question = value;
-    } else {
-      newList[index].answer = value;
-    }
-    setQnaList(newList);
-    console.log(qnaList);
+    const newList = [...inputValues];
+    newList[index][type] = value;
+    setInputValues(newList);
   };
 
   const addQnAPair = () => {
-    setQnaList([...qnaList, { question: "", answer: "" }]);
+    const newQnAList = [...inputValues, { question: "", answer: "" }];
+    setInputValues(newQnAList);
   };
 
   const removeQnAPair = (index) => {
-    if (qnaList.length === 1) {
-      // Reset the only QnA pair to empty strings if it's the only one in the list
-      setQnaList([{ question: "", answer: "" }]);
-    } else {
-      // Remove the QnA pair at the specified index
-      const newList = [...qnaList];
+    if (inputValues.length > 1) {
+      const newList = [...inputValues];
       newList.splice(index, 1);
-      setQnaList(newList);
+      setInputValues(newList);
+    } else {
+      setInputValues([{ question: "", answer: "" }]);
     }
   };
 
   return (
     <div className={styles.qnaContainer}>
-      <h1>Questions and Answers</h1>
-      <p>
-        Create your own frequently asked questions and provide answers here.
-        This will help users get immediate responses to common inquiries,
-        enhancing user engagement and satisfaction.
-      </p>
+      <h1>{t("listAService.QnA")}</h1>
+      <p>{t("listAService.QnACreate")}</p>
       <div className={styles.qnaListContainer}>
-        {qnaList.map((item, index) => (
+        {inputValues.map((item, index) => (
           <div key={index} className={styles.qnaList}>
             <div>
-              <label>Question {index + 1}</label>
+              <label className={styles.qnaTitle}>
+                {t("listAService.Question")} {index + 1}
+              </label>
               <Input
                 type="text"
                 value={item.question}
@@ -56,26 +65,28 @@ export default function QnA() {
               />
             </div>
             <div>
-              <label>Answer {index + 1}</label>
-              <textarea
-                value={item.answer}
-                onChange={(e) =>
-                  handleInputChange(index, "answer", e.target.value)
-                }
-                placeholder="It usually takes around two hours to get back to you."
-                className={styles.textArea}
-              />
+              <label className={styles.qnaTitle}>
+                {t("listAService.Answer")} {index + 1}
+              </label>
+              <Suspense fallback={<div>Loading editor...</div>}>
+                <RichTextEditor
+                  value={item.answer}
+                  onChange={(value) =>
+                    handleInputChange(index, "answer", value)
+                  }
+                />
+              </Suspense>
             </div>
             <Button
               onClick={() => removeQnAPair(index)}
               className={styles.removeQnA}
             >
-              Remove
+              {t("listAServiceServicesTab.remove")}
             </Button>
           </div>
         ))}
         <Button className={styles.addQnA} onClick={addQnAPair}>
-          Add More
+          {t("listAService.AddMore")}
         </Button>
       </div>
     </div>

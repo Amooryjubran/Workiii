@@ -15,11 +15,13 @@ const useListAServiceStore = create((set) => ({
   booking: [],
   location: [],
   images: [],
+  frequentlyAskedQuestions: [{ question: "", answer: "" }],
   errors: {
     serviceInfo: {},
     booking: {},
     location: {},
     images: {},
+    frequentlyAskedQuestions: {},
   },
 
   // Functions to navigate between steps
@@ -62,6 +64,14 @@ const useListAServiceStore = create((set) => ({
     }));
   },
 
+  // Function to set location information
+  setFrequentlyAskedQuestions: (data) => {
+    // Add validation if necessary
+    set((state) => ({
+      frequentlyAskedQuestions: data,
+      errors: { ...state.errors, frequentlyAskedQuestions: {} },
+    }));
+  },
   // Function to set errors
   setErrors: (errorData) => {
     set((state) => ({
@@ -80,6 +90,7 @@ const useListAServiceStore = create((set) => ({
           booking: state.booking,
           location: state.location,
           images: state.images,
+          frequentlyAskedQuestions: state.frequentlyAskedQuestions,
         },
         userId: userId,
       });
@@ -92,6 +103,7 @@ const useListAServiceStore = create((set) => ({
           booking: [],
           location: [],
           images: [],
+          frequentlyAskedQuestions: [{ question: "", answer: "" }],
         });
       } else {
         console.log(response);

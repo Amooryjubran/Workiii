@@ -25,13 +25,13 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 15px;
+  gap: 35px;
 }
 .qnaList > div {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 8px;
+  gap: 15px;
 }
 
 .qnaList > div > input {
@@ -43,6 +43,10 @@
 }
 .qnaList > div > input:focus {
   border: 2px solid black;
+}
+.qnaTitle {
+  font-size: 16px;
+  font-weight: 800;
 }
 .textArea {
   padding: 8px 12px;

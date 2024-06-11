@@ -140,7 +140,11 @@
     "BookingInfo": "Définissez vos disponibilités pour les rendez-vous ou les consultations. Cela peut inclure les heures de travail, les dates disponibles spéciales, ou toutes conditions ou exigences de réservation.",
     "LocationInfo": "Spécifiez l'endroit où vos services sont fournis. Cela peut être une adresse physique, une zone de service, ou même des détails de réunion virtuelle si applicable.",
     "ImagesInfo": "Présentez votre travail ou les résultats de vos services à travers des images. Cela peut aider à démontrer visuellement la qualité et le style de votre service aux clients potentiels.",
-    "QnAInfo": "Fournissez une section pour les questions fréquemment posées où vous pouvez répondre aux demandes courantes, aidant à clarifier les doutes et à rationaliser le processus d'interaction avec les clients."
+    "QnAInfo": "Fournissez une section pour les questions fréquemment posées où vous pouvez répondre aux demandes courantes, aidant à clarifier les doutes et à rationaliser le processus d'interaction avec les clients.",
+    "QnACreate": "Créez vos propres questions fréquemment posées et fournissez des réponses ici. Cela aidera les utilisateurs à obtenir des réponses immédiates aux questions courantes, améliorant ainsi l'engagement et la satisfaction des utilisateurs.",
+    "Question": "Question",
+    "Answer": "Réponse",
+    "AddMore": "Ajouter plus"
   },
   "listAServiceServicesTab": {
     "ServiceTitle": "Titre du service",

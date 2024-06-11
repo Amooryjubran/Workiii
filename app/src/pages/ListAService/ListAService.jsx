@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useListAServiceStore from "@/store/useListAServiceStore";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +23,6 @@ export default function ListAService() {
   const { t } = useTranslation();
   const { user } = useUserStore();
   const navigate = useNavigate();
-  const [activeModal, setActiveModal] = useState(null);
   const { step, goToNextStep, setStep, reset, submitService } =
     useListAServiceStore();
 
@@ -71,19 +69,15 @@ export default function ListAService() {
               step === index + 1 ? styles.activeTab : ""
             }`}
             onClick={() => handleTabClick(index + 1)}
-            onMouseEnter={() => setActiveModal(index)}
-            onMouseLeave={() => setActiveModal(null)}
           >
             {tabImages[tab]}
             <div className={styles.navTabHeader}>
               <h1>{t(`listAService.${tab.replace(" ", "")}`)}</h1>
             </div>
-            {activeModal === index && (
-              <div className={styles.modal}>
-                <AlertCircle size={14} color="black" />
-                <span>{t(`listAService.${tab}Info`)}</span>
-              </div>
-            )}
+            <div className={styles.modal}>
+              <AlertCircle size={14} color="black" />
+              <span>{t(`listAService.${tab}Info`)}</span>
+            </div>
           </button>
         ))}
       </div>

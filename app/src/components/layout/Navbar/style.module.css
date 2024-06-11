@@ -27,13 +27,13 @@
   position: relative;
   padding: 12px 5px;
   border-radius: 8px;
-  border: 1px solid #d9d9d9;
 }
 .navbarBtns > div > button {
   border: none;
   outline: none;
   background-color: transparent;
   display: flex;
+  gap: 5px;
   align-items: center;
 }
 .navbarBtns > div > button > div > img {
@@ -51,16 +51,19 @@
   color: var(--gray-white, #fff) !important;
 }
 .langModal {
-  z-index: 999;
   position: absolute;
-  border-radius: 8px;
-  border: 1px solid #d9d9d9;
-  width: -webkit-fill-available;
-  left: 0;
-  padding: 5px 0;
+  top: 50%;
+  right: 0;
+  min-width: 70px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid lightgray;
+  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.087);
+  z-index: 11;
+  padding: 15px;
 }
 .langModal > li {
   list-style: none;

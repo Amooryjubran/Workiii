@@ -8,6 +8,8 @@ const listAService = async (req, res) => {
 
     // Destructure userData and serviceData from request body
     const { userId, serviceData } = req.body;
+    const { frequentlyAskedQuestions = [] } = serviceData;
+
     // Check if the user exists in the 'users' collection
     const user = await db.collection("users").findOne({ _id: userId });
     if (!user) {
@@ -17,6 +19,7 @@ const listAService = async (req, res) => {
     // Enrich the service data with additional fields
     const enrichedServiceData = {
       ...serviceData,
+      frequentlyAskedQuestions,
       status: "Pending", // Set the status to 'Pending'
       ratings: [],
       dateCreated: new Date(), // Record the creation date and time

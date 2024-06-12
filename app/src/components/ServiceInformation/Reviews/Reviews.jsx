@@ -98,7 +98,7 @@ function Reviews() {
   }, [id, fetchServiceReviews]);
 
   if (reviewsStatus === "loading") {
-    return <>....</>;
+    return <div className={styles.loading}>....</div>;
   }
 
   if (reviewsError) {
@@ -116,7 +116,7 @@ function Reviews() {
     <div className={styles.reviewsContainer}>
       <div className={styles.reviewsTitle}>
         <div className={styles.reviewsHeader}>
-          <h1>{Number(Math.round(averageRating * 10) / 10)}</h1>
+          <h1>{Number(Math.round(averageRating * 10) / 10) || 0}</h1>
           <div className={styles.reviewsHeaderCol}>
             <ReactStarsRating
               size={24}
@@ -124,7 +124,7 @@ function Reviews() {
               primaryColor={"black"}
               secondaryColor={"lightgray"}
               starGap={5}
-              value={Number(averageRating)}
+              value={Number(averageRating) || 0}
             />
             <p>
               {totalReviews} {t("navbar.reviews")} / {reviewsImagesCount}

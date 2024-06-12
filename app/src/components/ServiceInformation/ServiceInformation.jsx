@@ -35,6 +35,7 @@ export default function ServiceInformation({ selectedService }) {
     providerName,
     dateCreated,
     pageType,
+    frequentlyAskedQuestions,
     _id,
   } = selectedService;
   const { serviceTitle, serviceCategory, serviceDescription, servicePrice } =
@@ -51,7 +52,6 @@ export default function ServiceInformation({ selectedService }) {
     month: "short",
     year: "numeric",
   });
-
   const tabConfig = [
     {
       label: t("navbar.reviews"),
@@ -64,7 +64,10 @@ export default function ServiceInformation({ selectedService }) {
         />
       ),
     },
-    { label: t("home.faq.title"), component: <QALazy /> },
+    {
+      label: t("home.faq.title"),
+      component: <QALazy frequentlyAskedQuestions={frequentlyAskedQuestions} />,
+    },
   ];
 
   const OrderComponent = () => {
@@ -196,5 +199,11 @@ ServiceInformation.propTypes = {
     reviewsImagesCount: PropTypes.number.isRequired,
     providerName: PropTypes.string.isRequired,
     dateCreated: PropTypes.string.isRequired,
+    frequentlyAskedQuestions: PropTypes.arrayOf(
+      PropTypes.shape({
+        question: PropTypes.string,
+        answer: PropTypes.string,
+      })
+    ),
   }).isRequired,
 };

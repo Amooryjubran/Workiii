@@ -1,0 +1,92 @@
+.faqContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.faqHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.faqHeader > h1 {
+  font-size: 84px;
+}
+
+.faqTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.faqTitle > div {
+  width: 50%;
+}
+
+.addQuestionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.searchInput::placeholder {
+  color: black;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.addQuestionContainer > input {
+  border: 1px solid black;
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+}
+.addQuestionContainer > span {
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-family: Lama Sans;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 300px;
+  line-height: 1;
+}
+
+.faqWrapper {
+  border-top: 1px solid lightgrey;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.faqDescription {
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-bottom: 1px solid lightgrey;
+}
+.faqQuestion > h1 {
+  font-size: 24px;
+}
+/* Mobile responsiveness */
+@media (max-width: 1028px) {
+  .faqTitle > div {
+    width: 100%;
+  }
+  .faqTitle {
+    padding: 18px 24px;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .faqDescription,
+  .faqWrapper {
+    padding: 18px;
+  }
+}

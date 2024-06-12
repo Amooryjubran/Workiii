@@ -20,7 +20,9 @@ const getReviews = async (req, res) => {
     }
 
     if (!service.ratings || service.ratings.length === 0) {
-      return res.status(404).json({ status: 404, message: "No reviews found" });
+      return res
+        .status(200)
+        .json({ status: 200, data: [], message: "No reviews available" });
     }
 
     // Calculate total reviews and average rating if ratings exist

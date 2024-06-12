@@ -3,6 +3,9 @@
   flex-direction: column;
   gap: 24px;
 }
+.loading {
+  min-height: 200px;
+}
 .reviewsHeader {
   display: flex;
   align-items: center;

@@ -144,7 +144,8 @@
     "QnACreate": "Créez vos propres questions fréquemment posées et fournissez des réponses ici. Cela aidera les utilisateurs à obtenir des réponses immédiates aux questions courantes, améliorant ainsi l'engagement et la satisfaction des utilisateurs.",
     "Question": "Question",
     "Answer": "Réponse",
-    "AddMore": "Ajouter plus"
+    "AddMore": "Ajouter plus",
+    "Search": "Recherchez toutes les questions ou réponses auxquelles vous pouvez penser"
   },
   "listAServiceServicesTab": {
     "ServiceTitle": "Titre du service",

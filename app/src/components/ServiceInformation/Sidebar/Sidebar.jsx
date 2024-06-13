@@ -8,6 +8,7 @@ import GoogleMapReact from "google-map-react";
 import StarImg from "images/Service/star.svg";
 import Image from "@/components/Image";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
+import useDebouncedCallback from "@/hooks/useDebouncedCallback";
 
 const Marker = () => <div className={styles.marker} />;
 
@@ -54,21 +55,25 @@ export default function Sidebar({
     }
   }, [location.latLng]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (windowSize >= 1028) return;
-      if (!bookButtonRef.current) return;
-      const buttonRect = bookButtonRef.current.getBoundingClientRect();
-      const offset = 190;
-      const shouldBeFixed = window.scrollY > buttonRect.top + offset;
-      setIsFixed(shouldBeFixed);
-    };
+  const handleScroll = () => {
+    if (windowSize >= 1028) {
+      setIsFixed(false);
+      return;
+    }
+    if (!bookButtonRef.current) return;
+    const sidebarRect =
+      bookButtonRef.current.parentNode.getBoundingClientRect();
+    setIsFixed(sidebarRect.bottom <= window.innerHeight);
+  };
 
-    window.addEventListener("scroll", handleScroll);
+  const debouncedScroll = useDebouncedCallback(handleScroll, 100);
+
+  useEffect(() => {
+    window.addEventListener("scroll", debouncedScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", debouncedScroll);
     };
-  }, [windowSize]);
+  }, [debouncedScroll]);
 
   const handleBookNow = () => {
     setServiceInformation(selectedService);

@@ -81,13 +81,14 @@
 
 .sideBarBookBtn {
   border-radius: 10px;
-  background: var(--primery, #39374d);
+  background: black;
   padding: 18px 24px;
   border: none;
   outline: none;
   cursor: pointer;
   color: var(--Neutral-50, #f8fafc);
   font-size: 18px;
+  transition: all 0.3s ease-in-out;
   font-weight: 700;
 }
 

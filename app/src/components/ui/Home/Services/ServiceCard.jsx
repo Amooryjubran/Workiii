@@ -9,7 +9,7 @@ const ServiceCard = ({ service, index }) => {
       <Image
         src={service.img}
         classNameWrapper={styles.serviceImageWrapper}
-        alt={service.alt}
+        alt={service.title}
       />
       <div className={styles.serivesCardHeader}>
         <span>{service.description}</span>
@@ -22,13 +22,11 @@ const ServiceCard = ({ service, index }) => {
 ServiceCard.propTypes = {
   service: PropTypes.shape({
     img: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
   }).isRequired,
   index: PropTypes.number.isRequired,
-  middleIndex: PropTypes.number.isRequired,
 };
 
 export default ServiceCard;

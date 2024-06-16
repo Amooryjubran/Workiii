@@ -22,7 +22,6 @@ export default function PopularServices() {
     fetchData();
   }, []);
 
-  console.log(data);
   if (!data) {
     return null;
   }

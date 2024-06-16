@@ -1,12 +1,11 @@
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import useServicesStore from "@/store/Services/useServicesStore";
 import styles from "../style.module.css";
+import { MapPin } from "react-feather";
 
 export default function FilterCategories() {
   const { fetchCategories, categories, filters, handleCategoryChange } =
     useServicesStore();
-  const { t } = useTranslation();
 
   useEffect(() => {
     fetchCategories();
@@ -18,16 +17,26 @@ export default function FilterCategories() {
 
   return (
     <div className={styles.wrapper}>
-      <span className={styles.filterCategoriesTitle}>
-        {t("services.ServicesCategories")}
-      </span>
       {categories?.map((filter) => (
-        <label key={filter._id} className={styles.filterCategoryLabel}>
+        <label
+          key={filter._id}
+          className={`${styles.filterCategoryLabel} ${
+            filters.category.includes(filter.category)
+              ? styles.checkedLabel
+              : ""
+          }`}
+        >
           <input
             type="checkbox"
             checked={filters.category.includes(filter.category)}
             onChange={() => toggleCategory(filter.category)}
             className={styles.filterCategoryCheckbox}
+          />
+          <MapPin
+            color={
+              filters.category.includes(filter.category) ? "white" : "black"
+            }
+            size={14}
           />
           {filter.category}
         </label>
@@ -39,7 +48,7 @@ export default function FilterCategories() {
           handleCategoryChange("reset");
         }}
       >
-        Reset Filters
+        Reset
       </button>
     </div>
   );

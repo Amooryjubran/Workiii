@@ -40,3 +40,8 @@ export const removeFromWishList = async (userId, itemId) => {
     params: { userId, itemId },
   });
 };
+
+// function to get all the locations of the services
+export const getLocations = async () => {
+  return axios.get(`${API_BASE_URL}/api/servicesLocations`);
+};

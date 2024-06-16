@@ -1,12 +1,8 @@
 .filterSideBar {
   gap: 24px;
-  background: var(--Neutral-white, #fff);
-  box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.06);
-  width: 20%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100%;
-  padding: 24px;
 }
 
 .filterSideBarTitle {
@@ -16,10 +12,9 @@
 
 .wrapper {
   border-radius: 10px;
-  background: var(--Neutral-50, #f8fafc);
   display: flex;
-  padding: 24px;
-  flex-direction: column;
+  padding: 10px 0;
+  flex-direction: row;
   gap: 16px;
 }
 
@@ -30,44 +25,51 @@
 }
 
 .filterCategoriesBtns {
-  background-color: transparent;
-  text-align: left;
-  border: none;
+  display: flex;
+  align-items: center;
+  gap: 7.5px;
+  margin: 5px 0;
+  color: white;
+  border: 1px solid lightgray;
+  background-color: black;
+  padding: 7.5px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .filterCategoryLabel {
   display: flex;
   align-items: center;
+  gap: 7.5px;
   margin: 5px 0;
   color: var(--Neutral-800, #0f1f48);
-  font-size: 14px;
+  border: 1px solid lightgray;
+  background-color: whitesmoke;
+  padding: 7.5px 10px;
+  border-radius: 30px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.filterCategoryLabel:hover,
+.checkedLabel {
+  background-color: black;
+  color: white;
 }
 
 .filterCategoryCheckbox {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  position: relative;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #fff;
-  border: 1px solid #d1d5db;
+  display: none;
 }
-
-.filterCategoryCheckbox:checked {
-  background-color: #ffb142;
-  border: 1px solid #ffb142;
+.filterCategoryLabel > svg {
+  transition: filter 0.3s ease-in-out;
 }
-
-.filterCategoryCheckbox:checked::after {
-  content: "✔";
-  position: absolute;
-  top: 1px;
-  left: 4px;
-  color: white;
-  font-size: 12px;
+.filterCategoryLabel:hover > svg {
+  filter: invert(100%);
+}
+.checkedLabel:hover > svg {
+  filter: none;
 }
 .rangeSlider {
   position: relative;
@@ -159,6 +161,23 @@
 }
 
 @media (max-width: 1028px) {
+  .wrapper {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 10px;
+    gap: 5px;
+  }
+  .filterCategoriesBtns {
+    background-color: #0f1317;
+    color: white;
+    width: fit-content;
+    text-align: center;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 12px;
+  }
+
   .filterSideBar {
     width: 100%;
   }

@@ -1,16 +1,17 @@
 import useServicesStore from "@/store/Services/useServicesStore";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import X from "images/cross.svg";
 import styles from "./style.module.css";
 import useUserStore from "@/store/useUserStore";
-import FilterSideBar from "@/components/ui/Services/FilterSideBar";
-import ServicesList from "@/components/ui/Services/ServiceCard";
 import Skeleton from "@/components/Skeleton";
 import Image from "@/components/Image";
 import Button from "@/components/Button";
 import HeroBanner from "@/components/ui/Services/HeroBanner";
+import ServiceCard from "@/components/ui/Home/PopularServices/ServiceCard";
 
 export default function Services() {
+  const { t } = useTranslation();
   const [isClicked, setIsClicked] = useState(false);
   const {
     services,
@@ -59,13 +60,12 @@ export default function Services() {
 
     if (services.length > 0) {
       return services.map((service) => (
-        <ServicesList service={service} key={service._id} />
+        <ServiceCard key={service._id} service={service} />
       ));
     }
 
     return <p>No services found</p>;
   };
-  console.log(categories);
 
   return (
     <div className={styles.servicesWrapper}>
@@ -74,24 +74,28 @@ export default function Services() {
         setSearchQuery={setSearchQuery}
         onSearch={onSearch}
       />
+
       <div className={styles.servivesContent}>
-        <FilterSideBar />
         <div className={styles.servivesParent}>
           <div className={styles.servivesFilter}>
-            {filters?.category?.map((filterTag) => (
-              <Button
-                key={filterTag}
-                onClick={() => handleCategoryChange(filterTag)}
-                className={styles.removeFilter}
-              >
-                <span> {filterTag}</span>
-                <Image
-                  src={X}
-                  alt={filterTag}
-                  className={styles.removeFilterImg}
-                />
-              </Button>
-            ))}
+            <h1>{t("home.browseCollection")}</h1>
+            <div>
+              {filters?.category?.map((filterTag) => (
+                <Button
+                  key={filterTag}
+                  onClick={() => handleCategoryChange(filterTag)}
+                  className={styles.removeFilter}
+                >
+                  <span> {filterTag}</span>
+                  <Image
+                    src={X}
+                    alt={filterTag}
+                    className={styles.removeFilterImg}
+                  />
+                </Button>
+              ))}
+            </div>
+            <div />
           </div>
 
           <div className={styles.servicesList}>{renderContent()}</div>

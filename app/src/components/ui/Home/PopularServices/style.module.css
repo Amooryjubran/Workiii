@@ -139,6 +139,11 @@
   width: fit-content;
   font-size: 12px;
 }
+.cardInfo > p * {
+  color: #7d7d7d;
+  width: fit-content;
+  font-size: 12px;
+}
 .ratingsContainer {
   display: flex;
   align-items: center;
@@ -215,9 +220,7 @@
     border-radius: 10px;
     box-shadow: none;
   }
-  .serviceCard > div {
-    padding: 24px;
-  }
+
   .cardImg {
     height: 340px;
   }

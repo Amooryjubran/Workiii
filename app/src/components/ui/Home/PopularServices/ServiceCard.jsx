@@ -12,11 +12,16 @@ export default function ServiceCard({
 }) {
   const { t } = useTranslation();
 
+  // Function to safely truncate text with HTML tags
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + "...";
+    }
+    return text;
+  };
+
   return (
-    <LinkButton
-      className={styles.serviceCard}
-      to={`service/665b31ad38622417b9215567`}
-    >
+    <LinkButton className={styles.serviceCard} to={`service/${_id}`}>
       <div>
         <div className={styles.serviceCardImgWrapper}>
           <Image
@@ -42,7 +47,12 @@ export default function ServiceCard({
             </h1>
           </div>
           <span>{serviceInfo.serviceCategory}</span>
-          <p>{serviceInfo.serviceDescription}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: truncateText(serviceInfo.serviceDescription, 100),
+            }}
+          />
+
           <div className={styles.ratingsContainer}>
             <ReactStarsRating
               size={14}

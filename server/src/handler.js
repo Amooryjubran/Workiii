@@ -16,6 +16,7 @@ const listAService = require("./controllers/Services/listAService");
 const getlAllApprovedServices = require("./controllers/Services/getlAllApprovedServices");
 const getServiceDetail = require("./controllers/Services/getServiceDetail");
 const getReviews = require("./controllers/Services/getReviews");
+const servicesLocations = require("./controllers/Services/servicesLocation");
 
 // Dashboard
 const getCategories = require("./controllers/Dashboard/Categories/getCategories");
@@ -61,6 +62,7 @@ module.exports = {
   getListOfBookings,
   getBooking,
   getListOfBookingsPagination,
+  servicesLocations,
 
   // POST
   createUser,

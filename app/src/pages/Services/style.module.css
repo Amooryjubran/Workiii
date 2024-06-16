@@ -1,42 +1,45 @@
 .servicesWrapper {
   display: flex;
   flex-direction: column;
-  gap: 90px;
+  gap: 10px;
   width: 100%;
+  max-width: 1918px;
+  margin: 0 auto;
 }
 
 .servivesContent {
   display: flex;
   gap: 24px;
   width: 100%;
-  max-width: 1700px;
+  max-width: 1918px;
   margin: 0 auto;
   padding: 40px;
 }
 
 .servicesList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 12px;
   row-gap: 12px;
   transition: all 0.5s;
   width: 100%;
-  max-width: 1068px;
   justify-items: stretch;
 }
 
 .servivesParent {
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
+.servivesFilter > div,
 .servivesFilter {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  position: absolute;
-  top: -40px;
+  justify-content: space-between;
+  gap: 5px;
 }
-.servivesFilter > .removeFilter {
+.removeFilter {
   padding: 6px 12px;
   font-size: 16px;
   display: flex;
@@ -57,6 +60,9 @@
   .servicesWrapper {
     gap: 20px;
   }
+  .servivesParent {
+    gap: 5px;
+  }
   .servivesContent {
     flex-direction: column;
     max-width: none;
@@ -64,5 +70,11 @@
   }
   .servicesList {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .servivesFilter {
+    flex-direction: column;
+  }
+  .servivesFilter > div {
+    justify-content: unset;
   }
 }

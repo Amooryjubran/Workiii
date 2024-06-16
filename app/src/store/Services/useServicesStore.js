@@ -2,6 +2,7 @@ import { create } from "zustand";
 import {
   getService,
   getCategories,
+  getLocations,
   addToWishList,
   removeFromWishList,
 } from "@/api/servicesPage";
@@ -11,10 +12,12 @@ const useServicesStore = create((set, get) => ({
   isLoading: true,
   categories: [],
   categoriesLoading: false,
+  locaitonsLoading: false,
   filters: {
     category: [],
     priceMin: 0,
     priceMax: 1000,
+    locations: [],
   },
   maxPrice: 1000,
   searchQuery: "",
@@ -88,6 +91,21 @@ const useServicesStore = create((set, get) => ({
       console.error("Error fetching categories:", error);
     } finally {
       set({ categoriesLoading: false });
+    }
+  },
+
+  // fetch locations
+  fetchLocations: async () => {
+    set({ locaitonsLoading: true });
+    try {
+      const response = await getLocations();
+      if (response && response?.data) {
+        set({ locations: response?.data?.services });
+      }
+    } catch (error) {
+      console.error("Error fetching locations:", error);
+    } finally {
+      set({ locaitonsLoading: false });
     }
   },
 

@@ -1,0 +1,150 @@
+.moreFilters {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7.5px;
+  margin: 5px 0;
+  color: var(--Neutral-800, #0f1f48);
+  border: 1px solid lightgray;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 30px;
+  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.087);
+  font-size: 12px;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.filterBtn {
+  width: fit-content;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-right: 1px solid lightgrey;
+  padding: 7.5px 10px;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.lastBtn {
+  border-right: none;
+}
+.filterBtn > svg {
+  margin-top: 1.8px;
+}
+.filterBtn > div {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  align-self: end;
+}
+.filterBtn > div > span {
+  font-size: 12px;
+  color: black;
+  font-weight: 400;
+}
+.filterBtn > div > p {
+  font-size: 10px;
+  color: grey;
+  font-weight: 400;
+}
+.modal {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid lightgray;
+  box-shadow: 6px 10px 15px 5px rgba(4, 4, 4, 0.087);
+  z-index: 11;
+  padding: 15px;
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.closeBtn {
+  position: absolute;
+  width: fit-content;
+  right: 10px;
+  top: 10px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* ---- Locatios ---- */
+.locationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+  padding: 7.5px 0;
+}
+.locationLoader,
+.locationWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.locationLoader > div {
+  display: flex;
+  gap: 10px;
+}
+.locationBtn {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 7.5px 10px;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  border-radius: 10px;
+}
+.locationBtn:hover {
+  background-color: black;
+  color: white;
+}
+.locationBtn:hover > div > span {
+  color: white;
+}
+
+.locationBtn > svg {
+  margin-top: 1.8px;
+}
+.locationBtn > div {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 0px;
+}
+.locationBtn > div > h1 {
+  font-size: 14px;
+}
+.locationBtn > div > span {
+  font-size: 12px;
+  transition: color 0.3s ease-in-out;
+}
+.locationContainer > span {
+  color: rgb(138, 5, 5);
+  font-size: 12px;
+  text-align: center;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}

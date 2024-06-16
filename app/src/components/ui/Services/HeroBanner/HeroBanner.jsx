@@ -1,10 +1,12 @@
+import styles from "./style.module.css";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { useWindowWidth } from "@/hooks/useWindowWidth";
-import { Link } from "react-router-dom";
-import styles from "./style.module.css";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+import { Search } from "react-feather";
+import FilterCategories from "../Filters/FilterCategories";
+import MoreFilters from "../Filters/MoreFilters";
 
 export default function HeroBanner({ searchQuery, setSearchQuery, onSearch }) {
   const { t } = useTranslation();
@@ -19,16 +21,15 @@ export default function HeroBanner({ searchQuery, setSearchQuery, onSearch }) {
       className={styles.heroBanner}
       style={{
         backgroundImage: `url(${
-          import.meta.env.VITE_SERVICES_PAGE_HEROBANNER
+          windowWidth >= 1028
+            ? import.meta.env.VITE_SERVICES_PAGE_HEROBANNER
+            : import.meta.env.VITE_SERVICES_PAGE_HEROBANNER_MOBILE
         })`,
       }}
     >
       <div className={styles.heroBannerContent}>
-        <h1>{t("services.Services")}</h1>
         <div className={styles.heroBannerNav}>
-          <Link to="">{t("services.Home")}</Link>
-          <div />
-          <Link to="services">{t("services.Servicess")}</Link>
+          <h1>Find Your Labourer</h1>
         </div>
         <form onSubmit={handleSubmit} className={styles.heroBannerSearch}>
           <Input
@@ -37,12 +38,12 @@ export default function HeroBanner({ searchQuery, setSearchQuery, onSearch }) {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          {windowWidth >= 1028 && (
-            <Button className={styles.heroBannerSearchBtn} type="submit">
-              {t("services.Search")}
-            </Button>
-          )}
+          <Button className={styles.heroBannerSearchBtn} type="submit">
+            <Search color="lightgray" />
+          </Button>
         </form>
+        <FilterCategories />
+        {windowWidth > 1028 && <MoreFilters />}
       </div>
     </div>
   );

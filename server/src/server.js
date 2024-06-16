@@ -50,6 +50,7 @@ const {
   getListOfBookings,
   getBooking,
   getListOfBookingsPagination,
+  servicesLocations,
 
   // POST
   listAService,
@@ -104,6 +105,7 @@ app.get(
   "/api/:userId/getListOfBookingsPagination",
   getListOfBookingsPagination
 );
+app.get("/api/servicesLocations", servicesLocations);
 
 // POST
 app.post("/api/createUser", createUser);

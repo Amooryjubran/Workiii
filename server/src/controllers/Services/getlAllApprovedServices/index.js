@@ -9,7 +9,8 @@ const getAllApprovedServices = async (req, res) => {
     let matchQuery = { status: "Approved" };
 
     // Extract query parameters
-    const { category, priceMin, priceMax, rating, userId, search } = req.query;
+    const { category, priceMin, priceMax, rating, userId, search, city } =
+      req.query;
 
     let searchQuery = [];
     if (search) {
@@ -28,6 +29,13 @@ const getAllApprovedServices = async (req, res) => {
 
     if (searchQuery.length > 0) {
       matchQuery.$or = searchQuery;
+    }
+
+    if (city) {
+      const cities = city.split(",").map((c) => c.trim());
+      matchQuery["location.city"] = {
+        $in: cities.map((c) => new RegExp(c, "i")),
+      }; // Filter by multiple cities
     }
 
     if (category) {

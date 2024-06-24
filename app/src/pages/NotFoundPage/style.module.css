@@ -44,6 +44,7 @@
 
 .notFoundLink > span {
   font-size: 14px;
+  color: white;
 }
 .notFoundPage > h1 {
   font-size: 260px;

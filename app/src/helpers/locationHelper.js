@@ -30,6 +30,7 @@ export const parseAddressComponents = (addressComponents) => {
     const addressType = component.types[0];
     if (componentForm[addressType]) {
       const val = component[componentForm[addressType]];
+      console.log(addressType);
       switch (addressType) {
         case "street_number":
           locationData.street = `${val} ${locationData.street}`;
@@ -63,7 +64,13 @@ export const geocodeAddress = async (value) => {
     const addressComponents = parseAddressComponents(
       results[0].address_components
     );
-    return { ...addressComponents, latLng };
+    // Construct GeoJSON for the location
+    const locationGeoJSON = {
+      type: "Point",
+      coordinates: [latLng.lng, latLng.lat], // Ensure longitude is first
+    };
+    console.log(locationGeoJSON);
+    return { ...addressComponents, location: locationGeoJSON };
   } catch (error) {
     console.error("Error during geocoding:", error);
     throw error;

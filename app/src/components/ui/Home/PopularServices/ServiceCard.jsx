@@ -25,8 +25,8 @@ export default function ServiceCard({
       <div>
         <div className={styles.serviceCardImgWrapper}>
           <Image
-            src={images[0].src}
-            alt={providerName}
+            src={images[0]?.src}
+            alt={providerName || serviceInfo.serviceTitle}
             className={styles.cardImg}
             classNameWrapper={styles.cardImgWrapper}
           />
@@ -71,14 +71,14 @@ export default function ServiceCard({
 ServiceCard.propTypes = {
   service: PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    serviceType: PropTypes.string.isRequired,
-    providerName: PropTypes.string.isRequired,
-    ratingsRate: PropTypes.string.isRequired,
+    serviceType: PropTypes.string,
+    providerName: PropTypes.string,
+    ratingsRate: PropTypes.string,
     images: PropTypes.arrayOf(
       PropTypes.shape({
-        src: PropTypes.string.isRequired,
+        src: PropTypes.string,
       })
-    ).isRequired,
+    ),
     serviceInfo: PropTypes.shape({
       serviceTitle: PropTypes.string.isRequired,
       servicePrice: PropTypes.string.isRequired,

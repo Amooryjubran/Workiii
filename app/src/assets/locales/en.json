@@ -284,7 +284,8 @@
       "EnterCoupon": "Enter Coupon",
       "Apply": "Apply",
       "ServiceFee": "Service Fee"
-    }
+    },
+    "FindYourLabourer": "Find Your Labourer"
   },
   "profile": {
     "MyProfile": "My Profile",
@@ -317,6 +318,9 @@
   "notFound": {
     "notFoundTitle": "Oops!",
     "notFoundMessage": "We could not find the page you were looking for",
-    "goHome": "Go Home"
+    "goHome": "Go Home",
+    "motFoundData": "We could not find what you searched for, try using another search",
+    "notFoundDataTitle": "No Results Found",
+    "reset": "Reset"
   }
 }

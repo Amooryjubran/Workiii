@@ -1,4 +1,3 @@
-// Image.jsx
 import { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./style.module.css";
@@ -6,10 +5,10 @@ import styles from "./style.module.css";
 const Image = ({
   src,
   alt,
-  fallbackSrc,
-  width,
-  height,
-  className,
+  fallbackSrc = "path_to_fallback_image.jpg",
+  width = "auto",
+  height = "auto",
+  className = "",
   classNameWrapper,
   ...props
 }) => {
@@ -53,13 +52,6 @@ Image.propTypes = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string,
   classNameWrapper: PropTypes.string,
-};
-
-Image.defaultProps = {
-  fallbackSrc: "path_to_fallback_image.jpg",
-  width: "auto",
-  height: "auto",
-  className: "",
 };
 
 export default Image;

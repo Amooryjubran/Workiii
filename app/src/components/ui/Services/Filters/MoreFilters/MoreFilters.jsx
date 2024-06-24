@@ -2,40 +2,24 @@ import { useState, useRef } from "react";
 import styles from "./style.module.css";
 import Button from "@/components/Button";
 import useClickOutside from "@/hooks/useClickOutside";
-import { Map, Star, DollarSign, Search, X } from "react-feather";
-import Locations from "./Locations";
-
-const filterOptions = [
-  {
-    label: "Location",
-    title: "Add Location",
-    icon: <Map size={14} color="black" />,
-    content: <Locations />,
-  },
-  {
-    label: "Pricing",
-    title: "Add Location",
-    icon: <Star size={14} color="black" />,
-    content: <div>Soon...</div>,
-  },
-  {
-    label: "Rating",
-    title: "Add Location",
-    icon: <DollarSign size={14} color="black" />,
-    content: <div>Soon...</div>,
-  },
-  {
-    label: "Search",
-    title: "Add Location",
-    icon: <Search size={14} color="black" />,
-    content: <div>Soon...</div>,
-  },
-];
+import { X, Check } from "react-feather";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+import useServicesStore from "@/store/Services/useServicesStore";
+import { filterOptions, isFilterActive } from "./filtersConfig";
 
 export default function MoreFilters() {
-  const modelRef = useRef();
+  const { filters } = useServicesStore();
+  const windowWidth = useWindowWidth();
+  const modalContentRef = useRef();
+  const mobileModalRef = useRef();
   const [modalContent, setModalContent] = useState(null);
-  useClickOutside(modelRef, () => setModalContent(false));
+  const [isMobileModalOpen, setIsMobileModalOpen] = useState(false);
+
+  useClickOutside(modalContentRef, () => setModalContent(null));
+  useClickOutside(
+    mobileModalRef,
+    () => isMobileModalOpen && setIsMobileModalOpen(false)
+  );
 
   const openModal = (content) => {
     setModalContent(content);
@@ -45,26 +29,33 @@ export default function MoreFilters() {
     setModalContent(null);
   };
 
-  return (
-    <div className={styles.moreFilters}>
-      {filterOptions.map((option, index) => (
-        <Button
-          key={index}
-          onClick={() => openModal(option.content)}
-          className={`${styles.filterBtn} ${
-            index === filterOptions.length - 1 ? styles.lastBtn : ""
-          }`}
-        >
-          {option.icon}
-          <div>
-            <span>{option.label}</span>
-            <p>{option.title}</p>
-          </div>
-        </Button>
-      ))}
+  const renderFilterButtons = () => (
+    <>
+      {filterOptions.map((option, index) => {
+        const isActive = isFilterActive(filters, option.label);
 
+        return (
+          <Button
+            key={index}
+            onClick={() => openModal(option.content)}
+            className={`${styles.filterBtn} ${
+              index === filterOptions.length - 1 ? styles.lastBtn : ""
+            } ${isActive ? styles.activeFilter : ""}`} // Add the active class if the filter is active
+            aria-expanded={modalContent === option.content}
+          >
+            {option.icon}
+            <div>
+              <span>{option.label}</span>
+              <p>{option.title}</p>
+            </div>
+            {isActive && (
+              <Check size={12} color="green" className={styles.checkmark} />
+            )}
+          </Button>
+        );
+      })}
       {modalContent && (
-        <div className={styles.modal} ref={modelRef}>
+        <div className={styles.modal} ref={modalContentRef}>
           <div className={styles.modalContent}>
             {modalContent}
             <Button className={styles.closeBtn} onClick={closeModal}>
@@ -73,6 +64,39 @@ export default function MoreFilters() {
           </div>
         </div>
       )}
-    </div>
+    </>
+  );
+
+  const anyFilterActive = filterOptions.some((option) =>
+    isFilterActive(filters, option.label)
+  );
+
+  return (
+    <>
+      <div className={styles.moreFilters}>
+        {windowWidth >= 1028 ? (
+          renderFilterButtons()
+        ) : (
+          <Button
+            className={`${styles.filterBtn} ${styles.moreFiltersBtn}`}
+            onClick={() => setIsMobileModalOpen(!isMobileModalOpen)}
+            aria-expanded={isMobileModalOpen}
+          >
+            More Filters
+            {anyFilterActive && (
+              <Check size={12} color="green" className={styles.checkmark} />
+            )}
+          </Button>
+        )}
+      </div>
+      {windowWidth < 1028 && isMobileModalOpen && (
+        <div ref={mobileModalRef} className={styles.mobileFilters}>
+          <div className={styles.modalCloseBtn}>
+            <Button onClick={() => setIsMobileModalOpen(false)}> </Button>
+          </div>
+          {renderFilterButtons()}
+        </div>
+      )}
+    </>
   );
 }

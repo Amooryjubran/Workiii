@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import styles from "./style.module.css";
 
 const Button = ({
-  onClick,
+  onClick = () => {},
   children,
-  disabled,
-  type,
+  disabled = false,
+  type = "button",
   color,
   borderColor,
   textColor,
@@ -38,12 +38,6 @@ Button.propTypes = {
   borderColor: PropTypes.string,
   textColor: PropTypes.string,
   className: PropTypes.string,
-};
-
-Button.defaultProps = {
-  onClick: () => {},
-  disabled: false,
-  type: "button",
 };
 
 export default Button;

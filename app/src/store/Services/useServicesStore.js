@@ -22,7 +22,7 @@ const useServicesStore = create((set, get) => ({
   maxPrice: 1000,
   searchQuery: "",
 
-  // Search Funciton
+  // Search Function
   setSearchQuery: (query) => set({ searchQuery: query }),
 
   setFilter: (filterName, value) => {
@@ -33,6 +33,7 @@ const useServicesStore = create((set, get) => ({
           category: [],
           priceMin: 0,
           priceMax: 1000,
+          locations: [],
         },
         searchQuery: "",
       });
@@ -59,16 +60,25 @@ const useServicesStore = create((set, get) => ({
     // Fetch services with the updated filters
     get().fetchServices();
   },
+
   // Add a new parameter for the search query
   fetchServices: async (userId, searchQuery = "") => {
     const { filters } = get();
+    const locations = filters.locations;
+    const cities =
+      locations.length > 0
+        ? locations.map((loc) => loc.location.city).join(",")
+        : undefined;
+
     set({ isLoading: true });
     try {
       console.log(searchQuery);
-      // Include search query in the filters if it's provided
-      const effectiveFilters = searchQuery
-        ? { ...filters, searchQuery }
-        : filters;
+      // Include search query and city in the filters if they're provided
+      const effectiveFilters = { ...filters, searchQuery };
+      if (cities) {
+        effectiveFilters.city = cities; // Include city filter
+      }
+      console.log(effectiveFilters);
       const response = await getService(effectiveFilters, userId);
       if (response && response.data) {
         set({ services: response.data.data });
@@ -109,6 +119,28 @@ const useServicesStore = create((set, get) => ({
     }
   },
 
+  handleLocationChange: (location) => {
+    console.log(location);
+    set((state) => ({
+      filters: {
+        ...state.filters,
+        locations: state.filters.locations.some(
+          (loc) =>
+            loc.location.latLng.lat === location.location.latLng.lat &&
+            loc.location.latLng.lng === location.location.latLng.lng
+        )
+          ? state.filters.locations.filter(
+              (loc) =>
+                loc.location.latLng.lat !== location.location.latLng.lat ||
+                loc.location.latLng.lng !== location.location.latLng.lng
+            )
+          : [...state.filters.locations, location],
+      },
+    }));
+    console.log("Updated Filters:", get().filters.locations);
+    get().fetchServices();
+  },
+
   // Search For Services Function
   handleSearch: async (userId, query) => {
     get().setSearchQuery(query);
@@ -126,13 +158,13 @@ const useServicesStore = create((set, get) => ({
 
   // handle Category Change
   handleCategoryChange: (category) => {
-    console.log(category);
     if (category === "reset") {
       set({
         filters: {
           category: [],
           priceMin: 0,
           priceMax: 1000,
+          locations: [],
         },
         searchQuery: "",
       });

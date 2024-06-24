@@ -1,12 +1,18 @@
 import { useEffect } from "react";
-import { MapPin } from "react-feather";
+import { MapPin, Check } from "react-feather"; // Import the Check icon
 import styles from "./style.module.css";
 import useServicesStore from "@/store/Services/useServicesStore";
 import Button from "@/components/Button";
 import Skeleton from "@/components/Skeleton";
 
 export default function Locations() {
-  const { fetchLocations, locations, locaitonsLoading } = useServicesStore();
+  const {
+    fetchLocations,
+    locations,
+    locaitonsLoading,
+    handleLocationChange,
+    filters,
+  } = useServicesStore();
 
   useEffect(() => {
     fetchLocations();
@@ -26,20 +32,35 @@ export default function Locations() {
       </div>
     );
   }
+
   return (
     <div className={styles.locationContainer}>
       <div className={styles.locationWrapper}>
-        {locations?.map((location, index) => (
-          <Button key={index} className={styles.locationBtn}>
-            <MapPin size={12} />
-            <div>
-              <h1>{location?.location?.city}</h1>
-              <span>
-                {location?.location?.state}, {location?.location?.country}
-              </span>
-            </div>
-          </Button>
-        ))}
+        {locations?.map((location, index) => {
+          const isActive = filters.locations.some(
+            (loc) =>
+              loc.location.latLng.lat === location.location.latLng.lat &&
+              loc.location.latLng.lng === location.location.latLng.lng
+          );
+
+          return (
+            <Button
+              key={index}
+              className={styles.locationBtn}
+              onClick={() => handleLocationChange(location)}
+            >
+              <MapPin size={12} color="black" />
+              <div>
+                <h1>{location?.location?.city}</h1>
+                <span>
+                  {location?.location?.state}, {location?.location?.country}
+                </span>
+              </div>
+              {isActive && <Check size={12} color="green" />}{" "}
+              {/* Render the checkmark if active */}
+            </Button>
+          );
+        })}
       </div>
       <span>*We are expanding soon</span>
     </div>

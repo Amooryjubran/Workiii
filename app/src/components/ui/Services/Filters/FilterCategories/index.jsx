@@ -1,9 +1,13 @@
 import { useEffect } from "react";
-import useServicesStore from "@/store/Services/useServicesStore";
+import { useTranslation } from "react-i18next";
 import styles from "../style.module.css";
+import useServicesStore from "@/store/Services/useServicesStore";
 import { MapPin } from "react-feather";
+import Input from "@/components/Input";
 
 export default function FilterCategories() {
+  const { t } = useTranslation();
+
   const { fetchCategories, categories, filters, handleCategoryChange } =
     useServicesStore();
 
@@ -26,8 +30,9 @@ export default function FilterCategories() {
               : ""
           }`}
         >
-          <input
+          <Input
             type="checkbox"
+            name={filter.category}
             checked={filters.category.includes(filter.category)}
             onChange={() => toggleCategory(filter.category)}
             className={styles.filterCategoryCheckbox}
@@ -42,14 +47,16 @@ export default function FilterCategories() {
         </label>
       ))}
 
-      <button
-        className={styles.filterCategoriesBtns}
-        onClick={() => {
-          handleCategoryChange("reset");
-        }}
-      >
-        Reset
-      </button>
+      {(!!filters.category.length || !!filters.locations.length) && (
+        <button
+          className={styles.filterCategoriesBtns}
+          onClick={() => {
+            handleCategoryChange("reset");
+          }}
+        >
+          {t("notFound.reset")}
+        </button>
+      )}
     </div>
   );
 }

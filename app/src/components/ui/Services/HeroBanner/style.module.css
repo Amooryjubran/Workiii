@@ -69,11 +69,14 @@
   .heroBanner {
     margin-top: 73px;
     position: relative;
-    min-height: 550px;
+    min-height: 630px;
     background-position: initial;
     align-items: end;
   }
-
+  .heroBannerContent {
+    padding: 0 0 30px;
+    gap: 20px;
+  }
   .heroBannerSearch {
     margin: 0;
     max-width: 90%;

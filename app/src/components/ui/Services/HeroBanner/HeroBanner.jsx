@@ -29,7 +29,7 @@ export default function HeroBanner({ searchQuery, setSearchQuery, onSearch }) {
     >
       <div className={styles.heroBannerContent}>
         <div className={styles.heroBannerNav}>
-          <h1>Find Your Labourer</h1>
+          <h1>{t("services.FindYourLabourer")}</h1>
         </div>
         <form onSubmit={handleSubmit} className={styles.heroBannerSearch}>
           <Input
@@ -43,7 +43,7 @@ export default function HeroBanner({ searchQuery, setSearchQuery, onSearch }) {
           </Button>
         </form>
         <FilterCategories />
-        {windowWidth > 1028 && <MoreFilters />}
+        <MoreFilters />
       </div>
     </div>
   );

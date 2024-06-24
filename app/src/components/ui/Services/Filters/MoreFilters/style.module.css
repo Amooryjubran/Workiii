@@ -138,6 +138,99 @@
   transition: all 1s ease-in-out;
 }
 
+@media (max-width: 1028px) {
+  /* --- Mboile Filtering --- */
+  .mobileFilters,
+  .modal {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 99999999;
+    background-color: white;
+    height: 90%;
+    animation-name: slideInFromBottom;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    box-shadow: #000000b3 0 0 100vh 100vh;
+    border-radius: 10px 10px 0 0;
+  }
+  .mobileFilters {
+    padding: 24px;
+  }
+  .filterBtn {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 7.5px 10px;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  .filterBtn:hover {
+    background-color: black;
+    color: white;
+  }
+  .filterBtn:hover > div > span {
+    color: white;
+  }
+  .filterBtn:hover > svg {
+    filter: invert(100%);
+  }
+
+  .filterBtn > div > span {
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .filterBtn > div {
+    gap: 3px;
+  }
+  .moreFiltersBtn {
+    color: black;
+  }
+  .locationBtn > div > h1 {
+    color: black;
+  }
+  .moreFiltersBtn:hover {
+    background-color: transparent !important;
+    color: black;
+  }
+  .modalCloseBtn {
+    position: sticky;
+    top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+  }
+  .modalCloseBtn > button {
+    border: none;
+    background-color: lightgray;
+    height: 5px;
+    border-radius: 10px;
+    width: 60px;
+  }
+  .locationLoader,
+  .locationContainer {
+    padding: 34px 0;
+    height: 100%;
+    transition: none;
+  }
+  .locationContainer > span {
+    margin: auto;
+  }
+  .modal > div {
+    height: 100%;
+  }
+  .closeBtn {
+    top: 24px;
+    right: 24px;
+  }
+  .moreFilters {
+    margin: 0;
+  }
+}
 @keyframes slideIn {
   0% {
     width: 0;
@@ -146,5 +239,15 @@
   100% {
     opacity: 1;
     width: 100%;
+  }
+}
+@keyframes slideInFromBottom {
+  0% {
+    top: 120%;
+    opacity: 0;
+  }
+  100% {
+    top: 30%;
+    opacity: 1;
   }
 }

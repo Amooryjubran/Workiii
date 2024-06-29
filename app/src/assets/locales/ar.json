@@ -286,7 +286,13 @@
       "Apply": "تطبيق",
       "ServiceFee": "رسوم الخدمة"
     },
-    "FindYourLabourer": "ابحث عن العامل الخاص بك"
+    "FindYourLabourer": "ابحث عن عاملك",
+    "HighestPrice": "أعلى سعر",
+    "LowestPrice": "أقل سعر",
+    "HasDiscount": "يوجد خصم",
+    "PriceRange": "نطاق السعر",
+    "MinPrice": "السعر الأدنى",
+    "MaxPrice": "السعر الأقصى"
   },
 
   "profile": {

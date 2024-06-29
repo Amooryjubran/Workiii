@@ -13,17 +13,29 @@ const useServicesStore = create((set, get) => ({
   categories: [],
   categoriesLoading: false,
   locaitonsLoading: false,
+
   filters: {
     category: [],
     priceMin: 0,
     priceMax: 1000,
     locations: [],
+    sortOrder: "",
   },
   maxPrice: 1000,
   searchQuery: "",
 
   // Search Function
   setSearchQuery: (query) => set({ searchQuery: query }),
+
+  setSortOrder: (order) => {
+    set((state) => ({
+      filters: {
+        ...state.filters,
+        sortOrder: order,
+      },
+    }));
+    get().fetchServices(); // Refetch services with the new order
+  },
 
   setFilter: (filterName, value) => {
     if (filterName === "reset") {
@@ -34,6 +46,7 @@ const useServicesStore = create((set, get) => ({
           priceMin: 0,
           priceMax: 1000,
           locations: [],
+          sortOrder: "",
         },
         searchQuery: "",
       });
@@ -46,6 +59,7 @@ const useServicesStore = create((set, get) => ({
         },
         searchQuery: state.searchQuery,
       }));
+      get().fetchServices();
     }
 
     // Recalculate maxPrice when services change
@@ -62,24 +76,37 @@ const useServicesStore = create((set, get) => ({
   },
 
   // Add a new parameter for the search query
-  fetchServices: async (userId, searchQuery = "") => {
-    const { filters } = get();
-    const locations = filters.locations;
-    const cities =
-      locations.length > 0
-        ? locations.map((loc) => loc.location.city).join(",")
-        : undefined;
+  fetchServices: async () => {
+    const { filters, sortOrder, searchQuery } = get();
+    const { category, priceMin, priceMax, locations } = filters;
 
+    // Start building the effective filters object, only adding filters that have meaningful values
+    let effectiveFilters = {};
+    if (category.length > 0) {
+      effectiveFilters.category = category;
+    }
+    if (priceMin > 0) {
+      effectiveFilters.priceMin = priceMin;
+    }
+    if (priceMax < 1000) {
+      effectiveFilters.priceMax = priceMax;
+    }
+    if (locations.length > 0) {
+      effectiveFilters.city = locations
+        .map((loc) => loc.location.city)
+        .join(",");
+    }
+    if (sortOrder) {
+      effectiveFilters.sort = sortOrder;
+    }
+    if (searchQuery.trim() !== "") {
+      effectiveFilters.searchQuery = searchQuery;
+    }
+
+    console.log("Fetching services with filters:", effectiveFilters);
     set({ isLoading: true });
     try {
-      console.log(searchQuery);
-      // Include search query and city in the filters if they're provided
-      const effectiveFilters = { ...filters, searchQuery };
-      if (cities) {
-        effectiveFilters.city = cities; // Include city filter
-      }
-      console.log(effectiveFilters);
-      const response = await getService(effectiveFilters, userId);
+      const response = await getService(effectiveFilters);
       if (response && response.data) {
         set({ services: response.data.data });
       }

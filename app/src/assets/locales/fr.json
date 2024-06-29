@@ -287,7 +287,13 @@
       "Apply": "Appliquer",
       "ServiceFee": "Frais de service"
     },
-    "FindYourLabourer": "Trouvez votre ouvrier"
+    "FindYourLabourer": "Trouvez votre ouvrier",
+    "HighestPrice": "Prix le plus élevé",
+    "LowestPrice": "Prix le plus bas",
+    "HasDiscount": "Avec remise",
+    "PriceRange": "Gamme de prix",
+    "MinPrice": "Prix minimum",
+    "MaxPrice": "Prix maximum"
   },
   "profile": {
     "MyProfile": "Mon profil",

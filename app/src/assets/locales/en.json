@@ -285,7 +285,13 @@
       "Apply": "Apply",
       "ServiceFee": "Service Fee"
     },
-    "FindYourLabourer": "Find Your Labourer"
+    "FindYourLabourer": "Find Your Labourer",
+    "HighestPrice": "Highest Price",
+    "LowestPrice": "Lowest Price",
+    "HasDiscount": "Has a Discount",
+    "PriceRange": "Price Range",
+    "MinPrice": "Min Price",
+    "MaxPrice": "Max Price"
   },
   "profile": {
     "MyProfile": "My Profile",

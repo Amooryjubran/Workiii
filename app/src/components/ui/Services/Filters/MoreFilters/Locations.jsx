@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { MapPin, Check } from "react-feather"; // Import the Check icon
+import { MapPin, Check } from "react-feather";
 import styles from "./style.module.css";
 import useServicesStore from "@/store/Services/useServicesStore";
 import Button from "@/components/Button";
@@ -56,8 +56,7 @@ export default function Locations() {
                   {location?.location?.state}, {location?.location?.country}
                 </span>
               </div>
-              {isActive && <Check size={12} color="green" />}{" "}
-              {/* Render the checkmark if active */}
+              {isActive && <Check size={12} color="green" />}
             </Button>
           );
         })}

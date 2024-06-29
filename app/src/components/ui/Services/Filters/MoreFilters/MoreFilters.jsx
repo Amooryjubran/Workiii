@@ -40,7 +40,7 @@ export default function MoreFilters() {
             onClick={() => openModal(option.content)}
             className={`${styles.filterBtn} ${
               index === filterOptions.length - 1 ? styles.lastBtn : ""
-            } ${isActive ? styles.activeFilter : ""}`} // Add the active class if the filter is active
+            } ${isActive ? styles.activeFilter : ""}`}
             aria-expanded={modalContent === option.content}
           >
             {option.icon}

@@ -23,6 +23,8 @@ export default function Services() {
     categories,
     searchQuery,
     setSearchQuery,
+    setFilter,
+    setSortOrder,
     handleSearch,
     handleCategoryChange,
     handleLocationChange,
@@ -59,7 +61,40 @@ export default function Services() {
       handler: () => handleLocationChange(loc),
     }));
 
-    const combinedFilters = [...categoryFilters, ...locationFilters];
+    const priceFilter =
+      filters.priceMin > 0 || filters.priceMax < 1000
+        ? [
+            {
+              type: "price",
+              value: `Price: $${filters.priceMin} - $${filters.priceMax}`,
+              handler: () => {
+                setFilter("priceMin", 0);
+                setFilter("priceMax", 1000);
+              }, // Reset to default range
+            },
+          ]
+        : [];
+
+    // Check if sortOrder is set and create a filter button if it is
+    const sortFilter = filters.sortOrder
+      ? [
+          {
+            type: "sort",
+            value: `Sort: ${
+              filters.sortOrder === "highest" ? "Highest" : "Lowest"
+            }`,
+            handler: () => setSortOrder(""), // Clears the sort order
+          },
+        ]
+      : [];
+    console.log(filters);
+
+    const combinedFilters = [
+      ...categoryFilters,
+      ...locationFilters,
+      ...priceFilter,
+      ...sortFilter,
+    ];
     return combinedFilters.map((filter, index) => (
       <Button
         key={index}

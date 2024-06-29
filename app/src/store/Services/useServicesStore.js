@@ -77,38 +77,28 @@ const useServicesStore = create((set, get) => ({
 
   // Add a new parameter for the search query
   fetchServices: async () => {
-    const { filters, sortOrder, searchQuery } = get();
-    const { category, priceMin, priceMax, locations } = filters;
+    const { filters, searchQuery } = get();
+    const { category, priceMin, priceMax, locations, sortOrder } = filters;
 
-    // Start building the effective filters object, only adding filters that have meaningful values
-    let effectiveFilters = {};
-    if (category.length > 0) {
-      effectiveFilters.category = category;
-    }
-    if (priceMin > 0) {
-      effectiveFilters.priceMin = priceMin;
-    }
-    if (priceMax < 1000) {
-      effectiveFilters.priceMax = priceMax;
-    }
-    if (locations.length > 0) {
-      effectiveFilters.city = locations
-        .map((loc) => loc.location.city)
-        .join(",");
-    }
-    if (sortOrder) {
-      effectiveFilters.sort = sortOrder;
-    }
-    if (searchQuery.trim() !== "") {
-      effectiveFilters.searchQuery = searchQuery;
-    }
+    let effectiveFilters = {
+      ...(category.length > 0 && { category }),
+      ...(priceMin > 0 && { priceMin }),
+      ...(priceMax < 1000 && { priceMax }),
+      ...(locations.length > 0 && {
+        city: locations.map((loc) => loc.location.city).join(","),
+      }),
+      ...(sortOrder && { sort: sortOrder }),
+      ...(searchQuery.trim() !== "" && { searchQuery }),
+    };
 
-    console.log("Fetching services with filters:", effectiveFilters);
     set({ isLoading: true });
     try {
       const response = await getService(effectiveFilters);
       if (response && response.data) {
         set({ services: response.data.data });
+        console.log("Services fetched successfully");
+      } else {
+        console.log("No data received from fetch");
       }
     } catch (error) {
       console.error("Error fetching services:", error);

@@ -18,6 +18,17 @@ export default function FilterCategories() {
   const toggleCategory = (category) => {
     handleCategoryChange(category);
   };
+  // Check if any filters are active to display the reset button
+  const anyFilterActive = () => {
+    return (
+      filters.category.length > 0 ||
+      filters.locations.length > 0 ||
+      filters.rating > 0 ||
+      ["highest", "lowest"].includes(filters.sortOrder) ||
+      filters.priceMin !== 0 ||
+      filters.priceMax !== 1000
+    );
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -47,7 +58,7 @@ export default function FilterCategories() {
         </label>
       ))}
 
-      {(!!filters.category.length || !!filters.locations.length) && (
+      {anyFilterActive() && (
         <button
           className={styles.filterCategoriesBtns}
           onClick={() => {

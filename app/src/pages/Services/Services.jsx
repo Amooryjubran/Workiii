@@ -87,13 +87,24 @@ export default function Services() {
           },
         ]
       : [];
-    console.log(filters);
+
+    const ratingFilter =
+      filters.rating > 0
+        ? [
+            {
+              type: "rating",
+              value: `Rating: ${filters.rating} Stars`,
+              handler: () => setFilter("rating", 0), // Reset the rating
+            },
+          ]
+        : [];
 
     const combinedFilters = [
       ...categoryFilters,
       ...locationFilters,
       ...priceFilter,
       ...sortFilter,
+      ...ratingFilter,
     ];
     return combinedFilters.map((filter, index) => (
       <Button

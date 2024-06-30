@@ -1,6 +1,7 @@
 import { Map, Star, DollarSign, Search } from "react-feather";
 import Locations from "./Locations";
 import Pricing from "./Pricing";
+import Ratings from "./Ratings";
 
 // Define filter options
 const filterOptions = [
@@ -20,7 +21,7 @@ const filterOptions = [
     label: "Rating",
     title: "Set Rating",
     icon: <Star size={14} color="black" />,
-    content: <div>Soon...</div>,
+    content: <Ratings />,
   },
   {
     label: "Search",

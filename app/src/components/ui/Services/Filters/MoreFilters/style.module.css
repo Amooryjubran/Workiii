@@ -276,6 +276,49 @@
   top: 0;
 }
 
+/* --- Ratings --- */
+.ratingsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 7.5px;
+}
+.ratingsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+}
+.ratingsWrapper > h1 {
+  font-size: 14px;
+}
+.ratingsBtns {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ratingsBtn {
+  display: flex;
+  align-items: center;
+  gap: 7.5px;
+  color: var(--Neutral-800, #0f1f48);
+  border: 1px solid lightgray;
+  background-color: whitesmoke;
+  padding: 7.5px 24px;
+  border-radius: 30px;
+  width: fit-content;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.ratingsBtn:hover {
+  background-color: black;
+  color: white;
+}
 @media (max-width: 1028px) {
   /* --- Mboile Filtering --- */
   .mobileFilters,
@@ -298,6 +341,7 @@
   .mobileFilters {
     padding: 24px;
   }
+
   .filterBtn {
     width: 100%;
     border: none;
@@ -349,6 +393,7 @@
     border-radius: 10px;
     width: 60px;
   }
+  .ratingsContainer,
   .locationLoader,
   .locationContainer {
     padding: 34px 0;
@@ -357,6 +402,9 @@
   }
   .locationContainer > span {
     margin: auto;
+  }
+  .ratingsBtns {
+    gap: 15px;
   }
   .modal > div {
     height: 100%;

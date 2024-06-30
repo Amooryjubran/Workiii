@@ -20,6 +20,7 @@ const useServicesStore = create((set, get) => ({
     priceMax: 1000,
     locations: [],
     sortOrder: "",
+    rating: 0,
   },
   maxPrice: 1000,
   searchQuery: "",
@@ -37,6 +38,14 @@ const useServicesStore = create((set, get) => ({
     get().fetchServices(); // Refetch services with the new order
   },
 
+  setRating: (rating) =>
+    set((state) => ({
+      filters: {
+        ...state.filters,
+        rating,
+      },
+    })),
+
   setFilter: (filterName, value) => {
     if (filterName === "reset") {
       // Reset all filters and the search query
@@ -47,6 +56,7 @@ const useServicesStore = create((set, get) => ({
           priceMax: 1000,
           locations: [],
           sortOrder: "",
+          rating: 0,
         },
         searchQuery: "",
       });
@@ -78,7 +88,8 @@ const useServicesStore = create((set, get) => ({
   // Add a new parameter for the search query
   fetchServices: async () => {
     const { filters, searchQuery } = get();
-    const { category, priceMin, priceMax, locations, sortOrder } = filters;
+    const { category, priceMin, priceMax, locations, sortOrder, rating } =
+      filters;
 
     let effectiveFilters = {
       ...(category.length > 0 && { category }),
@@ -88,6 +99,7 @@ const useServicesStore = create((set, get) => ({
         city: locations.map((loc) => loc.location.city).join(","),
       }),
       ...(sortOrder && { sort: sortOrder }),
+      ...(rating && { rating }),
       ...(searchQuery.trim() !== "" && { searchQuery }),
     };
 

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import styles from "./style.module.css";
 import Button from "@/components/Button";
 import useClickOutside from "@/hooks/useClickOutside";
@@ -6,6 +6,7 @@ import { X, Check } from "react-feather";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import useServicesStore from "@/store/Services/useServicesStore";
 import { filterOptions } from "./filtersConfig";
+import { useTranslation } from "react-i18next";
 
 // Function to check if a specific filter is active
 function isFilterActive(filters, label) {
@@ -29,7 +30,8 @@ function isFilterActive(filters, label) {
 }
 
 export default function MoreFilters() {
-  const { filters } = useServicesStore();
+  const { t } = useTranslation();
+  const { filters, anyFilterActive: checkAddedFilters } = useServicesStore();
   const windowWidth = useWindowWidth();
   const modalContentRef = useRef();
   const mobileModalRef = useRef();
@@ -49,9 +51,6 @@ export default function MoreFilters() {
   const closeModal = () => {
     setModalContent(null);
   };
-  useEffect(() => {
-    console.log("Current Filters: ", filters);
-  }, [filters]);
 
   const renderFilterButtons = () => (
     <>
@@ -119,6 +118,17 @@ export default function MoreFilters() {
             <Button onClick={() => setIsMobileModalOpen(false)} />
           </div>
           {renderFilterButtons()}
+          {checkAddedFilters() && (
+            <Button
+              className={styles.showResultsBtn}
+              onClick={() => {
+                setIsMobileModalOpen(false);
+                closeModal();
+              }}
+            >
+              {t("services.ShowResults")}
+            </Button>
+          )}
         </div>
       )}
     </>

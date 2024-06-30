@@ -8,8 +8,13 @@ import Input from "@/components/Input";
 export default function FilterCategories() {
   const { t } = useTranslation();
 
-  const { fetchCategories, categories, filters, handleCategoryChange } =
-    useServicesStore();
+  const {
+    fetchCategories,
+    categories,
+    filters,
+    handleCategoryChange,
+    anyFilterActive,
+  } = useServicesStore();
 
   useEffect(() => {
     fetchCategories();
@@ -17,17 +22,6 @@ export default function FilterCategories() {
 
   const toggleCategory = (category) => {
     handleCategoryChange(category);
-  };
-  // Check if any filters are active to display the reset button
-  const anyFilterActive = () => {
-    return (
-      filters.category.length > 0 ||
-      filters.locations.length > 0 ||
-      filters.rating > 0 ||
-      ["highest", "lowest"].includes(filters.sortOrder) ||
-      filters.priceMin !== 0 ||
-      filters.priceMax !== 1000
-    );
   };
 
   return (

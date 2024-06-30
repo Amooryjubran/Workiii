@@ -25,6 +25,88 @@ const useServicesStore = create((set, get) => ({
   maxPrice: 1000,
   searchQuery: "",
 
+  // Function to generate filter objects
+  generateFilterObjects: () => {
+    const {
+      filters,
+      handleCategoryChange,
+      handleLocationChange,
+      setFilter,
+      setSortOrder,
+    } = get();
+
+    const categoryFilters = filters.category.map((cat) => ({
+      type: "category",
+      value: cat,
+      handler: () => handleCategoryChange(cat),
+    }));
+
+    const locationFilters = filters.locations.map((loc) => ({
+      type: "location",
+      value: loc.location.city,
+      handler: () => handleLocationChange(loc),
+    }));
+
+    const priceFilter = [
+      ...(filters.priceMin > 0 || filters.priceMax < 1000
+        ? [
+            {
+              type: "price",
+              value: `Price: $${filters.priceMin} - $${filters.priceMax}`,
+              handler: () => {
+                setFilter("priceMin", 0);
+                setFilter("priceMax", 1000);
+              },
+            },
+          ]
+        : []),
+    ];
+
+    const sortFilter = filters.sortOrder
+      ? [
+          {
+            type: "sort",
+            value: `Sort: ${
+              filters.sortOrder === "highest" ? "Highest" : "Lowest"
+            }`,
+            handler: () => setSortOrder(""),
+          },
+        ]
+      : [];
+
+    const ratingFilter =
+      filters.rating > 0
+        ? [
+            {
+              type: "rating",
+              value: `Rating: ${filters.rating} Stars`,
+              handler: () => setFilter("rating", 0),
+            },
+          ]
+        : [];
+
+    return [
+      ...categoryFilters,
+      ...locationFilters,
+      ...priceFilter,
+      ...sortFilter,
+      ...ratingFilter,
+    ];
+  },
+
+  // Check if any filters are active to display the reset button
+  anyFilterActive: () => {
+    const { filters } = get();
+    return (
+      filters.category.length > 0 ||
+      filters.locations.length > 0 ||
+      filters.rating > 0 ||
+      ["highest", "lowest"].includes(filters.sortOrder) ||
+      filters.priceMin !== 0 ||
+      filters.priceMax !== 1000
+    );
+  },
+
   // Search Function
   setSearchQuery: (query) => set({ searchQuery: query }),
 

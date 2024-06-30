@@ -41,6 +41,11 @@
 }
 .servivesFilter {
   flex-direction: column;
+  gap: 24px;
+}
+.servivesFilter > h1 {
+  border-bottom: 1px solid rgba(211, 211, 211, 0.576);
+  padding-bottom: 24px;
 }
 .servivesFilter > div {
   justify-content: flex-start;

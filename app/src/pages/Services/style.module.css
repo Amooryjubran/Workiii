@@ -149,12 +149,15 @@
   }
   .servicesList {
     grid-template-columns: repeat(1, 1fr);
+    margin: 0 0 24px;
   }
   .servivesFilter {
     flex-direction: column;
+    gap: 12px;
   }
   .servivesFilter > div {
     justify-content: unset;
     flex-wrap: wrap;
+    margin: 0 0 24px;
   }
 }

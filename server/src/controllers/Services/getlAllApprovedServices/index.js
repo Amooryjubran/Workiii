@@ -23,34 +23,51 @@ const getAllApprovedServices = async (req, res) => {
       ]);
     }
 
-    if (searchQuery.length > 0) {
-      matchQuery.$or = searchQuery;
-    }
-
-    if (city) {
-      matchQuery["location.city"] = {
-        $in: city.split(",").map((c) => new RegExp(c.trim(), "i")),
-      };
-    }
-
-    if (category) {
-      matchQuery["serviceInfo.serviceCategory"] = category;
-    }
-
-    if (rating) {
-      matchQuery["serviceInfo.serviceRating"] = { $gte: parseInt(rating) };
-    }
-
     let pipeline = [
-      { $match: matchQuery },
+      {
+        $match: {
+          ...matchQuery,
+          ...(searchQuery.length > 0 && { $or: searchQuery }),
+        },
+      },
       {
         $addFields: {
           "serviceInfo.convertedPrice": {
             $convert: { input: "$serviceInfo.servicePrice", to: "double" },
           },
+          averageRating: {
+            $ifNull: [{ $avg: "$ratings.rate" }, 0],
+          },
         },
       },
     ];
+
+    if (rating) {
+      let ratingLowerBound = parseFloat(rating);
+      let ratingUpperBound = Math.floor(ratingLowerBound) + 0.9;
+      pipeline.push({
+        $match: {
+          averageRating: {
+            $gte: ratingLowerBound,
+            $lte: ratingUpperBound,
+          },
+        },
+      });
+    }
+
+    if (city) {
+      pipeline.push({
+        $match: {
+          "location.city": {
+            $in: city.split(",").map((c) => new RegExp(c.trim(), "i")),
+          },
+        },
+      });
+    }
+
+    if (category) {
+      pipeline.push({ $match: { "serviceInfo.serviceCategory": category } });
+    }
 
     if (priceMin !== undefined || priceMax !== undefined) {
       let priceRangeQuery = {};
@@ -71,19 +88,6 @@ const getAllApprovedServices = async (req, res) => {
       pipeline.push({ $sort: { "serviceInfo.convertedPrice": -1 } });
     }
 
-    pipeline.push(
-      {
-        $lookup: {
-          from: "users",
-          localField: "userId",
-          foreignField: "_id",
-          as: "userInfo",
-        },
-      },
-      { $unwind: { path: "$userInfo", preserveNullAndEmptyArrays: true } },
-      { $project: { booking: 0, dateCreated: 0, status: 0, userInfo: 0 } }
-    );
-
     const result = await db
       .collection("services")
       .aggregate(pipeline)
@@ -91,7 +95,7 @@ const getAllApprovedServices = async (req, res) => {
 
     return result
       ? res.status(200).json({ status: 200, data: result, message: "success" })
-      : res.status(409).json({ status: 409, message: "No services found" });
+      : res.status(404).json({ status: 404, message: "No services found" });
   } catch (err) {
     console.error("Error getting list of all approved services", err);
     return res.status(500).json({

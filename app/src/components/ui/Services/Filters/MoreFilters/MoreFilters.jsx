@@ -1,11 +1,32 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./style.module.css";
 import Button from "@/components/Button";
 import useClickOutside from "@/hooks/useClickOutside";
 import { X, Check } from "react-feather";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import useServicesStore from "@/store/Services/useServicesStore";
-import { filterOptions, isFilterActive } from "./filtersConfig";
+import { filterOptions } from "./filtersConfig";
+
+// Function to check if a specific filter is active
+function isFilterActive(filters, label) {
+  switch (label) {
+    case "Rating":
+      return filters.rating > 0;
+    case "Pricing":
+      // Active if the price range is adjusted or a specific sort order is set for pricing
+      return (
+        filters.priceMin !== 0 ||
+        filters.priceMax !== 1000 ||
+        ["highest", "lowest"].includes(filters.sortOrder)
+      );
+    case "Category":
+      return filters.category.length > 0;
+    case "Location":
+      return filters.locations.length > 0;
+    default:
+      return false;
+  }
+}
 
 export default function MoreFilters() {
   const { filters } = useServicesStore();
@@ -28,6 +49,9 @@ export default function MoreFilters() {
   const closeModal = () => {
     setModalContent(null);
   };
+  useEffect(() => {
+    console.log("Current Filters: ", filters);
+  }, [filters]);
 
   const renderFilterButtons = () => (
     <>
@@ -92,7 +116,7 @@ export default function MoreFilters() {
       {windowWidth < 1028 && isMobileModalOpen && (
         <div ref={mobileModalRef} className={styles.mobileFilters}>
           <div className={styles.modalCloseBtn}>
-            <Button onClick={() => setIsMobileModalOpen(false)}> </Button>
+            <Button onClick={() => setIsMobileModalOpen(false)} />
           </div>
           {renderFilterButtons()}
         </div>

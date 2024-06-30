@@ -5,14 +5,13 @@ import HeartImg from "images/Home/heart.svg";
 import Image from "@/components/Image";
 import Button from "@/components/Button";
 import LinkButton from "@/components/Link";
-import ReactStarsRating from "react-awesome-stars-rating";
+import { StarRating } from "./Stars";
 
 export default function ServiceCard({
-  service: { _id, providerName, ratingsRate, ratings, images, serviceInfo },
+  service: { _id, providerName, averageRating, ratings, images, serviceInfo },
 }) {
   const { t } = useTranslation();
 
-  // Function to safely truncate text with HTML tags
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "...";
@@ -54,12 +53,7 @@ export default function ServiceCard({
           />
 
           <div className={styles.ratingsContainer}>
-            <ReactStarsRating
-              size={14}
-              isEdit={false}
-              primaryColor={"#F9D853"}
-              value={Number(ratingsRate)}
-            />
+            <StarRating rating={Number(averageRating)} />
             <span>({ratings.length})</span>
           </div>
         </div>
@@ -71,9 +65,8 @@ export default function ServiceCard({
 ServiceCard.propTypes = {
   service: PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    serviceType: PropTypes.string,
     providerName: PropTypes.string,
-    ratingsRate: PropTypes.string,
+    averageRating: PropTypes.number,
     images: PropTypes.arrayOf(
       PropTypes.shape({
         src: PropTypes.string,

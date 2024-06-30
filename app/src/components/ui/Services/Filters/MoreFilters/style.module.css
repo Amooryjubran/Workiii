@@ -342,6 +342,27 @@
     padding: 24px;
   }
 
+  .showResultsBtn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    z-index: 999999999;
+    border-radius: 10px;
+    background: black;
+    padding: 18px 24px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--Neutral-50, #f8fafc);
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out 0.3s forwards;
+  }
+
   .filterBtn {
     width: 100%;
     border: none;

@@ -23,11 +23,9 @@ export default function Services() {
     categories,
     searchQuery,
     setSearchQuery,
-    setFilter,
-    setSortOrder,
     handleSearch,
     handleCategoryChange,
-    handleLocationChange,
+    generateFilterObjects,
   } = useServicesStore();
 
   useEffect(() => {
@@ -48,65 +46,10 @@ export default function Services() {
     handleSearch(user?._id, searchQuery);
   };
 
-  const renderFilterButtons = () => {
-    const categoryFilters = filters.category.map((cat) => ({
-      type: "category",
-      value: cat,
-      handler: () => handleCategoryChange(cat),
-    }));
+  const filterButtons = generateFilterObjects();
 
-    const locationFilters = filters.locations.map((loc) => ({
-      type: "location",
-      value: loc.location.city,
-      handler: () => handleLocationChange(loc),
-    }));
-
-    const priceFilter =
-      filters.priceMin > 0 || filters.priceMax < 1000
-        ? [
-            {
-              type: "price",
-              value: `Price: $${filters.priceMin} - $${filters.priceMax}`,
-              handler: () => {
-                setFilter("priceMin", 0);
-                setFilter("priceMax", 1000);
-              }, // Reset to default range
-            },
-          ]
-        : [];
-
-    // Check if sortOrder is set and create a filter button if it is
-    const sortFilter = filters.sortOrder
-      ? [
-          {
-            type: "sort",
-            value: `Sort: ${
-              filters.sortOrder === "highest" ? "Highest" : "Lowest"
-            }`,
-            handler: () => setSortOrder(""), // Clears the sort order
-          },
-        ]
-      : [];
-
-    const ratingFilter =
-      filters.rating > 0
-        ? [
-            {
-              type: "rating",
-              value: `Rating: ${filters.rating} Stars`,
-              handler: () => setFilter("rating", 0), // Reset the rating
-            },
-          ]
-        : [];
-
-    const combinedFilters = [
-      ...categoryFilters,
-      ...locationFilters,
-      ...priceFilter,
-      ...sortFilter,
-      ...ratingFilter,
-    ];
-    return combinedFilters.map((filter, index) => (
+  const renderFilterButtons = () =>
+    filterButtons.map((filter, index) => (
       <Button
         key={index}
         onClick={filter.handler}
@@ -116,7 +59,6 @@ export default function Services() {
         <Image src={X} alt={filter.value} className={styles.removeFilterImg} />
       </Button>
     ));
-  };
 
   const renderContent = () => {
     if (isLoading) {
